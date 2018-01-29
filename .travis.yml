@@ -1,0 +1,34 @@
+language: r
+cache: packages
+
+r_packages:
+  - devtools
+
+r_github_packages:
+  - jimhester/covr
+  - jimhester/lintr
+  - MangoTheCat/goodpractice
+
+before_script:
+  - sudo apt-get install -qq oracle-java8-installer # Java 8
+  - sudo apt-get install oracle-java8-set-default
+  - ./install_beast2
+  - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
+
+after_success:
+  - Rscript -e 'lintr::lint_package()'
+  - Rscript -e 'covr::codecov()'
+  - Rscript -e 'goodpractice::gp()'
+
+after_failure:
+  # - sudo Rscript install_this_r_package.R
+  # - Rscript -e 'library(beautier); testit::assert(has_beast2())'
+  - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/00install.out
+  - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/00check.log
+  - cd ~; find . | egrep "beast"
+  - cd ~; find . | egrep "\.log"
+  - cd ~; find . | egrep "\.trees"
+  - cd ~; find . | egrep "\.xml"
+  - cd ~; find . | egrep "\.xml\.state"
+  - cd ~; find . | egrep "\.fasta"
+  - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/tests/testthat/testthat.log

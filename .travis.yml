@@ -7,6 +7,9 @@ r_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
+  - richelbilderbeek/beastier
+  - richelbilderbeek/beautier
+  - richelbilderbeek/tracerer
   - MangoTheCat/goodpractice
 
 before_script:

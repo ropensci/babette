@@ -1,12 +1,33 @@
 Package: babette
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
+Title: control BEAST2 from R
+Version: 0.9.0
+Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Description: babette gives full control of BEAST2 from R.
+  babette can create BEAST2 XML input files. 
+  babette can run BEAST2 with those input file.
+  babette can parse the results of that BEAST2 run.
+License: file LICENSE
 LazyData: true
-Suggests: testthat
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr
+URL: https://github.com/richelbilderbeek/babette
+BugReports: https://github.com/richelbilderbeek/babette/issues
+Imports:
+    beautier,
+    beastier,
+    tracerer,
+    testit
+Suggests:
+    devtools,
+    knitr,
+    lintr,
+    rmarkdown,
+    testthat
+Remotes: 
+    jimhester/covr,
+    jimhester/lintr,
+    richelbilderbeek/beautier,
+    richelbilderbeek/beastier,
+    richelbilderbeek/tracerer,
+    MangoTheCat/goodpractice

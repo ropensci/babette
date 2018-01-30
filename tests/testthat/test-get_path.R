@@ -3,12 +3,12 @@ context("get_path")
 test_that("use", {
 
   testthat::expect_equal(
-    system.file("extdata", "anthus_nd2.fas", package = "beautier"),
+    system.file("extdata", "anthus_nd2.fas", package = "babette"),
     beautier::get_path("anthus_nd2.fas")
   )
 
   testthat::expect_equal(
-    system.file("extdata", "anthus_aco.fas", package = "beautier"),
+    system.file("extdata", "anthus_aco.fas", package = "babette"),
     beautier::get_path("anthus_aco.fas")
   )
 

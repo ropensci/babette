@@ -2,4 +2,5 @@
 ^\.Rproj\.user$
 ^pics$
 ^install_beast2$
+^\.travis\.yml$
 

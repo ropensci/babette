@@ -18,7 +18,7 @@ Imports:
     beastier,
     tracerer,
     testit,
-    xml
+    xml2
 Suggests:
     devtools,
     knitr,

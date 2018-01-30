@@ -1,0 +1,101 @@
+---
+title: "babette demo"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{babette demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+This vignette demonstrates how to use `babette`.
+
+First, load the library:
+
+```{r}
+library(babette)
+```
+
+The following examples show:
+
+ * one alignment
+ * two alignments
+ * two alignments with a fixed crown age
+ 
+## One alignment
+
+
+```{r}
+out <- run_beast2(
+  get_path("anthus_aco.fas"),
+  mcmc = beautier::create_mcmc(chain_length = 10000)
+)
+```
+
+```{r}
+p <- ggplot2::ggplot(
+  data = out$estimates,
+  ggplot2::aes(x = Sample)
+) 
+p + ggplot2::geom_line(ggplot2::aes(y = TreeHeight), color = "green")
+p + ggplot2::geom_line(ggplot2::aes(y = YuleModel), color = "red")
+p + ggplot2::geom_line(ggplot2::aes(y = birthRate), color = "blue")
+
+```
+
+## Two alignments
+
+```{r}
+out <- run_beast2(
+  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = beautier::create_mcmc(chain_length = 10000)
+)
+```
+
+```{r}
+p <- ggplot2::ggplot(
+  data = out$estimates,
+  ggplot2::aes(x = Sample)
+) 
+p + ggplot2::geom_line(ggplot2::aes(y = TreeHeight.aco), color = "green") +
+   ggplot2::geom_line(ggplot2::aes(y = TreeHeight.nd2), color = "lightgreen")
+p + ggplot2::geom_line(ggplot2::aes(y = YuleModel.aco), color = "red") +
+  ggplot2::geom_line(ggplot2::aes(y = YuleModel.nd2), color = "pink")
+p + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "blue") + 
+  ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "cyan")
+
+```
+
+## Two alignments, fixed crown age
+
+```{r}
+out <- run_beast2(
+  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = beautier::create_mcmc(chain_length = 10000),
+  posterior_crown_age = 15
+)
+```
+
+```{r}
+p <- ggplot2::ggplot(
+  data = out$estimates,
+  ggplot2::aes(x = Sample)
+) 
+p + ggplot2::geom_line(ggplot2::aes(y = TreeHeight.aco), color = "green") +
+   ggplot2::geom_line(ggplot2::aes(y = TreeHeight.nd2), color = "lightgreen")
+p + ggplot2::geom_line(ggplot2::aes(y = YuleModel.aco), color = "red") +
+  ggplot2::geom_line(ggplot2::aes(y = YuleModel.nd2), color = "pink")
+p + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "blue") + 
+  ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "cyan")
+
+```

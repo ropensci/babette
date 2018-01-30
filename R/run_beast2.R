@@ -15,25 +15,26 @@
 #' @param verbose set to TRUE for more output
 #' @author Richel J.C. Bilderbeek
 #' @examples
+#'  # One alignment
 #'  out <- run_beast2(
 #'    fasta_filenames = get_path("anthus_aco.fas"),
 #'    mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
 #'  )
 #'
-#'  testit::assert("log" %in% names(out))
-#'  testit::assert("trees" %in% names(out))
+#'  testit::assert("estimates" %in% names(out))
+#'  testit::assert("anthus_aco_trees" %in% names(out))
 #'  testit::assert("operators" %in% names(out))
-#'  testit::assert(class(out$trees[[1]]) == "phylo")
-#'  testit::assert(length(out$trees) == 10)
+#'  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
+#'  testit::assert(length(out$anthus_aco_trees) == 10)
 #'
-#'  testit::assert("Sample" %in% names(out$log))
-#'  testit::assert("posterior" %in% names(out$log))
-#'  testit::assert("likelihood" %in% names(out$log))
-#'  testit::assert("prior" %in% names(out$log))
-#'  testit::assert("treeLikelihood" %in% names(out$log))
-#'  testit::assert("TreeHeight" %in% names(out$log))
-#'  testit::assert("YuleModel" %in% names(out$log))
-#'  testit::assert("birthRate" %in% names(out$log))
+#'  testit::assert("Sample" %in% names(out$estimates))
+#'  testit::assert("posterior" %in% names(out$estimates))
+#'  testit::assert("likelihood" %in% names(out$estimates))
+#'  testit::assert("prior" %in% names(out$estimates))
+#'  testit::assert("treeLikelihood" %in% names(out$estimates))
+#'  testit::assert("TreeHeight" %in% names(out$estimates))
+#'  testit::assert("YuleModel" %in% names(out$estimates))
+#'  testit::assert("birthRate" %in% names(out$estimates))
 #'
 #'  testit::assert("operator" %in% names(out$operators))
 #'  testit::assert("p" %in% names(out$operators))
@@ -43,6 +44,34 @@
 #'  testit::assert("rejectFC" %in% names(out$operators))
 #'  testit::assert("rejectIv" %in% names(out$operators))
 #'  testit::assert("rejectOp" %in% names(out$operators))
+#'
+#'  # Two alignments
+#'  out <- run_beast2(
+#'    fasta_filenames = get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+#'    mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+#'  )
+#'
+#'  testit::assert("estimates" %in% names(out))
+#'  testit::assert("anthus_aco_trees" %in% names(out))
+#'  testit::assert("anthus_nd2_trees" %in% names(out))
+#'  testit::assert("operators" %in% names(out))
+#'  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
+#'  testit::assert(class(out$anthus_nd2_trees[[1]]) == "phylo")
+#'  testit::assert(length(out$anthus_aco_trees) == 10)
+#'  testit::assert(length(out$anthus_nd2_trees) == 10)
+#'
+#'  testit::assert("Sample" %in% names(out$estimates))
+#'  testit::assert("posterior" %in% names(out$estimates))
+#'  testit::assert("likelihood" %in% names(out$estimates))
+#'  testit::assert("prior" %in% names(out$estimates))
+#'  testit::assert("treeLikelihood.aco" %in% names(out$estimates))
+#'  testit::assert("treeLikelihood.nd2" %in% names(out$estimates))
+#'  testit::assert("TreeHeight.aco" %in% names(out$estimates))
+#'  testit::assert("TreeHeight.nd2" %in% names(out$estimates))
+#'  testit::assert("YuleModel.aco" %in% names(out$estimates))
+#'  testit::assert("YuleModel.nd2" %in% names(out$estimates))
+#'  testit::assert("birthRate.aco" %in% names(out$estimates))
+#'  testit::assert("birthRate.nd2" %in% names(out$estimates))
 #' @export
 run_beast2 <- function(
   fasta_filenames,

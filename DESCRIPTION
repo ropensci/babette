@@ -21,6 +21,7 @@ Imports:
     xml2
 Suggests:
     devtools,
+    ggplot2,
     knitr,
     lintr,
     rmarkdown,

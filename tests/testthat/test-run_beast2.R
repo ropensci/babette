@@ -39,7 +39,7 @@ test_that("use, one alignment", {
 
 })
 
-test_that("use, two alignments", {
+test_that("use, two alignments, estimated crown ages", {
 
   out <- NA
 

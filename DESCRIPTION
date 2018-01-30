@@ -17,7 +17,8 @@ Imports:
     beautier,
     beastier,
     tracerer,
-    testit
+    testit,
+    xml
 Suggests:
     devtools,
     knitr,

@@ -29,4 +29,4 @@ Package|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo
 
 Additionally, the Dutch actress Babette van Veen, is the
 voice of an audiobook 'Woezel en Pip', which is about two
-dogs.
+dogs (two beasts).

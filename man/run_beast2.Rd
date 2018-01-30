@@ -38,10 +38,10 @@ crown age to that value}
 Do a full BEAST2 run
 }
 \examples{
-   out <- run_beast2(
-     fasta_filenames = get_path("anthus_aco.fas"),
-     mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
-   )
+ out <- run_beast2(
+   fasta_filenames = get_path("anthus_aco.fas"),
+   mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+ )
 
  testit::assert("log" \%in\% names(out))
  testit::assert("trees" \%in\% names(out))

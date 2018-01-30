@@ -15,10 +15,10 @@
 #' @param verbose set to TRUE for more output
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'    out <- run_beast2(
-#'      fasta_filenames = get_path("anthus_aco.fas"),
-#'      mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
-#'    )
+#'  out <- run_beast2(
+#'    fasta_filenames = get_path("anthus_aco.fas"),
+#'    mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+#'  )
 #'
 #'  testit::assert("log" %in% names(out))
 #'  testit::assert("trees" %in% names(out))
@@ -68,9 +68,12 @@ run_beast2 <- function(
     posterior_crown_age = posterior_crown_age,
     output_filename = beast2_input_file
   )
+  testit::assert(file.exists(beast2_input_file))
 
   beast2_output_log_filename <- "beast2.log"
-  beast2_output_trees_filenames <- "beast2.trees"
+  beast2_output_trees_filenames <- paste0(
+    beautier::get_ids(fasta_filenames), ".trees"
+  )
   beast2_output_state_filename <- "beast2.xml.state"
 
   beastier::run_beast2(
@@ -82,12 +85,27 @@ run_beast2 <- function(
     verbose = verbose
   )
 
-  out <- list(
-    log = tracerer::parse_beast_log(beast2_output_log_filename),
-    trees = tracerer::parse_beast_trees(beast2_output_trees_filenames),
-    operators = tracerer::parse_beast_state_operators(
-      beast2_output_state_filename
-    )
+  testit::assert(file.exists(beast2_output_log_filename))
+  testit::assert(file.exists(beast2_output_trees_filenames))
+  testit::assert(file.exists(beast2_output_state_filename))
+
+  out <- tracerer::parse_beast_posterior(
+    trees_filenames = beast2_output_trees_filenames,
+    log_filename = beast2_output_log_filename
   )
+  out$operators <- tracerer::parse_beast_state_operators(
+    beast2_output_state_filename
+  )
+
+  # Cleanup
+  file.remove(beast2_input_file)
+  file.remove(beast2_output_log_filename)
+  file.remove(beast2_output_trees_filenames)
+  file.remove(beast2_output_state_filename)
+  testit::assert(!file.exists(beast2_input_file))
+  testit::assert(!file.exists(beast2_output_log_filename))
+  testit::assert(!file.exists(beast2_output_trees_filenames))
+  testit::assert(!file.exists(beast2_output_state_filename))
+
   out
 }

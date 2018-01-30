@@ -36,3 +36,6 @@ beast2.log
 beast2.trees
 beast2.xml
 beast2.xml.state
+tests/testthat/*.trees
+anthus_aco.trees
+anthus_nd2.trees

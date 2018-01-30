@@ -31,14 +31,32 @@ The following examples show:
  * one alignment
  * two alignments
  * two alignments with a fixed crown age
+
+Of each example, it is shown:
+
+ * How to let `babette` run BEAST2
+ * How the plot the posterior estimates
+ * How to show the effective sample sizes (ESS)
  
+In all cases, this is done for a short MCMC chain length of 10K:
+
+```{r}
+chain_length <- 10000
+sample_interval <- 1000
+```
+
+For a reliable inference, use an ESS of at least 200.
+
 ## One alignment
 
 
-```{r}
+```{r cache=TRUE}
 out <- run_beast2(
   get_path("anthus_aco.fas"),
-  mcmc = beautier::create_mcmc(chain_length = 10000)
+  mcmc = beautier::create_mcmc(
+    chain_length = chain_length, 
+    store_every = sample_interval
+  )
 )
 ```
 
@@ -53,12 +71,21 @@ p + ggplot2::geom_line(ggplot2::aes(y = birthRate), color = "blue")
 
 ```
 
-## Two alignments
+Effective sample sizes, with 20% burn-in removed:
 
 ```{r}
+traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
+colnames(esses) <- "ESS"
+knitr::kable(esses)
+```
+
+## Two alignments
+
+```{r cache=TRUE}
 out <- run_beast2(
   get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = beautier::create_mcmc(chain_length = 10000)
+  mcmc = beautier::create_mcmc(chain_length = chain_length)
 )
 ```
 
@@ -76,12 +103,21 @@ p + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "blue") +
 
 ```
 
-## Two alignments, fixed crown age
+Effective sample sizes, with 20% burn-in removed:
 
 ```{r}
+traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
+colnames(esses) <- "ESS"
+knitr::kable(esses)
+```
+
+## Two alignments, fixed crown age
+
+```{r cache=TRUE}
 out <- run_beast2(
   get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = beautier::create_mcmc(chain_length = 10000),
+  mcmc = beautier::create_mcmc(chain_length = chain_length),
   posterior_crown_age = 15
 )
 ```
@@ -98,4 +134,13 @@ p + ggplot2::geom_line(ggplot2::aes(y = YuleModel.aco), color = "red") +
 p + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "blue") + 
   ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "cyan")
 
+```
+
+Effective sample sizes, with 20% burn-in removed:
+
+```{r}
+traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
+colnames(esses) <- "ESS"
+knitr::kable(esses)
 ```

@@ -32,3 +32,4 @@ tests/testthat/*.trees
 anthus_aco.trees
 anthus_nd2.trees
 inst/doc
+vignettes/demo_cache/

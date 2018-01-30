@@ -1,0 +1,43 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <distribution id="YuleModel.t:anthus_aco" spec="beast.evolution.speciation.YuleModel">
+#            <parameter id="birthRate.t:anthus_aco" name="birthDiffRate">1.0</parameter>
+#            <tree id="Tree.t:anthus_aco">
+#                <taxonset id="TaxonSet.anthus_aco" spec="beast.evolution.alignment.TaxonSet">
+#                </taxonset>
+#            </tree>
+#        </distribution>
+#        <prior id="YuleBirthRatePrior.t:anthus_aco" name="distribution" x="@birthRate.t:anthus_aco">
+#            <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution data="@anthus_aco" id="treeLikelihood.anthus_aco" spec="beast.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:anthus_aco">
+#            <siteModel id="SiteModel.s:anthus_aco" spec="beast.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:anthus_aco" name="mutationRate">1.0</parameter>
+#                <parameter estimate="false" id="gammaShape.s:anthus_aco" name="shape">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:anthus_aco" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+#                <substModel id="JC69.s:anthus_aco" spec="beast.evolution.substitutionmodel.JukesCantor"/>
+#            </siteModel>
+#            <branchRateModel id="StrictClock.c:anthus_aco" spec="beast.evolution.branchratemodel.StrictClockModel">
+#                <parameter estimate="false" id="clockRate.c:anthus_aco" name="clock.rate">1.0</parameter>
+#            </branchRateModel>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood	TreeHeight	YuleModel	birthRate
+0	-6491.377118367818	-6485.51155369373	-5.865564674087946	-6485.51155369373	1.1591670950730197	-5.865564674087946	1.0
+1000	-2008.7560669663617	-2059.0891935712784	50.333126604916814	-2059.0891935712784	0.07678731037664771	50.333126604916814	13.779809898243144
+2000	-1780.2995148750517	-1860.1315256023693	79.83201072731761	-1860.1315256023693	0.030870514068652922	79.83201072731761	172.78983358560242
+3000	-1764.0533589008066	-1858.130889103615	94.07753020280818	-1858.130889103615	0.010954636390548052	94.07753020280818	170.13364333468186
+4000	-1763.4681178310377	-1858.6355065082055	95.1673886771677	-1858.6355065082055	0.012465268387227679	95.1673886771677	283.8622763111111
+5000	-1761.6776670228503	-1858.5451887299487	96.86752170709846	-1858.5451887299487	0.012319803096966852	96.86752170709846	269.3038413130124
+6000	-1761.7242740881952	-1857.1215787697702	95.39730468157491	-1857.1215787697702	0.01328593898361215	95.39730468157491	247.27291392293282
+7000	-1761.6102359537972	-1854.9726827441918	93.36244679039461	-1854.9726827441918	0.013613879197354474	93.36244679039461	320.36370735139985
+8000	-1763.794011299305	-1856.0287224260665	92.23471112676137	-1856.0287224260665	0.015385737617142787	92.23471112676137	251.13090458751074
+9000	-1761.294577278304	-1858.5047434913315	97.21016621302768	-1858.5047434913315	0.01047479338895376	97.21016621302768	227.0493453849241
+10000	-1761.434530766351	-1856.1909965035275	94.7564657371766	-1856.1909965035275	0.013723274431537391	94.7564657371766	255.0550593490888

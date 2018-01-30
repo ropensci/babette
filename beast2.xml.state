@@ -1,0 +1,16 @@
+<itsabeastystatewerein version='2.0' sample='10000'>
+<statenode id='Tree.t:anthus_aco'>(((((((0:5.508222880882704E-5,(4:2.7789417543303482E-5,16:2.7789417543303482E-5)32:2.729281126552356E-5)30:2.9274222422227543E-4,2:3.478244530311025E-4)24:0.002308529714376154,(10:0.0024453248447793142,18:0.0024453248447793142)22:2.110293226279419E-4)28:0.002925097524654653,8:0.005581451692061909)23:3.405984373070457E-5,13:0.0056155115357926135)34:0.00211898749682393,((3:1.3407693018280975E-4,14:1.3407693018280975E-4)36:0.0063843230837186266,(((7:9.357414013106665E-4,12:9.357414013106665E-4)39:9.820320608824229E-4,15:0.0019177734621930894)37:7.930083893019728E-4,19:0.002710781851495062)29:0.003807618162406374)41:0.0012160990187151076)31:0.005988775398920848,(((1:0.0018885327430282657,(6:0.0015018803436284253,(20:0.0014804209821522225,21:0.0014804209821522225)40:2.145936147620285E-5)25:3.866523993998404E-4)38:3.3025913026772094E-4,9:0.0022187918732959866)35:0.004028533509189903,(5:0.00578385374882176,(11:0.0014968841492742741,17:0.0014968841492742741)33:0.004286969599547486)27:4.6347163366412987E-4)26:0.0074759490490515015)42:0.0</statenode>
+<statenode id='birthRate.t:anthus_aco'>birthRate.t:anthus_aco[1 1] (-Infinity,Infinity): 255.0550593490888 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:anthus_aco","p":0.75,"accept":312,"reject":115,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeScaler.t:anthus_aco","p":0.5,"accept":74,"reject":318,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:anthus_aco","p":0.5,"accept":106,"reject":272,"acceptFC":0,"rejectFC":0,"rejectIv":41,"rejectOp":41},
+{"id":"YuleModelUniformOperator.t:anthus_aco","p":"NaN","accept":2259,"reject":1717,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:anthus_aco","p":1,"accept":6,"reject":2062,"acceptFC":0,"rejectFC":0,"rejectIv":1034,"rejectOp":1034},
+{"id":"YuleModelNarrow.t:anthus_aco","p":"NaN","accept":905,"reject":1040,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:anthus_aco","p":"NaN","accept":13,"reject":379,"acceptFC":0,"rejectFC":0,"rejectIv":187,"rejectOp":187},
+{"id":"YuleModelWilsonBalding.t:anthus_aco","p":"NaN","accept":31,"reject":392,"acceptFC":0,"rejectFC":0,"rejectIv":75,"rejectOp":75}
+]}
+-->

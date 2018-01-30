@@ -3,6 +3,7 @@ cache: packages
 
 r_packages:
   - devtools
+  - xml2
 
 r_github_packages:
   - jimhester/covr

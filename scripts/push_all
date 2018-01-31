@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cd ..
+
+cd beautier
+git add --all :/
+git commit -m "babette update"
+git push
+cd ..
+
+cd beastier
+git add --all :/
+git commit -m "babette update"
+git push
+cd ..
+
+cd tracerer
+git add --all :/
+git commit -m "babette update"
+git push
+cd ..

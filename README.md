@@ -27,7 +27,7 @@ devtools::install_github("richelbilderbeek/babette")
 
 ## FAQ
 
-See [FAQ](Faq.md)
+See [FAQ](faq.md)
 
 ## Missing features/unsupported
 

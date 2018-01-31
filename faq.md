@@ -1,13 +1,15 @@
 # FAQ
 
-
 ## Which version of BEAUti do you use as a guideline?
 
 Version 2.4.7.
 
 ## What's the [road map](road_map.md)?
 
-See [road map](road_map.md).
+Currently, `babette` does not have a road map itself,
+but `beautier` does:
+
+ * [beautier road map](https://github.com/richelbilderbeek/beautier/blob/master/road_map.md)
 
 ## How can I indicate a feature that I miss?
 

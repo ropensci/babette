@@ -1,6 +1,6 @@
 # Contributing
 
-Awesome that you are reading this!
+Awesome that you are reading this.
 
 This GitHub follows the [Contributor Covenant Code of Conduct](code_of_conduct.md).
 
@@ -37,7 +37,7 @@ Emails with code will not be accepted.
 
 ## Submitting bugs
 
-Awesome! These are your options:
+Awesome. These are your options:
 
  * Add an Issue, with the test that fails
  * Submit a Pull Request, where the test is added to the `tests/testthat` folder

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Push all GitHubs under babette
+
+cd ..
+git add --all :/
+git commit -m "babette update"
+git push
 cd ..
 
 cd beautier

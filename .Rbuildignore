@@ -3,4 +3,6 @@
 ^pics$
 ^install_beast2$
 ^\.travis\.yml$
-
+^code_of_conduct\.md$
+^CONTRIBUTING\.md$
+^Faq\.md$

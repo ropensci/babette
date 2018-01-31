@@ -4,10 +4,9 @@
 
 Version 2.4.7.
 
-## What's the [road map](road_map.md)?
+## What's the road map?
 
-Currently, `babette` does not have a road map itself,
-but `beautier` does:
+Currently, `babette` does not have a road map itself, but `beautier` does:
 
  * [beautier road map](https://github.com/richelbilderbeek/beautier/blob/master/road_map.md)
 

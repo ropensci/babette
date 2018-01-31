@@ -11,6 +11,10 @@ then
   echo "Number of broken files: "$n_broken
   cat broken.txt
   rm broken.txt
+
+  # Show a full run
+  find . -name \*.md -exec markdown-link-check {} \;
+
   exit $n_broken
 fi
 

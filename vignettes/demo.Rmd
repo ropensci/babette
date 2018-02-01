@@ -49,14 +49,15 @@ For a reliable inference, use an ESS of at least 200.
 
 ## One alignment
 
-
 ```{r cache=TRUE}
 out <- run_beast2(
   get_path("anthus_aco.fas"),
   mcmc = beautier::create_mcmc(
     chain_length = chain_length, 
     store_every = sample_interval
-  )
+  ),
+  cleanup = TRUE,
+  verbose = FALSE
 )
 ```
 
@@ -78,6 +79,15 @@ traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0
 esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
+```
+
+Phylogenies:
+
+```{r}
+#trees <- tracerer::parse_beast_trees("anthus_aco.trees")
+#trees <- out$anthus_aco_trees
+#class(trees) <- "multiPhylo"
+#phangorn::densiTree(trees)
 ```
 
 ## Two alignments

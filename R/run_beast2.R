@@ -13,6 +13,7 @@
 #'   crown age to that value
 #' @param beast_jar_path path to the BEAST2 jar file
 #' @param verbose set to TRUE for more output
+#' @param cleanup set to FALSE to keep all temporary files
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # One alignment
@@ -84,7 +85,8 @@ run_beast2 <- function(
   mcmc = beautier::create_mcmc(),
   posterior_crown_age = NA,
   beast_jar_path = "~/Programs/beast/lib/beast.jar",
-  verbose = FALSE
+  verbose = FALSE,
+  cleanup = TRUE
 ) {
   beast2_input_file <- "beast2.xml"
 
@@ -118,23 +120,39 @@ run_beast2 <- function(
   testit::assert(file.exists(beast2_output_trees_filenames))
   testit::assert(file.exists(beast2_output_state_filename))
 
-  out <- tracerer::parse_beast_posterior(
+  out <- tracerer::parse_beast_output_files(
     trees_filenames = beast2_output_trees_filenames,
-    log_filename = beast2_output_log_filename
-  )
-  out$operators <- tracerer::parse_beast_state_operators(
-    beast2_output_state_filename
+    log_filename = beast2_output_log_filename,
+    state_filename = beast2_output_state_filename
   )
 
   # Cleanup
-  file.remove(beast2_input_file)
-  file.remove(beast2_output_log_filename)
-  file.remove(beast2_output_trees_filenames)
-  file.remove(beast2_output_state_filename)
-  testit::assert(!file.exists(beast2_input_file))
-  testit::assert(!file.exists(beast2_output_log_filename))
-  testit::assert(!file.exists(beast2_output_trees_filenames))
-  testit::assert(!file.exists(beast2_output_state_filename))
-
+  if (cleanup == TRUE) {
+    if (verbose == TRUE) {
+      print(
+        paste(
+          "Removing files: ", beast2_input_file, beast2_output_log_filename,
+          beast2_output_trees_filenames, beast2_output_state_filename
+        )
+      )
+    }
+    file.remove(beast2_input_file)
+    file.remove(beast2_output_log_filename)
+    file.remove(beast2_output_trees_filenames)
+    file.remove(beast2_output_state_filename)
+    testit::assert(!file.exists(beast2_input_file))
+    testit::assert(!file.exists(beast2_output_log_filename))
+    testit::assert(!file.exists(beast2_output_trees_filenames))
+    testit::assert(!file.exists(beast2_output_state_filename))
+  } else {
+    if (verbose == TRUE) {
+      print(
+        paste(
+          "Keeping files: ", beast2_input_file, beast2_output_log_filename,
+          beast2_output_trees_filenames, beast2_output_state_filename
+        )
+      )
+    }
+  }
   out
 }

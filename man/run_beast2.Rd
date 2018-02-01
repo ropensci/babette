@@ -9,7 +9,8 @@ run_beast2(fasta_filenames,
   clock_models = beautier::create_strict_clock_models(beautier::get_ids(fasta_filenames)),
   tree_priors = beautier::create_yule_tree_priors(beautier::get_ids(fasta_filenames)),
   mcmc = beautier::create_mcmc(), posterior_crown_age = NA,
-  beast_jar_path = "~/Programs/beast/lib/beast.jar", verbose = FALSE)
+  beast_jar_path = "~/Programs/beast/lib/beast.jar", verbose = FALSE,
+  cleanup = TRUE)
 }
 \arguments{
 \item{fasta_filenames}{one or more FASTA filename, eachwith one alignment}
@@ -33,6 +34,8 @@ crown age to that value}
 \item{beast_jar_path}{path to the BEAST2 jar file}
 
 \item{verbose}{set to TRUE for more output}
+
+\item{cleanup}{set to FALSE to keep all temporary files}
 }
 \description{
 Do a full BEAST2 run

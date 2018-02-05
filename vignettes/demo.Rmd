@@ -83,11 +83,10 @@ knitr::kable(esses)
 
 Phylogenies:
 
-```{r}
-#trees <- tracerer::parse_beast_trees("anthus_aco.trees")
-#trees <- out$anthus_aco_trees
-#class(trees) <- "multiPhylo"
-#phangorn::densiTree(trees)
+```{r fig.width=7, fig.height=7}
+trees <- out$anthus_aco_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
 ```
 
 ## Two alignments
@@ -122,6 +121,20 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 ```
 
+Phylogenies:
+
+```{r fig.width=7, fig.height=7}
+trees <- out$anthus_aco_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+```
+
+```{r fig.width=7, fig.height=7}
+trees <- out$anthus_nd2_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+```
+
 ## Two alignments, fixed crown age
 
 ```{r cache=TRUE}
@@ -153,4 +166,18 @@ traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0
 esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
+```
+
+Phylogenies:
+
+```{r fig.width=7, fig.height=7}
+trees <- out$anthus_aco_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+```
+
+```{r fig.width=7, fig.height=7}
+trees <- out$anthus_nd2_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
 ```

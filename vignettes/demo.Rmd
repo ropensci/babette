@@ -82,9 +82,7 @@ knitr::kable(esses)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-trees <- out$anthus_aco_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+phangorn::densiTree(out$anthus_aco_trees, width = 2)
 ```
 
 ## Two alignments
@@ -122,15 +120,11 @@ knitr::kable(esses)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-trees <- out$anthus_aco_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+phangorn::densiTree(out$anthus_aco_trees, width = 2)
 ```
 
 ```{r fig.width=7, fig.height=7}
-trees <- out$anthus_nd2_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+phangorn::densiTree(out$anthus_nd2_trees, width = 2)
 ```
 
 ## Two alignments, fixed crown age
@@ -169,13 +163,9 @@ knitr::kable(esses)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-trees <- out$anthus_aco_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+phangorn::densiTree(out$anthus_aco_trees, width = 2)
 ```
 
 ```{r fig.width=7, fig.height=7}
-trees <- out$anthus_nd2_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+phangorn::densiTree(out$anthus_nd2_trees, width = 2)
 ```

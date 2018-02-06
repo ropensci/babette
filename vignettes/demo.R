@@ -14,12 +14,10 @@ sample_interval <- 1000
 ## ----cache=TRUE----------------------------------------------------------
 out <- run_beast2(
   get_path("anthus_aco.fas"),
-  mcmc = beautier::create_mcmc(
+  mcmc = create_mcmc(
     chain_length = chain_length, 
     store_every = sample_interval
-  ),
-  cleanup = TRUE,
-  verbose = FALSE
+  )
 )
 
 ## ------------------------------------------------------------------------
@@ -46,7 +44,7 @@ phangorn::densiTree(trees, width = 2)
 ## ----cache=TRUE----------------------------------------------------------
 out <- run_beast2(
   get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = beautier::create_mcmc(chain_length = chain_length)
+  mcmc = create_mcmc(chain_length = chain_length)
 )
 
 ## ------------------------------------------------------------------------
@@ -81,7 +79,7 @@ phangorn::densiTree(trees, width = 2)
 ## ----cache=TRUE----------------------------------------------------------
 out <- run_beast2(
   get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = beautier::create_mcmc(chain_length = chain_length),
+  mcmc = create_mcmc(chain_length = chain_length),
   posterior_crown_age = 15
 )
 

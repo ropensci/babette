@@ -44,7 +44,7 @@ Do a full BEAST2 run
  # One alignment
  out <- run_beast2(
    fasta_filenames = get_path("anthus_aco.fas"),
-   mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+   mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
  )
 
  testit::assert("estimates" \%in\% names(out))
@@ -74,7 +74,7 @@ Do a full BEAST2 run
  # Two alignments
  out <- run_beast2(
    fasta_filenames = get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-   mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+   mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
  )
 
  testit::assert("estimates" \%in\% names(out))

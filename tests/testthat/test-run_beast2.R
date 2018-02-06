@@ -7,7 +7,7 @@ test_that("use, one alignment", {
   testthat::expect_silent(
     out <- run_beast2(
       fasta_filenames = get_path("anthus_aco.fas"),
-      mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
     )
   )
 
@@ -46,7 +46,7 @@ test_that("use, two alignments, estimated crown ages", {
   testthat::expect_silent(
     out <- run_beast2(
       fasta_filenames = get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-      mcmc = beautier::create_mcmc(chain_length = 10000, store_every = 1000)
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
     )
   )
   testthat::expect_true("estimates" %in% names(out))

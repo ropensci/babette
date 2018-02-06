@@ -37,9 +37,7 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-trees <- out$anthus_aco_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+densitree(out$anthus_aco_trees, width = 2)
 
 ## ----cache=TRUE----------------------------------------------------------
 out <- run_beast2(
@@ -67,14 +65,10 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-trees <- out$anthus_aco_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-trees <- out$anthus_nd2_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+densitree(out$anthus_nd2_trees, width = 2)
 
 ## ----cache=TRUE----------------------------------------------------------
 out <- run_beast2(
@@ -103,12 +97,8 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-trees <- out$anthus_aco_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-trees <- out$anthus_nd2_trees
-class(trees) <- "multiPhylo"
-phangorn::densiTree(trees, width = 2)
+densitree(out$anthus_nd2_trees, width = 2)
 

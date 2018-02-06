@@ -6,6 +6,12 @@
 \usage{
 densitree(phylos, ...)
 }
+\arguments{
+\item{phylos}{one or more phylogenies, must be of class \code{multiPhylo}}
+
+\item{...}{options to be passed to \code{phangorn}'s
+\link[phangorn]{densiTree} function}
+}
 \description{
 Calls \code{phangorn}'s \link[phangorn]{densiTree} function
 }

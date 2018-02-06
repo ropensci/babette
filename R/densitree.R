@@ -1,4 +1,7 @@
 #' Calls \code{phangorn}'s \link[phangorn]{densiTree} function
+#' @param phylos one or more phylogenies, must be of class \code{multiPhylo}
+#' @param ... options to be passed to \code{phangorn}'s
+#'   \link[phangorn]{densiTree} function
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   out <- run_beast2(

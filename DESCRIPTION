@@ -16,6 +16,7 @@ BugReports: https://github.com/richelbilderbeek/babette/issues
 Imports:
     beautier,
     beastier,
+    phangorn,
     tracerer,
     testit,
     xml2
@@ -32,4 +33,5 @@ Remotes:
     richelbilderbeek/beautier,
     richelbilderbeek/beastier,
     richelbilderbeek/tracerer,
-    MangoTheCat/goodpractice
+    MangoTheCat/goodpractice,
+    KlausVigo/phangorn

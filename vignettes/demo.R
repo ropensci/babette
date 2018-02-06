@@ -18,8 +18,8 @@ out <- run_beast2(
     chain_length = chain_length, 
     store_every = sample_interval
   ),
-  cleanup = FALSE,
-  verbose = TRUE
+  cleanup = TRUE,
+  verbose = FALSE
 )
 
 ## ------------------------------------------------------------------------
@@ -38,10 +38,16 @@ esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
 
-## ------------------------------------------------------------------------
-#trees <- out$anthus_aco_trees
-#class(trees) <- "multiPhylo"
-#phangorn::densiTree(trees)
+## ----fig.width=7, fig.height=7-------------------------------------------
+trees <- out$anthus_aco_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+
+## ----cache=TRUE----------------------------------------------------------
+out <- run_beast2(
+  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = beautier::create_mcmc(chain_length = chain_length)
+)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
@@ -62,6 +68,23 @@ esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
 
+## ----fig.width=7, fig.height=7-------------------------------------------
+trees <- out$anthus_aco_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+
+## ----fig.width=7, fig.height=7-------------------------------------------
+trees <- out$anthus_nd2_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+
+## ----cache=TRUE----------------------------------------------------------
+out <- run_beast2(
+  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = beautier::create_mcmc(chain_length = chain_length),
+  posterior_crown_age = 15
+)
+
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
   data = out$estimates,
@@ -80,4 +103,14 @@ traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0
 esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
+
+## ----fig.width=7, fig.height=7-------------------------------------------
+trees <- out$anthus_aco_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
+
+## ----fig.width=7, fig.height=7-------------------------------------------
+trees <- out$anthus_nd2_trees
+class(trees) <- "multiPhylo"
+phangorn::densiTree(trees, width = 2)
 

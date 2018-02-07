@@ -35,3 +35,4 @@ inst/doc
 vignettes/demo_cache/
 vignettes/demo_files/
 tests/testthat/Rplots.pdf
+vignettes/examples_cache/

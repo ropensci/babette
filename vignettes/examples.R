@@ -86,25 +86,24 @@ ggplot2::ggplot(
 ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
 densitree(posterior$my_alignment_trees, width = 2)
 
-## ----example_6, cache=FALSE----------------------------------------------
-if (1 == 2) {
+## ----example_6, cache=TRUE-----------------------------------------------
 posterior <- run_beast2(
   "my_alignment.fas",
   tree_priors = create_yule_tree_prior(
-    birth_rate_distr = create_normal_distr()
+    birth_rate_distr = create_normal_distr(
+      mean = create_mean_param(value = 1.0),
+      sigma = create_sigma_param(value = 0.1)
+    )
   ),
   mcmc = mcmc
 )
-}
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-if (1 == 2) {
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 densitree(posterior$my_alignment_trees, width = 2)
-}
 
 ## ----example_7, cache=TRUE-----------------------------------------------
 posterior <- run_beast2(

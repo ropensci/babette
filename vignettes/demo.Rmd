@@ -22,7 +22,7 @@ This vignette demonstrates how to use `babette`.
 
 First, load the library:
 
-```{r}
+```{r load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE}
 library(babette)
 ```
 
@@ -41,8 +41,11 @@ Of each example, it is shown:
 In all cases, this is done for a short MCMC chain length of 10K:
 
 ```{r}
-chain_length <- 10000
 sample_interval <- 1000
+mcmc = create_mcmc(
+  chain_length = 10000, 
+  store_every = sample_interval
+)
 ```
 
 For a reliable inference, use an ESS of at least 200.
@@ -52,10 +55,7 @@ For a reliable inference, use an ESS of at least 200.
 ```{r cache=TRUE}
 out <- run_beast2(
   get_path("anthus_aco.fas"),
-  mcmc = create_mcmc(
-    chain_length = chain_length, 
-    store_every = sample_interval
-  )
+  mcmc = mcmc
 )
 ```
 
@@ -79,6 +79,14 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 ```
 
+Summary statistics:
+  
+```{r}
+sum_stats <- t(calc_sum_stats(traces$posterior, sample_interval = sample_interval))
+colnames(sum_stats) <- "Statistic"
+knitr::kable(sum_stats)
+```
+
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
@@ -90,7 +98,7 @@ densitree(out$anthus_aco_trees, width = 2)
 ```{r cache=TRUE}
 out <- run_beast2(
   get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = create_mcmc(chain_length = chain_length)
+  mcmc = mcmc
 )
 ```
 
@@ -132,7 +140,7 @@ densitree(out$anthus_nd2_trees, width = 2)
 ```{r cache=TRUE}
 out <- run_beast2(
   get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = create_mcmc(chain_length = chain_length),
+  mcmc = mcmc,
   posterior_crown_age = 15
 )
 ```

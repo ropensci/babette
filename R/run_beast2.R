@@ -11,6 +11,13 @@
 #' @param posterior_crown_age the posterior's crown age. Use NA to let
 #'   BEAST2 estimate this parameter. Use a positive value to fix the
 #'   crown age to that value
+#' @param beast2_input_filename name of the BEAST2 configuration file
+#' @param beast2_output_log_filename name of the log file created by BEAST2,
+#'   containing the parameter estimates in time
+#' @param beast2_output_trees_filenames name of the one or more trees
+#'   files created by BEAST2, one per alignment
+#' @param beast2_output_state_filename name of the final state file created
+#'   by BEAST2, containing the operator acceptences
 #' @param beast_jar_path path to the BEAST2 jar file
 #' @param verbose set to TRUE for more output
 #' @param cleanup set to FALSE to keep all temporary files
@@ -84,12 +91,19 @@ run_beast2 <- function(
     beautier::get_ids(fasta_filenames)),
   mcmc = beautier::create_mcmc(),
   posterior_crown_age = NA,
+  beast2_input_filename = "beast2.xml",
+  beast2_output_log_filename = "beast2.log",
+  beast2_output_trees_filenames = paste0(
+    beautier::get_ids(fasta_filenames), ".trees"
+  ),
+  beast2_output_state_filename = "beast2.xml.state",
   beast_jar_path = "~/Programs/beast/lib/beast.jar",
   verbose = FALSE,
   cleanup = TRUE
 ) {
-  beast2_input_file <- "beast2.xml"
-
+  if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
+    stop("Must have as much FASTA filenames as BEAST2 output trees fileanames")
+  }
   beautier::create_beast2_input_file(
     input_filenames = fasta_filenames,
     site_models = site_models,
@@ -97,18 +111,12 @@ run_beast2 <- function(
     tree_priors = tree_priors,
     mcmc = mcmc,
     posterior_crown_age = posterior_crown_age,
-    output_filename = beast2_input_file
+    output_filename = beast2_input_filename
   )
-  testit::assert(file.exists(beast2_input_file))
-
-  beast2_output_log_filename <- "beast2.log"
-  beast2_output_trees_filenames <- paste0(
-    beautier::get_ids(fasta_filenames), ".trees"
-  )
-  beast2_output_state_filename <- "beast2.xml.state"
+  testit::assert(file.exists(beast2_input_filename))
 
   beastier::run_beast2(
-    input_filename = beast2_input_file,
+    input_filename = beast2_input_filename,
     output_log_filename = beast2_output_log_filename,
     output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,
@@ -131,16 +139,16 @@ run_beast2 <- function(
     if (verbose == TRUE) {
       print(
         paste(
-          "Removing files: ", beast2_input_file, beast2_output_log_filename,
+          "Removing files: ", beast2_input_filename, beast2_output_log_filename,
           beast2_output_trees_filenames, beast2_output_state_filename
         )
       )
     }
-    file.remove(beast2_input_file)
+    file.remove(beast2_input_filename)
     file.remove(beast2_output_log_filename)
     file.remove(beast2_output_trees_filenames)
     file.remove(beast2_output_state_filename)
-    testit::assert(!file.exists(beast2_input_file))
+    testit::assert(!file.exists(beast2_input_filename))
     testit::assert(!file.exists(beast2_output_log_filename))
     testit::assert(!file.exists(beast2_output_trees_filenames))
     testit::assert(!file.exists(beast2_output_state_filename))
@@ -148,7 +156,7 @@ run_beast2 <- function(
     if (verbose == TRUE) {
       print(
         paste(
-          "Keeping files: ", beast2_input_file, beast2_output_log_filename,
+          "Keeping files: ", beast2_input_filename, beast2_output_log_filename,
           beast2_output_trees_filenames, beast2_output_state_filename
         )
       )

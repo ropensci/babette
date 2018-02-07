@@ -11,15 +11,6 @@ library(babette)
 chain_length <- 10000
 sample_interval <- 1000
 
-## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2(
-  get_path("anthus_aco.fas"),
-  mcmc = create_mcmc(
-    chain_length = chain_length, 
-    store_every = sample_interval
-  )
-)
-
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
   data = out$estimates,
@@ -38,12 +29,6 @@ knitr::kable(esses)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 densitree(out$anthus_aco_trees, width = 2)
-
-## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2(
-  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = create_mcmc(chain_length = chain_length)
-)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
@@ -69,13 +54,6 @@ densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 densitree(out$anthus_nd2_trees, width = 2)
-
-## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2(
-  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = create_mcmc(chain_length = chain_length),
-  posterior_crown_age = 15
-)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(

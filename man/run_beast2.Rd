@@ -9,6 +9,10 @@ run_beast2(fasta_filenames,
   clock_models = beautier::create_strict_clock_models(beautier::get_ids(fasta_filenames)),
   tree_priors = beautier::create_yule_tree_priors(beautier::get_ids(fasta_filenames)),
   mcmc = beautier::create_mcmc(), posterior_crown_age = NA,
+  beast2_input_filename = "beast2.xml",
+  beast2_output_log_filename = "beast2.log",
+  beast2_output_trees_filenames = paste0(beautier::get_ids(fasta_filenames),
+  ".trees"), beast2_output_state_filename = "beast2.xml.state",
   beast_jar_path = "~/Programs/beast/lib/beast.jar", verbose = FALSE,
   cleanup = TRUE)
 }
@@ -30,6 +34,17 @@ see \link[beautier]{create_mcmc}}
 \item{posterior_crown_age}{the posterior's crown age. Use NA to let
 BEAST2 estimate this parameter. Use a positive value to fix the
 crown age to that value}
+
+\item{beast2_input_filename}{name of the BEAST2 configuration file}
+
+\item{beast2_output_log_filename}{name of the log file created by BEAST2,
+containing the parameter estimates in time}
+
+\item{beast2_output_trees_filenames}{name of the one or more trees
+files created by BEAST2, one per alignment}
+
+\item{beast2_output_state_filename}{name of the final state file created
+by BEAST2, containing the operator acceptences}
 
 \item{beast_jar_path}{path to the BEAST2 jar file}
 

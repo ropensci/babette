@@ -80,6 +80,8 @@
 #'  testit::assert("YuleModel.nd2" %in% names(out$estimates))
 #'  testit::assert("birthRate.aco" %in% names(out$estimates))
 #'  testit::assert("birthRate.nd2" %in% names(out$estimates))
+#' @seealso Use \code{\link[tracerer]{remove_burn_ins}} to remove the burn-ins from
+#'   the posterior's estimates (\code{posterior$estimates})
 #' @export
 run_beast2 <- function(
   fasta_filenames,

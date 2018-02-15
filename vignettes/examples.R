@@ -11,7 +11,7 @@ file.copy(babette::get_path("anthus_aco.fas"), "my_alignment.fas")
 file.copy(babette::get_path("anthus_aco.fas"), "anthus_aco.fas")
 file.copy(babette::get_path("anthus_nd2.fas"), "anthus_nd2.fas")
 
-## ----load_babette--------------------------------------------------------
+## ----load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE----
 library(babette)
 
 ## ------------------------------------------------------------------------

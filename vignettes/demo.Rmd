@@ -73,7 +73,10 @@ p + ggplot2::geom_line(ggplot2::aes(y = birthRate), color = "blue")
 Effective sample sizes, with 20% burn-in removed:
 
 ```{r}
-traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+traces <- tracerer::remove_burn_ins(
+  traces = out$estimates, 
+  burn_in_fraction = 0.2
+)
 esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
@@ -82,7 +85,7 @@ knitr::kable(esses)
 Summary statistics:
   
 ```{r}
-sum_stats <- t(calc_sum_stats(traces$posterior, sample_interval = sample_interval))
+sum_stats <- t(calc_summary_stats(traces$posterior, sample_interval = sample_interval))
 colnames(sum_stats) <- "Statistic"
 knitr::kable(sum_stats)
 ```

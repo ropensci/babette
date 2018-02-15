@@ -114,6 +114,10 @@ Do a full BEAST2 run
  testit::assert("birthRate.aco" \%in\% names(out$estimates))
  testit::assert("birthRate.nd2" \%in\% names(out$estimates))
 }
+\seealso{
+Use \code{\link[tracerer]{remove_burn_ins}} to remove the burn-ins from
+  the posterior's estimates (\code{posterior$estimates})
+}
 \author{
 Richel J.C. Bilderbeek
 }

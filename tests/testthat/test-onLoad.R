@@ -2,6 +2,6 @@ context("onLoad")
 
 test_that("use", {
 
-  babette:::.onLoad()
+  rbeast2:::.onLoad()
 
 })

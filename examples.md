@@ -1,9 +1,9 @@
 # Examples
 
-For all examples, do load `babette`:
+For all examples, do load `rbeast2`:
 
 ```
-library(babette)
+library(rbeast2)
 ```
 
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 
@@ -135,7 +135,7 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 ![Example 10: Two alignments, different site models](pics/aco_hky_nd2_tn93.png)
 
 ```{r example_10}
-babette::posterior <- run_beast2(
+rbeast2::posterior <- run_beast2(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   site_models = list(
     create_hky_site_model(), 
@@ -153,7 +153,7 @@ Thanks to Paul van Els for this use case.
 [Example 11: shared clock model](aco_nd2_same_clock_model.png)
 
 ```{r example_10}
-babette::posterior <- run_beast2(
+rbeast2::posterior <- run_beast2(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   clock_models = list(
     create_strict_clock_model(id = "anthus_aco"), 

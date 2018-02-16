@@ -6,7 +6,7 @@ Version 2.4.7.
 
 ## What's the road map?
 
-Currently, `babette` does not have a road map itself, but `beautier` does:
+Currently, `rbeast2` does not have a road map itself, but `beautier` does:
 
  * [beautier road map](https://github.com/richelbilderbeek/beautier/blob/master/road_map.md)
 

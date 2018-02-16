@@ -4,14 +4,20 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-## ----load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE----
-library(babette)
+## ----load_rbeast2, results='hide', warning=FALSE, error=FALSE, message=FALSE----
+library(rbeast2)
 
 ## ------------------------------------------------------------------------
 sample_interval <- 1000
 mcmc = create_mcmc(
   chain_length = 10000, 
   store_every = sample_interval
+)
+
+## ----cache=TRUE----------------------------------------------------------
+out <- run_beast2(
+  get_path("anthus_aco.fas"),
+  mcmc = mcmc
 )
 
 ## ------------------------------------------------------------------------
@@ -25,7 +31,10 @@ p + ggplot2::geom_line(ggplot2::aes(y = birthRate), color = "blue")
 
 
 ## ------------------------------------------------------------------------
-traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+traces <- tracerer::remove_burn_ins(
+  traces = out$estimates, 
+  burn_in_fraction = 0.2
+)
 esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
@@ -37,6 +46,12 @@ knitr::kable(sum_stats)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 densitree(out$anthus_aco_trees, width = 2)
+
+## ----cache=TRUE----------------------------------------------------------
+out <- run_beast2(
+  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = mcmc
+)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
@@ -62,6 +77,13 @@ densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 densitree(out$anthus_nd2_trees, width = 2)
+
+## ----cache=TRUE----------------------------------------------------------
+out <- run_beast2(
+  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = mcmc,
+  posterior_crown_age = 15
+)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(

@@ -1,4 +1,4 @@
 library(testthat)
-library(babette)
+library(rbeast2)
 
-test_check("babette")
+test_check("rbeast2")

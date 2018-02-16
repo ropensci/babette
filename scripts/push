@@ -1,27 +1,27 @@
 #!/bin/bash
 
-# Push all GitHubs under babette
+# Push all GitHubs under rbeast2
 
 cd ..
 git add --all :/
-git commit -m "babette update"
+git commit -m "rbeast2 update"
 git push
 cd ..
 
 cd beautier
 git add --all :/
-git commit -m "babette update"
+git commit -m "rbeast2 update"
 git push
 cd ..
 
 cd beastier
 git add --all :/
-git commit -m "babette update"
+git commit -m "rbeast2 update"
 git push
 cd ..
 
 cd tracerer
 git add --all :/
-git commit -m "babette update"
+git commit -m "rbeast2 update"
 git push
 cd ..

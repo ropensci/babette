@@ -22,56 +22,56 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$test_output_0_trees, width = 2)
+plot_densitree(posterior$test_output_0_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_fasta_trees, width = 2)
+plot_densitree(posterior$my_fasta_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
@@ -79,8 +79,8 @@ ggplot2::ggplot(
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "red") +
   ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "green")
-densitree(posterior$anthus_aco_trees, width = 2)
-densitree(posterior$anthus_nd2_trees, width = 2)
+plot_densitree(posterior$anthus_aco_trees, width = 2)
+plot_densitree(posterior$anthus_nd2_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
@@ -88,8 +88,8 @@ ggplot2::ggplot(
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "red") +
   ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "green")
-densitree(posterior$anthus_aco_trees, width = 2)
-densitree(posterior$anthus_nd2_trees, width = 2)
+plot_densitree(posterior$anthus_aco_trees, width = 2)
+plot_densitree(posterior$anthus_nd2_trees, width = 2)
 
 ## ----cleanup, include = FALSE--------------------------------------------
 file.remove("test_output_0.fas")

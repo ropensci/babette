@@ -93,7 +93,7 @@ knitr::kable(sum_stats)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_trees, width = 2)
 ```
 
 ## Two alignments
@@ -131,11 +131,11 @@ knitr::kable(esses)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_trees, width = 2)
 ```
 
 ```{r fig.width=7, fig.height=7}
-densitree(out$anthus_nd2_trees, width = 2)
+plot_densitree(out$anthus_nd2_trees, width = 2)
 ```
 
 ## Two alignments, fixed crown age
@@ -174,9 +174,9 @@ knitr::kable(esses)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_trees, width = 2)
 ```
 
 ```{r fig.width=7, fig.height=7}
-densitree(out$anthus_nd2_trees, width = 2)
+plot_densitree(out$anthus_nd2_trees, width = 2)
 ```

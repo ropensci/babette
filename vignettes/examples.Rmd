@@ -60,7 +60,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$test_output_0_trees, width = 2)
+plot_densitree(posterior$test_output_0_trees, width = 2)
 ```
 
 ## Example #2: fixed crown age
@@ -87,7 +87,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_fasta_trees, width = 2)
+plot_densitree(posterior$my_fasta_trees, width = 2)
 ```
 
 ## Example #3: JC69 site model
@@ -107,7 +107,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 ```
 
 ## Example #4: Relaxed clock log normal
@@ -127,7 +127,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 ```
 
 ## Example #5: Birth-Death tree prior
@@ -147,7 +147,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 ```
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
@@ -172,7 +172,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 ```
 
 Thanks to Yacine Ben Chehida for this use case
@@ -196,7 +196,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 ```
 
 Thanks to Yacine Ben Chehida for this use case
@@ -220,7 +220,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$my_alignment_trees, width = 2)
 ```
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
@@ -242,8 +242,8 @@ ggplot2::ggplot(
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "red") +
   ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "green")
-densitree(posterior$anthus_aco_trees, width = 2)
-densitree(posterior$anthus_nd2_trees, width = 2)
+plot_densitree(posterior$anthus_aco_trees, width = 2)
+plot_densitree(posterior$anthus_nd2_trees, width = 2)
 ```
 
 Thanks to Paul van Els for this use case and supplying these FASTA files.
@@ -269,8 +269,8 @@ ggplot2::ggplot(
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "red") +
   ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "green")
-densitree(posterior$anthus_aco_trees, width = 2)
-densitree(posterior$anthus_nd2_trees, width = 2)
+plot_densitree(posterior$anthus_aco_trees, width = 2)
+plot_densitree(posterior$anthus_nd2_trees, width = 2)
 ```
 
 Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.

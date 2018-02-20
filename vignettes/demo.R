@@ -39,7 +39,7 @@ colnames(sum_stats) <- "Statistic"
 knitr::kable(sum_stats)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_trees, width = 2)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
@@ -61,10 +61,10 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-densitree(out$anthus_nd2_trees, width = 2)
+plot_densitree(out$anthus_nd2_trees, width = 2)
 
 ## ------------------------------------------------------------------------
 p <- ggplot2::ggplot(
@@ -86,8 +86,8 @@ colnames(esses) <- "ESS"
 knitr::kable(esses)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
-densitree(out$anthus_nd2_trees, width = 2)
+plot_densitree(out$anthus_nd2_trees, width = 2)
 

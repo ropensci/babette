@@ -1,4 +1,4 @@
-context("densitree")
+context("plot_densitree")
 
 test_that("use", {
 
@@ -7,14 +7,14 @@ test_that("use", {
     mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
   )
   testthat::expect_silent(
-    densitree(out$anthus_aco_trees)
+    plot_densitree(out$anthus_aco_trees)
   )
 })
 
 test_that("abuse", {
 
   testthat::expect_error(
-    densitree("nonsense"),
+    plot_densitree("nonsense"),
     "'phylos' must be of class 'multiPhylo'"
   )
 })

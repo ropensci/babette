@@ -8,9 +8,9 @@
 #'    get_path("anthus_aco.fas"),
 #'    mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
 #'  )
-#'  densitree(out$anthus_aco_trees)
+#'  plot_densitree(out$anthus_aco_trees)
 #' @export
-densitree <- function(phylos, ...) {
+plot_densitree <- function(phylos, ...) {
   if (class(phylos) != "multiPhylo") {
     stop("'phylos' must be of class 'multiPhylo'")
   }

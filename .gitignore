@@ -38,3 +38,4 @@ tests/testthat/Rplots.pdf
 vignettes/examples_cache/
 vignettes/examples_files/
 vignettes/*.fas
+vignettes/article_cache/

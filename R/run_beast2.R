@@ -18,7 +18,7 @@
 #'   files created by BEAST2, one per alignment
 #' @param beast2_output_state_filename name of the final state file created
 #'   by BEAST2, containing the operator acceptences
-#' @param beast_jar_path path to the BEAST2 jar file
+#' @param beast2_jar_path path to the BEAST2 jar file
 #' @param verbose set to TRUE for more output
 #' @param cleanup set to FALSE to keep all temporary files
 #' @author Richel J.C. Bilderbeek
@@ -100,7 +100,7 @@ run_beast2 <- function(
     beautier::get_ids(fasta_filenames), ".trees"
   ),
   beast2_output_state_filename = "beast2.xml.state",
-  beast_jar_path = "~/Programs/beast/lib/beast.jar",
+  beast2_jar_path = beastier::get_default_beast2_jar_path(),
   verbose = FALSE,
   cleanup = TRUE
 ) {
@@ -123,7 +123,7 @@ run_beast2 <- function(
     output_log_filename = beast2_output_log_filename,
     output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,
-    beast_jar_path = beast_jar_path,
+    beast2_jar_path = beast2_jar_path,
     verbose = verbose
   )
 

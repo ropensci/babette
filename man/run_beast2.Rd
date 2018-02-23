@@ -13,8 +13,8 @@ run_beast2(fasta_filenames,
   beast2_output_log_filename = "beast2.log",
   beast2_output_trees_filenames = paste0(beautier::get_ids(fasta_filenames),
   ".trees"), beast2_output_state_filename = "beast2.xml.state",
-  beast_jar_path = "~/Programs/beast/lib/beast.jar", verbose = FALSE,
-  cleanup = TRUE)
+  beast2_jar_path = beastier::get_default_beast2_jar_path(),
+  verbose = FALSE, cleanup = TRUE)
 }
 \arguments{
 \item{fasta_filenames}{one or more FASTA filename, eachwith one alignment}
@@ -46,7 +46,7 @@ files created by BEAST2, one per alignment}
 \item{beast2_output_state_filename}{name of the final state file created
 by BEAST2, containing the operator acceptences}
 
-\item{beast_jar_path}{path to the BEAST2 jar file}
+\item{beast2_jar_path}{path to the BEAST2 jar file}
 
 \item{verbose}{set to TRUE for more output}
 

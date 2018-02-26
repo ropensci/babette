@@ -4,8 +4,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-## ----load_rbeast2, results='hide', warning=FALSE, error=FALSE, message=FALSE----
-library(rbeast2)
+## ----load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE----
+library(babette)
 
 ## ------------------------------------------------------------------------
 sample_interval <- 1000

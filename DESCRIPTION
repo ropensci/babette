@@ -1,18 +1,18 @@
-Package: rbeast2
+Package: babette
 Title: control BEAST2 from R
 Version: 0.9.0
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
-Description: rbeast2 gives full control of BEAST2 from R.
-  rbeast2 can create BEAST2 XML input files. 
-  rbeast2 can run BEAST2 with those input file.
-  rbeast2 can parse the results of that BEAST2 run.
+Description: babette gives full control of BEAST2 from R.
+  babette can create BEAST2 XML input files. 
+  babette can run BEAST2 with those input file.
+  babette can parse the results of that BEAST2 run.
 License: file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
-URL: https://github.com/richelbilderbeek/rbeast2
-BugReports: https://github.com/richelbilderbeek/rbeast2/issues
+URL: https://github.com/richelbilderbeek/babette
+BugReports: https://github.com/richelbilderbeek/babette/issues
 Imports:
     beautier,
     beastier,

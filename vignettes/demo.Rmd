@@ -1,10 +1,10 @@
 ---
-title: "rbeast2 demo"
+title: "babette demo"
 author: "Richel J.C. Bilderbeek"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{rbeast2 demo}
+  %\VignetteIndexEntry{babette demo}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,12 +18,12 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-This vignette demonstrates how to use `rbeast2`.
+This vignette demonstrates how to use `babette`.
 
 First, load the library:
 
-```{r load_rbeast2, results='hide', warning=FALSE, error=FALSE, message=FALSE}
-library(rbeast2)
+```{r load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE}
+library(babette)
 ```
 
 The following examples show:
@@ -34,7 +34,7 @@ The following examples show:
 
 Of each example, it is shown:
 
- * How to let `rbeast2` run BEAST2
+ * How to let `babette` run BEAST2
  * How the plot the posterior estimates
  * How to show the effective sample sizes (ESS)
  

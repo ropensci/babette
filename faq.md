@@ -4,6 +4,10 @@
 
 Version 2.4.7.
 
+## How to install BEAST2?
+
+
+
 ## What's the road map?
 
 Currently, `babette` does not have a road map itself, but `beautier` does:

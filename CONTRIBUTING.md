@@ -15,7 +15,7 @@ If you want to contribute to the creation of BEAST2 XML input file,
 go to [beautier](https://github.com/richelbilderbeek/beautier/blob/master/CONTRIBUTING.md).
 
 If you want to contribute to how BEAST2 is run,
-go to [beautier](https://github.com/richelbilderbeek/beautier/blob/master/CONTRIBUTING.md).
+go to [beastier](https://github.com/richelbilderbeek/beastier/blob/master/CONTRIBUTING.md).
 
 If you want to contribute to how BEAST2 output is parsed,
 go to [tracerer](https://github.com/richelbilderbeek/tracerer/blob/master/CONTRIBUTING.md)

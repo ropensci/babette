@@ -20,11 +20,11 @@ Submit an Issue.
 
 ## How can I submit code?
 
-See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting code'
+See [CONTRIBUTING](../CONTRIBUTING.md), at 'Submitting code'
 
 ## How can I submit a bug?
 
-See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs' 
+See [CONTRIBUTING](../CONTRIBUTING.md), at 'Submitting bugs' 
 
 ## How can I indicate something else?
 

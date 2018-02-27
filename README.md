@@ -29,7 +29,7 @@ To install BEAST2, see [how to install BEAST2](https://github.com/richelbilderbe
 
 ## FAQ
 
-See [FAQ](faq.md).
+See [FAQ](doc/faq.md).
 
 ## Missing features/unsupported
 

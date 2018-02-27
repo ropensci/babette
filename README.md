@@ -15,7 +15,7 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?bran
 
 ## Examples
 
-See [examples](doc/examples.md) or [the biorxiv article](https://doi.org/10.1101/271866).
+See [examples](doc/examples.md) or [the bioRxiv article](https://doi.org/10.1101/271866).
 
 ## Installation
 

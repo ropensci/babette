@@ -2,7 +2,7 @@
 
 Awesome that you are reading this.
 
-This GitHub follows the [Contributor Covenant Code of Conduct](code_of_conduct.md).
+This GitHub follows the [Contributor Covenant Code of Conduct](doc/code_of_conduct.md).
 
  * For questions, you can create an Issue
  * Code changes go via Pull Requests
@@ -27,7 +27,7 @@ If you want to contribute with an overarching idea, you are at the right spot :-
 Submitted code should follow these quality guidelines:
 
  * All tests pass cleanly/silently
- * Code coverage above 95%
+ * Code coverage must be 100%
  * Coding style should follow the default style by `lintr`
 
 These are all checked by Travis CI when submitting

@@ -18,7 +18,7 @@ r_github_packages:
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8
   - sudo apt-get install oracle-java8-set-default
-  - ./install_beast2
+  - ./scripts/install_beast2
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
   - sudo pip install proselint
@@ -31,7 +31,7 @@ after_success:
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
-  - ./check_dead_links
+  - ./scripts/check_dead_links
 
 after_failure:
   # - sudo Rscript install_this_r_package.R

@@ -1,12 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^pics$
+^doc$
 ^scripts$
-^install_beast2$
 ^\.travis\.yml$
-^code_of_conduct\.md$
 ^CONTRIBUTING\.md$
-^Faq\.md$
-^examples\.md$
-^faq\.md$
-^check_dead_links$

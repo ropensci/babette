@@ -6,7 +6,7 @@ Version 2.4.7.
 
 ## How to install BEAST2?
 
-
+See [how to install BEAST2](https://github.com/richelbilderbeek/beastier/blob/master/install_beast2.md).
 
 ## What's the road map?
 
@@ -42,7 +42,10 @@ Article is still in preperation.
 
 Additionally, the Dutch actress Babette van Veen, is the
 voice of an audiobook 'Woezel en Pip', which is about two
-beasts.
+beasts. Not only that, in her role in the Dutch soap 
+series 'Goede Tijden Slechte Tijden' see had a bestial
+personality, as she tried to seduce the good Arnie to cheat
+on his sweet girlfriend Roos.
 
 ## What is the idea behind the logo?
 

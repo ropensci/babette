@@ -15,7 +15,7 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?bran
 
 ## Examples
 
-See [examples](examples.md).
+See [examples](doc/examples.md) or [the biorxiv article](https://doi.org/10.1101/271866).
 
 ## Installation
 
@@ -25,9 +25,11 @@ If you use the `devtools` R package, this is easy:
 devtools::install_github("richelbilderbeek/babette")
 ```
 
+To install BEAST2, see [how to install BEAST2](https://github.com/richelbilderbeek/beastier/blob/master/install_beast2.md).
+
 ## FAQ
 
-See [FAQ](faq.md)
+See [FAQ](faq.md).
 
 ## Missing features/unsupported
 
@@ -73,9 +75,9 @@ Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov
 
 ## References
 
-Article about `beautier`:
+Article about `babette`:
 
- * Bilderbeek, Richel J.C., Etienne, Rampal S., "beautier: BEAUti from R" *In preparation*.
+ * Bilderbeek, Richel J.C., Etienne, Rampal S., "babette: BEAUti 2, BEAST2 and Tracer for R". bioRxiv 271866; doi: https://doi.org/10.1101/271866
 
 FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  

@@ -38,9 +38,6 @@ posterior <- run_beast2(
 )
 ```
 
-`fasta_to_phylo` creates a random phylogeny from
-a FASTA file of a certain crown age. 
-
 ## Example #3: JC69 site model
 
 ![Example #3: JC69 site model](jc69_2_4.png)
@@ -54,7 +51,7 @@ posterior <- run_beast2(
 
 ## Example #4: Relaxed clock log normal
 
-![Example #4: Relaxed clock log normal](relaxed_clock_log_normal_2_4.png)
+![Example #4: Relaxed clock log normal](rln_2_4.png)
 
 ```{r example_4}
 posterior <- run_beast2(
@@ -65,7 +62,7 @@ posterior <- run_beast2(
 
 ## Example #5: Birth-Death tree prior
 
-![Example #5: Birth-Death tree prior](birth_death_2_4.png)
+![Example #5: Birth-Death tree prior](bd_2_4.png)
 
 ```{r example_5}
 posterior <- run_beast2(
@@ -147,22 +144,3 @@ babette::posterior <- run_beast2(
 Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.
 
 Thanks to Paul van Els for this use case.
-
-## Example #11: Two alignments, shared clock model
-
-[Example 11: shared clock model](aco_nd2_same_clock_model.png)
-
-```{r example_10}
-babette::posterior <- run_beast2(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  clock_models = list(
-    create_strict_clock_model(id = "anthus_aco"), 
-    create_strict_clock_model(id = "anthus_aco")
-  )
-)
-```
-
-From `v1.13`, it will be supported to have two alignments with shared site models, clock models and tree priors.
-
-Thanks to Yacine Ben Chehida for this use case.
-

@@ -15,7 +15,11 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?bran
 
 ## Examples
 
-See [examples](doc/examples.md) or [the bioRxiv article](https://doi.org/10.1101/271866).
+See:
+
+ * [examples](doc/examples.md)
+ * [bioRxiv article](https://doi.org/10.1101/271866)
+ * ['babette' YouTube channel](https://www.youtube.com/watch?v=nA-0-Fc95xY&list=PLu8_ZyzXyRDFIRx-kdDI5Q6xVr-HnY7TB)
 
 ## Installation
 

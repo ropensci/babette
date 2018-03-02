@@ -24,7 +24,8 @@ file.copy(babette::get_path("anthus_aco.fas"), "anthus_aco.fas")
 file.copy(babette::get_path("anthus_nd2.fas"), "anthus_nd2.fas")
 ```
 
-This vignette does the same as the code in the article.
+This vignette does the same as the code in 
+the [bioRxiv article](https://doi.org/10.1101/271866).
 
 ```{r}
 library(babette)

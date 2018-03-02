@@ -12,6 +12,7 @@
 #'   BEAST2 estimate this parameter. Use a positive value to fix the
 #'   crown age to that value
 #' @param beast2_input_filename name of the BEAST2 configuration file
+#' @param rng_seed the random number generator seed
 #' @param beast2_output_log_filename name of the log file created by BEAST2,
 #'   containing the parameter estimates in time
 #' @param beast2_output_trees_filenames name of the one or more trees
@@ -95,6 +96,7 @@ run_beast2 <- function(
   mcmc = beautier::create_mcmc(),
   posterior_crown_age = NA,
   beast2_input_filename = "beast2.xml",
+  rng_seed = 1,
   beast2_output_log_filename = "beast2.log",
   beast2_output_trees_filenames = paste0(
     beautier::get_ids(fasta_filenames), ".trees"
@@ -120,6 +122,7 @@ run_beast2 <- function(
 
   beastier::run_beast2(
     input_filename = beast2_input_filename,
+    rng_seed = rng_seed,
     output_log_filename = beast2_output_log_filename,
     output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,

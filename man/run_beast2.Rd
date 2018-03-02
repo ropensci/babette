@@ -9,7 +9,7 @@ run_beast2(fasta_filenames,
   clock_models = beautier::create_strict_clock_models(beautier::get_ids(fasta_filenames)),
   tree_priors = beautier::create_yule_tree_priors(beautier::get_ids(fasta_filenames)),
   mcmc = beautier::create_mcmc(), posterior_crown_age = NA,
-  beast2_input_filename = "beast2.xml",
+  beast2_input_filename = "beast2.xml", rng_seed = 1,
   beast2_output_log_filename = "beast2.log",
   beast2_output_trees_filenames = paste0(beautier::get_ids(fasta_filenames),
   ".trees"), beast2_output_state_filename = "beast2.xml.state",
@@ -36,6 +36,8 @@ BEAST2 estimate this parameter. Use a positive value to fix the
 crown age to that value}
 
 \item{beast2_input_filename}{name of the BEAST2 configuration file}
+
+\item{rng_seed}{the random number generator seed}
 
 \item{beast2_output_log_filename}{name of the log file created by BEAST2,
 containing the parameter estimates in time}

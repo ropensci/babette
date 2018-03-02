@@ -90,6 +90,23 @@ test_that("use, one alignment, verbose, no cleanup", {
 
 })
 
+test_that("use, one alignment, same RNG should give same results", {
+
+  rng_seed <- 42
+  out_1 <- run_beast2(
+    fasta_filenames = get_path("anthus_aco.fas"),
+    mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
+    rng_seed = rng_seed
+  )
+  out_2 <- run_beast2(
+    fasta_filenames = get_path("anthus_aco.fas"),
+    mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
+    rng_seed = rng_seed
+  )
+  testthat::expect_identical(out_1, out_2)
+
+})
+
 test_that("use, two alignments, estimated crown ages", {
 
   out <- NA

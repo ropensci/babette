@@ -1,6 +1,6 @@
 Package: babette
 Title: control BEAST2 from R
-Version: 1.0
+Version: 1.1
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: babette gives full control of BEAST2 from R.

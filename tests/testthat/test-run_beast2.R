@@ -297,7 +297,7 @@ test_that("Run CEP", {
 # MRCA priors
 ################################################################################
 
-test_that("Run MRCA", {
+test_that("Run MRCA, no distr", {
 
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
@@ -305,6 +305,20 @@ test_that("Run MRCA", {
     mrca_priors = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename)
+    )
+  )
+  testthat::expect_true(are_beast2_input_lines(lines))
+})
+
+test_that("Run MRCA, MRCA distr", {
+
+  fasta_filename <- get_fasta_filename()
+  lines <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    mrca_priors = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      mrca_distr = create_one_div_x_distr()
     )
   )
   testthat::expect_true(are_beast2_input_lines(lines))

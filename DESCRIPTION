@@ -25,6 +25,7 @@ Suggests:
     ggplot2,
     knitr,
     lintr,
+    nLTT,
     rmarkdown,
     testthat
 Remotes: 
@@ -32,6 +33,7 @@ Remotes:
     jimhester/lintr,
     richelbilderbeek/beautier,
     richelbilderbeek/beastier,
+    richelbilderbeek/nLTT,
     richelbilderbeek/tracerer,
     MangoTheCat/goodpractice,
     KlausVigo/phangorn

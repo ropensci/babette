@@ -21,21 +21,22 @@ out <- run_beast2(
 )
 
 ## ------------------------------------------------------------------------
-p <- ggplot2::ggplot(
+library(ggplot2)
+p <- ggplot(
   data = out$estimates,
-  ggplot2::aes(x = Sample)
+  aes(x = Sample)
 ) 
-p + ggplot2::geom_line(ggplot2::aes(y = TreeHeight), color = "green")
-p + ggplot2::geom_line(ggplot2::aes(y = YuleModel), color = "red")
-p + ggplot2::geom_line(ggplot2::aes(y = birthRate), color = "blue")
+p + geom_line(aes(y = TreeHeight), color = "green")
+p + geom_line(aes(y = YuleModel), color = "red")
+p + geom_line(aes(y = birthRate), color = "blue")
 
 
 ## ------------------------------------------------------------------------
-traces <- tracerer::remove_burn_ins(
+traces <- remove_burn_ins(
   traces = out$estimates, 
   burn_in_fraction = 0.2
 )
-esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
+esses <- t(calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
 
@@ -54,21 +55,21 @@ out <- run_beast2(
 )
 
 ## ------------------------------------------------------------------------
-p <- ggplot2::ggplot(
+p <- ggplot(
   data = out$estimates,
-  ggplot2::aes(x = Sample)
+  aes(x = Sample)
 ) 
-p + ggplot2::geom_line(ggplot2::aes(y = TreeHeight.aco), color = "green") +
-   ggplot2::geom_line(ggplot2::aes(y = TreeHeight.nd2), color = "lightgreen")
-p + ggplot2::geom_line(ggplot2::aes(y = YuleModel.aco), color = "red") +
-  ggplot2::geom_line(ggplot2::aes(y = YuleModel.nd2), color = "pink")
-p + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "blue") + 
-  ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "cyan")
+p + geom_line(aes(y = TreeHeight.aco), color = "green") +
+   geom_line(aes(y = TreeHeight.nd2), color = "lightgreen")
+p + geom_line(aes(y = YuleModel.aco), color = "red") +
+  geom_line(aes(y = YuleModel.nd2), color = "pink")
+p + geom_line(aes(y = birthRate.aco), color = "blue") + 
+  geom_line(aes(y = birthRate.nd2), color = "cyan")
 
 
 ## ------------------------------------------------------------------------
-traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
-esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
+traces <- remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
 
@@ -86,21 +87,21 @@ out <- run_beast2(
 )
 
 ## ------------------------------------------------------------------------
-p <- ggplot2::ggplot(
+p <- ggplot(
   data = out$estimates,
-  ggplot2::aes(x = Sample)
+  aes(x = Sample)
 ) 
-p + ggplot2::geom_line(ggplot2::aes(y = TreeHeight.aco), color = "green") +
-   ggplot2::geom_line(ggplot2::aes(y = TreeHeight.nd2), color = "lightgreen")
-p + ggplot2::geom_line(ggplot2::aes(y = YuleModel.aco), color = "red") +
-  ggplot2::geom_line(ggplot2::aes(y = YuleModel.nd2), color = "pink")
-p + ggplot2::geom_line(ggplot2::aes(y = birthRate.aco), color = "blue") + 
-  ggplot2::geom_line(ggplot2::aes(y = birthRate.nd2), color = "cyan")
+p + geom_line(aes(y = TreeHeight.aco), color = "green") +
+   geom_line(aes(y = TreeHeight.nd2), color = "lightgreen")
+p + geom_line(aes(y = YuleModel.aco), color = "red") +
+  geom_line(aes(y = YuleModel.nd2), color = "pink")
+p + geom_line(aes(y = birthRate.aco), color = "blue") + 
+  geom_line(aes(y = birthRate.nd2), color = "cyan")
 
 
 ## ------------------------------------------------------------------------
-traces <- tracerer::remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
-esses <- t(tracerer::calc_esses(traces, sample_interval = sample_interval))
+traces <- remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(calc_esses(traces, sample_interval = sample_interval))
 colnames(esses) <- "ESS"
 knitr::kable(esses)
 

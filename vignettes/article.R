@@ -16,7 +16,10 @@ library(babette)
 mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 
 ## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2("anthus_aco.fas", mcmc = mcmc)
+out <- run_beast2(
+  fasta_filenames = "anthus_aco.fas", 
+  mcmc = mcmc
+)
 
 ## ----cache=TRUE----------------------------------------------------------
 out <- run_beast2(
@@ -65,22 +68,25 @@ out <- run_beast2(
 )
 
 ## ------------------------------------------------------------------------
-traces <- remove_burn_ins(out$estimates)
+traces <- remove_burn_ins(
+  traces = out$estimates, 
+  burn_in_fraction = 0.2
+)
 
 ## ------------------------------------------------------------------------
 esses <- calc_esses(
-  traces, 
+  traces = traces, 
   sample_interval = 1000
 )
 
 ## ------------------------------------------------------------------------
 sum_stats <- calc_summary_stats(
-  traces, 
+  traces = traces, 
   sample_interval = 1000
 )
 
 ## ----cache=TRUE----------------------------------------------------------
-plot_densitree(out$anthus_aco_trees)
+plot_densitree(phylos = out$anthus_aco_trees)
 
 ## ----cleanup, include = FALSE--------------------------------------------
 file.remove("test_output_0.fas")

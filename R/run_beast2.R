@@ -6,6 +6,8 @@
 #'   see \link[beautier]{create_clock_models}
 #' @param tree_priors one or more tree priors,
 #'   see \link[beautier]{create_tree_priors}
+#' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
+#'   as returned by \code{\link{create_mrca_prior}}
 #' @param mcmc the MCMC options,
 #'   see \link[beautier]{create_mcmc}
 #' @param posterior_crown_age the posterior's crown age. Use NA to let
@@ -93,6 +95,7 @@ run_beast2 <- function(
     beautier::get_ids(fasta_filenames)),
   tree_priors = beautier::create_yule_tree_priors(
     beautier::get_ids(fasta_filenames)),
+  mrca_priors = NA,
   mcmc = beautier::create_mcmc(),
   posterior_crown_age = NA,
   beast2_input_filename = "beast2.xml",
@@ -114,6 +117,7 @@ run_beast2 <- function(
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
+    mrca_priors = mrca_priors,
     mcmc = mcmc,
     posterior_crown_age = posterior_crown_age,
     output_filename = beast2_input_filename

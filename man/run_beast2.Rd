@@ -8,9 +8,9 @@ run_beast2(fasta_filenames,
   site_models = beautier::create_jc69_site_models(beautier::get_ids(fasta_filenames)),
   clock_models = beautier::create_strict_clock_models(beautier::get_ids(fasta_filenames)),
   tree_priors = beautier::create_yule_tree_priors(beautier::get_ids(fasta_filenames)),
-  mcmc = beautier::create_mcmc(), posterior_crown_age = NA,
-  beast2_input_filename = "beast2.xml", rng_seed = 1,
-  beast2_output_log_filename = "beast2.log",
+  mrca_priors = NA, mcmc = beautier::create_mcmc(),
+  posterior_crown_age = NA, beast2_input_filename = "beast2.xml",
+  rng_seed = 1, beast2_output_log_filename = "beast2.log",
   beast2_output_trees_filenames = paste0(beautier::get_ids(fasta_filenames),
   ".trees"), beast2_output_state_filename = "beast2.xml.state",
   beast2_jar_path = beastier::get_default_beast2_jar_path(),
@@ -27,6 +27,9 @@ see \link[beautier]{create_clock_models}}
 
 \item{tree_priors}{one or more tree priors,
 see \link[beautier]{create_tree_priors}}
+
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}

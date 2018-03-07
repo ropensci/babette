@@ -1,0 +1,102 @@
+---
+title: "Comparison of using a fixed crown age or a calibration node"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_document
+vignette: >
+  %\VignetteIndexEntry{Comparison of using a fixed crown age or a calibration node}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r create_files, include = FALSE}
+file.copy(babette::get_path("anthus_aco_sub.fas"), "anthus_aco.fas")
+```
+
+```{r}
+library(babette)
+mcmc <- create_mcmc(chain_length = 2000000, store_every = 1000)
+crown_age <- 15
+```
+
+
+```{r cache=FALSE}
+out_fca <- run_beast2(
+  "anthus_aco.fas",
+  posterior_crown_age = crown_age,
+  mcmc = mcmc
+)
+```
+
+```{r cache=FALSE}
+out_cn <- run_beast2(
+  "anthus_aco.fas",
+  mrca_priors = create_mrca_prior(
+    name = "mrca_prior",
+    alignment_id = get_alignment_id("anthus_aco.fas"),
+    taxa_names = get_taxa_names("anthus_aco.fas"),
+    mrca_distr = create_normal_distr(
+      id = 1,
+      mean = create_mean_param(value = crown_age, id = 2),
+      sigma = create_sigma_param(value = crown_age / 1000.0, id = 3)
+    )
+  ),
+  mcmc = mcmc
+)
+```
+
+
+```{r}
+traces_fca <- remove_burn_ins(
+  traces = out_fca$estimates, 
+  burn_in_fraction = 0.2
+)
+traces_cn <- remove_burn_ins(
+  traces = out_cn$estimates, 
+  burn_in_fraction = 0.2
+)
+```
+
+
+```{r}
+esses_fca <- calc_esses(
+  traces = traces_fca, 
+  sample_interval = 1000
+)
+esses_cn <- calc_esses(
+  traces = traces_cn, 
+  sample_interval = 1000
+)
+knitr::kable(t(esses_fca))
+knitr::kable(t(esses_cn))
+```
+
+```{r}
+sum_stats_fca <- calc_summary_stats(
+  traces = traces_fca, 
+  sample_interval = 1000
+)
+sum_stats_cn <- calc_summary_stats(
+  traces = traces_cn, 
+  sample_interval = 1000
+)
+knitr::kable(t(sum_stats_fca))
+knitr::kable(t(sum_stats_cn))
+```
+
+
+```{r cache=FALSE, fig.width=7, fig.height=7}
+plot_densitree(phylos = out_fca$anthus_aco_trees, alpha = 1, width = 1)
+plot_densitree(phylos = out_cn$anthus_aco_trees, alpha = 1, width = 1)
+```
+
+```{r cleanup, include = FALSE}
+file.remove("anthus_aco.fas")
+```

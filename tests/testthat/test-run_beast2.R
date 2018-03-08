@@ -270,6 +270,15 @@ test_that("Run BD tree prior", {
 # Tree prior: CBS
 ################################################################################
 
+test_that("Run CBP", {
+
+  lines <- create_beast2_input(
+    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_cbs_tree_prior(group_sizes_dimension = 4)
+  )
+  testthat::expect_true(are_beast2_input_lines(lines))
+})
+
 ################################################################################
 # Tree prior: CCP
 ################################################################################

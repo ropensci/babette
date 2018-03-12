@@ -7,7 +7,7 @@ test_that("use", {
     c("test_output_0")
   )
   testthat::expect_equal(
-    babette:::get_alignment_ids(xml_filename = get_babette_path("anthus_2_4.xml")),
+    babette:::get_alignment_ids(get_babette_path("anthus_2_4.xml")),
     c("Anthus_nd2", "Anthus_aco")
   )
 

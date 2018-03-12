@@ -113,7 +113,9 @@ test_that("use, two alignments, estimated crown ages", {
 
   testthat::expect_silent(
     out <- run(
-      fasta_filenames = get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+      fasta_filenames = get_babette_paths(
+        c("anthus_aco.fas", "anthus_nd2.fas")
+      ),
       mcmc = create_mcmc(chain_length = 2000, store_every = 1000)
     )
   )

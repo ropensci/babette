@@ -93,7 +93,9 @@ Do a full BEAST2 run
 
  # Two alignments
  out <- run(
-   fasta_filenames = get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+   fasta_filenames = get_babette_paths(
+     c("anthus_aco.fas", "anthus_nd2.fas")
+   ),
    mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
  )
 

@@ -1,12 +1,12 @@
-context("run_beast2")
+context("run")
 
 test_that("use, one alignment", {
 
   out <- NA
 
   testthat::expect_silent(
-    out <- run_beast2(
-      fasta_filenames = get_path("anthus_aco.fas"),
+    out <- run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 2000, store_every = 1000)
     )
   )
@@ -42,8 +42,8 @@ test_that("use, one alignment", {
 test_that("use, one alignment, verbose, cleanup", {
 
   testthat::expect_output(
-    run_beast2(
-      fasta_filenames = get_path("anthus_aco.fas"),
+    run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
       verbose = TRUE
     )
@@ -52,7 +52,7 @@ test_that("use, one alignment, verbose, cleanup", {
 
 test_that("use, one alignment, verbose, no cleanup", {
 
-  fasta_filenames <- get_path("anthus_aco.fas")
+  fasta_filenames <- get_babette_path("anthus_aco.fas")
   beast2_input_filename <- "tmp_beast2.xml"
   beast2_output_log_filename <- "tmp_beast2.log"
   beast2_output_trees_filenames <- paste0(
@@ -66,7 +66,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   testit::assert(!file.exists(beast2_output_state_filename))
 
   testthat::expect_output(
-    run_beast2(
+    run(
       fasta_filenames = fasta_filenames,
       mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
       beast2_input_filename = beast2_input_filename,
@@ -93,13 +93,13 @@ test_that("use, one alignment, verbose, no cleanup", {
 test_that("use, one alignment, same RNG should give same results", {
 
   rng_seed <- 42
-  out_1 <- run_beast2(
-    fasta_filenames = get_path("anthus_aco.fas"),
+  out_1 <- run(
+    fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
     rng_seed = rng_seed
   )
-  out_2 <- run_beast2(
-    fasta_filenames = get_path("anthus_aco.fas"),
+  out_2 <- run(
+    fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
     rng_seed = rng_seed
   )
@@ -112,8 +112,8 @@ test_that("use, two alignments, estimated crown ages", {
   out <- NA
 
   testthat::expect_silent(
-    out <- run_beast2(
-      fasta_filenames = get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+    out <- run(
+      fasta_filenames = get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
       mcmc = create_mcmc(chain_length = 2000, store_every = 1000)
     )
   )
@@ -156,8 +156,8 @@ test_that("use, two alignments, estimated crown ages", {
 test_that("abuse", {
 
   testthat::expect_error(
-    run_beast2(
-      fasta_filenames = get_path("anthus_aco.fas"),
+    run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
       beast2_output_trees_filenames = c("too", "many")
     ),
     "Must have as much FASTA filenames as BEAST2 output trees fileanames"
@@ -340,8 +340,8 @@ test_that("Run MRCA, MRCA distr", {
 
 test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
-  input_fasta_filename_1 <- get_path("anthus_aco.fas")
-  input_fasta_filename_2 <- get_path("anthus_nd2.fas")
+  input_fasta_filename_1 <- get_babette_path("anthus_aco.fas")
+  input_fasta_filename_2 <- get_babette_path("anthus_nd2.fas")
   input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_jc69_site_model()
   site_model_2 <- create_jc69_site_model()
@@ -359,8 +359,8 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
 test_that("TN93 TN93 strict strict yule", {
 
-  input_fasta_filename_1 <- get_path("anthus_aco.fas")
-  input_fasta_filename_2 <- get_path("anthus_nd2.fas")
+  input_fasta_filename_1 <- get_babette_path("anthus_aco.fas")
+  input_fasta_filename_2 <- get_babette_path("anthus_nd2.fas")
   input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_tn93_site_model()
   site_model_2 <- create_tn93_site_model()
@@ -380,8 +380,8 @@ test_that("TN93 TN93 strict strict yule", {
 
 test_that("GTR GTR strict strict yule", {
 
-  input_fasta_filename_1 <- get_path("anthus_aco.fas")
-  input_fasta_filename_2 <- get_path("anthus_nd2.fas")
+  input_fasta_filename_1 <- get_babette_path("anthus_aco.fas")
+  input_fasta_filename_2 <- get_babette_path("anthus_nd2.fas")
   input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_gtr_site_model()
   site_model_2 <- create_gtr_site_model()
@@ -400,8 +400,8 @@ test_that("GTR GTR strict strict yule", {
 
 test_that("GTR TN93 strict strict yule", {
 
-  input_fasta_filename_1 <- get_path("anthus_aco.fas")
-  input_fasta_filename_2 <- get_path("anthus_nd2.fas")
+  input_fasta_filename_1 <- get_babette_path("anthus_aco.fas")
+  input_fasta_filename_2 <- get_babette_path("anthus_nd2.fas")
   input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_gtr_site_model()
   site_model_2 <- create_tn93_site_model()
@@ -419,7 +419,7 @@ test_that("GTR TN93 strict strict yule", {
 
 test_that("JC69 JC69 strict relaxed_log_normal Yule", {
 
-  input_filenames <- get_paths(
+  input_filenames <- get_babette_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   site_model_1 <- create_jc69_site_model()

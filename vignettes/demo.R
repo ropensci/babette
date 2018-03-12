@@ -15,8 +15,8 @@ mcmc = create_mcmc(
 )
 
 ## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2(
-  get_path("anthus_aco.fas"),
+out <- run(
+  get_babette_path("anthus_aco.fas"),
   mcmc = mcmc
 )
 
@@ -49,8 +49,8 @@ knitr::kable(sum_stats)
 plot_densitree(out$anthus_aco_trees, width = 2)
 
 ## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2(
-  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+out <- run(
+  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
   mcmc = mcmc
 )
 
@@ -80,8 +80,8 @@ plot_densitree(out$anthus_aco_trees, width = 2)
 plot_densitree(out$anthus_nd2_trees, width = 2)
 
 ## ----cache=TRUE----------------------------------------------------------
-out <- run_beast2(
-  get_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+out <- run(
+  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
   mcmc = mcmc,
   posterior_crown_age = 15
 )

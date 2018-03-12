@@ -17,11 +17,11 @@ knitr::opts_chunk$set(
 ```
 
 ```{r create_files, include = FALSE}
-file.copy(babette::get_path("anthus_aco_sub.fas"), "test_output_0.fas")
-file.copy(babette::get_path("anthus_aco_sub.fas"), "my_fasta.fas")
-file.copy(babette::get_path("anthus_aco_sub.fas"), "my_alignment.fas")
-file.copy(babette::get_path("anthus_aco_sub.fas"), "anthus_aco.fas")
-file.copy(babette::get_path("anthus_nd2_sub.fas"), "anthus_nd2.fas")
+file.copy(babette::get_babette_path("anthus_aco_sub.fas"), "test_output_0.fas")
+file.copy(babette::get_babette_path("anthus_aco_sub.fas"), "my_fasta.fas")
+file.copy(babette::get_babette_path("anthus_aco_sub.fas"), "my_alignment.fas")
+file.copy(babette::get_babette_path("anthus_aco_sub.fas"), "anthus_aco.fas")
+file.copy(babette::get_babette_path("anthus_nd2_sub.fas"), "anthus_nd2.fas")
 ```
 
 This vignette does the same as the code in 
@@ -33,7 +33,7 @@ mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 ```
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   fasta_filenames = "anthus_aco.fas", 
   mcmc = mcmc
 )
@@ -41,7 +41,7 @@ out <- run_beast2(
 
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   "anthus_aco.fas",
   site_models = create_hky_site_model(),
   clock_models = create_rln_clock_model(),
@@ -52,7 +52,7 @@ out <- run_beast2(
 
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   site_models = list(
     create_tn93_site_model(), 
@@ -63,7 +63,7 @@ out <- run_beast2(
 ```
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr()    
@@ -73,7 +73,7 @@ out <- run_beast2(
 ```
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr(
@@ -85,7 +85,7 @@ out <- run_beast2(
 ```
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   "anthus_aco.fas",
   posterior_crown_age = 15,
   mcmc = mcmc
@@ -93,7 +93,7 @@ out <- run_beast2(
 ```
 
 ```{r cache=FALSE}
-out <- run_beast2(
+out <- run(
   "anthus_aco.fas",
   mrca_priors = create_mrca_prior(
     alignment_id = get_alignment_id("anthus_aco.fas"),

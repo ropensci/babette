@@ -1,4 +1,5 @@
-#' Do a full BEAST2 run
+#' Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
+#'   parse results (like Tracer)
 #' @param fasta_filenames one or more FASTA filename, eachwith one alignment
 #' @param site_models one or more site models,
 #'   see \link[beautier]{create_site_models}

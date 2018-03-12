@@ -335,6 +335,21 @@ test_that("Run MRCA, MRCA distr", {
   testthat::expect_true(are_beast2_input_lines(lines))
 })
 
+test_that("Run MRCA, no distr, subset of taxa", {
+
+  fasta_filename <- get_fasta_filename()
+  set.seed(0)
+  taxa_names <- sample(x = get_taxa_names(fasta_filename), size = 2)
+
+  lines <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    mrca_priors = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = taxa_names
+    )
+  )
+  testthat::expect_true(are_beast2_input_lines(lines))
+})
 
 ################################################################################
 # Initial phylogenies

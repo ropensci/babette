@@ -7,7 +7,7 @@ Description: babette gives full control of BEAST2 from R.
   babette can create BEAST2 XML input files. 
   babette can run BEAST2 with those input file.
   babette can parse the results of that BEAST2 run.
-License: file LICENSE
+License: GPL-3 | file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr

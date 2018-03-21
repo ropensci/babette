@@ -101,13 +101,13 @@ run <- function(
   mrca_priors = NA,
   mcmc = beautier::create_mcmc(),
   posterior_crown_age = NA,
-  beast2_input_filename = "beast2.xml",
+  beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
   rng_seed = 1,
-  beast2_output_log_filename = "beast2.log",
+  beast2_output_log_filename = tempfile(pattern = "beast2_", fileext = "log"),
   beast2_output_trees_filenames = paste0(
     beautier::get_ids(fasta_filenames), ".trees"
   ),
-  beast2_output_state_filename = "beast2.xml.state",
+  beast2_output_state_filename = tempfile(pattern = "beast2_", fileext = ".xml.state"),
   beast2_jar_path = beastier::get_default_beast2_jar_path(),
   verbose = FALSE,
   cleanup = TRUE

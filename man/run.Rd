@@ -13,10 +13,10 @@ run(fasta_filenames,
   posterior_crown_age = NA, beast2_input_filename = tempfile(pattern =
   "beast2_", fileext = ".xml"), rng_seed = 1,
   beast2_output_log_filename = tempfile(pattern = "beast2_", fileext = "log"),
-  beast2_output_trees_filenames = paste0(beautier::get_ids(fasta_filenames),
-  ".trees"), beast2_output_state_filename = tempfile(pattern = "beast2_",
-  fileext = ".xml.state"),
-  beast2_jar_path = beastier::get_default_beast2_jar_path(),
+  beast2_output_trees_filenames = tempfile(pattern = paste0("beast2_",
+  beautier::get_ids(fasta_filenames), "_"), fileext = ".trees"),
+  beast2_output_state_filename = tempfile(pattern = "beast2_", fileext =
+  ".xml.state"), beast2_jar_path = beastier::get_default_beast2_jar_path(),
   verbose = FALSE, cleanup = TRUE)
 }
 \arguments{

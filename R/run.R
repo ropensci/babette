@@ -153,7 +153,7 @@ run <- function(
     if (verbose == TRUE) {
       print(
         paste(
-          "Removing files: ", beast2_input_filename, beast2_output_log_filename,
+          "Removing files:", beast2_input_filename, beast2_output_log_filename,
           beast2_output_trees_filenames, beast2_output_state_filename
         )
       )
@@ -170,11 +170,14 @@ run <- function(
     if (verbose == TRUE) {
       print(
         paste(
-          "Keeping files: ", beast2_input_filename, beast2_output_log_filename,
+          "Keeping files:", beast2_input_filename, beast2_output_log_filename,
           beast2_output_trees_filenames, beast2_output_state_filename
         )
       )
     }
   }
+  new_names <- names(out)
+  new_names[1:length(fasta_filenames)] <- paste0(beautier::get_ids(fasta_filenames), "_trees")
+  names(out) <- new_names
   out
 }

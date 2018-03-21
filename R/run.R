@@ -179,7 +179,9 @@ run <- function(
     }
   }
   new_names <- names(out)
-  new_names[1:length(fasta_filenames)] <- paste0(beautier::get_ids(fasta_filenames), "_trees")
+  new_names[1:length(fasta_filenames)] <- paste0(
+    beautier::get_ids(fasta_filenames), "_trees"
+  )
   names(out) <- new_names
   out
 }

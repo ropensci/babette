@@ -108,7 +108,9 @@ run <- function(
     pattern = paste0("beast2_", beautier::get_ids(fasta_filenames), "_"),
     fileext = ".trees"
   ),
-  beast2_output_state_filename = tempfile(pattern = "beast2_", fileext = ".xml.state"),
+  beast2_output_state_filename = tempfile(
+    pattern = "beast2_", fileext = ".xml.state"
+  ),
   beast2_jar_path = beastier::get_default_beast2_jar_path(),
   verbose = FALSE,
   cleanup = TRUE

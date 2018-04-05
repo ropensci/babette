@@ -5,3 +5,4 @@
 ^scripts$
 ^\.travis\.yml$
 ^CONTRIBUTING\.md$
+^NEWS\.md$

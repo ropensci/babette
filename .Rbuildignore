@@ -4,5 +4,6 @@
 ^doc$
 ^scripts$
 ^\.travis\.yml$
+^install_beast2$
 ^CONTRIBUTING\.md$
 ^NEWS\.md$

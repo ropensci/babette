@@ -1,6 +1,7 @@
-#' Get the alignment ID from a file with one alignment
+#' Get the alignment IDs from a file with one alignment
 #' @param xml_filename name of a BEAST2 XML input filename
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 get_alignment_ids <- function(
   xml_filename
 ) {

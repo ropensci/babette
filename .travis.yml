@@ -22,16 +22,17 @@ before_script:
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
   - sudo pip install proselint
-  # markdown-link-check
-  - sudo apt-get install npm
-  - sudo npm install -g markdown-link-check
+  # markdown-link-check, temporarily disabled due to CERT_UNTRUSTED
+  #- sudo apt-get install npm
+  #- sudo npm install -g markdown-link-check
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
-  - ./scripts/check_dead_links
+  # temporarily disabled due to CERT_UNTRUSTED
+  #- ./scripts/check_dead_links
 
 after_failure:
   # - sudo Rscript install_this_r_package.R

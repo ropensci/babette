@@ -3,10 +3,16 @@ Title: control BEAST2 from R
 Version: 1.2
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
-Description: babette gives full control of BEAST2 from R.
-  babette can create BEAST2 XML input files. 
-  babette can run BEAST2 with those input file.
-  babette can parse the results of that BEAST2 run.
+Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
+  Bayesian phylogenetic tool, that uses DNA/RNA/protein data
+  and many model priors to create a posterior of jointly estimated 
+  phylogenies and parameters.
+  'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), 
+  'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> 
+  and Densitree (<http://www.beast2.org>).
+  'babette' provides for an alternative workflow of using 
+  all these tools seperately. This allows doing complex Bayesian
+  phylogenetics easily and reproducibly from R. 
 License: GPL-3 | file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1

@@ -7,7 +7,7 @@ test_that("use, one alignment", {
   testthat::expect_silent(
     out <- run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc(chain_length = 2000, store_every = 1000)
+      mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
     )
   )
 
@@ -44,7 +44,7 @@ test_that("use, one alignment, verbose, cleanup", {
   testthat::expect_output(
     run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
+      mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       verbose = TRUE
     )
   )
@@ -68,7 +68,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   testthat::expect_output(
     run(
       fasta_filenames = fasta_filenames,
-      mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
+      mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       beast2_input_filename = beast2_input_filename,
       beast2_output_log_filename = beast2_output_log_filename,
       beast2_output_trees_filenames = beast2_output_trees_filenames,
@@ -95,12 +95,12 @@ test_that("use, one alignment, same RNG should give same results", {
   rng_seed <- 42
   out_1 <- run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
+    mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
   )
   out_2 <- run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc(chain_length = 2000, store_every = 1000),
+    mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
   )
   testthat::expect_identical(out_1, out_2)
@@ -116,7 +116,7 @@ test_that("use, two alignments, estimated crown ages", {
       fasta_filenames = get_babette_paths(
         c("anthus_aco.fas", "anthus_nd2.fas")
       ),
-      mcmc = create_mcmc(chain_length = 2000, store_every = 1000)
+      mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
     )
   )
   testthat::expect_true("estimates" %in% names(out))
@@ -460,7 +460,7 @@ test_that("use, one alignment, plot with nLTT", {
   skip("Expose bug")
   out <- run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc(chain_length = 2000, store_every = 1000)
+    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
   )
   testthat::expect_silent(
     nLTT::nltts_plot(out$anthus_aco_trees)

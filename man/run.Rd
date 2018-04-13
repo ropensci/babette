@@ -68,14 +68,14 @@ Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
  # One alignment
  out <- run(
    fasta_filenames = get_babette_path("anthus_aco.fas"),
-   mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
+   mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
  )
 
  testit::assert("estimates" \%in\% names(out))
  testit::assert("anthus_aco_trees" \%in\% names(out))
  testit::assert("operators" \%in\% names(out))
  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
- testit::assert(length(out$anthus_aco_trees) == 10)
+ testit::assert(length(out$anthus_aco_trees) == 2)
 
  testit::assert("Sample" \%in\% names(out$estimates))
  testit::assert("posterior" \%in\% names(out$estimates))
@@ -100,7 +100,7 @@ Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
    fasta_filenames = get_babette_paths(
      c("anthus_aco.fas", "anthus_nd2.fas")
    ),
-   mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
+   mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
  )
 
  testit::assert("estimates" \%in\% names(out))
@@ -109,8 +109,8 @@ Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
  testit::assert("operators" \%in\% names(out))
  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
  testit::assert(class(out$anthus_nd2_trees[[1]]) == "phylo")
- testit::assert(length(out$anthus_aco_trees) == 10)
- testit::assert(length(out$anthus_nd2_trees) == 10)
+ testit::assert(length(out$anthus_aco_trees) == 2)
+ testit::assert(length(out$anthus_nd2_trees) == 2)
 
  testit::assert("Sample" \%in\% names(out$estimates))
  testit::assert("posterior" \%in\% names(out$estimates))

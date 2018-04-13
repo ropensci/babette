@@ -77,8 +77,10 @@ plot_densitree(phylos = out_fca$anthus_aco_trees, alpha = 1, width = 1)
 plot_densitree(phylos = out_cn$anthus_aco_trees, alpha = 1, width = 1)
 
 ## ------------------------------------------------------------------------
-nLTT::nltts_plot(out_fca$anthus_aco_trees, plot_nltts = TRUE, main = "Fixed crown age")
-nLTT::nltts_plot(out_cn$anthus_aco_trees, plot_nltts = TRUE, main = "Calibration node")
+if ("bug" == "fixed") {
+  nLTT::nltts_plot(out_fca$anthus_aco_trees, plot_nltts = TRUE, main = "Fixed crown age")
+  nLTT::nltts_plot(out_cn$anthus_aco_trees, plot_nltts = TRUE, main = "Calibration node")
+}
 
 ## ----cleanup, include = FALSE--------------------------------------------
 file.remove("anthus_aco.fas")

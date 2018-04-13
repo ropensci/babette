@@ -1,9 +1,9 @@
 # babette
 
-Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
----|---|---
-master|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?branch=master)](https://travis-ci.org/richelbilderbeek/babette)|[![codecov.io](https://codecov.io/github/richelbilderbeek/babette/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/babette/branch/master)
-develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/babette)|[![codecov.io](https://codecov.io/github/richelbilderbeek/babette/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/babette/branch/develop)
+Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
+---|---|---|---
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?branch=master)](https://travis-ci.org/richelbilderbeek/babette)|[![Build status](https://ci.appveyor.com/api/projects/status/wy43dnx199ir3n2h/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/babette/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/babette/branch/master)
+develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/babette)|[![Build status](https://ci.appveyor.com/api/projects/status/wy43dnx199ir3n2h/branch/develop?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette/branch/develop)|[![codecov.io](https://codecov.io/github/richelbilderbeek/babette/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/babette/branch/develop)
 
 `babette` is an R package that combines:
 

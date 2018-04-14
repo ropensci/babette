@@ -18,7 +18,8 @@ r_github_packages:
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8
   - sudo apt-get install oracle-java8-set-default
-  - ./scripts/install_beast2
+  - Rscript -e "source(\"R/install_beast2.R\"); install_beast2()"
+  #- ./scripts/install_beast2
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
   - sudo pip install proselint

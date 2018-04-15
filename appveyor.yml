@@ -23,16 +23,13 @@ environment:
 
 build_script:
   - travis-tool.sh install_deps
-  - ./install_beast2
+  - R -e "library(beastier); beastier::install_beast2()"
   - travis-tool.sh install_github richelbilderbeek/tracerer
   - travis-tool.sh install_github richelbilderbeek/beautier
   - travis-tool.sh install_github richelbilderbeek/beastier
   - travis-tool.sh install_github jimhester/covr
   - travis-tool.sh install_github jimhester/lintr
   - travis-tool.sh install_github MangoTheCat/goodpractice
-  - R -e "library(beastier); beastier::install_beast2(\"~/Programs\")"
-  #- Rscript -e "source(\"R/install_beast2.R\"); install_beast2(\"~/Programs\")"
-  #- install_beast2
 
 test_script:
   - travis-tool.sh run_tests

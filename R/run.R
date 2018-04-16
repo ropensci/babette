@@ -118,6 +118,10 @@ run <- function(
   if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
     stop("Must have as much FASTA filenames as BEAST2 output trees fileanames")
   }
+  if (!is.na(rng_seed) && !(rng_seed > 0)) {
+    stop("'rng_seed' should be NA or non-zero positive")
+  }
+
   beautier::create_beast2_input_file(
     input_filenames = fasta_filenames,
     site_models = site_models,

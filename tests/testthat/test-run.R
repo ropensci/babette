@@ -457,10 +457,13 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
 
 test_that("use, one alignment, plot with nLTT", {
 
-  skip("Expose bug")
+  skip("Expose bug, https://github.com/richelbilderbeek/babette/issues/10")
   out <- run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+  )
+  testit::assert(
+    all(grepl(pattern = "STATE_", x = names(out$anthus_aco_trees)) == FALSE)
   )
   testthat::expect_silent(
     nLTT::nltts_plot(out$anthus_aco_trees)

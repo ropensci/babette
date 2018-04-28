@@ -2,7 +2,7 @@
 
 ## Which version of BEAUti do you use as a guideline?
 
-Version 2.4.7.
+Version 2.4.8.
 
 ## How to install BEAST2?
 
@@ -69,3 +69,19 @@ Correct. This is a feature of BEAST2, which I assume is right.
 Use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR) for tip-dating analyses using fossils as dated terminal taxa.
 
 Use [RBeast](https://github.com/beast-dev/RBeast) for other things.
+
+## Why the logo?
+
+Initially, the logo was a low-tech remake of Babette, a maid in Beauty and the Beast. 
+To prevent problems with Disney, a different logo was picked.
+
+The current logo shows a swan, an animal considered to be graceful.
+The swan is drawn by Jose Scholten, who kindly allowed her work to
+be used for free, by attribution.
+
+## How did you convert the fuzzy white background to one single color?
+
+```
+convert swan.png -fuzz 15% -fill white -opaque white swan_mono_background.png
+convert swan_mono_background.png -background white -alpha remove swan_mono_background_2.png
+```

@@ -6,7 +6,9 @@ Version 2.4.8.
 
 ## How to install BEAST2?
 
-See [how to install BEAST2](https://github.com/richelbilderbeek/beastier/blob/master/install_beast2.md).
+```
+beastier::install_beast2()
+```
 
 ## What's the road map?
 

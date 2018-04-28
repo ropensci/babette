@@ -470,3 +470,14 @@ test_that("use, one alignment, plot with nLTT", {
   )
 
 })
+
+test_that("abus", {
+
+  testthat::expect_error(
+    run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      rng_seed = 0 # Error here
+    ),
+    "'rng_seed' should be NA or non-zero positive"
+  )
+})

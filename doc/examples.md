@@ -38,6 +38,31 @@ posterior <- run_beast2(
 )
 ```
 
+An alternative is to date the node of the most recent common ancestor
+of all taxa:
+
+![Example #2: using a MRCA to specify a crown age](mrca_crown_age.png)
+
+```{r example_2_mrca, cache=FALSE}
+posterior <- run(
+  "my_fasta.fas",
+  mcmc = mcmc,
+  mrca_priors = create_mrca_prior(
+    taxa_names = get_taxa_names("my_fasta.fas"),
+    alignment_id = get_alignment_id("my_fasta.fas"),
+    is_monophyletic = TRUE,
+    mrca_distr = create_normal_distr(
+      mean = create_mean_param(value = 15.0, estimate = FALSE),
+      sigma = create_sigma_param(value = 0.025, estimate = FALSE)
+    )
+  )
+)
+```
+
+Here we use an MRCA prior with fixed (non-estimated) values of the mean
+and standard deviation for the common ancestor node's time.
+
+
 ## Example #3: JC69 site model
 
 ![Example #3: JC69 site model](jc69_2_4.png)

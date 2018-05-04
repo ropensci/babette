@@ -53,7 +53,7 @@ For a reliable inference, use an ESS of at least 200.
 ## One alignment
 
 ```{r cache=TRUE}
-out <- run(
+out <- bbt_run(
   get_babette_path("anthus_aco.fas"),
   mcmc = mcmc
 )
@@ -100,7 +100,7 @@ plot_densitree(out$anthus_aco_trees, width = 2)
 ## Two alignments
 
 ```{r cache=TRUE}
-out <- run(
+out <- bbt_run(
   get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
   mcmc = mcmc
 )
@@ -142,7 +142,7 @@ plot_densitree(out$anthus_nd2_trees, width = 2)
 ## Two alignments, fixed crown age
 
 ```{r cache=TRUE}
-out <- run(
+out <- bbt_run(
   get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
   mcmc = mcmc,
   posterior_crown_age = 15

@@ -28,7 +28,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # One alignment
-#'  out <- run(
+#'  out <- bbt_run(
 #'    fasta_filenames = get_babette_path("anthus_aco.fas"),
 #'    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
 #'  )
@@ -58,7 +58,7 @@
 #'  testit::assert("rejectOp" %in% names(out$operators))
 #'
 #'  # Two alignments
-#'  out <- run(
+#'  out <- bbt_run(
 #'    fasta_filenames = get_babette_paths(
 #'      c("anthus_aco.fas", "anthus_nd2.fas")
 #'    ),
@@ -90,7 +90,7 @@
 #'   to remove the burn-ins from
 #'   the posterior's estimates (\code{posterior$estimates})
 #' @export
-run <- function(
+bbt_run <- function(
   fasta_filenames,
   site_models = beautier::create_jc69_site_models(
     beautier::get_ids(fasta_filenames)),

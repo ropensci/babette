@@ -16,13 +16,13 @@ library(babette)
 mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   fasta_filenames = "anthus_aco.fas", 
   mcmc = mcmc
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   "anthus_aco.fas",
   site_models = create_hky_site_model(),
   clock_models = create_rln_clock_model(),
@@ -31,7 +31,7 @@ out <- run(
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   site_models = list(
     create_tn93_site_model(), 
@@ -41,7 +41,7 @@ out <- run(
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr()    
@@ -50,7 +50,7 @@ out <- run(
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr(
@@ -61,14 +61,14 @@ out <- run(
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   "anthus_aco.fas",
   posterior_crown_age = 15,
   mcmc = mcmc
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out <- run(
+out <- bbt_run(
   "anthus_aco.fas",
   mrca_priors = create_mrca_prior(
     alignment_id = get_alignment_id("anthus_aco.fas"),

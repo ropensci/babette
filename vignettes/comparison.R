@@ -18,14 +18,14 @@ crown_age <- 15
 fasta_filename <- "anthus_aco.fas"
 
 ## ----cache=FALSE---------------------------------------------------------
-out_fca <- run(
+out_fca <- bbt_run(
   fasta_filename,
   posterior_crown_age = crown_age,
   mcmc = mcmc
 )
 
 ## ----cache=FALSE---------------------------------------------------------
-out_cn <- run(
+out_cn <- bbt_run(
   fasta_filename,
   mrca_priors = create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename),

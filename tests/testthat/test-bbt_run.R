@@ -1,11 +1,11 @@
-context("run")
+context("bbt_run")
 
 test_that("use, one alignment", {
 
   out <- NA
 
   testthat::expect_silent(
-    out <- run(
+    out <- bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
     )
@@ -42,7 +42,7 @@ test_that("use, one alignment", {
 test_that("use, one alignment, verbose, cleanup", {
 
   testthat::expect_output(
-    run(
+    bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       verbose = TRUE
@@ -66,7 +66,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   testit::assert(!file.exists(beast2_output_state_filename))
 
   testthat::expect_output(
-    run(
+    bbt_run(
       fasta_filenames = fasta_filenames,
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       beast2_input_filename = beast2_input_filename,
@@ -93,12 +93,12 @@ test_that("use, one alignment, verbose, no cleanup", {
 test_that("use, one alignment, same RNG should give same results", {
 
   rng_seed <- 42
-  out_1 <- run(
+  out_1 <- bbt_run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
   )
-  out_2 <- run(
+  out_2 <- bbt_run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
@@ -112,7 +112,7 @@ test_that("use, two alignments, estimated crown ages", {
   out <- NA
 
   testthat::expect_silent(
-    out <- run(
+    out <- bbt_run(
       fasta_filenames = get_babette_paths(
         c("anthus_aco.fas", "anthus_nd2.fas")
       ),
@@ -158,7 +158,7 @@ test_that("use, two alignments, estimated crown ages", {
 test_that("abuse", {
 
   testthat::expect_error(
-    run(
+    bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       beast2_output_trees_filenames = c("too", "many")
     ),
@@ -458,7 +458,7 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
 test_that("use, one alignment, plot with nLTT", {
 
   skip("Expose bug, https://github.com/richelbilderbeek/babette/issues/10")
-  out <- run(
+  out <- bbt_run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
   )
@@ -474,7 +474,7 @@ test_that("use, one alignment, plot with nLTT", {
 test_that("abus", {
 
   testthat::expect_error(
-    run(
+    bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       rng_seed = 0 # Error here
     ),

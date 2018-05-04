@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette 1.2.3 (2018-05-04)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Renamed `run` to `bbt_run` to reduce conflicts with other packages
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 1.2.2 (2018-04-05)
 
 ### NEW FEATURES

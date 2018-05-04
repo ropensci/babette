@@ -2,7 +2,7 @@ context("plot_densitree")
 
 test_that("use", {
 
-  out <- run(
+  out <- bbt_run(
     get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
   )

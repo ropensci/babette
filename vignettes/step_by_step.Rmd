@@ -1,0 +1,128 @@
+---
+title: "babette: Step by Step"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{babette: Step by Step}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This demo shows how to run the `babette` pipeline step by step.
+
+The `babette` demo shows how to use `babette` at its highest level:
+all intermediate steps are ignored, and all intermediate files are put
+in a temporary folder.
+
+```{r load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE}
+library(babette)
+```
+
+In all cases, this is done for a short MCMC chain length of 10K:
+
+```{r}
+sample_interval <- 1000
+mcmc <- create_mcmc(
+  chain_length = 10000, 
+  store_every = sample_interval
+)
+```
+
+## Create a BEAST2 input file
+
+This step is commonly done using BEAUti. 
+With `babette`, this can be done as follows:
+
+```{r}
+beast2_input_file <- tempfile(fileext = ".xml")
+create_beast2_input_file(
+  get_babette_path("anthus_aco.fas"),
+  output_filename = beast2_input_file,
+  mcmc = mcmc
+)
+testit::assert(file.exists(beast2_input_file))
+```
+
+## Display (part of) the BEAST2 input file
+
+```{r}
+print(head(readLines(beast2_input_file)))
+```
+
+This file can both be loaded by BEAUti and be used by BEAST2.
+
+## Run MCMC
+
+This step is commonly done using BEAST2 from the command-line or using its GUI. 
+With `babette`, this can be done as follows:
+
+```{r}
+log_filename <- tempfile(fileext = ".log")
+trees_filename <- tempfile(fileext = "trees")
+state_filename <- tempfile(fileext = ".xml.state")
+run_beast2(
+  input_filename = beast2_input_file,
+  output_log_filename = log_filename,
+  output_trees_filenames = trees_filename,
+  output_state_filename = state_filename
+)
+testit::assert(file.exists(log_filename))
+testit::assert(file.exists(trees_filename))
+testit::assert(file.exists(state_filename))
+
+```
+
+## Display (part of) the BEAST2 output files
+
+The `.log` file contains the model parameters and parameter estimates:
+
+```{r}
+print(head(readLines(log_filename)))
+print(tail(readLines(log_filename)))
+```
+
+The `.trees` file contains the alignment, taxa and posterior trees:
+
+```{r}
+print(head(readLines(trees_filename)))
+print(tail(readLines(trees_filename)))
+```
+
+The `.xml.state` file contains the final state of the MCMC run and the
+MCMC operator acceptances thus far: 
+
+```{r}
+print(head(readLines(state_filename)))
+print(tail(readLines(state_filename)))
+```
+
+## Parse output
+
+This step is commonly done using Tracer. 
+With `babette`, this can be done as follows.
+
+Parsing `.log` file to obtain the parameter estimates:
+
+```{r}
+knitr::kable(head(parse_beast_log(log_filename)))
+```
+
+Parsing `.trees` file to obtain the posterior phylogenies:
+
+```{r fig.width = 7, fig.height = 7}
+plot_densitree(parse_beast_trees(trees_filename))
+```
+
+Parsing `.xml.state` file to obtain the MCMC operator acceptances:
+
+```{r}
+knitr::kable(head(parse_beast_state_operators(state_filename)))
+```

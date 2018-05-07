@@ -42,7 +42,7 @@ In all cases, this is done for a short MCMC chain length of 10K:
 
 ```{r}
 sample_interval <- 1000
-mcmc = create_mcmc(
+mcmc <- create_mcmc(
   chain_length = 10000, 
   store_every = sample_interval
 )

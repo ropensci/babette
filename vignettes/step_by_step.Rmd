@@ -59,6 +59,12 @@ print(head(readLines(beast2_input_file)))
 
 This file can both be loaded by BEAUti and be used by BEAST2.
 
+The file can be checked if it is indeed a valid input file:
+
+```{r}
+testit::assert(is_beast2_input_file(beast2_input_file))
+```
+
 ## Run MCMC
 
 This step is commonly done using BEAST2 from the command-line or using its GUI. 

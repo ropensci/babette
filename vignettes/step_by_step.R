@@ -27,6 +27,9 @@ testit::assert(file.exists(beast2_input_file))
 print(head(readLines(beast2_input_file)))
 
 ## ------------------------------------------------------------------------
+testit::assert(is_beast2_input_file(beast2_input_file))
+
+## ------------------------------------------------------------------------
 log_filename <- tempfile(fileext = ".log")
 trees_filename <- tempfile(fileext = "trees")
 state_filename <- tempfile(fileext = ".xml.state")

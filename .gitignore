@@ -41,3 +41,4 @@ vignettes/*.fas
 vignettes/article_cache/
 vignettes/article_files/
 anthus_aco.log
+my_beast2_input.xml

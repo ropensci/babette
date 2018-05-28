@@ -53,12 +53,10 @@ test_that("use, one alignment, verbose, cleanup", {
 test_that("use, one alignment, verbose, no cleanup", {
 
   fasta_filenames <- get_babette_path("anthus_aco.fas")
-  beast2_input_filename <- "tmp_beast2.xml"
-  beast2_output_log_filename <- "tmp_beast2.log"
-  beast2_output_trees_filenames <- paste0(
-    beautier::get_ids(fasta_filenames), "_tmp.trees"
-  )
-  beast2_output_state_filename <- "tmp_beast2.xml.state"
+  beast2_input_filename <-tempfile(fileext = ".xml")
+  beast2_output_log_filename <- tempfile(fileext = ".log")
+  beast2_output_trees_filenames <- tempfile(pattern = beautier::get_ids(fasta_filenames), fileext = ".xml")
+  beast2_output_state_filename <- tempfile(fileext = ".xml.state")
 
   testit::assert(!file.exists(beast2_input_filename))
   testit::assert(!file.exists(beast2_output_log_filename))
@@ -81,13 +79,6 @@ test_that("use, one alignment, verbose, no cleanup", {
   testthat::expect_true(file.exists(beast2_output_log_filename))
   testthat::expect_true(file.exists(beast2_output_trees_filenames))
   testthat::expect_true(file.exists(beast2_output_state_filename))
-
-  file.remove(beast2_input_filename)
-  file.remove(beast2_output_log_filename)
-  file.remove(beast2_output_trees_filenames)
-  file.remove(beast2_output_state_filename)
-
-
 })
 
 test_that("use, one alignment, same RNG should give same results", {

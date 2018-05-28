@@ -17,25 +17,12 @@ library(babette)
 ## ------------------------------------------------------------------------
 mcmc <- create_mcmc(chain_length = 10000, store_every = 1000)
 
-## ----example_1, cache=TRUE-----------------------------------------------
-posterior <- bbt_run(
-  "test_output_0.fas",
-  mcmc = mcmc
-)
-
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$test_output_0_trees, width = 2)
-
-## ----example_2, cache=TRUE-----------------------------------------------
-posterior <- bbt_run(
-  "my_fasta.fas",
-  posterior_crown_age = 15,
-  mcmc = mcmc
-)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
@@ -65,13 +52,6 @@ ggplot2::ggplot(
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$my_fasta_trees, width = 2)
-
-## ----example_3, cache=TRUE-----------------------------------------------
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_models = create_jc69_site_model(),
-  mcmc = mcmc
-)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(

@@ -10,15 +10,15 @@
 #' These are packages associated with 'beautier':
 #' \itemize{
 #'   \item{
-#'     The package \link[beautier]{beautier} can create
+#'     The package 'beautier' can create
 #'     BEAST2 input files from R
 #'   }
 #'   \item{
-#'     The package \link[beastier]{beastier} can run
+#'     The package 'beastier' can run
 #'     BEAST2 from R
 #'   }
 #'   \item{
-#'     The package \link[tracerer]{tracerer} can parse
+#'     The package 'tracerer' can parse
 #'     BEAST2 output files from R
 #'   }
 #' }

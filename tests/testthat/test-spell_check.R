@@ -1,6 +1,6 @@
 context("spell_check")
 
-test_that("use", {
+test_that("no spelling errors", {
   ignore <- c(
     "BEAUti",
     "beautier",

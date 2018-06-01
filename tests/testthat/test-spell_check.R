@@ -2,6 +2,7 @@ context("spell_check")
 
 test_that("no spelling errors", {
   ignore <- c(
+    "beastier",
     "BEAUti",
     "beautier",
     "Bilderbeek",
@@ -13,6 +14,7 @@ test_that("no spelling errors", {
     "phylogeny",
     "reproducibly",
     "Richel",
+    "tracerer",
     "uk",
     "www"
   )

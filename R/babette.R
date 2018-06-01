@@ -6,13 +6,22 @@
 #' prior selection, a posterior of jointly estimated
 #' phylogenies and parameter estimates is generated.
 #'
-#' @section babette subpackages:
-#'
-#' 'babette' is mostly a glue between three subpackages:
-#'   * \link[beautier](beautier)
-#'   * beastier
-#'   * tracerer
-#'
+#' @seealso
+#' These are packages associated with 'beautier':
+#' \itemize{
+#'   \item{
+#'     The package \link[beautier]{beautier} can create
+#'     BEAST2 input files from R
+#'   }
+#'   \item{
+#'     The package \link[beastier]{beastier} can run
+#'     BEAST2 from R
+#'   }
+#'   \item{
+#'     The package \link[tracerer]{tracerer} can parse
+#'     BEAST2 output files from R
+#'   }
+#' }
 #' @docType package
 #' @name babette
 NULL

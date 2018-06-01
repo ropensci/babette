@@ -29,6 +29,7 @@ Imports:
 Suggests:
     devtools,
     ggplot2,
+    hunspell,
     knitr,
     lintr,
     nLTT,

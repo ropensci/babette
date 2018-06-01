@@ -2,8 +2,8 @@
 % Please edit documentation in R/bbt_run.R
 \name{bbt_run}
 \alias{bbt_run}
-\title{Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
-  parse results (like Tracer)}
+\title{Do a full run: create a BEAST2 configuration file (like BEAUti 2),
+run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run(fasta_filenames,
   site_models = beautier::create_jc69_site_models(beautier::get_ids(fasta_filenames)),
@@ -20,7 +20,7 @@ bbt_run(fasta_filenames,
   verbose = FALSE, cleanup = TRUE)
 }
 \arguments{
-\item{fasta_filenames}{one or more FASTA filename, eachwith one alignment}
+\item{fasta_filenames}{one or more FASTA filename, each with one alignment}
 
 \item{site_models}{one or more site models,
 see \link[beautier]{create_site_models}}
@@ -52,7 +52,7 @@ containing the parameter estimates in time}
 files created by BEAST2, one per alignment}
 
 \item{beast2_output_state_filename}{name of the final state file created
-by BEAST2, containing the operator acceptences}
+by BEAST2, containing the operator acceptances}
 
 \item{beast2_jar_path}{path to the BEAST2 jar file}
 
@@ -61,8 +61,8 @@ by BEAST2, containing the operator acceptences}
 \item{cleanup}{set to FALSE to keep all temporary files}
 }
 \description{
-Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
-  parse results (like Tracer)
+Do a full run: create a BEAST2 configuration file (like BEAUti 2),
+run BEAST2, parse results (like Tracer)
 }
 \examples{
  # One alignment

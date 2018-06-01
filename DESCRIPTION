@@ -9,9 +9,9 @@ Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
   phylogenies and parameters.
   'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), 
   'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> 
-  and Densitree (<http://www.beast2.org>).
+  and DensiTree (<http://www.beast2.org>).
   'babette' provides for an alternative workflow of using 
-  all these tools seperately. This allows doing complex Bayesian
+  all these tools separately. This allows doing complex Bayesian
   phylogenetics easily and reproducibly from R. 
 License: GPL-3 | file LICENSE
 LazyData: true

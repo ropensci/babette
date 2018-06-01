@@ -119,7 +119,7 @@ knitr::kable(t(sum_stats_fca))
 knitr::kable(t(sum_stats_cn))
 ```
 
-Plot the densitrees:
+Plot the phylogenies:
 
 ```{r cache=FALSE, fig.width=7, fig.height=7}
 plot_densitree(phylos = out_fca$anthus_aco_trees, alpha = 1, width = 1)

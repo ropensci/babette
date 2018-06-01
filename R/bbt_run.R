@@ -1,6 +1,6 @@
-#' Do a full run: create a BEAST2 config file (like BEAUti 2), run BEAST2,
-#'   parse results (like Tracer)
-#' @param fasta_filenames one or more FASTA filename, eachwith one alignment
+#' Do a full run: create a BEAST2 configuration file (like BEAUti 2),
+#' run BEAST2, parse results (like Tracer)
+#' @param fasta_filenames one or more FASTA filename, each with one alignment
 #' @param site_models one or more site models,
 #'   see \link[beautier]{create_site_models}
 #' @param clock_models one or more clock models,
@@ -21,7 +21,7 @@
 #' @param beast2_output_trees_filenames name of the one or more trees
 #'   files created by BEAST2, one per alignment
 #' @param beast2_output_state_filename name of the final state file created
-#'   by BEAST2, containing the operator acceptences
+#'   by BEAST2, containing the operator acceptances
 #' @param beast2_jar_path path to the BEAST2 jar file
 #' @param verbose set to TRUE for more output
 #' @param cleanup set to FALSE to keep all temporary files

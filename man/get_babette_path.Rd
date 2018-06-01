@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_path.R
 \name{get_babette_path}
 \alias{get_babette_path}
-\title{Get the full path of a file in the 'inst/extdata' folder}
+\title{Get the full path of a file in the \code{inst/extdata} folder}
 \usage{
 get_babette_path(filename)
 }
@@ -10,10 +10,10 @@ get_babette_path(filename)
 \item{filename}{the file's name, without the path}
 }
 \value{
-the filename's full path
+the full path of the filename
 }
 \description{
-Get the full path of a file in the 'inst/extdata' folder
+Get the full path of a file in the \code{inst/extdata} folder
 }
 \examples{
   testit::assert(is.character(get_babette_path("anthus_aco.fas")))

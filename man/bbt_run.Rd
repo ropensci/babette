@@ -46,13 +46,22 @@ crown age to that value}
 \item{rng_seed}{the random number generator seed}
 
 \item{beast2_output_log_filename}{name of the log file created by BEAST2,
-containing the parameter estimates in time}
+containing the parameter estimates in time. By default, this temporary
+file is put a default temporary folder and will be cleaned up by the
+operating system. This file is a temporary file, as its content
+is parsed and returned by this function.}
 
 \item{beast2_output_trees_filenames}{name of the one or more trees
-files created by BEAST2, one per alignment}
+files created by BEAST2, one per alignment. By default, these temporary
+files are put a default temporary folder and will be cleaned up by the
+operating system. These files are temporary files, as their content
+is parsed and returned by this function.}
 
 \item{beast2_output_state_filename}{name of the final state file created
-by BEAST2, containing the operator acceptances}
+by BEAST2, containing the operator acceptances. By default, this temporary
+file is put a default temporary folder and will be cleaned up by the
+operating system. This file is a temporary file, as its content
+is parsed and returned by this function.}
 
 \item{beast2_jar_path}{path to the BEAST2 jar file}
 

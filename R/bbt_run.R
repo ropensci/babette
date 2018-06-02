@@ -56,7 +56,7 @@
 #'     BEAST2 MCMC operator acceptances
 #'   }
 #' }
-#' @author Richèl J.C. Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # One alignment
 #'  out <- bbt_run(

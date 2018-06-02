@@ -155,7 +155,7 @@ test_that("abuse", {
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       beast2_output_trees_filenames = c("too", "many")
     ),
-    "Must have as much FASTA filenames as BEAST2 output trees fileanames"
+    "Must have as much FASTA filenames as BEAST2 output trees filenames"
   )
 
 })

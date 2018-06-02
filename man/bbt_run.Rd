@@ -43,7 +43,9 @@ crown age to that value}
 
 \item{beast2_input_filename}{name of the BEAST2 configuration file}
 
-\item{rng_seed}{the random number generator seed}
+\item{rng_seed}{the random number generator seed. Must be either
+\code{NA} or a positive non-zero value. An RNG seed of \code{NA}
+results in BEAST2 picking a random seed.}
 
 \item{beast2_output_log_filename}{name of the log file created by BEAST2,
 containing the parameter estimates in time. By default, this temporary

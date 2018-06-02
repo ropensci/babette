@@ -15,7 +15,9 @@
 #'   BEAST2 estimate this parameter. Use a positive value to fix the
 #'   crown age to that value
 #' @param beast2_input_filename name of the BEAST2 configuration file
-#' @param rng_seed the random number generator seed
+#' @param rng_seed the random number generator seed. Must be either
+#'   \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
+#'   results in BEAST2 picking a random seed.
 #' @param beast2_output_log_filename name of the log file created by BEAST2,
 #'   containing the parameter estimates in time. By default, this temporary
 #'   file is put a default temporary folder and will be cleaned up by the

@@ -60,6 +60,28 @@ by BEAST2, containing the operator acceptances}
 
 \item{cleanup}{set to FALSE to keep all temporary files}
 }
+\value{
+a list with the following elements:\cr
+\itemize{
+  \item{
+    \code{estimates}: a data frame with BEAST2
+    parameter estimates
+  }
+  \item{
+    \code{[alignment_id]_trees}: a \code{multiPhylo}
+    containing the phylogenies
+    in the BEAST2 posterior. \code{[alignment_id]}
+    is the ID of the alignment. For example,
+    when running \code{bbt_run} with
+    \code{anthus_aco.fas}, this element will have
+    name \code{anthus_aco_trees}
+  }
+  \item{
+    \code{operators}: a data frame with the
+    BEAST2 MCMC operator acceptances
+  }
+}
+}
 \description{
 Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 run BEAST2, parse results (like Tracer)
@@ -131,5 +153,5 @@ Use \code{\link[tracerer]{remove_burn_ins}}
   the posterior's estimates (\code{posterior$estimates})
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

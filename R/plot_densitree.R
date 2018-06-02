@@ -2,6 +2,7 @@
 #' @param phylos one or more phylogenies, must be of class \code{multiPhylo}
 #' @param ... options to be passed to \code{phangorn}'s
 #'   \link[phangorn]{densiTree} function
+#' @return nothing. Will produce a plot.
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   out <- bbt_run(

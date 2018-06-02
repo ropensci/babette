@@ -10,7 +10,8 @@ get_babette_paths(filenames)
 \item{filenames}{the files' names, without the path}
 }
 \value{
-the filenames' full paths
+the filenames' full paths, if and only if
+  all files are present. Will stop otherwise.
 }
 \description{
 Get the full paths of files in the 'inst/extdata' folder

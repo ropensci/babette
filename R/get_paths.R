@@ -1,6 +1,7 @@
 #' Get the full paths of files in the 'inst/extdata' folder
 #' @param filenames the files' names, without the path
-#' @return the filenames' full paths
+#' @return the filenames' full paths, if and only if
+#'   all files are present. Will stop otherwise.
 #' @author Richel J.C. Bilderbeek
 #' @seealso for one file, use \code{\link{get_babette_path}}
 #' @examples

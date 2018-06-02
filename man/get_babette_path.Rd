@@ -10,7 +10,8 @@ get_babette_path(filename)
 \item{filename}{the file's name, without the path}
 }
 \value{
-the full path of the filename
+the full path of the filename, if and only if
+  the file is present. Will stop otherwise.
 }
 \description{
 Get the full path of a file in the \code{inst/extdata} folder

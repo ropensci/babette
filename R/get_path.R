@@ -1,6 +1,7 @@
 #' Get the full path of a file in the \code{inst/extdata} folder
 #' @param filename the file's name, without the path
-#' @return the full path of the filename
+#' @return the full path of the filename, if and only if
+#'   the file is present. Will stop otherwise.
 #' @author Richel J.C. Bilderbeek
 #' @seealso for more files, use \code{\link{get_babette_paths}}
 #' @examples

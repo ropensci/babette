@@ -12,6 +12,9 @@ plot_densitree(phylos, ...)
 \item{...}{options to be passed to \code{phangorn}'s
 \link[phangorn]{densiTree} function}
 }
+\value{
+nothing. Will produce a plot.
+}
 \description{
 Calls \code{phangorn}'s \link[phangorn]{densiTree} function
 }

@@ -147,7 +147,7 @@ bbt_run <- function(
   cleanup = TRUE
 ) {
   if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
-    stop("Must have as much FASTA filenames as BEAST2 output trees fileanames")
+    stop("Must have as much FASTA filenames as BEAST2 output trees filenames")
   }
   if (!is.na(rng_seed) && !(rng_seed > 0)) {
     stop("'rng_seed' should be NA or non-zero positive")

@@ -1,0 +1,9 @@
+citHeader("To cite reports in publications, please use:")
+
+citEntry(entry = "manual",
+  title={babette: BEAU ti 2, BEAST 2 and Tracer for R},
+  author={Bilderbeek, Richel JC and Etienne, Rampal S},
+  journal={Methods in Ecology and Evolution},
+  year={2018},
+  publisher={Wiley Online Library}
+)

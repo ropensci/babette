@@ -20,7 +20,9 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?bran
 See:
 
  * [examples](doc/examples.md)
- * [bioRxiv article](https://doi.org/10.1101/271866)
+ * [article](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13032), in 'Methods in Ecology and Evolution'
+ * [blog post](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/) in Methods.Blog
+ * [pre-print article](https://doi.org/10.1101/271866), in bioRxiv
  * ['babette' YouTube channel](https://www.youtube.com/watch?v=nA-0-Fc95xY&list=PLu8_ZyzXyRDFIRx-kdDI5Q6xVr-HnY7TB)
 
 ## Installation

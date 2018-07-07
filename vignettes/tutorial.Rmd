@@ -113,9 +113,9 @@ Picking a site model is easy: just type:
 create_site_model_
 ```
 
-This will trigger autocomplete to show all site models. 
+This will trigger auto-complete to show all site models. 
 
-The simplest site model is the Jukes-Cantor DNA substutition model.
+The simplest site model is the Jukes-Cantor DNA substitution model.
 To use this model in `babette`, do:
 
 ```{r}
@@ -143,7 +143,7 @@ Picking a clock model is easy: just type:
 create_clock_model_
 ```
 
-This will trigger autocomplete to show all clock models. 
+This will trigger auto-complete to show all clock models. 
 
 The simplest site model is the strict clock model.
 To use this model in `babette`, do:
@@ -173,7 +173,7 @@ Picking a tree prior is easy: just type:
 create_tree_prior_
 ```
 
-This will trigger autocomplete to show all tree priors. 
+This will trigger auto-complete to show all tree priors. 
 
 The simplest tree prior is the Yule (pure-birth) tree prior.
 To use this model in `babette`, do:
@@ -212,7 +212,7 @@ mrca_prior <- create_mrca_prior(
 ```
 
 To specify when the MRCA of all taxa was present, we'll first
-create a prior distribution of the crown age, after wich we can
+create a prior distribution of the crown age, after which we can
 use that distribution.
 
 To assume the crown age to follow a normal distribution, 

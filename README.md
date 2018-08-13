@@ -19,6 +19,7 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?bran
 
 See:
 
+ * [beastier](https://github.com/richelbilderbeek/lumier): R Shiny app to help create the R function call needed
  * [examples](doc/examples.md)
  * [article](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13032), in 'Methods in Ecology and Evolution'
  * [blog post](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/) in Methods.Blog

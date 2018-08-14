@@ -134,11 +134,11 @@
 bbt_run <- function(
   fasta_filenames,
   site_models = beautier::create_jc69_site_models(
-    beautier::get_ids(fasta_filenames)),
+    beautier::get_alignment_ids(fasta_filenames)),
   clock_models = beautier::create_strict_clock_models(
-    beautier::get_ids(fasta_filenames)),
+    beautier::get_alignment_ids(fasta_filenames)),
   tree_priors = beautier::create_yule_tree_priors(
-    beautier::get_ids(fasta_filenames)),
+    beautier::get_alignment_ids(fasta_filenames)),
   mrca_priors = NA,
   mcmc = beautier::create_mcmc(),
   posterior_crown_age = NA,
@@ -146,7 +146,7 @@ bbt_run <- function(
   rng_seed = 1,
   beast2_output_log_filename = tempfile(pattern = "beast2_", fileext = "log"),
   beast2_output_trees_filenames = tempfile(
-    pattern = paste0("beast2_", beautier::get_ids(fasta_filenames), "_"),
+    pattern = paste0("beast2_", beautier::get_alignment_ids(fasta_filenames), "_"),
     fileext = ".trees"
   ),
   beast2_output_state_filename = tempfile(
@@ -225,7 +225,7 @@ bbt_run <- function(
   }
   new_names <- names(out)
   new_names[seq_along(fasta_filenames)] <- paste0(
-    beautier::get_ids(fasta_filenames), "_trees"
+    beautier::get_alignment_ids(fasta_filenames), "_trees"
   )
   names(out) <- new_names
   out

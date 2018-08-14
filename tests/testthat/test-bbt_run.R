@@ -56,7 +56,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   beast2_input_filename <- tempfile(fileext = ".xml")
   beast2_output_log_filename <- tempfile(fileext = ".log")
   beast2_output_trees_filenames <- tempfile(
-    pattern = beautier::get_ids(fasta_filenames), fileext = ".xml"
+    pattern = beautier::get_alignment_ids(fasta_filenames), fileext = ".xml"
   )
   beast2_output_state_filename <- tempfile(fileext = ".xml.state")
 
@@ -216,7 +216,7 @@ test_that("Run GTR", {
 test_that("Use of a strict clock", {
 
   input_fasta_filename <- beautier::get_fasta_filename()
-  id <- get_id(input_fasta_filename)
+  id <- get_alignment_id(input_fasta_filename)
   lines <- beautier::create_beast2_input(
     input_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(

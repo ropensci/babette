@@ -19,7 +19,7 @@ Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
   phylogenetics easily and reproducibly from R. 
 License: GPL-3 | file LICENSE
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 VignetteBuilder: knitr
 URL: https://github.com/richelbilderbeek/babette
 BugReports: https://github.com/richelbilderbeek/babette/issues

@@ -146,7 +146,10 @@ bbt_run <- function(
   rng_seed = 1,
   beast2_output_log_filename = tempfile(pattern = "beast2_", fileext = "log"),
   beast2_output_trees_filenames = tempfile(
-    pattern = paste0("beast2_", beautier::get_alignment_ids(fasta_filenames), "_"),
+    pattern = paste0(
+      "beast2_",
+      beautier::get_alignment_ids(fasta_filenames), "_"
+    ),
     fileext = ".trees"
   ),
   beast2_output_state_filename = tempfile(

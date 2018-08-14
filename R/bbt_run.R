@@ -67,6 +67,40 @@
 #'   }
 #' }
 #' @author Richel J.C. Bilderbeek
+#' @usage
+#' bbt_run(
+#'   fasta_filenames,
+#'   site_models = beautier::create_jc69_site_models(
+#'     beautier::get_alignment_ids(fasta_filenames)
+#'   ),
+#'   clock_models = beautier::create_strict_clock_models(
+#'     beautier::get_alignment_ids(fasta_filenames)
+#'   ),
+#'   tree_priors = beautier::create_yule_tree_priors(
+#'     beautier::get_alignment_ids(fasta_filenames)
+#'   ),
+#'   mrca_priors = NA,
+#'   mcmc = beautier::create_mcmc(),
+#'   posterior_crown_age = NA,
+#'   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
+#'   rng_seed = 1,
+#'   beast2_output_log_filename = tempfile(
+#'     pattern = "beast2_", fileext = "log"
+#'   ),
+#'   beast2_output_trees_filenames = tempfile(
+#'     pattern = paste0(
+#'       "beast2_",
+#'       beautier::get_alignment_ids(fasta_filenames), "_"
+#'     ),
+#'     fileext = ".trees"
+#'   ),
+#'   beast2_output_state_filename = tempfile(
+#'     pattern = "beast2_", fileext = ".xml.state"
+#'   ),
+#'   beast2_jar_path = beastier::get_default_beast2_jar_path(),
+#'   verbose = FALSE,
+#'   cleanup = TRUE
+#' )
 #' @examples
 #'  # One alignment
 #'  out <- bbt_run(

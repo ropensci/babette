@@ -15,11 +15,16 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?bran
 
 ![babette logo](pics/babette_logo.png)
 
+Related R packages:
+
+ * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
+ * [mauricer](https://github.com/richelbilderbeek/mauricer): install BEAST2 packages
+
 ## Examples
 
 See:
 
- * [beastier](https://github.com/richelbilderbeek/lumier): R Shiny app to help create the R function call needed
+ * [lumier](https://github.com/richelbilderbeek/lumier): R Shiny app to help create the R function call needed
  * [examples](doc/examples.md)
  * [article](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13032), in 'Methods in Ecology and Evolution'
  * [blog post](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/) in Methods.Blog

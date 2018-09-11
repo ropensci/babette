@@ -95,6 +95,13 @@ Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov
 [phangorn](https://github.com/KlausVigo/phangorn)|[![Build Status](https://travis-ci.org/KlausVigo/phangorn.svg?branch=master)](https://travis-ci.org/KlausVigo/phangorn)|[![codecov.io](https://codecov.io/github/KlausVigo/phangorn/coverage.svg?branch=master)](https://codecov.io/github/KlausVigo/phangorn/branch/master)
 [tracerer](https://github.com/richelbilderbeek/tracerer)|[![Build Status](https://travis-ci.org/richelbilderbeek/tracerer.svg?branch=master)](https://travis-ci.org/richelbilderbeek/tracerer)|[![codecov.io](https://codecov.io/github/richelbilderbeek/tracerer/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/tracerer/branch/master)
 
+## Related packages
+
+Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
+---|---|---
+[lumier](https://github.com/richelbilderbeek/lumier)|[![Build Status](https://travis-ci.org/richelbilderbeek/lumier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/lumier)|[![codecov.io](https://codecov.io/github/richelbilderbeek/lumier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/lumier/branch/master)
+[mauricer](https://github.com/richelbilderbeek/mauricer)|[![Build Status](https://travis-ci.org/richelbilderbeek/mauricer.svg?branch=master)](https://travis-ci.org/richelbilderbeek/mauricer)|[![codecov.io](https://codecov.io/github/richelbilderbeek/mauricer/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/mauricer/branch/master)
+
 ## External links
 
  * [BEAST2 GitHub](https://github.com/CompEvol/beast2)

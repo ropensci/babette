@@ -2,7 +2,7 @@
 
 ## Which version of BEAUti do you use as a guideline?
 
-Version 2.4.8.
+Version 2.5.0, as can be found in the [install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
 
 ## How to install BEAST2?
 
@@ -34,7 +34,21 @@ Submit an Issue. Or send an email to Richel Bilderbeek.
 
 ## How do I reference to this work?
 
-Article is still in preperation.
+```
+Bilderbeek, Richel JC, and Rampal S. Etienne. "babette: BEAU ti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018).
+```
+
+or
+
+```
+@article{bilderbeek2018babette,
+  title={babette: BEAU ti 2, BEAST 2 and Tracer for R},
+  author={Bilderbeek, Richel JC and Etienne, Rampal S},
+  journal={Methods in Ecology and Evolution},
+  year={2018},
+  publisher={Wiley Online Library}
+}
+```
 
 ## Why the name?
 
@@ -68,9 +82,10 @@ Correct. This is a feature of BEAST2, which I assume is right.
 
 ## Are there any related packages?
 
-Use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR) for tip-dating analyses using fossils as dated terminal taxa.
-
-Use [RBeast](https://github.com/beast-dev/RBeast) for other things.
+ * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
+ * [mauricer](https://github.com/richelbilderbeek/mauricer): install BEAST2 packages
+ * [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
+ * [RBeast](https://github.com/beast-dev/RBeast): misc other things
 
 ## Why the logo?
 
@@ -81,9 +96,6 @@ The current logo shows a swan, an animal considered to be graceful.
 The swan is drawn by Jose Scholte, who kindly allowed her work to
 be used for free, by attribution.
 
-## How did you convert the fuzzy white background to one single color?
+## What are the dependencies?
 
-```
-convert swan.png -fuzz 15% -fill white -opaque white swan_mono_background.png
-convert swan_mono_background.png -background white -alpha remove swan_mono_background_2.png
-```
+![babette dependencies](dependencies.png)

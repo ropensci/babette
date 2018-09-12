@@ -1,29 +1,27 @@
 #!/bin/bash
 
 cd ..
-git checkout master
-git merge develop
-git push
-git checkout develop
 cd ..
 
-cd beautier
-git checkout master
-git merge develop
-git push
-git checkout develop
-cd ..
+for folder in beautier beastier tracerer mauricer babette lumier
+do
 
-cd beastier
-git checkout master
-git merge develop
-git push
-git checkout develop
-cd ..
+  cd $folder
 
-cd tracerer
-git checkout master
-git merge develop
-git push
-git checkout develop
-cd ..
+  echo "git folder: "$folder
+  git checkout master
+  git pull
+  git checkout develop
+  git pull
+  git checkout richel
+  git pull
+
+  git checkout master
+  git merge develop
+  git push
+
+  git checkout develop
+  git merge richel
+  git push
+  cd ..
+done

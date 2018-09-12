@@ -56,17 +56,16 @@ or
  * `bet`: BEasTier
  * `te`: TracErer
 
-Additionally, the Dutch actress Babette van Veen, is the
-voice of an audiobook 'Woezel en Pip', which is about two
-beasts. Not only that, in her role in the Dutch soap 
-series 'Goede Tijden Slechte Tijden' see had a bestial
-personality, as she tried to seduce the good Arnie to cheat
-on his sweet girlfriend Roos.
+Later on, `mauricer` got added.
 
-## What is the idea behind the logo?
+## Why the logo?
 
-The logo consists of a rough redraw of Babette, from the Disney animated
-movie 'Beauty and the Beast', and the R logo. 
+Initially, the logo was a low-tech remake of Babette, a maid in Beauty and the Beast. 
+To prevent problems with Disney, a different logo was picked.
+
+The current logo shows a swan, an animal considered to be graceful.
+The swan is drawn by Jose Scholte, who kindly allowed her work to
+be used for free, by attribution.
 
 ## What are the FASTA files?
 
@@ -83,18 +82,8 @@ Correct. This is a feature of BEAST2, which I assume is right.
 ## Are there any related packages?
 
  * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
- * [mauricer](https://github.com/richelbilderbeek/mauricer): install BEAST2 packages
  * [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
  * [RBeast](https://github.com/beast-dev/RBeast): misc other things
-
-## Why the logo?
-
-Initially, the logo was a low-tech remake of Babette, a maid in Beauty and the Beast. 
-To prevent problems with Disney, a different logo was picked.
-
-The current logo shows a swan, an animal considered to be graceful.
-The swan is drawn by Jose Scholte, who kindly allowed her work to
-be used for free, by attribution.
 
 ## What are the dependencies?
 

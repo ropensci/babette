@@ -1,0 +1,69 @@
+---
+title: "Nested Sampling"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Nested Sampling}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette demonstrates how to use the Nested Sampling approach, as
+described in [1]
+
+## Setup
+
+```{r}
+library(babette)
+```
+
+Check if BEAST2 is installed. If not, install it
+
+```{r}
+if (!file.exists(get_default_beast2_jar_path()))
+{
+  print("Installing BEAST2 to default location")
+  install_beast2()
+}
+```
+
+```{r}
+if (!mauricer::mrc_is_installed("NS"))
+{
+  print("Installing BEAST2 package 'NS'")
+  mauricer::mrc_install("NS")
+}
+```
+
+## Do the run
+
+```{r}
+beautier::create_beast2_input_file(
+  input_filenames = get_babette_path("anthus_aco_sub.fas"),
+  output_filename = "~/out.xml",
+  mcmc = create_mcmc_nested_sampling(chain_length = 10000)
+)
+```
+
+```{r}
+# out <- bbt_run(
+#   fasta_filenames = get_babette_path("anthus_aco_sub.fas"),
+#   mcmc = create_mcmc_nested_sampling(chain_length = 10000),
+#   beast2_input_filename = "~/out2.xml"
+# )
+```
+
+
+## References
+
+ * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
+   Model selection and parameter inference in phylogenetics
+   using Nested Sampling. arXiv preprint arXiv:1703.05471.

@@ -206,6 +206,7 @@ bbt_run <- function(
   if (!is.na(rng_seed) && !(rng_seed > 0)) {
     stop("'rng_seed' should be NA or non-zero positive")
   }
+  beastier:::check_beast2_path(beast2_path)
 
   beautier::create_beast2_input_file(
     input_filenames = fasta_filenames,

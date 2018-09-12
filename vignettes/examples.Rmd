@@ -33,7 +33,7 @@ library(babette)
 ```
 
 All these examples assume that `BEAST2` is installed at the default 
-location at `r get_default_beast2_jar_path()`.
+location at `r get_default_beast2_path()`.
 
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`).
 Instead of a full run, the MCMC chain length is shortened to 10K states,

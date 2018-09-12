@@ -43,7 +43,14 @@
 #'   is parsed and returned by this function.
 #'   Specifying a \code{beast2_output_state_filename} allows to store that file
 #'   in a more permanently stored location.
-#' @param beast2_jar_path path to the BEAST2 jar file
+#' @param beast2_path name of either a BEAST2 binary file
+#'   (usually simply \code{beast})
+#'   or a BEAST2 jar file
+#'   (usually has a \code{.jar} extension).
+#'   Use \code{get_default_beast2_bin_path} to get
+#'   the default BEAST binary file's path
+#'   Use \code{get_default_beast2_jar_path} to get
+#'   the default BEAST jar file's path
 #' @param verbose set to TRUE for more output
 #' @param cleanup set to FALSE to keep all temporary files
 #' @return a list with the following elements:\cr
@@ -97,7 +104,7 @@
 #'   beast2_output_state_filename = tempfile(
 #'     pattern = "beast2_", fileext = ".xml.state"
 #'   ),
-#'   beast2_jar_path = beastier::get_default_beast2_jar_path(),
+#'   beast2_path = beastier::get_default_beast2_path(),
 #'   verbose = FALSE,
 #'   cleanup = TRUE
 #' )
@@ -189,7 +196,7 @@ bbt_run <- function(
   beast2_output_state_filename = tempfile(
     pattern = "beast2_", fileext = ".xml.state"
   ),
-  beast2_jar_path = beastier::get_default_beast2_jar_path(),
+  beast2_path = beastier::get_default_beast2_path(),
   verbose = FALSE,
   cleanup = TRUE
 ) {
@@ -218,7 +225,7 @@ bbt_run <- function(
     output_log_filename = beast2_output_log_filename,
     output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,
-    beast2_jar_path = beast2_jar_path,
+    beast2_path = beast2_path,
     verbose = verbose
   )
 

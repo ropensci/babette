@@ -332,27 +332,27 @@ out <- bbt_run(
 )
 ```
 
-## `beast2_jar_path`	
+## `beast2_path`	
 
-`beast2_jar_path` is the `bbt_run` argument to specify the path 
+`beast2_path` is the `bbt_run` argument to specify the path 
 of the BEAST2 `.jar` file. When calling `install_beast2` with default 
 arguments, BEAST2 is installed to this location.
 
 This is the default path to the BEAST2 jar file:
 
 ```{r}
-beast2_jar_path <- beastier::get_default_beast2_jar_path()
-print(beast2_jar_path)
+beast2_path <- beastier::get_default_beast2_path()
+print(beast2_path)
 ```
 
 Run `babette` if and only if BEAST2 is installed at that default location:
 
 ```{r}
-if (file.exists(beast2_jar_path)) {
+if (file.exists(beast2_path)) {
   out <- bbt_run(
     fasta_filenames = fasta_filename,
     mcmc = mcmc,
-    beast2_jar_path = beast2_jar_path
+    beast2_path = beast2_path
   )
 }
 ```

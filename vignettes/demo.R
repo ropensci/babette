@@ -14,6 +14,12 @@ mcmc <- create_mcmc(
   store_every = sample_interval
 )
 
+## ----cache=TRUE----------------------------------------------------------
+out <- bbt_run(
+  get_babette_path("anthus_aco.fas"),
+  mcmc = mcmc
+)
+
 ## ------------------------------------------------------------------------
 library(ggplot2)
 p <- ggplot(
@@ -42,6 +48,12 @@ knitr::kable(sum_stats)
 ## ----fig.width=7, fig.height=7-------------------------------------------
 plot_densitree(out$anthus_aco_trees, width = 2)
 
+## ----cache=TRUE----------------------------------------------------------
+out <- bbt_run(
+  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = mcmc
+)
+
 ## ------------------------------------------------------------------------
 p <- ggplot(
   data = out$estimates,
@@ -66,6 +78,13 @@ plot_densitree(out$anthus_aco_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 plot_densitree(out$anthus_nd2_trees, width = 2)
+
+## ----cache=TRUE----------------------------------------------------------
+out <- bbt_run(
+  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = mcmc,
+  posterior_crown_age = 15
+)
 
 ## ------------------------------------------------------------------------
 p <- ggplot(

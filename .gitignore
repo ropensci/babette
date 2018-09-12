@@ -43,3 +43,5 @@ vignettes/article_files/
 anthus_aco.log
 my_beast2_input.xml
 vignettes/tutorial_cache/
+vignettes/*.log
+vignettes/*.trees

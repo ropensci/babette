@@ -37,6 +37,7 @@ Suggests:
     hunspell,
     knitr,
     lintr,
+    mauricer,
     nLTT,
     rmarkdown,
     testthat

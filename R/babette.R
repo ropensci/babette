@@ -18,6 +18,10 @@
 #'     BEAST2 from R
 #'   }
 #'   \item{
+#'     The package 'mauricer' can install
+#'     BEAST2 packages from R
+#'   }
+#'   \item{
 #'     The package 'tracerer' can parse
 #'     BEAST2 output files from R
 #'   }

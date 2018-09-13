@@ -1,58 +1,6 @@
 #' Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 #' run BEAST2, parse results (like Tracer)
-#' @param fasta_filenames one or more FASTA filename, each with one alignment
-#' @param site_models one or more site models,
-#'   see \link[beautier]{create_site_models}
-#' @param clock_models one or more clock models,
-#'   see \link[beautier]{create_clock_models}
-#' @param tree_priors one or more tree priors,
-#'   see \link[beautier]{create_tree_priors}
-#' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
-#'   as returned by \code{\link{create_mrca_prior}}
-#' @param mcmc the MCMC options,
-#'   see \link[beautier]{create_mcmc}
-#' @param posterior_crown_age the posterior's crown age. Use NA to let
-#'   BEAST2 estimate this parameter. Use a positive value to fix the
-#'   crown age to that value
-#' @param beast2_input_filename path of the BEAST2 configuration file.
-#'   By default, this file is put in a temporary folder with a random
-#'   filename, as the user needs not read it: it is used as input of BEAST2.
-#'   Specifying a \code{beast2_input_filename} allows to store that file
-#'   in a more permanently stored location.
-#' @param rng_seed the random number generator seed. Must be either
-#'   \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
-#'   results in BEAST2 picking a random seed.
-#' @param beast2_output_log_filename name of the log file created by BEAST2,
-#'   containing the parameter estimates in time. By default, this
-#'   file is put a temporary folder with a random
-#'   filename, as the user needs not read it: its content
-#'   is parsed and returned by this function.
-#'   Specifying a \code{beast2_output_log_filename} allows to store that file
-#'   in a more permanently stored location.
-#' @param beast2_output_trees_filenames name of the one or more trees
-#'   files created by BEAST2, one per alignment. By default, these
-#'   files are put a temporary folder with a random
-#'   filename, as the user needs not read it: their content
-#'   is parsed and returned by this function.
-#'   Specifying \code{beast2_output_trees_filenames} allows to store these
-#'   one or more files in a more permanently stored location.
-#' @param beast2_output_state_filename name of the final state file created
-#'   by BEAST2, containing the operator acceptances. By default, this
-#'   file is put a temporary folder with a random
-#'   filename, as the user needs not read it: its content
-#'   is parsed and returned by this function.
-#'   Specifying a \code{beast2_output_state_filename} allows to store that file
-#'   in a more permanently stored location.
-#' @param beast2_path name of either a BEAST2 binary file
-#'   (usually simply \code{beast})
-#'   or a BEAST2 jar file
-#'   (usually has a \code{.jar} extension).
-#'   Use \code{get_default_beast2_bin_path} to get
-#'   the default BEAST binary file's path
-#'   Use \code{get_default_beast2_jar_path} to get
-#'   the default BEAST jar file's path
-#' @param verbose set to TRUE for more output
-#' @param cleanup set to FALSE to keep all temporary files
+#' @inheritParams bbt_default_params_doc
 #' @return a list with the following elements:\cr
 #' \itemize{
 #'   \item{
@@ -207,6 +155,10 @@ bbt_run <- function(
     stop("'rng_seed' should be NA or non-zero positive")
   }
   beastier::check_beast2_path(beast2_path)
+  bbt_check_beast2_packages(
+    mcmc = mcmc,
+    beast2_path = beast2_path
+  )
 
   beautier::create_beast2_input_file(
     input_filenames = fasta_filenames,

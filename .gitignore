@@ -45,3 +45,4 @@ my_beast2_input.xml
 vignettes/tutorial_cache/
 vignettes/*.log
 vignettes/*.trees
+anthus_aco.posterior.*

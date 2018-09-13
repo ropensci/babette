@@ -27,6 +27,7 @@ Imports:
     beautier,
     beastier,
     phangorn,
+    stringr,
     tracerer,
     testit,
     xml2

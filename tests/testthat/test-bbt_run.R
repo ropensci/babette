@@ -10,7 +10,6 @@ test_that("use, one alignment", {
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
     )
   )
-
   testthat::expect_true("estimates" %in% names(out))
   testthat::expect_true("anthus_aco_trees" %in% names(out))
   testthat::expect_true("operators" %in% names(out))
@@ -471,7 +470,21 @@ test_that("use, one alignment, plot with nLTT", {
 
 })
 
-test_that("abus", {
+test_that("use, nested sampling", {
+
+  testit::assert(mauricer::mrc_is_installed("NS"))
+  out <- bbt_run(
+    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    mcmc = create_mcmc_nested_sampling(
+      chain_length = 1000,
+      sub_chain_length = 500
+    ),
+    beast2_path = get_default_beast2_bin_path()
+  )
+  testthat::expect_equal(1, sum(out$output == out$output[3]))
+})
+
+test_that("abuse", {
 
   testthat::expect_error(
     bbt_run(

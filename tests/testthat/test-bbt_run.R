@@ -481,7 +481,9 @@ test_that("use, nested sampling", {
     ),
     beast2_path = get_default_beast2_bin_path()
   )
-  testthat::expect_equal(1, sum(out$output == out$output[3]))
+  expect_true("ns" %in% names(out))
+  expect_true("marg_log_lik" %in% names(out$ns))
+  expect_true("marg_log_lik_sd" %in% names(out$ns))
 })
 
 test_that("abuse", {

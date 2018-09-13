@@ -24,6 +24,11 @@
 #'     \code{output}: a numeric vector with the output
 #'     sent to standard output and error streams
 #'   }
+#'   \item{
+#'     \code{ns}: (optional) the results of the NS BEAST2 package,
+#'     will exist only when \code{create_mcmc_nested_sampling} was
+#'     used for \code{mcmc}
+#'   }
 #' }
 #' @author Richel J.C. Bilderbeek
 #' @usage
@@ -231,5 +236,7 @@ bbt_run <- function(
   )
   names(out) <- new_names
   out$output <- output
-  out
+
+  # Process the package specific output
+  bbt_process_pkg_output(out = out, mcmc = mcmc)
 }

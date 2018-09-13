@@ -132,6 +132,11 @@ a list with the following elements:\cr
     \code{output}: a numeric vector with the output
     sent to standard output and error streams
   }
+  \item{
+    \code{ns}: (optional) the results of the NS BEAST2 package,
+    will exist only when \code{create_mcmc_nested_sampling} was
+    used for \code{mcmc}
+  }
 }
 }
 \description{

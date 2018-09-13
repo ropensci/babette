@@ -20,6 +20,10 @@
 #'     \code{operators}: a data frame with the
 #'     BEAST2 MCMC operator acceptances
 #'   }
+#'   \item{
+#'     \code{output}: a numeric vector with the output
+#'     sent to standard output and error streams
+#'   }
 #' }
 #' @author Richel J.C. Bilderbeek
 #' @usage
@@ -66,6 +70,7 @@
 #'  testit::assert("estimates" %in% names(out))
 #'  testit::assert("anthus_aco_trees" %in% names(out))
 #'  testit::assert("operators" %in% names(out))
+#'  testit::assert("output" %in% names(out))
 #'  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
 #'  testit::assert(length(out$anthus_aco_trees) == 2)
 #'
@@ -172,7 +177,7 @@ bbt_run <- function(
   )
   testit::assert(file.exists(beast2_input_filename))
 
-  beastier::run_beast2(
+  output <- beastier::run_beast2(
     input_filename = beast2_input_filename,
     rng_seed = rng_seed,
     output_log_filename = beast2_output_log_filename,
@@ -225,5 +230,6 @@ bbt_run <- function(
     beautier::get_alignment_ids(fasta_filenames), "_trees"
   )
   names(out) <- new_names
+  out$output <- output
   out
 }

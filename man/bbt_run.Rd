@@ -128,6 +128,10 @@ a list with the following elements:\cr
     \code{operators}: a data frame with the
     BEAST2 MCMC operator acceptances
   }
+  \item{
+    \code{output}: a numeric vector with the output
+    sent to standard output and error streams
+  }
 }
 }
 \description{
@@ -144,6 +148,7 @@ run BEAST2, parse results (like Tracer)
  testit::assert("estimates" \%in\% names(out))
  testit::assert("anthus_aco_trees" \%in\% names(out))
  testit::assert("operators" \%in\% names(out))
+ testit::assert("output" \%in\% names(out))
  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
  testit::assert(length(out$anthus_aco_trees) == 2)
 

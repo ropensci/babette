@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette demonstrates how to use the Nested Sampling approach, as
-described in [1]
+This vignette demonstrates how to use the Nested Sampling approach
+to obtain the marginal likelihood, as described in [1]
 
 ## Setup
 
@@ -58,13 +58,7 @@ out <- bbt_run(
 )
 ```
 
-Show the results, where `NSlikelihood` is the Nested-Sampling likelihood:
-
-```{r}
-knitr::kable(tail(out$estimates))
-```
-
-Marginal likelihood:
+Show the marginal likelihood:
 
 ```{r}
 print(out$ns)

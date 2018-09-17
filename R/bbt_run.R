@@ -238,5 +238,5 @@ bbt_run <- function(
   out$output <- output
 
   # Process the package specific output
-  bbt_process_pkg_output(out = out, mcmc = mcmc)
+  bbt_process_pkg_output(out = out, mcmc = mcmc) # nolint internal function
 }

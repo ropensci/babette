@@ -6,7 +6,7 @@ bbt_create_ns <- function(
 ) {
   # Extract the line
   x <- stringr::str_extract(output, "Marginal likelihood: -?[0-9\\.]+\\(.*\\)$")
-  x <- x[ !is.na(x) ]
+  x <- x[!is.na(x)]
   testit::assert(length(x) == 1)
 
   ns <- list()

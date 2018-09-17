@@ -6,7 +6,7 @@ bbt_process_pkg_output <- function(
   mcmc
 ) {
   if (beautier:::is_mcmc_nested_sampling(mcmc)) {
-    out$ns <- bbt_create_ns(out$output)
+    out$ns <- bbt_create_ns(out$output) # nolint internal function
   }
   out
 }

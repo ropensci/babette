@@ -33,25 +33,7 @@ See:
 
 ## Installation
 
-If you use the `devtools` R package, this is easy:
-
-```
-devtools::install_github("richelbilderbeek/babette")
-```
-
-`babette` assumes that BEAST2 is installed. To install BEAST2, from R do:
-
-```{r}
-library(beastier)
-install_beast2()
-```
-
-This will download and extract BEAST2 to:
-
-OS|Full path
----|---
-Linux|`~/.local/share/beast/bin/beast.jar`
-Windows|`C:/Users/<username>/Local/beast/bin/beast.jar`
+See [doc/install.md](doc/install.md) (or just click [here](doc/install.md))
 
 ## FAQ
 

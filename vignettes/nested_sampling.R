@@ -30,15 +30,9 @@ out <- bbt_run(
     particle_count = 1,
     sub_chain_length = 500
   ),
-  beast2_path = beastier::get_default_beast2_bin_path(),
-  beast2_input_filename = "/home/richel/out.xml",
-  cleanup = FALSE,
-  verbose = TRUE
+  beast2_path = beastier::get_default_beast2_bin_path()
 )
 
 ## ------------------------------------------------------------------------
-knitr::kable(out$estimates)
-
-## ------------------------------------------------------------------------
-print(out$output)
+print(out$ns)
 

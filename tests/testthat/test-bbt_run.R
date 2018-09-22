@@ -1,6 +1,7 @@
 context("bbt_run")
 
 test_that("use, one alignment", {
+  testit::assert(beastier::is_beast2_installed())
 
   out <- NA
 
@@ -40,6 +41,7 @@ test_that("use, one alignment", {
 })
 
 test_that("use, one alignment, verbose, cleanup", {
+  testit::assert(beastier::is_beast2_installed())
 
   testthat::expect_output(
     bbt_run(
@@ -51,6 +53,7 @@ test_that("use, one alignment, verbose, cleanup", {
 })
 
 test_that("use, one alignment, verbose, no cleanup", {
+  testit::assert(beastier::is_beast2_installed())
 
   fasta_filenames <- get_babette_path("anthus_aco.fas")
   beast2_input_filename <- tempfile(fileext = ".xml")
@@ -84,6 +87,7 @@ test_that("use, one alignment, verbose, no cleanup", {
 })
 
 test_that("use, one alignment, same RNG should give same results", {
+  testit::assert(beastier::is_beast2_installed())
 
   rng_seed <- 42
   out_1 <- bbt_run(
@@ -107,6 +111,7 @@ test_that("use, one alignment, same RNG should give same results", {
 })
 
 test_that("use, two alignments, estimated crown ages", {
+  testit::assert(beastier::is_beast2_installed())
 
   out <- NA
 
@@ -148,11 +153,7 @@ test_that("use, two alignments, estimated crown ages", {
   testthat::expect_true("rejectFC" %in% names(out$operators))
   testthat::expect_true("rejectIv" %in% names(out$operators))
   testthat::expect_true("rejectOp" %in% names(out$operators))
-
 })
-
-
-
 
 test_that("abuse", {
 
@@ -171,12 +172,13 @@ test_that("abuse", {
 ################################################################################
 
 test_that("Run all defaults", {
-
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_fasta_filename()
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
   )
-
-  testthat::expect_true(are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -188,28 +190,60 @@ test_that("Run all defaults", {
 ################################################################################
 
 test_that("Run GTR", {
-
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_fasta_filename(),
-    site_models = create_gtr_site_model()
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      site_models = create_gtr_site_model(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
   )
-
-  testthat::expect_true(are_beast2_input_lines(created))
 })
 
 ################################################################################
 # Site model: HKY
 ################################################################################
 
+test_that("Run HKY", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      site_models = create_hky_site_model(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
+
 ################################################################################
 # Site model: JC69
 ################################################################################
 
+test_that("Run JC69", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      site_models = create_jc69_site_model(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
 
 ################################################################################
 # Site model: TN93
 ################################################################################
 
+test_that("Run TN93", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      site_models = create_tn93_site_model(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
 
 ################################################################################
 # Clock models
@@ -218,35 +252,30 @@ test_that("Run GTR", {
 ################################################################################
 # Clock model: RLN
 ################################################################################
-
-test_that("Use of a strict clock", {
-
-  input_fasta_filename <- beautier::get_fasta_filename()
-  id <- get_alignment_id(input_fasta_filename)
-  lines <- beautier::create_beast2_input(
-    input_filenames = input_fasta_filename,
-    clock_models = create_strict_clock_model(
-      clock_rate_param = create_clock_rate_param(id = id)
+test_that("Run RLN clock", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      clock_models = create_rln_clock_model(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
-})
-
-test_that("Use of a RLN clock", {
-
-  lines <- beautier::create_beast2_input(
-    input_filenames = beautier::get_fasta_filename(),
-    clock_models = create_rln_clock_model()
-  )
-  testthat::expect_true(are_beast2_input_lines(lines))
-
 })
 
 ################################################################################
 # Clock model: strict
 ################################################################################
-
-
+test_that("Run strict clock", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      clock_models = create_strict_clock_model(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
 
 ################################################################################
 # Tree priors
@@ -255,58 +284,79 @@ test_that("Use of a RLN clock", {
 ################################################################################
 # Tree prior: BD
 ################################################################################
-
 test_that("Run BD tree prior", {
-
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_fasta_filename(),
-    tree_priors = create_bd_tree_prior()
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      tree_priors = create_bd_tree_prior(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
   )
-
-  testthat::expect_true(are_beast2_input_lines(created))
 })
-
 
 ################################################################################
 # Tree prior: CBS
 ################################################################################
-
-test_that("Run CBP", {
-
-  lines <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
-    tree_priors = create_cbs_tree_prior(group_sizes_dimension = 4)
+test_that("Run CBS tree prior", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      tree_priors = create_cbs_tree_prior(
+        group_sizes_dimension = 4
+      ),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
 })
 
 ################################################################################
 # Tree prior: CCP
 ################################################################################
+test_that("Run CCP tree prior", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      tree_priors = create_ccp_tree_prior(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
 
 ################################################################################
 # Tree prior: CEP
 ################################################################################
-
-test_that("Run CEP", {
-
-  lines <- beautier::create_beast2_input(
-    input_filenames = beautier::get_fasta_filename(),
-    tree_priors = beautier::create_cep_tree_prior()
+test_that("Run CEP tree prior", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      tree_priors = create_cep_tree_prior(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
-
 })
 
 ################################################################################
 # Tree prior: Yule
 ################################################################################
+test_that("Run Yule tree prior", {
+  if (!beastier:::is_on_travis()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      tree_priors = create_yule_tree_prior(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
 
 
 ################################################################################
 # MRCA priors
 ################################################################################
-
 test_that("Run MRCA, no distr", {
 
   fasta_filename <- get_fasta_filename()
@@ -495,4 +545,17 @@ test_that("abuse", {
     ),
     "'rng_seed' should be NA or non-zero positive"
   )
+})
+
+test_that("Interaction kappa1, kappa2 and S in TN93", {
+  # https://github.com/richelbilderbeek/beautier/issues/46
+  # creating a TN93 model with the default settings
+  # creates two log-normal distributions
+  # as priors for kappa1 and kappa2,
+  # where the S parameter has lower=0, upper=0 and value=1.25.
+  # This works if S is not estimated,
+  # because BEAST2 only checks upper and lower
+  # when modifying the value (not when initialising it)
+  # but it will break if S is estimated.
+
 })

@@ -32,7 +32,7 @@ Imports:
     testit,
     xml2
 Suggests:
-    spelling,
+    ape,
     devtools,
     ggplot2,
     hunspell,
@@ -41,6 +41,7 @@ Suggests:
     mauricer,
     nLTT,
     rmarkdown,
+    spelling,
     testthat
 Remotes: 
     jimhester/covr,

@@ -546,16 +546,3 @@ test_that("abuse", {
     "'rng_seed' should be NA or non-zero positive"
   )
 })
-
-test_that("Interaction kappa1, kappa2 and S in TN93", {
-  # https://github.com/richelbilderbeek/beautier/issues/46
-  # creating a TN93 model with the default settings
-  # creates two log-normal distributions
-  # as priors for kappa1 and kappa2,
-  # where the S parameter has lower=0, upper=0 and value=1.25.
-  # This works if S is not estimated,
-  # because BEAST2 only checks upper and lower
-  # when modifying the value (not when initialising it)
-  # but it will break if S is estimated.
-
-})

@@ -32,7 +32,7 @@ library(babette)
 mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 ```
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   fasta_filenames = "anthus_aco.fas", 
   mcmc = mcmc
@@ -40,7 +40,7 @@ out <- bbt_run(
 ```
 
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   "anthus_aco.fas",
   site_models = create_hky_site_model(),
@@ -51,7 +51,7 @@ out <- bbt_run(
 ```
 
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   site_models = list(
@@ -62,7 +62,7 @@ out <- bbt_run(
 )
 ```
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
@@ -72,7 +72,7 @@ out <- bbt_run(
 )
 ```
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
@@ -84,7 +84,7 @@ out <- bbt_run(
 )
 ```
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   "anthus_aco.fas",
   posterior_crown_age = 15,
@@ -92,7 +92,7 @@ out <- bbt_run(
 )
 ```
 
-```{r cache=FALSE}
+```{r}
 out <- bbt_run(
   "anthus_aco.fas",
   mrca_priors = create_mrca_prior(
@@ -132,7 +132,7 @@ sum_stats <- calc_summary_stats(
 ```
 
 
-```{r cache=FALSE}
+```{r}
 plot_densitree(phylos = out$anthus_aco_trees)
 ```
 

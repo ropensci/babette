@@ -32,8 +32,8 @@ before_script:
 after_success:
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
-  - travis_wait 30 Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
+  #- travis_wait 30 Rscript -e 'goodpractice::gp()'
   # temporarily disabled due to CERT_UNTRUSTED
   #- ./scripts/check_dead_links
 

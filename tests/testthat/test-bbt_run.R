@@ -534,6 +534,7 @@ test_that("use, nested sampling", {
   expect_true("ns" %in% names(out))
   expect_true("marg_log_lik" %in% names(out$ns))
   expect_true("marg_log_lik_sd" %in% names(out$ns))
+  expect_true("ess" %in% names(out$ns))
 })
 
 test_that("abuse", {

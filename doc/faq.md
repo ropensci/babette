@@ -114,3 +114,30 @@ To prevent problems with Disney, a different logo was picked.
 The current logo shows a swan, an animal considered to be graceful.
 The swan is drawn by Jose Scholte, who kindly allowed her work to
 be used for free, by attribution.
+
+## Error: `libjvm.so: cannot open shared object file: No such file or directory`
+
+For me, [this Stack Overflow post](https://stackoverflow.com/a/25932828) helped me out:
+
+```
+sudo mousepad /etc/ld.so.conf.d/java.conf
+```
+
+In that file put:
+
+```
+/usr/lib/jvm/java-8-oracle/jre/lib/amd64
+/usr/lib/jvm/java-8-oracle/jre/lib/amd64/server
+```
+
+Save, close, restart R studio, fixed!
+
+Else [this Stack Overflow post may be helpful](https://stackoverflow.com/a/43466434):
+
+```
+sudo apt-get install jdk-*
+sudo R CMD javareconf
+sudo R CMD javareconf -e
+export LD_LIBRARY_PATH=$JAVA_LD_LIBRARY_PATH
+sudo apt-get install r-cran-rjava
+```

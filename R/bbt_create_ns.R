@@ -10,6 +10,7 @@ bbt_create_ns <- function(
   testit::assert(length(x) == 1)
 
   ns <- list()
+
   # Get the marginal log likelihood
   ns$marg_log_lik <- as.numeric(
     stringr::str_sub(

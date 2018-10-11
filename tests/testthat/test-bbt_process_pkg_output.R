@@ -14,7 +14,7 @@ test_that("NS adds ns", {
 
   skip("WIP")
   out <- bbt_process_pkg_output(
-    out = list(output = c("Marginal likelihood: -12.34(3.14)")),
+    out = list(output = babette:::bbt_create_test_ns_output()),
     mcmc = create_mcmc()
   )
   expect_true("ns" %in% names(out))

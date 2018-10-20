@@ -27,6 +27,7 @@ build_script:
   - travis-tool.sh install_github richelbilderbeek/tracerer
   - travis-tool.sh install_github richelbilderbeek/beautier
   - travis-tool.sh install_github richelbilderbeek/beastier
+  - travis-tool.sh install_github richelbilderbeek/mauricer
   - travis-tool.sh install_github jimhester/covr
   - travis-tool.sh install_github jimhester/lintr
   - travis-tool.sh install_github MangoTheCat/goodpractice

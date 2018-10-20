@@ -1,5 +1,12 @@
-#' Create the structure from a Nested Sampling run
+#' Put the info of a Nested Sampling run in a structure
 #' @param output screen output
+#' @return a list with the following elements:
+#'   \itemize{
+#'     \item marg_log_lik the marginal log likelihood estimate
+#'     \item marg_log_lik_sd the standard deviation around the estimate
+#'     \item ess the effective sample size
+#'       in estimating the marginal log likelihood
+#'   }
 #' @author Richel J.C. Bilderbeek
 bbt_create_ns <- function(
   output

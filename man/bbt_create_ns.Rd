@@ -2,15 +2,24 @@
 % Please edit documentation in R/bbt_create_ns.R
 \name{bbt_create_ns}
 \alias{bbt_create_ns}
-\title{Create the structure from a Nested Sampling run}
+\title{Put the info of a Nested Sampling run in a structure}
 \usage{
 bbt_create_ns(output)
 }
 \arguments{
 \item{output}{screen output}
 }
+\value{
+a list with the following elements:
+  \itemize{
+    \item marg_log_lik the marginal log likelihood estimate
+    \item marg_log_lik_sd the standard deviation around the estimate
+    \item ess the effective sample size
+      in estimating the marginal log likelihood
+  }
+}
 \description{
-Create the structure from a Nested Sampling run
+Put the info of a Nested Sampling run in a structure
 }
 \author{
 Richel J.C. Bilderbeek

@@ -522,6 +522,10 @@ test_that("use, one alignment, plot with nLTT", {
 
 test_that("use, nested sampling", {
 
+  if (rappdirs::app_dir()$os == "win") {
+    skip("Cannot run Nested Sampling package from Windows")
+  }
+
   testit::assert(mauricer::mrc_is_installed("NS"))
   out <- bbt_run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),

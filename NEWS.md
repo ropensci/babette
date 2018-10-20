@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## babette 1.2.5 (2018-10-20)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * BEAST2 package management using `mauricer` works under Windows as well
+  * `babette` indicates that BEAST2.exe cannot be run under Windows
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 1.2.4 (2018-05-17)
 
 ### NEW FEATURES

@@ -9,17 +9,14 @@ This package describes the `babette` installation and installation problems.
 `babette` is installed most easily using the `devtools` package:
 
 ```
+devtools::install_github("richelbilderbeek/beautier")
+devtools::install_github("richelbilderbeek/tracerer")
+devtools::install_github("richelbilderbeek/beastier")
+devtools::install_github("richelbilderbeek/mauricer")
 devtools::install_github("richelbilderbeek/babette")
 ```
 
-Because `babette` is not on CRAN yet, its dependencies need also be installed:
-
-```
-devtools::install_github("richelbilderbeek/beastier")
-devtools::install_github("richelbilderbeek/beautier")
-devtools::install_github("richelbilderbeek/tracerer")
-devtools::install_github("richelbilderbeek/mauricer")
-```
+Because `babette` is not on CRAN yet, its dependencies need also be installed.
 
 `babette` assumes that BEAST2 is installed. If not, one can install BEAST2 from R using `beastier`:
 

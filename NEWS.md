@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## babette 1.2.5 (2018-10-20)
+## babette 1.2.5 (2018-10-25)
 
 ### NEW FEATURES
 
@@ -12,6 +12,14 @@ Newest versions at top.
 
   * BEAST2 package management using `mauricer` works under Windows as well
   * `babette` indicates that BEAST2.exe cannot be run under Windows
+  * Simplified interface for parameters:
+
+```
+# Old
+distr <- create_distr_poisson(id = 1, lambda = create_lambda_param(value = 1.2))
+# Added
+distr <- create_distr_poisson(id = 1, lambda = 1.2)
+```
 
 ### BUG FIXES
 
@@ -19,7 +27,12 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
-  * None
+  * Cannot use hyper parameters
+
+```
+# Deprecated: create a hyper parameter
+create_lambda_param(value = 1.2, estimate = TRUE)
+```
 
 ## babette 1.2.4 (2018-05-17)
 

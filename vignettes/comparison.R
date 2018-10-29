@@ -31,8 +31,8 @@ out_cn <- bbt_run(
     alignment_id = get_alignment_id(fasta_filename),
     taxa_names = get_taxa_names(fasta_filename),
     mrca_distr = create_normal_distr(
-      mean = create_mean_param(value = crown_age),
-      sigma = create_sigma_param(value = crown_age / 1000.0)
+      mean = crown_age,
+      sigma = crown_age / 1000.0
     )
   ),
   mcmc = mcmc

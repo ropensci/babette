@@ -1,0 +1,183 @@
+---
+title: "babette demo"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{babette demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+This vignette demonstrates how to use `babette`.
+
+First, load the library:
+
+```{r load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE}
+library(babette)
+```
+
+The following examples show:
+
+ * one alignment
+ * two alignments
+ * two alignments with a fixed crown age
+
+Of each example, it is shown:
+
+ * How to let `babette` run BEAST2
+ * How the plot the posterior estimates
+ * How to show the effective sample sizes (ESS)
+ 
+In all cases, this is done for a short MCMC chain length of 10K:
+
+```{r}
+sample_interval <- 1000
+mcmc <- create_mcmc(
+  chain_length = 10000, 
+  store_every = sample_interval
+)
+```
+
+For a reliable inference, use an ESS of at least 200.
+
+## One alignment
+
+```{r cache=TRUE}
+out <- bbt_run(
+  get_babette_path("anthus_aco.fas"),
+  mcmc = mcmc
+)
+```
+
+```{r}
+library(ggplot2)
+p <- ggplot(
+  data = out$estimates,
+  aes(x = Sample)
+) 
+p + geom_line(aes(y = TreeHeight), color = "green")
+p + geom_line(aes(y = YuleModel), color = "red")
+p + geom_line(aes(y = birthRate), color = "blue")
+
+```
+
+Effective sample sizes, with 20% burn-in removed:
+
+```{r}
+traces <- remove_burn_ins(
+  traces = out$estimates, 
+  burn_in_fraction = 0.2
+)
+esses <- t(calc_esses(traces, sample_interval = sample_interval))
+colnames(esses) <- "ESS"
+knitr::kable(esses)
+```
+
+Summary statistics:
+  
+```{r}
+sum_stats <- t(calc_summary_stats(traces$posterior, sample_interval = sample_interval))
+colnames(sum_stats) <- "Statistic"
+knitr::kable(sum_stats)
+```
+
+Phylogenies:
+
+```{r fig.width=7, fig.height=7}
+plot_densitree(out$anthus_aco_trees, width = 2)
+```
+
+## Two alignments
+
+```{r cache=TRUE}
+out <- bbt_run(
+  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = mcmc
+)
+```
+
+```{r}
+p <- ggplot(
+  data = out$estimates,
+  aes(x = Sample)
+) 
+p + geom_line(aes(y = TreeHeight.aco), color = "green") +
+   geom_line(aes(y = TreeHeight.nd2), color = "lightgreen")
+p + geom_line(aes(y = YuleModel.aco), color = "red") +
+  geom_line(aes(y = YuleModel.nd2), color = "pink")
+p + geom_line(aes(y = birthRate.aco), color = "blue") + 
+  geom_line(aes(y = birthRate.nd2), color = "cyan")
+
+```
+
+Effective sample sizes, with 20% burn-in removed:
+
+```{r}
+traces <- remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(calc_esses(traces, sample_interval = sample_interval))
+colnames(esses) <- "ESS"
+knitr::kable(esses)
+```
+
+Phylogenies:
+
+```{r fig.width=7, fig.height=7}
+plot_densitree(out$anthus_aco_trees, width = 2)
+```
+
+```{r fig.width=7, fig.height=7}
+plot_densitree(out$anthus_nd2_trees, width = 2)
+```
+
+## Two alignments, fixed crown age
+
+```{r cache=TRUE}
+out <- bbt_run(
+  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
+  mcmc = mcmc,
+  posterior_crown_age = 15
+)
+```
+
+```{r}
+p <- ggplot(
+  data = out$estimates,
+  aes(x = Sample)
+) 
+p + geom_line(aes(y = TreeHeight.aco), color = "green") +
+   geom_line(aes(y = TreeHeight.nd2), color = "lightgreen")
+p + geom_line(aes(y = YuleModel.aco), color = "red") +
+  geom_line(aes(y = YuleModel.nd2), color = "pink")
+p + geom_line(aes(y = birthRate.aco), color = "blue") + 
+  geom_line(aes(y = birthRate.nd2), color = "cyan")
+
+```
+
+Effective sample sizes, with 20% burn-in removed:
+
+```{r}
+traces <- remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
+esses <- t(calc_esses(traces, sample_interval = sample_interval))
+colnames(esses) <- "ESS"
+knitr::kable(esses)
+```
+
+Phylogenies:
+
+```{r fig.width=7, fig.height=7}
+plot_densitree(out$anthus_aco_trees, width = 2)
+```
+
+```{r fig.width=7, fig.height=7}
+plot_densitree(out$anthus_nd2_trees, width = 2)
+```

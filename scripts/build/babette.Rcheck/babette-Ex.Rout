@@ -1,0 +1,198 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "babette"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "babette-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('babette')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("bbt_run")
+> ### * bbt_run
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: bbt_run
+> ### Title: Do a full run: create a BEAST2 configuration file (like BEAUti
+> ###   2), run BEAST2, parse results (like Tracer)
+> ### Aliases: bbt_run
+> 
+> ### ** Examples
+> 
+>  # One alignment
+>  out <- bbt_run(
++    fasta_filenames = get_babette_path("anthus_aco.fas"),
++    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
++  )
+> 
+>  testit::assert("estimates" %in% names(out))
+>  testit::assert("anthus_aco_trees" %in% names(out))
+>  testit::assert("operators" %in% names(out))
+>  testit::assert("output" %in% names(out))
+>  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
+>  testit::assert(length(out$anthus_aco_trees) == 2)
+> 
+>  testit::assert("Sample" %in% names(out$estimates))
+>  testit::assert("posterior" %in% names(out$estimates))
+>  testit::assert("likelihood" %in% names(out$estimates))
+>  testit::assert("prior" %in% names(out$estimates))
+>  testit::assert("treeLikelihood" %in% names(out$estimates))
+>  testit::assert("TreeHeight" %in% names(out$estimates))
+>  testit::assert("YuleModel" %in% names(out$estimates))
+>  testit::assert("birthRate" %in% names(out$estimates))
+> 
+>  testit::assert("operator" %in% names(out$operators))
+>  testit::assert("p" %in% names(out$operators))
+>  testit::assert("accept" %in% names(out$operators))
+>  testit::assert("reject" %in% names(out$operators))
+>  testit::assert("acceptFC" %in% names(out$operators))
+>  testit::assert("rejectFC" %in% names(out$operators))
+>  testit::assert("rejectIv" %in% names(out$operators))
+>  testit::assert("rejectOp" %in% names(out$operators))
+> 
+>  # Two alignments
+>  out <- bbt_run(
++    fasta_filenames = get_babette_paths(
++      c("anthus_aco.fas", "anthus_nd2.fas")
++    ),
++    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
++  )
+> 
+>  testit::assert("estimates" %in% names(out))
+>  testit::assert("anthus_aco_trees" %in% names(out))
+>  testit::assert("anthus_nd2_trees" %in% names(out))
+>  testit::assert("operators" %in% names(out))
+>  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
+>  testit::assert(class(out$anthus_nd2_trees[[1]]) == "phylo")
+>  testit::assert(length(out$anthus_aco_trees) == 2)
+>  testit::assert(length(out$anthus_nd2_trees) == 2)
+> 
+>  testit::assert("Sample" %in% names(out$estimates))
+>  testit::assert("posterior" %in% names(out$estimates))
+>  testit::assert("likelihood" %in% names(out$estimates))
+>  testit::assert("prior" %in% names(out$estimates))
+>  testit::assert("treeLikelihood.aco" %in% names(out$estimates))
+>  testit::assert("treeLikelihood.nd2" %in% names(out$estimates))
+>  testit::assert("TreeHeight.aco" %in% names(out$estimates))
+>  testit::assert("TreeHeight.nd2" %in% names(out$estimates))
+>  testit::assert("YuleModel.aco" %in% names(out$estimates))
+>  testit::assert("YuleModel.nd2" %in% names(out$estimates))
+>  testit::assert("birthRate.aco" %in% names(out$estimates))
+>  testit::assert("birthRate.nd2" %in% names(out$estimates))
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("bbt_run", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("get_babette_path")
+> ### * get_babette_path
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: get_babette_path
+> ### Title: Get the full path of a file in the 'inst/extdata' folder
+> ### Aliases: get_babette_path
+> 
+> ### ** Examples
+> 
+>   testit::assert(is.character(get_babette_path("anthus_aco.fas")))
+>   testit::assert(is.character(get_babette_path("anthus_nd2.fas")))
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("get_babette_path", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("get_babette_paths")
+> ### * get_babette_paths
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: get_babette_paths
+> ### Title: Get the full paths of files in the 'inst/extdata' folder
+> ### Aliases: get_babette_paths
+> 
+> ### ** Examples
+> 
+>   testit::assert(
++     length(
++       get_babette_paths(
++         c("anthus_aco.fas", "anthus_nd2.fas")
++       )
++      ) == 2
++    )
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("get_babette_paths", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("plot_densitree")
+> ### * plot_densitree
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: plot_densitree
+> ### Title: Calls 'phangorn"s densiTree function
+> ### Aliases: plot_densitree
+> 
+> ### ** Examples
+> 
+>   out <- bbt_run(
++    get_babette_path("anthus_aco.fas"),
++    mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
++  )
+>  plot_densitree(out$anthus_aco_trees)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("plot_densitree", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  2.982 0.294 26.599 40.482 1.803 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -1,0 +1,56 @@
+Package: babette
+Title: Control BEAST2 from R
+Version: 1.3
+Authors@R: c(
+  person("Richel", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
+  person("Joelle", "Barido-Sottani", role = "rev", comment = "Joelle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
+  person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"))
+Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
+  Bayesian phylogenetic tool, that uses DNA/RNA/protein data
+  and many model priors to create a posterior of jointly estimated 
+  phylogenies and parameters.
+  'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), 
+  'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> 
+  and DensiTree (<http://www.beast2.org>).
+  'babette' provides for an alternative workflow of using 
+  all these tools separately. This allows doing complex Bayesian
+  phylogenetics easily and reproducibly from R. 
+License: GPL-3 | file LICENSE
+LazyData: true
+RoxygenNote: 6.1.0
+VignetteBuilder: knitr
+URL: https://github.com/richelbilderbeek/babette
+BugReports: https://github.com/richelbilderbeek/babette/issues
+Imports:
+    beautier,
+    beastier,
+    phangorn,
+    stringr,
+    tracerer,
+    testit,
+    xml2
+Suggests:
+    ape,
+    devtools,
+    ggplot2,
+    hunspell,
+    knitr,
+    lintr,
+    mauricer,
+    nLTT,
+    rmarkdown,
+    spelling,
+    testthat
+Remotes: 
+    jimhester/covr,
+    jimhester/lintr,
+    richelbilderbeek/beautier,
+    richelbilderbeek/beastier,
+    richelbilderbeek/nLTT,
+    richelbilderbeek/tracerer,
+    MangoTheCat/goodpractice,
+    KlausVigo/phangorn
+Language: en-US
+Encoding: UTF-8

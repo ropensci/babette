@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title><code>fasta_filenames</code></title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>This vignette is a tutorial how to use <code>babette</code> and its most 
+important <code>bbt_run</code> function.</p>
+
+<p>First, load <code>babette</code>:</p>
+
+<pre><code class="r">library(babette)
+</code></pre>
+
+<p>The main function of <code>babette</code> is <code>bbt_run</code>. Here is part of its help:</p>
+
+<pre><code>Do a full run: create a BEAST2 configuration file (like BEAUti 2), run BEAST2, parse results (like Tracer)
+
+Usage
+
+bbt_run(
+  fasta_filenames,
+  site_models,
+  clock_models,
+  tree_priors,
+  mrca_priors,
+  posterior_crown_age,
+  beast2_output_log_filename,
+  beast2_output_trees_filenames,
+  beast2_output_state_filename,
+  verbose, 
+  cleanup
+)
+</code></pre>
+
+<p>Simplifying this to all arguments that do not have a default:</p>
+
+<pre><code>bbt_run(
+  fasta_filenames
+)
+</code></pre>
+
+<h2><code>fasta_filenames</code></h2>
+
+<p><code>fasta_filenames</code> is the <code>bbt_run</code> argument to specify the one or more
+FASTA files to work on. <code>babette</code> is bundled with some FASTA files,
+so obtaining a path to a FASTA file is easy:</p>
+
+<pre><code class="r">fasta_filename &lt;- get_babette_path(&quot;anthus_aco.fas&quot;)
+testit::assert(file.exists(fasta_filename))
+</code></pre>
+
+<p>With <code>fasta_filename</code> available, we have the minimal
+requirements to call <code>bbt_run</code> like this:</p>
+
+<pre><code>out &lt;- bbt_run(fasta_filenames = fasta_filename)
+</code></pre>
+
+<p>Note that this code is not ran, as it would take too long.
+The reason this would take too long, is that 
+the MCMC run that will be executed is set to one million states by default.
+To specify the MCMC options and shorten this run, 
+the <code>mcmc</code> argument is used.</p>
+
+<h2><code>mcmc</code></h2>
+
+<p><code>mcmc</code> is the <code>bbt_run</code> argument to specify the MCMC run options:</p>
+
+<pre><code class="r">mcmc &lt;- create_mcmc(chain_length = 2000, store_every = 1000)
+</code></pre>
+
+<p>With these MCMC options, we can now call <code>bbt_run</code> in way that
+it will finish fast:</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+ fasta_filenames = fasta_filename,
+ mcmc = mcmc
+)
+</code></pre>
+
+<p>The return value, <code>out</code> contains the results of the MCMC run.
+For this tutorial, visualizing <code>out</code> is ignored, as the &#39;Demo&#39; vignette
+discusses this. Instead, we will work through the other <code>bbt_run</code> parameters.</p>
+
+<h2><code>site_models</code></h2>
+
+<p><code>site_models</code> is the <code>bbt_run</code> argument to select one or more site models.
+As this tutorial works on a DNA alignment, such a site model can also
+be called a nucleotide substitution model.</p>
+
+<p>Picking a site model is easy: just type:</p>
+
+<pre><code>create_site_model_
+</code></pre>
+
+<p>This will trigger auto-complete to show all site models. </p>
+
+<p>The simplest site model is the Jukes-Cantor DNA substitution model.
+To use this model in <code>babette</code>, do:</p>
+
+<pre><code class="r">site_model &lt;- create_site_model_jc69()
+site_model &lt;- create_jc69_site_model()
+</code></pre>
+
+<p>Using this site model:</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  site_models = site_model,
+  mcmc = mcmc
+)
+</code></pre>
+
+<h2><code>clock_models</code></h2>
+
+<p><code>clock_models</code> is the <code>bbt_run</code> argument to select one or more clock models.</p>
+
+<p>Picking a clock model is easy: just type:</p>
+
+<pre><code>create_clock_model_
+</code></pre>
+
+<p>This will trigger auto-complete to show all clock models. </p>
+
+<p>The simplest site model is the strict clock model.
+To use this model in <code>babette</code>, do:</p>
+
+<pre><code class="r">clock_model &lt;- create_clock_model_strict()
+clock_model &lt;- create_strict_clock_model()
+</code></pre>
+
+<p>Using this clock model:</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  clock_models = clock_model,
+  mcmc = mcmc
+)
+</code></pre>
+
+<h2><code>tree_priors</code></h2>
+
+<p><code>tree_priors</code> is the <code>bbt_run</code> argument to select one or more tree priors.</p>
+
+<p>Picking a tree prior is easy: just type:</p>
+
+<pre><code>create_tree_prior_
+</code></pre>
+
+<p>This will trigger auto-complete to show all tree priors. </p>
+
+<p>The simplest tree prior is the Yule (pure-birth) tree prior.
+To use this model in <code>babette</code>, do:</p>
+
+<pre><code class="r">tree_prior &lt;- create_tree_prior_yule()
+tree_prior &lt;- create_yule_tree_prior()
+</code></pre>
+
+<p>Using this tree prior:</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  tree_priors = tree_prior,
+  mcmc = mcmc
+)
+</code></pre>
+
+<h2><code>mrca_priors</code></h2>
+
+<p><code>mrca_priors</code> is the <code>bbt_run</code> argument to add one or more Most
+Recent Common Ancestor (hence, MRCA) priors.
+With such a prior, it can be specified which taxa have a shared
+common ancestor and when it existed.</p>
+
+<p>Here is how to specify that the first two taxa in a FASTA file
+are sister species:</p>
+
+<pre><code class="r">mrca_prior &lt;- create_mrca_prior(
+  alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
+  taxa_names = get_taxa_names(filename = fasta_filename)[1:2],
+  is_monophyletic = TRUE
+)
+</code></pre>
+
+<p>To specify when the MRCA of all taxa was present, we&#39;ll first
+create a prior distribution of the crown age, after which we can
+use that distribution.</p>
+
+<p>To assume the crown age to follow a normal distribution, 
+with a mean of 15.0 (time units), with a standard deviation of 1.0,
+use <code>create_normal_distr</code>:</p>
+
+<pre><code class="r">mrca_distr &lt;- create_normal_distr(
+  mean = create_mean_param(value = 15.0), 
+  sigma = create_sigma_param(value = 1.0)
+)
+</code></pre>
+
+<p>To use that distribution in our MRCA prior:</p>
+
+<pre><code class="r">mrca_prior &lt;- create_mrca_prior(
+  alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
+  taxa_names = get_taxa_names(filename = fasta_filename),
+  mrca_distr = mrca_distr
+)
+</code></pre>
+
+<p>Using such an MRCA prior:</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  mrca_priors = mrca_prior,
+  mcmc = mcmc
+)
+</code></pre>
+
+<h2><code>posterior_crown_age</code></h2>
+
+<p><code>posterior_crown_age</code> is the <code>bbt_run</code> argument to specify a fixed crown age:</p>
+
+<pre><code class="r"># Prefer to use the &#39;create_mrca_prior&#39; version below
+out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  posterior_crown_age = 15,
+  mcmc = mcmc
+)
+</code></pre>
+
+<p>Prefer to use an MRCA prior with a sharp distribution around the desired crown
+age! It is known such an MRCA prior gives better results:</p>
+
+<pre><code class="r"># Prefer this over using &#39;posterior_crown_age&#39;
+out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
+    taxa_names = get_taxa_names(filename = fasta_filename),
+    mrca_distr = create_normal_distr(
+      mean = create_mean_param(value = 15.0), 
+      sigma = create_sigma_param(value = 0.0001)
+    )
+  ),
+  mcmc = mcmc
+)
+</code></pre>
+
+<h2>Temporary filenames</h2>
+
+<p>These are the <code>bbt_run</code> temporary filenames:</p>
+
+<ul>
+<li><code>beast2_input_filename</code>: the BEAST2 input file</li>
+<li><code>beast2_output_log_filename</code>: the log file created by BEAST2</li>
+<li><code>beast2_output_trees_filenames</code>: the .tree file(s) created by BEAST2<br/></li>
+<li><code>beast2_output_state_filename</code>: the <code>.xml.state</code> file created by BEAST2</li>
+</ul>
+
+<p>The purpose of <code>babette</code> is to remove the explicit interfacing with BEAST2,
+thus users needs not specify this. By default, these files have random names
+in a temporary folder.</p>
+
+<p>To store these files in the present working directory, specify their names:</p>
+
+<pre><code class="r">if (1 == 2) {
+  beast2_input_filename &lt;- &quot;beast_input.xml&quot;
+  beast2_output_log_filename &lt;- &quot;beast_ouput.log&quot;
+  beast2_output_trees_filenames &lt;- &quot;beast_output.trees&quot;
+  beast2_output_state_filename &lt;- &quot;beast_state.xml.state&quot;
+  all_files &lt;- c(
+    beast2_input_filename,
+    beast2_output_log_filename,
+    beast2_output_trees_filenames,
+    beast2_output_state_filename
+  )
+
+  out &lt;- bbt_run(
+    fasta_filenames = fasta_filename,
+    mcmc = mcmc,
+    beast2_input_filename = beast2_input_filename,
+    beast2_output_log_filename = beast2_output_log_filename,
+    beast2_output_trees_filenames = beast2_output_trees_filenames,
+    beast2_output_state_filename = beast2_output_state_filename
+  )
+  testit::assert(all(file.exists(all_files)))
+  file.remove(all_files)
+}
+</code></pre>
+
+<h2><code>rng_seed</code></h2>
+
+<p><code>rng_seed</code> is the <code>bbt_run</code> argument to specify a random number generator seed.</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  mcmc = mcmc,
+  rng_seed = 314
+)
+</code></pre>
+
+<h2><code>beast2_path</code></h2>
+
+<p><code>beast2_path</code> is the <code>bbt_run</code> argument to specify the path 
+of the BEAST2 <code>.jar</code> file. When calling <code>install_beast2</code> with default 
+arguments, BEAST2 is installed to this location.</p>
+
+<p>This is the default path to the BEAST2 jar file:</p>
+
+<pre><code class="r">beast2_path &lt;- beastier::get_default_beast2_path()
+print(beast2_path)
+#&gt; [1] &quot;/home/plaintext/.local/share/beast/lib/beast.jar&quot;
+</code></pre>
+
+<p>Run <code>babette</code> if and only if BEAST2 is installed at that default location:</p>
+
+<pre><code class="r">if (file.exists(beast2_path)) {
+  out &lt;- bbt_run(
+    fasta_filenames = fasta_filename,
+    mcmc = mcmc,
+    beast2_path = beast2_path
+  )
+}
+</code></pre>
+
+<h2><code>verbose</code></h2>
+
+<p><code>verbose</code> is the <code>bbt_run</code> argument to specify whether more verbose
+output is desired. Set this to TRUE for more output:</p>
+
+<pre><code class="r">out &lt;- bbt_run(
+  fasta_filenames = fasta_filename,
+  mcmc = mcmc,
+  verbose = TRUE
+)
+#&gt;  [1] &quot;&quot;                                                                               
+#&gt;  [2] &quot;                        BEAST v2.5.0, 2002-2018&quot;                                
+#&gt;  [3] &quot;             Bayesian Evolutionary Analysis Sampling Trees&quot;                     
+#&gt;  [4] &quot;                       Designed and developed by&quot;                               
+#&gt;  [5] &quot; Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut &amp; Marc A. Suchard&quot;         
+#&gt;  [6] &quot;                                    &quot;                                           
+#&gt;  [7] &quot;                     Department of Computer Science&quot;                            
+#&gt;  [8] &quot;                         University of Auckland&quot;                                
+#&gt;  [9] &quot;                        remco@cs.auckland.ac.nz&quot;                                
+#&gt; [10] &quot;                        alexei@cs.auckland.ac.nz&quot;                               
+#&gt; [11] &quot;                                    &quot;                                           
+#&gt; [12] &quot;                   Institute of Evolutionary Biology&quot;                           
+#&gt; [13] &quot;                        University of Edinburgh&quot;                                
+#&gt; [14] &quot;                           a.rambaut@ed.ac.uk&quot;                                  
+#&gt; [15] &quot;                                    &quot;                                           
+#&gt; [16] &quot;                    David Geffen School of Medicine&quot;                            
+#&gt; [17] &quot;                 University of California, Los Angeles&quot;                         
+#&gt; [18] &quot;                           msuchard@ucla.edu&quot;                                   
+#&gt; [19] &quot;                                    &quot;                                           
+#&gt; [20] &quot;                      Downloads, Help &amp; Resources:&quot;                             
+#&gt; [21] &quot;                           http://beast2.org/&quot;                                  
+#&gt; [22] &quot;                                    &quot;                                           
+#&gt; [23] &quot;  Source code distributed under the GNU Lesser General Public License:&quot;         
+#&gt; [24] &quot;                   http://github.com/CompEvol/beast2&quot;                           
+#&gt; [25] &quot;                                    &quot;                                           
+#&gt; [26] &quot;                           BEAST developers:&quot;                                   
+#&gt; [27] &quot;   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, &quot;           
+#&gt; [28] &quot; Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, &quot;         
+#&gt; [29] &quot;Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, &quot;       
+#&gt; [30] &quot;          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie&quot;                  
+#&gt; [31] &quot;                                    &quot;                                           
+#&gt; [32] &quot;                               Thanks to:&quot;                                      
+#&gt; [33] &quot;          Roald Forsberg, Beth Shapiro and Korbinian Strimmer&quot;                  
+#&gt; [34] &quot;&quot;                                                                               
+#&gt; [35] &quot;Random number seed: 1540800567831&quot;                                              
+#&gt; [36] &quot;&quot;                                                                               
+#&gt; [37] &quot;File: beast2_4f1b4952e7b5.xml seed: 1540800567831 threads: 1&quot;                   
+#&gt; [38] &quot;61430_aco: 960 4&quot;                                                               
+#&gt; [39] &quot;626029_aco: 960 4&quot;                                                              
+#&gt; [40] &quot;630116_aco: 960 4&quot;                                                              
+#&gt; [41] &quot;630210_aco: 960 4&quot;                                                              
+#&gt; [42] &quot;AMNH13589_aco: 960 4&quot;                                                           
+#&gt; [43] &quot;B25702_aco: 960 4&quot;                                                              
+#&gt; [44] &quot;B41613_aco: 960 4&quot;                                                              
+#&gt; [45] &quot;B431_aco: 960 4&quot;                                                                
+#&gt; [46] &quot;B48218_aco: 960 4&quot;                                                              
+#&gt; [47] &quot;B87109_aco: 960 4&quot;                                                              
+#&gt; [48] &quot;FALK1_aco: 960 4&quot;                                                               
+#&gt; [49] &quot;KU21673_aco: 960 4&quot;                                                             
+#&gt; [50] &quot;KU25127_aco: 960 4&quot;                                                             
+#&gt; [51] &quot;KU3604_aco: 960 4&quot;                                                              
+#&gt; [52] &quot;KU9813_aco: 960 4&quot;                                                              
+#&gt; [53] &quot;UWBM54394_aco: 960 4&quot;                                                           
+#&gt; [54] &quot;UWBM54511_aco: 960 4&quot;                                                           
+#&gt; [55] &quot;UWBM54556_aco: 960 4&quot;                                                           
+#&gt; [56] &quot;bas3_aco: 960 4&quot;                                                                
+#&gt; [57] &quot;chacoensis_aco: 960 4&quot;                                                          
+#&gt; [58] &quot;dabbenei_aco: 960 4&quot;                                                            
+#&gt; [59] &quot;meridae_aco: 960 4&quot;                                                             
+#&gt; [60] &quot;Alignment(anthus_aco)&quot;                                                          
+#&gt; [61] &quot;  22 taxa&quot;                                                                      
+#&gt; [62] &quot;  960 sites&quot;                                                                    
+#&gt; [63] &quot;  70 patterns&quot;                                                                  
+#&gt; [64] &quot;&quot;                                                                               
+#&gt; [65] &quot;Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path&quot;           
+#&gt; [66] &quot;TreeLikelihood(treeLikelihood.anthus_aco0) uses BeerLikelihoodCore4&quot;            
+#&gt; [67] &quot;  Alignment(anthus_aco): [taxa, patterns, sites] = [22, 70, 960]&quot;               
+#&gt; [68] &quot;===============================================================================&quot;
+#&gt; [69] &quot;Citations for this model:&quot;                                                      
+#&gt; [70] &quot;&quot;                                                                               
+#&gt; [71] &quot;Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,&quot;      
+#&gt; [72] &quot;  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian&quot;      
+#&gt; [73] &quot;  evolutionary analysis. PLoS Computational Biology 10(4): e1003537&quot;            
+#&gt; [74] &quot;&quot;                                                                               
+#&gt; [75] &quot;===============================================================================&quot;
+#&gt; [76] &quot;Done!&quot;                                                                          
+#&gt;  [1] &quot;&quot;                                                                               
+#&gt;  [2] &quot;                        BEAST v2.5.0, 2002-2018&quot;                                
+#&gt;  [3] &quot;             Bayesian Evolutionary Analysis Sampling Trees&quot;                     
+#&gt;  [4] &quot;                       Designed and developed by&quot;                               
+#&gt;  [5] &quot; Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut &amp; Marc A. Suchard&quot;         
+#&gt;  [6] &quot;                                    &quot;                                           
+#&gt;  [7] &quot;                     Department of Computer Science&quot;                            
+#&gt;  [8] &quot;                         University of Auckland&quot;                                
+#&gt;  [9] &quot;                        remco@cs.auckland.ac.nz&quot;                                
+#&gt; [10] &quot;                        alexei@cs.auckland.ac.nz&quot;                               
+#&gt; [11] &quot;                                    &quot;                                           
+#&gt; [12] &quot;                   Institute of Evolutionary Biology&quot;                           
+#&gt; [13] &quot;                        University of Edinburgh&quot;                                
+#&gt; [14] &quot;                           a.rambaut@ed.ac.uk&quot;                                  
+#&gt; [15] &quot;                                    &quot;                                           
+#&gt; [16] &quot;                    David Geffen School of Medicine&quot;                            
+#&gt; [17] &quot;                 University of California, Los Angeles&quot;                         
+#&gt; [18] &quot;                           msuchard@ucla.edu&quot;                                   
+#&gt; [19] &quot;                                    &quot;                                           
+#&gt; [20] &quot;                      Downloads, Help &amp; Resources:&quot;                             
+#&gt; [21] &quot;                           http://beast2.org/&quot;                                  
+#&gt; [22] &quot;                                    &quot;                                           
+#&gt; [23] &quot;  Source code distributed under the GNU Lesser General Public License:&quot;         
+#&gt; [24] &quot;                   http://github.com/CompEvol/beast2&quot;                           
+#&gt; [25] &quot;                                    &quot;                                           
+#&gt; [26] &quot;                           BEAST developers:&quot;                                   
+#&gt; [27] &quot;   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, &quot;           
+#&gt; [28] &quot; Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, &quot;         
+#&gt; [29] &quot;Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, &quot;       
+#&gt; [30] &quot;          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie&quot;                  
+#&gt; [31] &quot;                                    &quot;                                           
+#&gt; [32] &quot;                               Thanks to:&quot;                                      
+#&gt; [33] &quot;          Roald Forsberg, Beth Shapiro and Korbinian Strimmer&quot;                  
+#&gt; [34] &quot;&quot;                                                                               
+#&gt; [35] &quot;Random number seed: 1540800568629&quot;                                              
+#&gt; [36] &quot;&quot;                                                                               
+#&gt; [37] &quot;File: beast2_4f1b4952e7b5.xml seed: 1540800568629 threads: 1&quot;                   
+#&gt; [38] &quot;61430_aco: 960 4&quot;                                                               
+#&gt; [39] &quot;626029_aco: 960 4&quot;                                                              
+#&gt; [40] &quot;630116_aco: 960 4&quot;                                                              
+#&gt; [41] &quot;630210_aco: 960 4&quot;                                                              
+#&gt; [42] &quot;AMNH13589_aco: 960 4&quot;                                                           
+#&gt; [43] &quot;B25702_aco: 960 4&quot;                                                              
+#&gt; [44] &quot;B41613_aco: 960 4&quot;                                                              
+#&gt; [45] &quot;B431_aco: 960 4&quot;                                                                
+#&gt; [46] &quot;B48218_aco: 960 4&quot;                                                              
+#&gt; [47] &quot;B87109_aco: 960 4&quot;                                                              
+#&gt; [48] &quot;FALK1_aco: 960 4&quot;                                                               
+#&gt; [49] &quot;KU21673_aco: 960 4&quot;                                                             
+#&gt; [50] &quot;KU25127_aco: 960 4&quot;                                                             
+#&gt; [51] &quot;KU3604_aco: 960 4&quot;                                                              
+#&gt; [52] &quot;KU9813_aco: 960 4&quot;                                                              
+#&gt; [53] &quot;UWBM54394_aco: 960 4&quot;                                                           
+#&gt; [54] &quot;UWBM54511_aco: 960 4&quot;                                                           
+#&gt; [55] &quot;UWBM54556_aco: 960 4&quot;                                                           
+#&gt; [56] &quot;bas3_aco: 960 4&quot;                                                                
+#&gt; [57] &quot;chacoensis_aco: 960 4&quot;                                                          
+#&gt; [58] &quot;dabbenei_aco: 960 4&quot;                                                            
+#&gt; [59] &quot;meridae_aco: 960 4&quot;                                                             
+#&gt; [60] &quot;Alignment(anthus_aco)&quot;                                                          
+#&gt; [61] &quot;  22 taxa&quot;                                                                      
+#&gt; [62] &quot;  960 sites&quot;                                                                    
+#&gt; [63] &quot;  70 patterns&quot;                                                                  
+#&gt; [64] &quot;&quot;                                                                               
+#&gt; [65] &quot;Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path&quot;           
+#&gt; [66] &quot;TreeLikelihood(treeLikelihood.anthus_aco0) uses BeerLikelihoodCore4&quot;            
+#&gt; [67] &quot;  Alignment(anthus_aco): [taxa, patterns, sites] = [22, 70, 960]&quot;               
+#&gt; [68] &quot;===============================================================================&quot;
+#&gt; [69] &quot;Citations for this model:&quot;                                                      
+#&gt; [70] &quot;&quot;                                                                               
+#&gt; [71] &quot;Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,&quot;      
+#&gt; [72] &quot;  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian&quot;      
+#&gt; [73] &quot;  evolutionary analysis. PLoS Computational Biology 10(4): e1003537&quot;            
+#&gt; [74] &quot;&quot;                                                                               
+#&gt; [75] &quot;===============================================================================&quot;
+#&gt; [76] &quot;Done!&quot;                                                                          
+#&gt;  [1] &quot;&quot;                                                                               
+#&gt;  [2] &quot;                        BEAST v2.5.0, 2002-2018&quot;                                
+#&gt;  [3] &quot;             Bayesian Evolutionary Analysis Sampling Trees&quot;                     
+#&gt;  [4] &quot;                       Designed and developed by&quot;                               
+#&gt;  [5] &quot; Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut &amp; Marc A. Suchard&quot;         
+#&gt;  [6] &quot;                                    &quot;                                           
+#&gt;  [7] &quot;                     Department of Computer Science&quot;                            
+#&gt;  [8] &quot;                         University of Auckland&quot;                                
+#&gt;  [9] &quot;                        remco@cs.auckland.ac.nz&quot;                                
+#&gt; [10] &quot;                        alexei@cs.auckland.ac.nz&quot;                               
+#&gt; [11] &quot;                                    &quot;                                           
+#&gt; [12] &quot;                   Institute of Evolutionary Biology&quot;                           
+#&gt; [13] &quot;                        University of Edinburgh&quot;                                
+#&gt; [14] &quot;                           a.rambaut@ed.ac.uk&quot;                                  
+#&gt; [15] &quot;                                    &quot;                                           
+#&gt; [16] &quot;                    David Geffen School of Medicine&quot;                            
+#&gt; [17] &quot;                 University of California, Los Angeles&quot;                         
+#&gt; [18] &quot;                           msuchard@ucla.edu&quot;                                   
+#&gt; [19] &quot;                                    &quot;                                           
+#&gt; [20] &quot;                      Downloads, Help &amp; Resources:&quot;                             
+#&gt; [21] &quot;                           http://beast2.org/&quot;                                  
+#&gt; [22] &quot;                                    &quot;                                           
+#&gt; [23] &quot;  Source code distributed under the GNU Lesser General Public License:&quot;         
+#&gt; [24] &quot;                   http://github.com/CompEvol/beast2&quot;                           
+#&gt; [25] &quot;                                    &quot;                                           
+#&gt; [26] &quot;                           BEAST developers:&quot;                                   
+#&gt; [27] &quot;   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, &quot;           
+#&gt; [28] &quot; Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, &quot;         
+#&gt; [29] &quot;Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, &quot;       
+#&gt; [30] &quot;          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie&quot;                  
+#&gt; [31] &quot;                                    &quot;                                           
+#&gt; [32] &quot;                               Thanks to:&quot;                                      
+#&gt; [33] &quot;          Roald Forsberg, Beth Shapiro and Korbinian Strimmer&quot;                  
+#&gt; [34] &quot;&quot;                                                                               
+#&gt; [35] &quot;Random number seed: 1540800570069&quot;                                              
+#&gt; [36] &quot;&quot;                                                                               
+#&gt; [37] &quot;File: beast2_4f1b4952e7b5.xml seed: 1540800570069 threads: 1&quot;                   
+#&gt; [38] &quot;61430_aco: 960 4&quot;                                                               
+#&gt; [39] &quot;626029_aco: 960 4&quot;                                                              
+#&gt; [40] &quot;630116_aco: 960 4&quot;                                                              
+#&gt; [41] &quot;630210_aco: 960 4&quot;                                                              
+#&gt; [42] &quot;AMNH13589_aco: 960 4&quot;                                                           
+#&gt; [43] &quot;B25702_aco: 960 4&quot;                                                              
+#&gt; [44] &quot;B41613_aco: 960 4&quot;                                                              
+#&gt; [45] &quot;B431_aco: 960 4&quot;                                                                
+#&gt; [46] &quot;B48218_aco: 960 4&quot;                                                              
+#&gt; [47] &quot;B87109_aco: 960 4&quot;                                                              
+#&gt; [48] &quot;FALK1_aco: 960 4&quot;                                                               
+#&gt; [49] &quot;KU21673_aco: 960 4&quot;                                                             
+#&gt; [50] &quot;KU25127_aco: 960 4&quot;                                                             
+#&gt; [51] &quot;KU3604_aco: 960 4&quot;                                                              
+#&gt; [52] &quot;KU9813_aco: 960 4&quot;                                                              
+#&gt; [53] &quot;UWBM54394_aco: 960 4&quot;                                                           
+#&gt; [54] &quot;UWBM54511_aco: 960 4&quot;                                                           
+#&gt; [55] &quot;UWBM54556_aco: 960 4&quot;                                                           
+#&gt; [56] &quot;bas3_aco: 960 4&quot;                                                                
+#&gt; [57] &quot;chacoensis_aco: 960 4&quot;                                                          
+#&gt; [58] &quot;dabbenei_aco: 960 4&quot;                                                            
+#&gt; [59] &quot;meridae_aco: 960 4&quot;                                                             
+#&gt; [60] &quot;Alignment(anthus_aco)&quot;                                                          
+#&gt; [61] &quot;  22 taxa&quot;                                                                      
+#&gt; [62] &quot;  960 sites&quot;                                                                    
+#&gt; [63] &quot;  70 patterns&quot;                                                                  
+#&gt; [64] &quot;&quot;                                                                               
+#&gt; [65] &quot;Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path&quot;           
+#&gt; [66] &quot;TreeLikelihood(treeLikelihood.anthus_aco0) uses BeerLikelihoodCore4&quot;            
+#&gt; [67] &quot;  Alignment(anthus_aco): [taxa, patterns, sites] = [22, 70, 960]&quot;               
+#&gt; [68] &quot;===============================================================================&quot;
+#&gt; [69] &quot;Citations for this model:&quot;                                                      
+#&gt; [70] &quot;&quot;                                                                               
+#&gt; [71] &quot;Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,&quot;      
+#&gt; [72] &quot;  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian&quot;      
+#&gt; [73] &quot;  evolutionary analysis. PLoS Computational Biology 10(4): e1003537&quot;            
+#&gt; [74] &quot;&quot;                                                                               
+#&gt; [75] &quot;===============================================================================&quot;
+#&gt; [76] &quot;Done!&quot;                                                                          
+#&gt; [1] &quot;cmd: /usr/lib/jvm/java-8-oracle/jre/bin/java -jar &#39;/home/plaintext/.local/share/beast/lib/beast.jar&#39; -seed 1 -statefile \&quot;/tmp/Rtmp2AB4Eq/beast2_4f1b1e8a4398.xml.state\&quot; -overwrite \&quot;/tmp/Rtmp2AB4Eq/beast2_4f1b4952e7b5.xml\&quot;&quot;
+#&gt;  [1] &quot;&quot;                                                                               
+#&gt;  [2] &quot;                        BEAST v2.5.0, 2002-2018&quot;                                
+#&gt;  [3] &quot;             Bayesian Evolutionary Analysis Sampling Trees&quot;                     
+#&gt;  [4] &quot;                       Designed and developed by&quot;                               
+#&gt;  [5] &quot; Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut &amp; Marc A. Suchard&quot;         
+#&gt;  [6] &quot;                                    &quot;                                           
+#&gt;  [7] &quot;                     Department of Computer Science&quot;                            
+#&gt;  [8] &quot;                         University of Auckland&quot;                                
+#&gt;  [9] &quot;                        remco@cs.auckland.ac.nz&quot;                                
+#&gt; [10] &quot;                        alexei@cs.auckland.ac.nz&quot;                               
+#&gt; [11] &quot;                                    &quot;                                           
+#&gt; [12] &quot;                   Institute of Evolutionary Biology&quot;                           
+#&gt; [13] &quot;                        University of Edinburgh&quot;                                
+#&gt; [14] &quot;                           a.rambaut@ed.ac.uk&quot;                                  
+#&gt; [15] &quot;                                    &quot;                                           
+#&gt; [16] &quot;                    David Geffen School of Medicine&quot;                            
+#&gt; [17] &quot;                 University of California, Los Angeles&quot;                         
+#&gt; [18] &quot;                           msuchard@ucla.edu&quot;                                   
+#&gt; [19] &quot;                                    &quot;                                           
+#&gt; [20] &quot;                      Downloads, Help &amp; Resources:&quot;                             
+#&gt; [21] &quot;                           http://beast2.org/&quot;                                  
+#&gt; [22] &quot;                                    &quot;                                           
+#&gt; [23] &quot;  Source code distributed under the GNU Lesser General Public License:&quot;         
+#&gt; [24] &quot;                   http://github.com/CompEvol/beast2&quot;                           
+#&gt; [25] &quot;                                    &quot;                                           
+#&gt; [26] &quot;                           BEAST developers:&quot;                                   
+#&gt; [27] &quot;   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, &quot;           
+#&gt; [28] &quot; Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, &quot;         
+#&gt; [29] &quot;Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, &quot;       
+#&gt; [30] &quot;          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie&quot;                  
+#&gt; [31] &quot;                                    &quot;                                           
+#&gt; [32] &quot;                               Thanks to:&quot;                                      
+#&gt; [33] &quot;          Roald Forsberg, Beth Shapiro and Korbinian Strimmer&quot;                  
+#&gt; [34] &quot;&quot;                                                                               
+#&gt; [35] &quot;Random number seed: 1540800572596&quot;                                              
+#&gt; [36] &quot;&quot;                                                                               
+#&gt; [37] &quot;File: beast2_4f1b4952e7b5.xml seed: 1540800572596 threads: 1&quot;                   
+#&gt; [38] &quot;61430_aco: 960 4&quot;                                                               
+#&gt; [39] &quot;626029_aco: 960 4&quot;                                                              
+#&gt; [40] &quot;630116_aco: 960 4&quot;                                                              
+#&gt; [41] &quot;630210_aco: 960 4&quot;                                                              
+#&gt; [42] &quot;AMNH13589_aco: 960 4&quot;                                                           
+#&gt; [43] &quot;B25702_aco: 960 4&quot;                                                              
+#&gt; [44] &quot;B41613_aco: 960 4&quot;                                                              
+#&gt; [45] &quot;B431_aco: 960 4&quot;                                                                
+#&gt; [46] &quot;B48218_aco: 960 4&quot;                                                              
+#&gt; [47] &quot;B87109_aco: 960 4&quot;                                                              
+#&gt; [48] &quot;FALK1_aco: 960 4&quot;                                                               
+#&gt; [49] &quot;KU21673_aco: 960 4&quot;                                                             
+#&gt; [50] &quot;KU25127_aco: 960 4&quot;                                                             
+#&gt; [51] &quot;KU3604_aco: 960 4&quot;                                                              
+#&gt; [52] &quot;KU9813_aco: 960 4&quot;                                                              
+#&gt; [53] &quot;UWBM54394_aco: 960 4&quot;                                                           
+#&gt; [54] &quot;UWBM54511_aco: 960 4&quot;                                                           
+#&gt; [55] &quot;UWBM54556_aco: 960 4&quot;                                                           
+#&gt; [56] &quot;bas3_aco: 960 4&quot;                                                                
+#&gt; [57] &quot;chacoensis_aco: 960 4&quot;                                                          
+#&gt; [58] &quot;dabbenei_aco: 960 4&quot;                                                            
+#&gt; [59] &quot;meridae_aco: 960 4&quot;                                                             
+#&gt; [60] &quot;Alignment(anthus_aco)&quot;                                                          
+#&gt; [61] &quot;  22 taxa&quot;                                                                      
+#&gt; [62] &quot;  960 sites&quot;                                                                    
+#&gt; [63] &quot;  70 patterns&quot;                                                                  
+#&gt; [64] &quot;&quot;                                                                               
+#&gt; [65] &quot;Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path&quot;           
+#&gt; [66] &quot;TreeLikelihood(treeLikelihood.anthus_aco0) uses BeerLikelihoodCore4&quot;            
+#&gt; [67] &quot;  Alignment(anthus_aco): [taxa, patterns, sites] = [22, 70, 960]&quot;               
+#&gt; [68] &quot;===============================================================================&quot;
+#&gt; [69] &quot;Citations for this model:&quot;                                                      
+#&gt; [70] &quot;&quot;                                                                               
+#&gt; [71] &quot;Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,&quot;      
+#&gt; [72] &quot;  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian&quot;      
+#&gt; [73] &quot;  evolutionary analysis. PLoS Computational Biology 10(4): e1003537&quot;            
+#&gt; [74] &quot;&quot;                                                                               
+#&gt; [75] &quot;===============================================================================&quot;
+#&gt; [76] &quot;Done!&quot;                                                                          
+#&gt;  [1] &quot;&quot;                                                                               
+#&gt;  [2] &quot;                        BEAST v2.5.0, 2002-2018&quot;                                
+#&gt;  [3] &quot;             Bayesian Evolutionary Analysis Sampling Trees&quot;                     
+#&gt;  [4] &quot;                       Designed and developed by&quot;                               
+#&gt;  [5] &quot; Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut &amp; Marc A. Suchard&quot;         
+#&gt;  [6] &quot;                                    &quot;                                           
+#&gt;  [7] &quot;                     Department of Computer Science&quot;                            
+#&gt;  [8] &quot;                         University of Auckland&quot;                                
+#&gt;  [9] &quot;                        remco@cs.auckland.ac.nz&quot;                                
+#&gt; [10] &quot;                        alexei@cs.auckland.ac.nz&quot;                               
+#&gt; [11] &quot;                                    &quot;                                           
+#&gt; [12] &quot;                   Institute of Evolutionary Biology&quot;                           
+#&gt; [13] &quot;                        University of Edinburgh&quot;                                
+#&gt; [14] &quot;                           a.rambaut@ed.ac.uk&quot;                                  
+#&gt; [15] &quot;                                    &quot;                                           
+#&gt; [16] &quot;                    David Geffen School of Medicine&quot;                            
+#&gt; [17] &quot;                 University of California, Los Angeles&quot;                         
+#&gt; [18] &quot;                           msuchard@ucla.edu&quot;                                   
+#&gt; [19] &quot;                                    &quot;                                           
+#&gt; [20] &quot;                      Downloads, Help &amp; Resources:&quot;                             
+#&gt; [21] &quot;                           http://beast2.org/&quot;                                  
+#&gt; [22] &quot;                                    &quot;                                           
+#&gt; [23] &quot;  Source code distributed under the GNU Lesser General Public License:&quot;         
+#&gt; [24] &quot;                   http://github.com/CompEvol/beast2&quot;                           
+#&gt; [25] &quot;                                    &quot;                                           
+#&gt; [26] &quot;                           BEAST developers:&quot;                                   
+#&gt; [27] &quot;   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, &quot;           
+#&gt; [28] &quot; Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, &quot;         
+#&gt; [29] &quot;Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, &quot;       
+#&gt; [30] &quot;          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie&quot;                  
+#&gt; [31] &quot;                                    &quot;                                           
+#&gt; [32] &quot;                               Thanks to:&quot;                                      
+#&gt; [33] &quot;          Roald Forsberg, Beth Shapiro and Korbinian Strimmer&quot;                  
+#&gt; [34] &quot;&quot;                                                                               
+#&gt; [35] &quot;Random number seed: 1540800573899&quot;                                              
+#&gt; [36] &quot;&quot;                                                                               
+#&gt; [37] &quot;File: beast2_4f1b4952e7b5.xml seed: 1540800573899 threads: 1&quot;                   
+#&gt; [38] &quot;61430_aco: 960 4&quot;                                                               
+#&gt; [39] &quot;626029_aco: 960 4&quot;                                                              
+#&gt; [40] &quot;630116_aco: 960 4&quot;                                                              
+#&gt; [41] &quot;630210_aco: 960 4&quot;                                                              
+#&gt; [42] &quot;AMNH13589_aco: 960 4&quot;                                                           
+#&gt; [43] &quot;B25702_aco: 960 4&quot;                                                              
+#&gt; [44] &quot;B41613_aco: 960 4&quot;                                                              
+#&gt; [45] &quot;B431_aco: 960 4&quot;                                                                
+#&gt; [46] &quot;B48218_aco: 960 4&quot;                                                              
+#&gt; [47] &quot;B87109_aco: 960 4&quot;                                                              
+#&gt; [48] &quot;FALK1_aco: 960 4&quot;                                                               
+#&gt; [49] &quot;KU21673_aco: 960 4&quot;                                                             
+#&gt; [50] &quot;KU25127_aco: 960 4&quot;                                                             
+#&gt; [51] &quot;KU3604_aco: 960 4&quot;                                                              
+#&gt; [52] &quot;KU9813_aco: 960 4&quot;                                                              
+#&gt; [53] &quot;UWBM54394_aco: 960 4&quot;                                                           
+#&gt; [54] &quot;UWBM54511_aco: 960 4&quot;                                                           
+#&gt; [55] &quot;UWBM54556_aco: 960 4&quot;                                                           
+#&gt; [56] &quot;bas3_aco: 960 4&quot;                                                                
+#&gt; [57] &quot;chacoensis_aco: 960 4&quot;                                                          
+#&gt; [58] &quot;dabbenei_aco: 960 4&quot;                                                            
+#&gt; [59] &quot;meridae_aco: 960 4&quot;                                                             
+#&gt; [60] &quot;Alignment(anthus_aco)&quot;                                                          
+#&gt; [61] &quot;  22 taxa&quot;                                                                      
+#&gt; [62] &quot;  960 sites&quot;                                                                    
+#&gt; [63] &quot;  70 patterns&quot;                                                                  
+#&gt; [64] &quot;&quot;                                                                               
+#&gt; [65] &quot;Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path&quot;           
+#&gt; [66] &quot;TreeLikelihood(treeLikelihood.anthus_aco0) uses BeerLikelihoodCore4&quot;            
+#&gt; [67] &quot;  Alignment(anthus_aco): [taxa, patterns, sites] = [22, 70, 960]&quot;               
+#&gt; [68] &quot;===============================================================================&quot;
+#&gt; [69] &quot;Citations for this model:&quot;                                                      
+#&gt; [70] &quot;&quot;                                                                               
+#&gt; [71] &quot;Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,&quot;      
+#&gt; [72] &quot;  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian&quot;      
+#&gt; [73] &quot;  evolutionary analysis. PLoS Computational Biology 10(4): e1003537&quot;            
+#&gt; [74] &quot;&quot;                                                                               
+#&gt; [75] &quot;===============================================================================&quot;
+#&gt; [76] &quot;Done!&quot;                                                                          
+#&gt; [1] &quot;output_log_filename (&#39;/tmp/Rtmp2AB4Eq/beast2_4f1b2d0f356flog&#39;): TRUE&quot;
+#&gt; [1] &quot;output_state_filename (&#39;/tmp/Rtmp2AB4Eq/beast2_4f1b1e8a4398.xml.state&#39;): TRUE&quot;
+#&gt; [1] &quot;output_trees_filenames (&#39;/tmp/Rtmp2AB4Eq/beast2_anthus_aco_4f1b57353d15.trees&#39;): TRUE&quot;
+#&gt; [1] &quot;Removing files: /tmp/Rtmp2AB4Eq/beast2_4f1b4952e7b5.xml /tmp/Rtmp2AB4Eq/beast2_4f1b2d0f356flog /tmp/Rtmp2AB4Eq/beast2_anthus_aco_4f1b57353d15.trees /tmp/Rtmp2AB4Eq/beast2_4f1b1e8a4398.xml.state&quot;
+</code></pre>
+
+<h2><code>cleanup</code></h2>
+
+<p>set to FALSE to keep all temporary files</p>
+
+</body>
+
+</html>

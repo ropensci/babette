@@ -77,7 +77,7 @@ out <- bbt_run(
   "anthus_aco.fas",
   tree_priors = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr(
-      mean = create_mean_param(value = 1.0)
+      mean = 1.0
     )    
   ),
   mcmc = mcmc
@@ -99,9 +99,8 @@ out <- bbt_run(
     alignment_id = get_alignment_id("anthus_aco.fas"),
     taxa_names = get_taxa_names("anthus_aco.fas"),
     mrca_distr = create_normal_distr(
-      id = 1,
-      mean = create_mean_param(value = 15.0, id = 2),
-      sigma = create_sigma_param(value = 0.01, id = 3)
+      mean = 15.0,
+      sigma = 0.01
     )
   ),
   mcmc = mcmc

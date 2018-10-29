@@ -55,8 +55,8 @@ posterior <- bbt_run(
     alignment_id = get_alignment_id("my_fasta.fas"),
     is_monophyletic = TRUE,
     mrca_distr = create_normal_distr(
-      mean = create_mean_param(value = 15.0, estimate = FALSE),
-      sigma = create_sigma_param(value = 0.025, estimate = FALSE)
+      mean = 15.0,
+      sigma = 0.025
     )
   )
 )
@@ -137,7 +137,8 @@ Thanks to Yacine Ben Chehida for this use case
 posterior <- bbt_run(
   "my_alignment.fas",
   clock_models = create_strict_clock_model(
-    clock_rate_param = create_clock_rate_param(value = 0.5)) 
+    clock_rate_param = 0.5
+  ) 
 )
 ```
 

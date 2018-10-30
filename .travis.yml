@@ -5,6 +5,10 @@ os:
   - osx
   - linux
 
+# Workaround to get OSX build working,
+# from https://github.com/travis-ci/travis-ci/issues/10295
+fortran: false
+
 r_packages:
   - devtools
   - ggplot2

@@ -1,6 +1,10 @@
 language: r
 cache: packages
 
+os: 
+  - osx
+  - linux
+
 r_packages:
   - devtools
   - ggplot2

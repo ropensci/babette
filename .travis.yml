@@ -1,6 +1,9 @@
 language: r
 cache: packages
 
+r:
+  - 3.3
+
 os: 
   - osx
   - linux

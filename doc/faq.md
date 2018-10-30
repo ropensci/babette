@@ -141,3 +141,10 @@ sudo R CMD javareconf -e
 export LD_LIBRARY_PATH=$JAVA_LD_LIBRARY_PATH
 sudo apt-get install r-cran-rjava
 ```
+
+### How to create the dependency graph from the `.dot` file?
+
+```
+dot -Tps dependencies.dot -o dependencies.ps
+convert dependencies.ps dependencies.png
+```

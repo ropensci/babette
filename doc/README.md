@@ -2,11 +2,8 @@
 
 The `babette` documentation.
 
-## Create the dependency graph from the `.dot` file
-
-```
-dot -Tps dependencies.dot -o dependencies.ps
-convert dependencies.ps dependencies.png
-```
-
+ * [Code of Conduct](code_of_conduct.md)
+ * [Examples](examples.md)
+ * [FAQ](faq.md)
+ * [Install](install.md)
 

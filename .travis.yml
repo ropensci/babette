@@ -1,8 +1,10 @@
 language: r
 cache: packages
 
+# No macOS until this Pull Request is accepted, due to Fortran
+# https://github.com/travis-ci/travis-build/pull/1553
 os: 
-  - osx
+  # - osx
   - linux
 
 # Workaround to get OSX build working,

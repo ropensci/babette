@@ -4,12 +4,12 @@ cache: packages
 # No macOS until this Pull Request is accepted, due to Fortran
 # https://github.com/travis-ci/travis-build/pull/1553
 os: 
-  # - osx
+  - osx
   - linux
 
 # Workaround to get OSX build working,
 # from https://github.com/travis-ci/travis-ci/issues/10295
-fortran: false
+# fortran: false
 
 r_packages:
   - devtools

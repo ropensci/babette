@@ -50,8 +50,8 @@ after_success:
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
   - # No local files created
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi; fi
-  - # Do a CRAN build
-  - cd scripts; ./build_cran
+  # Do a CRAN build. No time :-(
+  #- cd scripts; ./build_cran
   #- travis_wait 30 Rscript -e 'goodpractice::gp()'
   # temporarily disabled due to CERT_UNTRUSTED
   #- ./scripts/check_dead_links

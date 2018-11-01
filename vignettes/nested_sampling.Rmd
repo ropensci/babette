@@ -2,7 +2,7 @@
 title: "Nested Sampling"
 author: "Richel J.C. Bilderbeek"
 date: "`r Sys.Date()`"
-output: rmarkdown::pdf_document
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Nested Sampling}
   %\VignetteEngine{knitr::rmarkdown}

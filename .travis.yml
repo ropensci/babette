@@ -1,15 +1,9 @@
 language: r
 cache: packages
 
-# No macOS until this Pull Request is accepted, due to Fortran
-# https://github.com/travis-ci/travis-build/pull/1553
 os: 
   - osx
   - linux
-
-# Workaround to get OSX build working,
-# from https://github.com/travis-ci/travis-ci/issues/10295
-# fortran: false
 
 r_packages:
   - devtools
@@ -43,6 +37,10 @@ before_script:
   # markdown-link-check, temporarily disabled due to CERT_UNTRUSTED
   #- sudo apt-get install npm
   #- sudo npm install -g markdown-link-check
+
+script:
+  - travis_wait 30 R CMD build .
+  - travis_wait 30 R CMD check *tar.gz
 
 after_success:
   - Rscript -e 'lintr::lint_package()'

@@ -46,3 +46,4 @@ vignettes/tutorial_cache/
 vignettes/*.log
 vignettes/*.trees
 anthus_aco.posterior.*
+scripts/build/

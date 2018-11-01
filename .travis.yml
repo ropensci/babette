@@ -44,10 +44,6 @@ before_script:
   #- sudo apt-get install npm
   #- sudo npm install -g markdown-link-check
 
-script:
-  - travis_wait 30 R CMD build .
-  - travis_wait 30 R CMD check *tar.gz
-
 after_success:
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'

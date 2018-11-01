@@ -25,3 +25,9 @@ git add --all :/
 git commit -m "babette update"
 git push
 cd ..
+
+cd mauricer
+git add --all :/
+git commit -m "babette update"
+git push
+cd ..

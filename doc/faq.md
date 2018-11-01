@@ -74,7 +74,7 @@ or
 ```
 @article{bilderbeek2018babette,
   title={babette: BEAUti 2, BEAST 2 and Tracer for R},
-  author={Bilderbeek, Richel JC and Etienne, Rampal S},
+  author={Bilderbeek, Richèl JC and Etienne, Rampal S},
   journal={Methods in Ecology and Evolution},
   year={2018},
   publisher={Wiley Online Library}

@@ -30,6 +30,7 @@ This will download and extract BEAST2 to:
 OS|Full path
 ---|---
 Linux|`~/.local/share/beast`
+macOS|`~/.local/share/beast`
 Windows|`C:/Users/<username>/Local/beast`
 
 ## `babette` installation problems

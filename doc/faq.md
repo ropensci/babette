@@ -42,6 +42,12 @@ Submit an Issue. Or send an email to Richel Bilderbeek.
 
 ## `babette` technical questions
 
+### Which operating systems are supported?
+
+ * Linux
+ * macOS
+ * Windows
+
 ### How can I inspect a generated BEAST2 XML file?
 
 Set a path to a desired location and disable cleaning up:
@@ -115,7 +121,7 @@ The current logo shows a swan, an animal considered to be graceful.
 The swan is drawn by Jose Scholte, who kindly allowed her work to
 be used for free, by attribution.
 
-## Error: `libjvm.so: cannot open shared object file: No such file or directory`
+### Error: `libjvm.so: cannot open shared object file: No such file or directory`
 
 For me, [this Stack Overflow post](https://stackoverflow.com/a/25932828) helped me out:
 

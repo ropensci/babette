@@ -557,3 +557,23 @@ test_that("abuse", {
     "'rng_seed' should be NA or non-zero positive"
   )
 })
+
+test_that("abuse, nested sampling", {
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      mcmc = create_mcmc_nested_sampling(
+        chain_length = 1000,
+        sub_chain_length = 500
+      ),
+      beast2_path = get_default_beast2_jar_path()
+    ),
+    paste0(
+      "When using nested sampling \\(that is, ",
+      "using 'create_mcmc_nested_sampling'\\), ",
+      "one must use the binary BEAST2 executable \\(that is, using ",
+      "'beast2_path = get_default_beast2_bin_path\\(\\)'\\)"
+    )
+  )
+})

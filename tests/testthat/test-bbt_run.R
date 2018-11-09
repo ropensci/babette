@@ -405,6 +405,51 @@ test_that("Run MRCA, no distr, subset of taxa", {
   testthat::expect_true(are_beast2_input_lines(lines))
 })
 
+test_that("RLN and non-monophyletic MRCA, Issue 29, #29", {
+
+  skip("Invalid BEAST2 file when using RLN and MRCA prior, Issue 29, #29")
+  # Thanks to Raphael Scherrer for sharing this bug
+  fasta_filename <- get_fasta_filename()
+  lines <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    clock_models = create_rln_clock_model(),
+    mrca_priors = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      is_monophyletic = FALSE,
+      mrca_distr = create_one_div_x_distr()
+    )
+  )
+  testthat::expect_true(
+    are_beast2_input_lines(
+      lines, method = "deep"
+    )
+  )
+})
+
+test_that("RLN and monophyletic MRCA, Issue 29, #29", {
+
+  skip("Invalid BEAST2 file when using RLN and MRCA prior, Issue 29, #29")
+
+  # Thanks to Jana Riederer for sharing this bug
+  fasta_filename <- get_fasta_filename()
+  lines <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    clock_models = create_rln_clock_model(),
+    mrca_priors = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      is_monophyletic = TRUE,
+      mrca_distr = create_one_div_x_distr()
+    )
+  )
+  testthat::expect_true(
+    are_beast2_input_lines(
+      lines, method = "deep"
+    )
+  )
+})
+
 ################################################################################
 # Initial phylogenies
 ################################################################################

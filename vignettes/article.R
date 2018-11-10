@@ -31,14 +31,17 @@ out <- bbt_run(
 )
 
 ## ------------------------------------------------------------------------
-out <- bbt_run(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  site_models = list(
-    create_tn93_site_model(), 
-    create_gtr_site_model()
-  ),
-  mcmc = mcmc
-)
+# Currently, support for multiple alignments has been deprecated
+if (1 == 2) {
+  out <- bbt_run(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    site_models = list(
+      create_tn93_site_model(), 
+      create_gtr_site_model()
+    ),
+    mcmc = mcmc
+  )
+}
 
 ## ------------------------------------------------------------------------
 out <- bbt_run(

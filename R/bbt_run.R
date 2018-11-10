@@ -96,36 +96,6 @@
 #'  testit::assert("rejectFC" %in% names(out$operators))
 #'  testit::assert("rejectIv" %in% names(out$operators))
 #'  testit::assert("rejectOp" %in% names(out$operators))
-#'
-#'  # Two alignments
-#'  out <- bbt_run(
-#'    fasta_filenames = get_babette_paths(
-#'      c("anthus_aco.fas", "anthus_nd2.fas")
-#'    ),
-#'    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
-#'  )
-#'
-#'  testit::assert("estimates" %in% names(out))
-#'  testit::assert("anthus_aco_trees" %in% names(out))
-#'  testit::assert("anthus_nd2_trees" %in% names(out))
-#'  testit::assert("operators" %in% names(out))
-#'  testit::assert(class(out$anthus_aco_trees[[1]]) == "phylo")
-#'  testit::assert(class(out$anthus_nd2_trees[[1]]) == "phylo")
-#'  testit::assert(length(out$anthus_aco_trees) == 2)
-#'  testit::assert(length(out$anthus_nd2_trees) == 2)
-#'
-#'  testit::assert("Sample" %in% names(out$estimates))
-#'  testit::assert("posterior" %in% names(out$estimates))
-#'  testit::assert("likelihood" %in% names(out$estimates))
-#'  testit::assert("prior" %in% names(out$estimates))
-#'  testit::assert("treeLikelihood.aco" %in% names(out$estimates))
-#'  testit::assert("treeLikelihood.nd2" %in% names(out$estimates))
-#'  testit::assert("TreeHeight.aco" %in% names(out$estimates))
-#'  testit::assert("TreeHeight.nd2" %in% names(out$estimates))
-#'  testit::assert("YuleModel.aco" %in% names(out$estimates))
-#'  testit::assert("YuleModel.nd2" %in% names(out$estimates))
-#'  testit::assert("birthRate.aco" %in% names(out$estimates))
-#'  testit::assert("birthRate.nd2" %in% names(out$estimates))
 #' @seealso Use \code{\link[tracerer]{remove_burn_ins}}
 #'   to remove the burn-ins from
 #'   the posterior's estimates (\code{posterior$estimates})

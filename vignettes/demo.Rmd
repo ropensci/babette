@@ -26,13 +26,7 @@ First, load the library:
 library(babette)
 ```
 
-The following examples show:
-
- * one alignment
- * two alignments
- * two alignments with a fixed crown age
-
-Of each example, it is shown:
+The following example shows how to analyze one alignment:
 
  * How to let `babette` run BEAST2
  * How the plot the posterior estimates
@@ -49,8 +43,6 @@ mcmc <- create_mcmc(
 ```
 
 For a reliable inference, use an ESS of at least 200.
-
-## One alignment
 
 ```{r cache=TRUE}
 out <- bbt_run(
@@ -95,89 +87,4 @@ Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
 plot_densitree(out$anthus_aco_trees, width = 2)
-```
-
-## Two alignments
-
-```{r cache=TRUE}
-out <- bbt_run(
-  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = mcmc
-)
-```
-
-```{r}
-p <- ggplot(
-  data = out$estimates,
-  aes(x = Sample)
-) 
-p + geom_line(aes(y = TreeHeight.aco), color = "green") +
-   geom_line(aes(y = TreeHeight.nd2), color = "lightgreen")
-p + geom_line(aes(y = YuleModel.aco), color = "red") +
-  geom_line(aes(y = YuleModel.nd2), color = "pink")
-p + geom_line(aes(y = birthRate.aco), color = "blue") + 
-  geom_line(aes(y = birthRate.nd2), color = "cyan")
-
-```
-
-Effective sample sizes, with 20% burn-in removed:
-
-```{r}
-traces <- remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
-esses <- t(calc_esses(traces, sample_interval = sample_interval))
-colnames(esses) <- "ESS"
-knitr::kable(esses)
-```
-
-Phylogenies:
-
-```{r fig.width=7, fig.height=7}
-plot_densitree(out$anthus_aco_trees, width = 2)
-```
-
-```{r fig.width=7, fig.height=7}
-plot_densitree(out$anthus_nd2_trees, width = 2)
-```
-
-## Two alignments, fixed crown age
-
-```{r cache=TRUE}
-out <- bbt_run(
-  get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas")),
-  mcmc = mcmc,
-  posterior_crown_age = 15
-)
-```
-
-```{r}
-p <- ggplot(
-  data = out$estimates,
-  aes(x = Sample)
-) 
-p + geom_line(aes(y = TreeHeight.aco), color = "green") +
-   geom_line(aes(y = TreeHeight.nd2), color = "lightgreen")
-p + geom_line(aes(y = YuleModel.aco), color = "red") +
-  geom_line(aes(y = YuleModel.nd2), color = "pink")
-p + geom_line(aes(y = birthRate.aco), color = "blue") + 
-  geom_line(aes(y = birthRate.nd2), color = "cyan")
-
-```
-
-Effective sample sizes, with 20% burn-in removed:
-
-```{r}
-traces <- remove_burn_ins(traces = out$estimates, burn_in_fraction = 0.2)
-esses <- t(calc_esses(traces, sample_interval = sample_interval))
-colnames(esses) <- "ESS"
-knitr::kable(esses)
-```
-
-Phylogenies:
-
-```{r fig.width=7, fig.height=7}
-plot_densitree(out$anthus_aco_trees, width = 2)
-```
-
-```{r fig.width=7, fig.height=7}
-plot_densitree(out$anthus_nd2_trees, width = 2)
 ```

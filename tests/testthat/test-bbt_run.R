@@ -407,7 +407,6 @@ test_that("Run MRCA, no distr, subset of taxa", {
 
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
 
-  skip("Invalid BEAST2 file when using RLN and MRCA prior, Issue 29, #29")
   # Thanks to Raphael Scherrer for sharing this bug
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
@@ -428,8 +427,6 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
 })
 
 test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
-
-  skip("Invalid BEAST2 file when using RLN and MRCA prior, Issue 29, #29")
 
   # Thanks to Jana Riederer for sharing this bug
   fasta_filename <- get_fasta_filename()

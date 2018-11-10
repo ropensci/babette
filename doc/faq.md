@@ -44,7 +44,7 @@ Submit an Issue. Or send an email to Richel Bilderbeek.
 
 ### Which operating systems are supported?
 
- * Linux
+ * Linux (unencrypted home folder)
  * macOS
  * Windows
 

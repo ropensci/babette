@@ -7,14 +7,20 @@ run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run(
   fasta_filenames,
-  site_models = beautier::create_jc69_site_models(
-    beautier::get_alignment_ids(fasta_filenames)
+  site_models = list(
+    beautier::create_jc69_site_model(
+      beautier::get_alignment_id(fasta_filenames)
+    )
   ),
-  clock_models = beautier::create_strict_clock_models(
-    beautier::get_alignment_ids(fasta_filenames)
+  clock_models = list(
+    beautier::create_strict_clock_model(
+      beautier::get_alignment_ids(fasta_filenames)
+    )
   ),
-  tree_priors = beautier::create_yule_tree_priors(
-    beautier::get_alignment_ids(fasta_filenames)
+  tree_priors = list(
+    beautier::create_yule_tree_prior(
+      beautier::get_alignment_ids(fasta_filenames)
+    )
   ),
   mrca_priors = NA,
   mcmc = beautier::create_mcmc(),
@@ -144,7 +150,6 @@ Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 run BEAST2, parse results (like Tracer)
 }
 \examples{
- # One alignment
  out <- bbt_run(
    fasta_filenames = get_babette_path("anthus_aco.fas"),
    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)

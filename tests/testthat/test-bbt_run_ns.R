@@ -61,8 +61,6 @@ test_that("use", {
 
 test_that("Nested sampling run should create no temporaries", {
 
-  skip("TODO: Issue 36, #36")
-
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }

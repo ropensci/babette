@@ -14,6 +14,8 @@ bbt_process_pkg_output <- function(
     ns_trees_filename <- paste0(alignment_ids, ".posterior.trees")
     out$ns$estimates <- tracerer::parse_beast_log(ns_log_filename)
     out$ns$trees <- tracerer::parse_beast_trees(ns_trees_filename)
+    file.remove(ns_log_filename)
+    file.remove(ns_trees_filename)
   }
   out
 }

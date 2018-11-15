@@ -35,9 +35,6 @@ test_that("use, one alignment", {
   testthat::expect_true("rejectFC" %in% names(out$operators))
   testthat::expect_true("rejectIv" %in% names(out$operators))
   testthat::expect_true("rejectOp" %in% names(out$operators))
-
-
-
 })
 
 test_that("use, one alignment, verbose, cleanup", {
@@ -422,28 +419,6 @@ test_that("use, one alignment, plot with nLTT", {
 
 })
 
-test_that("use, nested sampling", {
-
-  if (rappdirs::app_dir()$os == "win") {
-    skip("Cannot run Nested Sampling package from Windows")
-  }
-
-  testit::assert(mauricer::mrc_is_installed("NS"))
-  out <- bbt_run(
-    fasta_filenames = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc_nested_sampling(
-      chain_length = 1000,
-      sub_chain_length = 500
-    ),
-    beast2_path = get_default_beast2_bin_path()
-  )
-  expect_true("ns" %in% names(out))
-  expect_true("marg_log_lik" %in% names(out$ns))
-  expect_true("marg_log_lik_sd" %in% names(out$ns))
-  skip("TODO: measure Nested Sampling ESS")
-  expect_true("ess" %in% names(out$ns))
-})
-
 test_that("abuse", {
 
   testthat::expect_error(
@@ -452,25 +427,5 @@ test_that("abuse", {
       rng_seed = 0 # Error here
     ),
     "'rng_seed' should be NA or non-zero positive"
-  )
-})
-
-test_that("abuse, nested sampling", {
-
-  expect_error(
-    bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc_nested_sampling(
-        chain_length = 1000,
-        sub_chain_length = 500
-      ),
-      beast2_path = get_default_beast2_jar_path()
-    ),
-    paste0(
-      "When using nested sampling \\(that is, ",
-      "using 'create_mcmc_nested_sampling'\\), ",
-      "one must use the binary BEAST2 executable \\(that is, using ",
-      "'beast2_path = get_default_beast2_bin_path\\(\\)'\\)"
-    )
   )
 })

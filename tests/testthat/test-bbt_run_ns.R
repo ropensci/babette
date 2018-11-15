@@ -7,13 +7,6 @@ test_that("use", {
   }
 
   testit::assert(mauricer::mrc_is_installed("NS"))
-  beautier::create_beast2_input_file(
-    get_babette_path("anthus_aco.fas"),
-    "~/anthus_aco_ns",
-    mcmc = create_mcmc_nested_sampling()
-  )
-
-
   out <- bbt_run(
     fasta_filenames = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling(
@@ -60,6 +53,40 @@ test_that("use", {
   expect_true("marg_log_lik_sd" %in% names(out$ns))
   skip("TODO: measure Nested Sampling ESS")
   expect_true("ess" %in% names(out$ns))
+})
+
+test_that("Nested sampling run should create no temporaries", {
+
+  skip("TODO: Issue 36, #36")
+
+  if (rappdirs::app_dir()$os == "win") {
+    skip("Cannot run Nested Sampling package from Windows")
+  }
+
+  # From https://github.com/richelbilderbeek/babette/issues/36
+  testit::assert(mauricer::mrc_is_installed("NS"))
+
+  # Run babette in a different folder
+  old_work_dir <- getwd()
+  new_work_dir <- tempdir()
+  setwd(new_work_dir)
+  n_files_before <- length(list.files(new_work_dir))
+
+  bbt_run(
+    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    mcmc = create_mcmc_nested_sampling(
+      chain_length = 1000,
+      store_every = 1000,
+      sub_chain_length = 500,
+      epsilon = 1.0
+    ),
+    beast2_path = get_default_beast2_bin_path()
+  )
+
+  n_files_after <- length(list.files(new_work_dir))
+  setwd(old_work_dir)
+  expect_equal(n_files_before, n_files_after)
+
 })
 
 test_that("abuse", {

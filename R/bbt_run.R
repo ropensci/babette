@@ -221,6 +221,11 @@ bbt_run <- function(
   names(out) <- new_names
   out$output <- output
 
-  # Process the package specific output
-  bbt_process_pkg_output(out = out, mcmc = mcmc) # nolint internal function
+  # Process the package specific output,
+  # for example, add an 'ns' atributed for Nested Sampling
+  bbt_process_pkg_output( # nolint internal function
+    out = out,
+    mcmc = mcmc,
+    alignment_ids = beautier::get_alignment_ids(fasta_filenames)
+  )
 }

@@ -47,11 +47,15 @@ test_that("use", {
   testthat::expect_true("rejectIv" %in% names(out$operators))
   testthat::expect_true("rejectOp" %in% names(out$operators))
 
-
   expect_true("ns" %in% names(out))
   expect_true("marg_log_lik" %in% names(out$ns))
   expect_true("marg_log_lik_sd" %in% names(out$ns))
-  skip("TODO: measure Nested Sampling ESS")
+
+  expect_true("estimates" %in% names(out$ns))
+  expect_true("trees" %in% names(out$ns))
+
+  skip("TODO: measure Nested Sampling ESS. Issue 37, #37")
+  # https://github.com/richelbilderbeek/babette/issues/37
   expect_true("ess" %in% names(out$ns))
 })
 
@@ -85,6 +89,7 @@ test_that("Nested sampling run should create no temporaries", {
 
   n_files_after <- length(list.files(new_work_dir))
   setwd(old_work_dir)
+  list.files(new_work_dir)
   expect_equal(n_files_before, n_files_after)
 
 })

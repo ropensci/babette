@@ -4,7 +4,7 @@
 \alias{bbt_process_pkg_output}
 \title{Process the BEAST2 output dependent on BEAST2 package specifics}
 \usage{
-bbt_process_pkg_output(out, mcmc)
+bbt_process_pkg_output(out, mcmc, alignment_ids = NA)
 }
 \arguments{
 \item{out}{complete babette output}

@@ -28,8 +28,13 @@ test_that("use", {
   testthat::expect_true("anthus_aco_trees" %in% names(out))
   testthat::expect_true("operators" %in% names(out))
   testthat::expect_true("output" %in% names(out))
-  testthat::expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
-  testthat::expect_equal(length(out$anthus_aco_trees), 2)
+
+  if (1 == 2) {
+    # This assumption is false: a Nested Sampling run runs until
+    # convergence
+    testthat::expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
+    testthat::expect_equal(length(out$anthus_aco_trees), 2)
+  }
 
   testthat::expect_true("Sample" %in% names(out$estimates))
   testthat::expect_true("posterior" %in% names(out$estimates))

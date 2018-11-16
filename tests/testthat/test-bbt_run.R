@@ -129,7 +129,7 @@ test_that("abuse", {
 ################################################################################
 
 test_that("Run all defaults", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -147,7 +147,7 @@ test_that("Run all defaults", {
 ################################################################################
 
 test_that("Run GTR", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -162,7 +162,7 @@ test_that("Run GTR", {
 ################################################################################
 
 test_that("Run HKY", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -177,7 +177,7 @@ test_that("Run HKY", {
 ################################################################################
 
 test_that("Run JC69", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -192,7 +192,7 @@ test_that("Run JC69", {
 ################################################################################
 
 test_that("Run TN93", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -210,7 +210,7 @@ test_that("Run TN93", {
 # Clock model: RLN
 ################################################################################
 test_that("Run RLN clock", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -224,7 +224,7 @@ test_that("Run RLN clock", {
 # Clock model: strict
 ################################################################################
 test_that("Run strict clock", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -242,7 +242,7 @@ test_that("Run strict clock", {
 # Tree prior: BD
 ################################################################################
 test_that("Run BD tree prior", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -256,7 +256,7 @@ test_that("Run BD tree prior", {
 # Tree prior: CBS
 ################################################################################
 test_that("Run CBS tree prior", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -272,7 +272,7 @@ test_that("Run CBS tree prior", {
 # Tree prior: CCP
 ################################################################################
 test_that("Run CCP tree prior", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -286,7 +286,7 @@ test_that("Run CCP tree prior", {
 # Tree prior: CEP
 ################################################################################
 test_that("Run CEP tree prior", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
@@ -300,7 +300,7 @@ test_that("Run CEP tree prior", {
 # Tree prior: Yule
 ################################################################################
 test_that("Run Yule tree prior", {
-  if (!beastier:::is_on_travis()) return()
+  if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),

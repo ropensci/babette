@@ -94,8 +94,7 @@ test_that("Nested sampling run should create no temporaries", {
 
 test_that("abuse", {
 
-  if (!mauricer::mrc_is_installed("NS"))
-  {
+  if (!mauricer::mrc_is_installed("NS")) {
     mauricer::mrc_install("NS")
   }
   testit::assert(mauricer::mrc_is_installed("NS"))

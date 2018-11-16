@@ -14,12 +14,12 @@ bbt_run(
   ),
   clock_models = list(
     beautier::create_strict_clock_model(
-      beautier::get_alignment_ids(fasta_filenames)
+      beautier::get_alignment_id(fasta_filenames)
     )
   ),
   tree_priors = list(
     beautier::create_yule_tree_prior(
-      beautier::get_alignment_ids(fasta_filenames)
+      beautier::get_alignment_id(fasta_filenames)
     )
   ),
   mrca_priors = NA,

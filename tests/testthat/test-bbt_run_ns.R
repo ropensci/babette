@@ -94,6 +94,12 @@ test_that("Nested sampling run should create no temporaries", {
 
 test_that("abuse", {
 
+  if (!mauricer::mrc_is_installed("NS"))
+  {
+    mauricer::mrc_install("NS")
+  }
+  testit::assert(mauricer::mrc_is_installed("NS"))
+
   expect_error(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),

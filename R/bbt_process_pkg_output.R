@@ -1,6 +1,12 @@
 #' Process the BEAST2 output dependent on BEAST2 package specifics
 #' @param out complete babette output
 #' @param mcmc an MCMC
+#' @param alignment_ids alignment IDs, as obtained by
+#'   \link[beautier]{get_alignment_ids}
+#' @return complete babette output with added attributes,
+#'   which depends on the BEAST2 package specificics
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 bbt_process_pkg_output <- function(
   out,
   mcmc,

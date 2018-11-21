@@ -25,9 +25,18 @@
 #'     sent to standard output and error streams
 #'   }
 #'   \item{
-#'     \code{ns}: (optional) the results of the NS BEAST2 package,
+#'     \code{ns}: (optional) the results of a marginal likelihood estimation,
 #'     will exist only when \code{create_mcmc_nested_sampling} was
-#'     used for \code{mcmc}
+#'     used for \code{mcmc}.
+#'     This structure will contain the following elements:
+#'     \itemize{
+#'       \item \code{marg_log_lik} the marginal log likelihood estimate
+#'       \item \code{marg_log_lik_sd} the standard deviation around the estimate
+#'       \item \code{estimates} the parameter estimates
+#'         created during the marginal likelihood estimation
+#'       \item \code{trees} the trees
+#'         created during the marginal likelihood estimation
+#'     }
 #'   }
 #' }
 #' @author Richel J.C. Bilderbeek

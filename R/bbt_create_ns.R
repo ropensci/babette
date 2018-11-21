@@ -4,8 +4,6 @@
 #'   \itemize{
 #'     \item \code{marg_log_lik} the marginal log likelihood estimate
 #'     \item \code{marg_log_lik_sd} the standard deviation around the estimate
-#'     \item \code{ess} the effective sample size
-#'       in estimating the marginal log likelihood
 #'   }
 #' @author Richel J.C. Bilderbeek
 bbt_create_ns <- function(

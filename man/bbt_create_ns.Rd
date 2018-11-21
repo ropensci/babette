@@ -14,8 +14,6 @@ a list with the following elements:
   \itemize{
     \item \code{marg_log_lik} the marginal log likelihood estimate
     \item \code{marg_log_lik_sd} the standard deviation around the estimate
-    \item \code{ess} the effective sample size
-      in estimating the marginal log likelihood
   }
 }
 \description{

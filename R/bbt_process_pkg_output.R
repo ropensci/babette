@@ -5,6 +5,14 @@
 #'   \link[beautier]{get_alignment_ids}
 #' @return complete babette output with added attributes,
 #'   which depends on the BEAST2 package specificics
+#'   \itemize{
+#'     \item \code{marg_log_lik} the marginal log likelihood estimate
+#'     \item \code{marg_log_lik_sd} the standard deviation around the estimate
+#'     \item \code{estimates} the parameter estimates
+#'       created during the marginal likelihood estimation
+#'     \item \code{trees} the trees
+#'       created during the marginal likelihood estimation
+#'   }
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 bbt_process_pkg_output <- function(

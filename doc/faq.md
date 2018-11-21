@@ -4,12 +4,18 @@
 
 ### Which version of BEAUti do you use as a guideline?
 
-Version 2.5.0, as can be found in the [install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
+Version 2.5.1, as can be found in the [install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
 
 ### How to install BEAST2?
 
 ```
 beastier::install_beast2()
+```
+
+### How to install the BEAST2 NS package?
+
+```
+mauricer::mrc_install("NS")
 ```
 
 ## `babette` development 
@@ -67,6 +73,22 @@ The XML file will be saved at that location.
 Correct. This is a feature of BEAST2. Using the `create_mrca` prior 
 gives prettier results.
 
+### How can I estimate the marginal likelihood?
+
+To estimate the marginal likelihood, create a Nested Sampling MCMC object:
+
+```r
+testit::assert(beastier::is_beast2_installed())
+testit::assert(mauricer::mrc_is_installed("NS"))
+out <- bbt_run(
+  fasta_filenames = get_babette_path("anthus_aco.fas"),
+  mcmc = create_mcmc_nested_sampling(),
+  beast2_path = get_default_beast2_bin_path()
+)
+```
+
+
+
 ## `babette` in academia
 
 ### How do I reference to this work?
@@ -92,7 +114,6 @@ or
  * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
  * [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
  * [RBeast](https://github.com/beast-dev/RBeast): misc other things
-
 
 ### What are the FASTA files?
 

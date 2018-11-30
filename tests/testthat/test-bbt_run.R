@@ -425,7 +425,8 @@ test_that("with tip dating", {
   tipdates_filename <- beautier::get_beautier_path("G_VII_pre2003_dates_4.txt")
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    tipdates_filename = tipdates_filename
+    tipdates_filename = tipdates_filename,
+    tree_priors = create_ccp_tree_prior()
   )
   testthat::expect_true(
     are_beast2_input_lines(

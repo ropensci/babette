@@ -286,8 +286,12 @@ test_that("Run CCP tree prior with tip dating", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = beautier::get_beautier_path("G_VII_pre2003_msa.fas"),
-      tipdates_filename = beautier::get_beautier_path("G_VII_pre2003_dates_4.txt"),
+      fasta_filenames = beautier::get_beautier_path(
+        "G_VII_pre2003_msa.fas"
+      ),
+      tipdates_filename = beautier::get_beautier_path(
+        "G_VII_pre2003_dates_4.txt"
+      ),
       tree_priors = create_ccp_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )

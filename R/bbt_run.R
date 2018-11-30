@@ -116,6 +116,7 @@
 #' @export
 bbt_run <- function(
   fasta_filenames,
+  tipdates_filename = NA,
   site_models = list(
     beautier::create_jc69_site_model(
       beautier::get_alignment_id(fasta_filenames)
@@ -171,7 +172,8 @@ bbt_run <- function(
     mrca_priors = mrca_priors,
     mcmc = mcmc,
     posterior_crown_age = posterior_crown_age,
-    output_filename = beast2_input_filename
+    output_filename = beast2_input_filename,
+    tipdates_filename = tipdates_filename
   )
   testit::assert(file.exists(beast2_input_filename))
 

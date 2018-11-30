@@ -419,6 +419,21 @@ test_that("use, one alignment, plot with nLTT", {
 
 })
 
+test_that("with tip dating", {
+
+  fasta_filename <- beautier::get_beautier_path("G_VII_pre2003_msa.fas")
+  tipdates_filename <- beautier::get_beautier_path("G_VII_pre2003_dates_4.txt")
+  lines <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    tipdates_filename = tipdates_filename
+  )
+  testthat::expect_true(
+    are_beast2_input_lines(
+      lines, method = "deep"
+    )
+  )
+})
+
 test_that("abuse", {
 
   testthat::expect_error(

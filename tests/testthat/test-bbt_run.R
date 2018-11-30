@@ -282,6 +282,18 @@ test_that("Run CCP tree prior", {
   )
 })
 
+test_that("Run CCP tree prior with tip dating", {
+  if (!beastier::is_on_ci()) return()
+  expect_silent(
+    bbt_run(
+      fasta_filenames = beautier::get_beautier_path("G_VII_pre2003_msa.fas"),
+      tipdates_filename = beautier::get_beautier_path("G_VII_pre2003_dates_4.txt"),
+      tree_priors = create_ccp_tree_prior(),
+      mcmc = beautier::create_mcmc(chain_length = 2000)
+    )
+  )
+})
+
 ################################################################################
 # Tree prior: CEP
 ################################################################################
@@ -295,6 +307,7 @@ test_that("Run CEP tree prior", {
     )
   )
 })
+
 
 ################################################################################
 # Tree prior: Yule
@@ -428,11 +441,7 @@ test_that("with tip dating", {
     tipdates_filename = tipdates_filename,
     tree_priors = create_ccp_tree_prior()
   )
-  testthat::expect_true(
-    are_beast2_input_lines(
-      lines, method = "deep"
-    )
-  )
+  testthat::expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("abuse", {

@@ -185,6 +185,9 @@ bbt_run <- function(
   if(any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
+  if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
+    stop("Must have as much FASTA filenames as BEAST2 output trees filenames")
+  }
   if (!is.na(rng_seed) && !(rng_seed > 0)) {
     stop("'rng_seed' should be NA or non-zero positive")
   }

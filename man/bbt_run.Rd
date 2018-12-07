@@ -42,7 +42,8 @@ bbt_run(
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = FALSE,
   verbose = FALSE,
-  cleanup = TRUE
+  cleanup = TRUE,
+ posterior_crown_age = NA
 )
 }
 \arguments{
@@ -119,6 +120,8 @@ the default BEAST jar file's path}
 \item{verbose}{set to TRUE for more output}
 
 \item{cleanup}{set to FALSE to keep all temporary files}
+
+\item{posterior_crown_age}{deprecated}
 }
 \value{
 a list with the following elements:\cr

@@ -60,7 +60,6 @@
 #'   ),
 #'   mrca_priors = NA,
 #'   mcmc = beautier::create_mcmc(),
-#'   posterior_crown_age = NA,
 #'   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
 #'   rng_seed = 1,
 #'   beast2_output_log_filename = tempfile(
@@ -77,6 +76,7 @@
 #'     pattern = "beast2_", fileext = ".xml.state"
 #'   ),
 #'   beast2_path = beastier::get_default_beast2_path(),
+#'   overwrite = FALSE,
 #'   verbose = FALSE,
 #'   cleanup = TRUE
 #' )
@@ -134,7 +134,6 @@ bbt_run <- function(
   ),
   mrca_priors = NA,
   mcmc = beautier::create_mcmc(),
-  posterior_crown_age = NA,
   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
   rng_seed = 1,
   beast2_output_log_filename = tempfile(pattern = "beast2_", fileext = "log"),

@@ -149,6 +149,7 @@ bbt_run <- function(
     pattern = "beast2_", fileext = ".xml.state"
   ),
   beast2_path = beastier::get_default_beast2_path(),
+  overwrite = FALSE,
   verbose = FALSE,
   cleanup = TRUE
 ) {
@@ -184,6 +185,7 @@ bbt_run <- function(
     output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,
     beast2_path = beast2_path,
+    overwrite = overwrite,
     verbose = verbose
   )
 

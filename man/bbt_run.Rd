@@ -110,6 +110,16 @@ the default BEAST binary file's path
 Use \code{get_default_beast2_jar_path} to get
 the default BEAST jar file's path}
 
+\item{overwrite}{if TRUE: overwrite the \code{.log}
+ and \code{.trees} files if one of these exists.
+ If FALSE, BEAST2 will not be started if
+ \itemize{
+   \item{the \code{.log} file exists}
+   \item{the \code{.trees} files exist}
+   \item{the \code{.log} file created by BEAST2 exists}
+   \item{the \code{.trees} files created by BEAST2 exist}
+}}
+
 \item{verbose}{set to TRUE for more output}
 
 \item{cleanup}{set to FALSE to keep all temporary files}

@@ -42,6 +42,15 @@
 #'   see \link[beautier]{create_mcmc}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
 #'   as returned by \code{\link{create_mrca_prior}}
+#' @param overwrite if TRUE: overwrite the \code{.log}
+#'   and \code{.trees} files if one of these exists.
+#'   If FALSE, BEAST2 will not be started if
+#'   \itemize{
+#'     \item{the \code{.log} file exists}
+#'     \item{the \code{.trees} files exist}
+#'     \item{the \code{.log} file created by BEAST2 exists}
+#'     \item{the \code{.trees} files created by BEAST2 exist}
+#'  }
 #' @param posterior_crown_age the posterior's crown age. Use NA to let
 #'   BEAST2 estimate this parameter. Use a positive value to fix the
 #'   crown age to that value
@@ -68,6 +77,7 @@ bbt_default_params_doc <- function(
   fasta_filenames,
   mcmc,
   mrca_priors,
+  overwrite,
   posterior_crown_age,
   rng_seed,
   site_models,

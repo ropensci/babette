@@ -204,7 +204,6 @@ bbt_run <- function(
     tree_priors = tree_priors,
     mrca_priors = mrca_priors,
     mcmc = mcmc,
-    posterior_crown_age = posterior_crown_age,
     output_filename = beast2_input_filename,
     tipdates_filename = tipdates_filename
   )

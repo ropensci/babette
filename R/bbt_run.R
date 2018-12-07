@@ -1,7 +1,6 @@
 #' Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 #' run BEAST2, parse results (like Tracer)
 #' @inheritParams bbt_default_params_doc
-#' @param posterior_crown_age deprecated
 #' @return a list with the following elements:\cr
 #' \itemize{
 #'   \item{

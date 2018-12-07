@@ -26,6 +26,13 @@ clock_model <- create_strict_clock_model()
 tree_prior <- create_tree_prior_yule()
 tree_prior <- create_yule_tree_prior()
 
+## ----cache=TRUE----------------------------------------------------------
+out <- bbt_run(
+  fasta_filenames = fasta_filename,
+  tree_prior = tree_prior,
+  mcmc = mcmc
+)
+
 ## ------------------------------------------------------------------------
 mrca_prior <- create_mrca_prior(
   alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
@@ -44,28 +51,6 @@ mrca_prior <- create_mrca_prior(
   alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
   taxa_names = get_taxa_names(filename = fasta_filename),
   mrca_distr = mrca_distr
-)
-
-## ----cache=TRUE----------------------------------------------------------
-out <- bbt_run(
-  fasta_filenames = fasta_filename,
-  mrca_prior = mrca_prior,
-  mcmc = mcmc
-)
-
-## ----cache=TRUE----------------------------------------------------------
-# Prefer this over using 'posterior_crown_age'
-out <- bbt_run(
-  fasta_filenames = fasta_filename,
-  mrca_prior = create_mrca_prior(
-    alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
-    taxa_names = get_taxa_names(filename = fasta_filename),
-    mrca_distr = create_normal_distr(
-      mean = 15.0, 
-      sigma = 0.0001
-    )
-  ),
-  mcmc = mcmc
 )
 
 ## ------------------------------------------------------------------------

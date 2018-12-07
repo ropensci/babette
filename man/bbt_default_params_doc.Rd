@@ -8,7 +8,8 @@ documentation.}
 bbt_default_params_doc(beast2_input_filename, beast2_output_log_filename,
   beast2_output_state_filename, beast2_output_trees_filenames, beast2_path,
   cleanup, clock_models, fasta_filenames, mcmc, mrca_prior, mrca_priors,
-  overwrite, rng_seed, site_models, tree_priors, verbose)
+  overwrite, posterior_crown_age, rng_seed, site_models, tree_prior,
+  tree_priors, verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -76,12 +77,17 @@ as returned by \code{\link{create_mrca_prior}}}
    \item{the \code{.trees} files created by BEAST2 exist}
 }}
 
+\item{posterior_crown_age}{deprecated}
+
 \item{rng_seed}{the random number generator seed. Must be either
 \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
 results in BEAST2 picking a random seed.}
 
 \item{site_models}{one or more site models,
 see \link[beautier]{create_site_models}}
+
+\item{tree_prior}{one tree priors,
+as created by \link[beautier]{create_tree_prior}}
 
 \item{tree_priors}{one or more tree priors,
 see \link[beautier]{create_tree_priors}}

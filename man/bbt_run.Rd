@@ -53,6 +53,9 @@ see \link[beautier]{create_site_models}}
 \item{clock_models}{one or more clock models,
 see \link[beautier]{create_clock_models}}
 
+\item{tree_prior}{one tree priors,
+as created by \link[beautier]{create_tree_prior}}
+
 \item{mrca_prior}{one Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
 

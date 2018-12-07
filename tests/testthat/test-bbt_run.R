@@ -8,7 +8,8 @@ test_that("use, one alignment", {
   expect_silent(
     out <- bbt_run(
       fasta_filename = get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+      mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
+      overwrite = TRUE
     )
   )
   expect_true("estimates" %in% names(out))

@@ -56,7 +56,7 @@
 #'   beast2_output_trees_filenames = tempfile(
 #'     pattern = paste0(
 #'       "beast2_",
-#'       beautier::get_alignment_ids(fasta_filenames), "_"
+#'       beautier::get_alignment_ids(fasta_filename), "_"
 #'     ),
 #'     fileext = ".trees"
 #'   ),
@@ -185,13 +185,6 @@ bbt_run <- function(
   if(any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
-
-
-
-
-  if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
-    stop("Must have as much FASTA filenames as BEAST2 output trees filenames")
-  }
   if (!is.na(rng_seed) && !(rng_seed > 0)) {
     stop("'rng_seed' should be NA or non-zero positive")
   }
@@ -263,9 +256,7 @@ bbt_run <- function(
     }
   }
   new_names <- names(out)
-  new_names[seq_along(fasta_filenames)] <- paste0(
-    beautier::get_alignment_ids(fasta_filenames), "_trees"
-  )
+  new_names[1] <- paste0(beautier::get_alignment_id(fasta_filename), "_trees")
   names(out) <- new_names
   out$output <- output
 
@@ -274,6 +265,6 @@ bbt_run <- function(
   bbt_process_pkg_output( # nolint internal function
     out = out,
     mcmc = mcmc,
-    alignment_ids = beautier::get_alignment_ids(fasta_filenames)
+    alignment_ids = beautier::get_alignment_ids(fasta_filename)
   )
 }

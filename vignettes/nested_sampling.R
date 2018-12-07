@@ -75,13 +75,13 @@ mcmc <- beautier::create_mcmc_nested_sampling(
 
 ## ------------------------------------------------------------------------
 out_jc69 <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   site_model = beautier::create_jc69_site_model(),
   mcmc = mcmc,
   beast2_path = beastier::get_default_beast2_bin_path()
 )
 out_gtr <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   site_model = beautier::create_gtr_site_model(),
   mcmc = mcmc,
   beast2_path = beastier::get_default_beast2_bin_path()

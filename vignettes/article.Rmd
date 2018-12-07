@@ -97,7 +97,8 @@ out <- bbt_run(
       sigma = 0.01
     )
   ),
-  mcmc = mcmc
+  mcmc = mcmc,
+  overwrite = TRUE
 )
 ```
 

@@ -470,9 +470,17 @@ test_that("abuse", {
   expect_error(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
-      mrca_prior = "something"
+      mrca_priors = "something"
     ),
     "'mrca_priors' is deprecated, use 'mrca_prior' instead"
+  )
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      tree_prior = "something"
+    ),
+    "'tree_priors' is deprecated, use 'tree_prior' instead"
   )
 
 })

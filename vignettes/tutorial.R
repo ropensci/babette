@@ -47,10 +47,17 @@ mrca_prior <- create_mrca_prior(
 )
 
 ## ----cache=TRUE----------------------------------------------------------
+out <- bbt_run(
+  fasta_filenames = fasta_filename,
+  mrca_prior = mrca_prior,
+  mcmc = mcmc
+)
+
+## ----cache=TRUE----------------------------------------------------------
 # Prefer this over using 'posterior_crown_age'
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
     taxa_names = get_taxa_names(filename = fasta_filename),
     mrca_distr = create_normal_distr(
@@ -86,13 +93,6 @@ if (1 == 2) {
   file.remove(all_files)
 }
 
-## ----cache=TRUE----------------------------------------------------------
-out <- bbt_run(
-  fasta_filenames = fasta_filename,
-  mcmc = mcmc,
-  rng_seed = 314
-)
-
 ## ------------------------------------------------------------------------
 beast2_path <- beastier::get_default_beast2_path()
 print(beast2_path)
@@ -105,11 +105,4 @@ if (file.exists(beast2_path)) {
     beast2_path = beast2_path
   )
 }
-
-## ----cache=TRUE----------------------------------------------------------
-out <- bbt_run(
-  fasta_filenames = fasta_filename,
-  mcmc = mcmc,
-  verbose = TRUE
-)
 

@@ -113,18 +113,6 @@ test_that("use, one alignment, same RNG should give same results", {
   expect_identical(out_1, out_2)
 })
 
-test_that("abuse", {
-
-  expect_error(
-    bbt_run(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      beast2_output_trees_filenames = c("too", "many")
-    ),
-    "Must have as much FASTA filenames as BEAST2 output trees filenames"
-  )
-
-})
-
 ################################################################################
 # Defaults
 ################################################################################

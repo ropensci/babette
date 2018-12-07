@@ -59,6 +59,8 @@
 #' @param rng_seed the random number generator seed. Must be either
 #'   \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
 #'   results in BEAST2 picking a random seed.
+#' @param site_model one site model,
+#'   see \link[beautier]{create_site_models}
 #' @param site_models one or more site models,
 #'   see \link[beautier]{create_site_models}
 #' @param tree_prior one tree priors,
@@ -86,6 +88,7 @@ bbt_default_params_doc <- function(
   overwrite,
   posterior_crown_age,
   rng_seed,
+  site_model,
   site_models,
   tree_prior,
   tree_priors,

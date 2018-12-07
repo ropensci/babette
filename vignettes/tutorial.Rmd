@@ -128,7 +128,7 @@ Using this site model:
 ```{r cache=TRUE}
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  site_models = site_model,
+  site_model = site_model,
   mcmc = mcmc
 )
 ```

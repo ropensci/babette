@@ -74,7 +74,7 @@ and standard deviation for the common ancestor node's time.
 ```
 posterior <- bbt_run(
   "my_alignment.fas",
-  site_models = create_jc69_site_model()
+  site_model = create_jc69_site_model()
 )
 ```
 
@@ -122,7 +122,7 @@ Thanks to Yacine Ben Chehida for this use case
 ```{r example_7}
 posterior <- bbt_run(
   "my_alignment.fas",
-  site_models = create_hky_site_model(
+  site_model = create_hky_site_model(
     gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
   )
 )
@@ -159,12 +159,14 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 
 ## Example #10: Two alignments, different site models
 
+
 ![Example 10: Two alignments, different site models](aco_hky_nd2_tn93.png)
 
 ```{r example_10}
+# Deprecated.
 babette::posterior <- bbt_run(
   c("anthus_aco.fas", "anthus_nd2.fas"),
-  site_models = list(
+  site_model = list(
     create_hky_site_model(), 
     create_tn93_site_model()
   )

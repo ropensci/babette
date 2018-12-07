@@ -43,11 +43,7 @@
 #' @usage
 #' bbt_run(
 #'   fasta_filenames,
-#'   site_models = list(
-#'     beautier::create_jc69_site_model(
-#'       beautier::get_alignment_id(fasta_filenames)
-#'     )
-#'   ),
+#'   site_model = beautier::create_jc69_site_model(),
 #'   clock_model = beautier::create_strict_clock_model(),
 #'   tree_prior = beautier::create_yule_tree_prior(),
 #'   mrca_prior = NA,
@@ -71,6 +67,7 @@
 #'   overwrite = FALSE,
 #'   verbose = FALSE,
 #'   cleanup = TRUE,
+#'   site_models = "deprecated",
 #'   clock_models = "deprecated",
 #'   tree_priors = "deprecated",
 #'   mrca_priors = "deprecated",
@@ -113,11 +110,7 @@
 bbt_run <- function(
   fasta_filenames,
   tipdates_filename = NA,
-  site_models = list(
-    beautier::create_jc69_site_model(
-      beautier::get_alignment_id(fasta_filenames)
-    )
-  ),
+  site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
@@ -140,6 +133,7 @@ bbt_run <- function(
   verbose = FALSE,
   cleanup = TRUE,
   # Deprecated parameters
+  site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
@@ -174,6 +168,9 @@ bbt_run <- function(
       ")\n"
     )
   }
+  if(any("site_models" %in% calls)) {
+    stop("'site_models' is deprecated, use 'site_model' instead.")
+  }
   if(any("clock_models" %in% calls)) {
     stop("'clock_models' is deprecated, use 'clock_model' instead.")
   }
@@ -201,7 +198,7 @@ bbt_run <- function(
 
   beautier::create_beast2_input_file(
     input_filenames = fasta_filenames,
-    site_models = site_models,
+    site_models = site_model,
     clock_models = clock_model,
     tree_priors = tree_prior,
     mrca_priors = mrca_prior,

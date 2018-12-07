@@ -7,11 +7,7 @@ run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run(
   fasta_filenames,
-  site_models = list(
-    beautier::create_jc69_site_model(
-      beautier::get_alignment_id(fasta_filenames)
-    )
-  ),
+  site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
@@ -35,6 +31,7 @@ bbt_run(
   overwrite = FALSE,
   verbose = FALSE,
   cleanup = TRUE,
+  site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
@@ -44,7 +41,7 @@ bbt_run(
 \arguments{
 \item{fasta_filenames}{one or more FASTA filename, each with one alignment}
 
-\item{site_models}{one or more site models,
+\item{site_model}{one site model,
 see \link[beautier]{create_site_models}}
 
 \item{clock_model}{one clock model,
@@ -115,6 +112,9 @@ the default BEAST jar file's path}
 \item{verbose}{set to TRUE for more output}
 
 \item{cleanup}{set to FALSE to keep all temporary files}
+
+\item{site_models}{one or more site models,
+see \link[beautier]{create_site_models}}
 
 \item{clock_models}{one or more clock models,
 see \link[beautier]{create_clock_models}}

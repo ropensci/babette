@@ -151,7 +151,7 @@ test_that("Run GTR", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      site_models = create_gtr_site_model(),
+      site_model = create_gtr_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -166,7 +166,7 @@ test_that("Run HKY", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      site_models = create_hky_site_model(),
+      site_model = create_hky_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -181,7 +181,7 @@ test_that("Run JC69", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      site_models = create_jc69_site_model(),
+      site_model = create_jc69_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -196,7 +196,7 @@ test_that("Run TN93", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      site_models = create_tn93_site_model(),
+      site_model = create_tn93_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -456,6 +456,14 @@ test_that("abuse", {
       rng_seed = 0 # Error here
     ),
     "'rng_seed' should be NA or non-zero positive"
+  )
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      site_models = "something"
+    ),
+    "'site_models' is deprecated, use 'site_model' instead"
   )
 
   expect_error(

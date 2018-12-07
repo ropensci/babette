@@ -53,19 +53,19 @@ ggplot2::ggplot(
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$my_alignment_trees, width = 2)
 
+## ----example_4, cache=TRUE-----------------------------------------------
+posterior <- bbt_run(
+  "my_alignment.fas",
+  clock_model = create_rln_clock_model(),
+  mcmc = mcmc
+)
+
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$my_alignment_trees, width = 2)
-
-## ----example_5, cache=TRUE-----------------------------------------------
-posterior <- bbt_run(
-  "my_alignment.fas",
-  tree_prior = create_bd_tree_prior(), 
-  mcmc = mcmc
-)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
@@ -74,31 +74,28 @@ ggplot2::ggplot(
 ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
 plot_densitree(posterior$my_alignment_trees, width = 2)
 
-## ----example_6, cache=TRUE-----------------------------------------------
+## ----fig.width=7, fig.height=7-------------------------------------------
+ggplot2::ggplot(
+  data = posterior$estimates,
+  ggplot2::aes(x = Sample)
+) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
+plot_densitree(posterior$my_alignment_trees, width = 2)
+
+## ----fig.width=7, fig.height=7-------------------------------------------
+ggplot2::ggplot(
+  data = posterior$estimates,
+  ggplot2::aes(x = Sample)
+) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
+plot_densitree(posterior$my_alignment_trees, width = 2)
+
+## ----example_8, cache=TRUE-----------------------------------------------
 posterior <- bbt_run(
   "my_alignment.fas",
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = create_normal_distr(
-      mean = 1.0,
-      sigma = 0.1
-    )
-  ),
+  clock_model = create_strict_clock_model(
+    clock_rate_param = 0.5
+  ), 
   mcmc = mcmc
 )
-
-## ----fig.width=7, fig.height=7-------------------------------------------
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
-
-## ----fig.width=7, fig.height=7-------------------------------------------
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(

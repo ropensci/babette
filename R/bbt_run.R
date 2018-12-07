@@ -48,11 +48,7 @@
 #'       beautier::get_alignment_id(fasta_filenames)
 #'     )
 #'   ),
-#'   clock_models = list(
-#'     beautier::create_strict_clock_model(
-#'       beautier::get_alignment_id(fasta_filenames)
-#'     )
-#'   ),
+#'   clock_model = beautier::create_strict_clock_model(),
 #'   tree_prior = beautier::create_yule_tree_prior(),
 #'   mrca_prior = NA,
 #'   mcmc = beautier::create_mcmc(),
@@ -75,6 +71,7 @@
 #'   overwrite = FALSE,
 #'   verbose = FALSE,
 #'   cleanup = TRUE,
+#'   clock_models = "deprecated",
 #'   tree_priors = "deprecated",
 #'   mrca_priors = "deprecated",
 #'   posterior_crown_age = "deprecated"
@@ -121,11 +118,7 @@ bbt_run <- function(
       beautier::get_alignment_id(fasta_filenames)
     )
   ),
-  clock_models = list(
-    beautier::create_strict_clock_model(
-      beautier::get_alignment_id(fasta_filenames)
-    )
-  ),
+  clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
@@ -147,7 +140,8 @@ bbt_run <- function(
   verbose = FALSE,
   cleanup = TRUE,
   # Deprecated parameters
-  tree_priors = NA,
+  clock_models = "deprecated",
+  tree_priors = "deprecated",
   mrca_priors = "deprecated",
   posterior_crown_age = "deprecated"
 ) {
@@ -180,11 +174,14 @@ bbt_run <- function(
       ")\n"
     )
   }
-  if(any("mrca_priors" %in% calls)) {
-    stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
+  if(any("clock_models" %in% calls)) {
+    stop("'clock_models' is deprecated, use 'clock_model' instead.")
   }
   if(any("tree_priors" %in% calls)) {
     stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
+  }
+  if(any("mrca_priors" %in% calls)) {
+    stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
 
 
@@ -205,7 +202,7 @@ bbt_run <- function(
   beautier::create_beast2_input_file(
     input_filenames = fasta_filenames,
     site_models = site_models,
-    clock_models = clock_models,
+    clock_models = clock_model,
     tree_priors = tree_prior,
     mrca_priors = mrca_prior,
     mcmc = mcmc,

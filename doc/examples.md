@@ -85,7 +85,7 @@ posterior <- bbt_run(
 ```{r example_4}
 posterior <- bbt_run(
   "my_alignment.fas",
-  clock_models = create_rln_clock_model()
+  clock_model = create_rln_clock_model()
 )
 ```
 
@@ -137,7 +137,7 @@ Thanks to Yacine Ben Chehida for this use case
 ```{r example_8}
 posterior <- bbt_run(
   "my_alignment.fas",
-  clock_models = create_strict_clock_model(
+  clock_model = create_strict_clock_model(
     clock_rate_param = 0.5
   ) 
 )

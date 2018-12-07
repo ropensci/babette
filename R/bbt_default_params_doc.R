@@ -35,6 +35,8 @@
 #'   Use \code{get_default_beast2_jar_path} to get
 #'   the default BEAST jar file's path
 #' @param cleanup set to FALSE to keep all temporary files
+#' @param clock_model one clock model,
+#'   see \link[beautier]{create_clock_model}
 #' @param clock_models one or more clock models,
 #'   see \link[beautier]{create_clock_models}
 #' @param fasta_filenames one or more FASTA filename, each with one alignment
@@ -75,6 +77,7 @@ bbt_default_params_doc <- function(
   beast2_output_trees_filenames,
   beast2_path,
   cleanup,
+  clock_model,
   clock_models,
   fasta_filenames,
   mcmc,

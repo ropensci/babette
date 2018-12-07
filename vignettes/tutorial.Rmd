@@ -158,7 +158,7 @@ Using this clock model:
 ```{r cache=TRUE}
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  clock_models = clock_model,
+  clock_model = clock_model,
   mcmc = mcmc
 )
 ```

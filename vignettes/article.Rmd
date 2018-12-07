@@ -44,7 +44,7 @@ out <- bbt_run(
 out <- bbt_run(
   "anthus_aco.fas",
   site_models = create_hky_site_model(),
-  clock_models = create_rln_clock_model(),
+  clock_model = create_rln_clock_model(),
   tree_prior = create_bd_tree_prior(),
   mcmc = mcmc
 )

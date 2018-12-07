@@ -214,7 +214,7 @@ test_that("Run RLN clock", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      clock_models = create_rln_clock_model(),
+      clock_model = create_rln_clock_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -228,7 +228,7 @@ test_that("Run strict clock", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      clock_models = create_strict_clock_model(),
+      clock_model = create_strict_clock_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -380,7 +380,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    clock_models = create_rln_clock_model(),
+    clock_model = create_rln_clock_model(),
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -401,7 +401,7 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    clock_models = create_rln_clock_model(),
+    clock_model = create_rln_clock_model(),
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -458,21 +458,12 @@ test_that("abuse", {
     "'rng_seed' should be NA or non-zero positive"
   )
 
-
   expect_error(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
-      posterior_crown_age = 15
+      clock_models = "something"
     ),
-    "'posterior_crown_age' is deprecated"
-  )
-
-  expect_error(
-    bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
-      mrca_priors = "something"
-    ),
-    "'mrca_priors' is deprecated, use 'mrca_prior' instead"
+    "'clock_models' is deprecated, use 'clock_model' instead"
   )
 
   expect_error(
@@ -482,5 +473,23 @@ test_that("abuse", {
     ),
     "'tree_priors' is deprecated, use 'tree_prior' instead"
   )
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      posterior_crown_age = 15
+    ),
+    "'posterior_crown_age' is deprecated"
+  )
+
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      mrca_priors = "something"
+    ),
+    "'mrca_priors' is deprecated, use 'mrca_prior' instead"
+  )
+
 
 })

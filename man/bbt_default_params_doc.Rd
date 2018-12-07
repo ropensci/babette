@@ -7,8 +7,8 @@ documentation.}
 \usage{
 bbt_default_params_doc(beast2_input_filename, beast2_output_log_filename,
   beast2_output_state_filename, beast2_output_trees_filenames, beast2_path,
-  cleanup, clock_models, fasta_filenames, mcmc, mrca_priors, overwrite,
-  rng_seed, site_models, tree_priors, verbose)
+  cleanup, clock_models, fasta_filenames, mcmc, mrca_prior, mrca_priors,
+  overwrite, rng_seed, site_models, tree_priors, verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -59,6 +59,9 @@ see \link[beautier]{create_clock_models}}
 
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}
+
+\item{mrca_prior}{one Most Recent Common Ancestor prior,
+as returned by \code{\link{create_mrca_prior}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}

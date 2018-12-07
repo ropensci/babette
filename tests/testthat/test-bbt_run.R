@@ -336,7 +336,7 @@ test_that("Run MRCA, no distr", {
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename)
     )
@@ -349,7 +349,7 @@ test_that("Run MRCA, MRCA distr", {
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_one_div_x_distr()
@@ -366,7 +366,7 @@ test_that("Run MRCA, no distr, subset of taxa", {
 
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = taxa_names
     )
@@ -381,7 +381,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
     clock_models = create_rln_clock_model(),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = FALSE,
@@ -402,7 +402,7 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
     clock_models = create_rln_clock_model(),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = TRUE,
@@ -465,6 +465,14 @@ test_that("abuse", {
       posterior_crown_age = 15
     ),
     "'posterior_crown_age' is deprecated"
+  )
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      mrca_prior = "something"
+    ),
+    "'mrca_priors' is deprecated, use 'mrca_prior' instead"
   )
 
 })

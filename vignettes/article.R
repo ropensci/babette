@@ -66,7 +66,7 @@ out <- bbt_run(
 ## ------------------------------------------------------------------------
 out <- bbt_run(
   "anthus_aco.fas",
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id("anthus_aco.fas"),
     taxa_names = get_taxa_names("anthus_aco.fas"),
     mrca_distr = create_normal_distr(

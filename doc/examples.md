@@ -51,7 +51,7 @@ of all taxa:
 posterior <- bbt_run(
   "my_fasta.fas",
   mcmc = mcmc,
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     taxa_names = get_taxa_names("my_fasta.fas"),
     alignment_id = get_alignment_id("my_fasta.fas"),
     is_monophyletic = TRUE,

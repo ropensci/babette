@@ -241,7 +241,7 @@ Using such an MRCA prior:
 ```{r cache=TRUE}
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  mrca_priors = mrca_prior,
+  mrca_prior = mrca_prior,
   mcmc = mcmc
 )
 ```
@@ -267,7 +267,7 @@ age! It is known such an MRCA prior gives better results:
 # Prefer this over using 'posterior_crown_age'
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
     taxa_names = get_taxa_names(filename = fasta_filename),
     mrca_distr = create_normal_distr(

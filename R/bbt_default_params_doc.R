@@ -40,6 +40,8 @@
 #' @param fasta_filenames one or more FASTA filename, each with one alignment
 #' @param mcmc the MCMC options,
 #'   see \link[beautier]{create_mcmc}
+#' @param mrca_prior one Most Recent Common Ancestor prior,
+#'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param overwrite if TRUE: overwrite the \code{.log}
@@ -73,6 +75,7 @@ bbt_default_params_doc <- function(
   clock_models,
   fasta_filenames,
   mcmc,
+  mrca_prior,
   mrca_priors,
   overwrite,
   rng_seed,

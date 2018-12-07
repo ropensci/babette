@@ -5,42 +5,42 @@ test_that("use, one alignment", {
 
   out <- NA
 
-  testthat::expect_silent(
+  expect_silent(
     out <- bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
     )
   )
-  testthat::expect_true("estimates" %in% names(out))
-  testthat::expect_true("anthus_aco_trees" %in% names(out))
-  testthat::expect_true("operators" %in% names(out))
-  testthat::expect_true("output" %in% names(out))
-  testthat::expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
-  testthat::expect_equal(length(out$anthus_aco_trees), 2)
+  expect_true("estimates" %in% names(out))
+  expect_true("anthus_aco_trees" %in% names(out))
+  expect_true("operators" %in% names(out))
+  expect_true("output" %in% names(out))
+  expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
+  expect_equal(length(out$anthus_aco_trees), 2)
 
-  testthat::expect_true("Sample" %in% names(out$estimates))
-  testthat::expect_true("posterior" %in% names(out$estimates))
-  testthat::expect_true("likelihood" %in% names(out$estimates))
-  testthat::expect_true("prior" %in% names(out$estimates))
-  testthat::expect_true("treeLikelihood" %in% names(out$estimates))
-  testthat::expect_true("TreeHeight" %in% names(out$estimates))
-  testthat::expect_true("YuleModel" %in% names(out$estimates))
-  testthat::expect_true("birthRate" %in% names(out$estimates))
+  expect_true("Sample" %in% names(out$estimates))
+  expect_true("posterior" %in% names(out$estimates))
+  expect_true("likelihood" %in% names(out$estimates))
+  expect_true("prior" %in% names(out$estimates))
+  expect_true("treeLikelihood" %in% names(out$estimates))
+  expect_true("TreeHeight" %in% names(out$estimates))
+  expect_true("YuleModel" %in% names(out$estimates))
+  expect_true("birthRate" %in% names(out$estimates))
 
-  testthat::expect_true("operator" %in% names(out$operators))
-  testthat::expect_true("p" %in% names(out$operators))
-  testthat::expect_true("accept" %in% names(out$operators))
-  testthat::expect_true("reject" %in% names(out$operators))
-  testthat::expect_true("acceptFC" %in% names(out$operators))
-  testthat::expect_true("rejectFC" %in% names(out$operators))
-  testthat::expect_true("rejectIv" %in% names(out$operators))
-  testthat::expect_true("rejectOp" %in% names(out$operators))
+  expect_true("operator" %in% names(out$operators))
+  expect_true("p" %in% names(out$operators))
+  expect_true("accept" %in% names(out$operators))
+  expect_true("reject" %in% names(out$operators))
+  expect_true("acceptFC" %in% names(out$operators))
+  expect_true("rejectFC" %in% names(out$operators))
+  expect_true("rejectIv" %in% names(out$operators))
+  expect_true("rejectOp" %in% names(out$operators))
 })
 
 test_that("use, one alignment, verbose, cleanup", {
   testit::assert(beastier::is_beast2_installed())
 
-  testthat::expect_output(
+  expect_output(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
@@ -65,7 +65,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   testit::assert(!file.exists(beast2_output_trees_filenames))
   testit::assert(!file.exists(beast2_output_state_filename))
 
-  testthat::expect_output(
+  expect_output(
     bbt_run(
       fasta_filenames = fasta_filenames,
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
@@ -77,10 +77,10 @@ test_that("use, one alignment, verbose, no cleanup", {
       cleanup = FALSE
     )
   )
-  testthat::expect_true(file.exists(beast2_input_filename))
-  testthat::expect_true(file.exists(beast2_output_log_filename))
-  testthat::expect_true(file.exists(beast2_output_trees_filenames))
-  testthat::expect_true(file.exists(beast2_output_state_filename))
+  expect_true(file.exists(beast2_input_filename))
+  expect_true(file.exists(beast2_output_log_filename))
+  expect_true(file.exists(beast2_output_trees_filenames))
+  expect_true(file.exists(beast2_output_state_filename))
 })
 
 test_that("use, one alignment, same RNG should give same results", {
@@ -109,12 +109,12 @@ test_that("use, one alignment, same RNG should give same results", {
   out_2$output[35] <- out_1$output[35]
   out_2$output[38] <- out_1$output[38]
   out_2$output[101] <- out_1$output[101]
-  testthat::expect_identical(out_1, out_2)
+  expect_identical(out_1, out_2)
 })
 
 test_that("abuse", {
 
-  testthat::expect_error(
+  expect_error(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       beast2_output_trees_filenames = c("too", "many")
@@ -341,7 +341,7 @@ test_that("Run MRCA, no distr", {
       taxa_names = get_taxa_names(fasta_filename)
     )
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
+  expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("Run MRCA, MRCA distr", {
@@ -355,7 +355,7 @@ test_that("Run MRCA, MRCA distr", {
       mrca_distr = create_one_div_x_distr()
     )
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
+  expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("Run MRCA, no distr, subset of taxa", {
@@ -371,7 +371,7 @@ test_that("Run MRCA, no distr, subset of taxa", {
       taxa_names = taxa_names
     )
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
+  expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
@@ -388,7 +388,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
       mrca_distr = create_one_div_x_distr() # Use simpler distribution
     )
   )
-  testthat::expect_true(
+  expect_true(
     are_beast2_input_lines(
       lines, method = "deep"
     )
@@ -409,7 +409,7 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
       mrca_distr = create_one_div_x_distr() # Use simpler distributiob
     )
   )
-  testthat::expect_true(
+  expect_true(
     are_beast2_input_lines(
       lines, method = "deep"
     )
@@ -430,7 +430,7 @@ test_that("use, one alignment, plot with nLTT", {
   testit::assert(
     all(grepl(pattern = "STATE_", x = names(out$anthus_aco_trees)) == FALSE)
   )
-  testthat::expect_silent(
+  expect_silent(
     nLTT::nltts_plot(out$anthus_aco_trees)
   )
 
@@ -445,16 +445,26 @@ test_that("with tip dating", {
     tipdates_filename = tipdates_filename,
     tree_priors = create_ccp_tree_prior()
   )
-  testthat::expect_true(are_beast2_input_lines(lines))
+  expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("abuse", {
 
-  testthat::expect_error(
+  expect_error(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
       rng_seed = 0 # Error here
     ),
     "'rng_seed' should be NA or non-zero positive"
   )
+
+
+  expect_error(
+    bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      posterior_crown_age = 15
+    ),
+    "'posterior_crown_age' is deprecated"
+  )
+
 })

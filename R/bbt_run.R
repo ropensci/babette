@@ -153,6 +153,39 @@ bbt_run <- function(
   verbose = FALSE,
   cleanup = TRUE
 ) {
+
+  # Check for deprecated argument names
+  calls <- names(sapply(match.call(), deparse))[-1]
+  if(any("posterior_crown_age" %in% calls)) {
+    stop(
+      "'posterior_crown_age' is deprecated. \n",
+      "Tip: use an MRCA prior ",
+      "with a narrow distribution around the crown age instead. \n",
+      "See 'create_mrca_prior' or the example below:\n",
+      "\n",
+      "fasta_filename <- get_beautier_path(\"anthus_aco.fas\")\n",
+      "crown_age <- 15\n",
+      "\n",
+      "mrca_prior <- create_mrca_prior(\n",
+      "  alignment_id = get_alignment_id(fasta_filename = fasta_filename),\n",
+      "  taxa_names = get_taxa_names(filename = fasta_filename),\n",
+      "  mrca_distr = create_normal_distr(\n",
+      "    mean = crown_age,\n",
+      "    sigma = 0.0001\n",
+      "  ),\n",
+      "  is_monophyletic = TRUE\n",
+      ")\n",
+      "\n",
+      "bbt_run(\n",
+      "  fasta_filename = fasta_filename,\n",
+      "  mrca_prior = mrca_prior\n",
+      ")\n"
+    )
+  }
+
+
+
+
   if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
     stop("Must have as much FASTA filenames as BEAST2 output trees filenames")
   }

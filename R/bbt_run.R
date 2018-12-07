@@ -144,7 +144,7 @@ bbt_run <- function(
 
   # Check for deprecated argument names
   calls <- names(sapply(match.call(), deparse))[-1]
-  if(any("posterior_crown_age" %in% calls)) {
+  if (any("posterior_crown_age" %in% calls)) {
     stop(
       "'posterior_crown_age' is deprecated. \n",
       "Tip: use an MRCA prior ",
@@ -170,19 +170,19 @@ bbt_run <- function(
       ")\n"
     )
   }
-  if(any("fasta_filenames" %in% calls)) {
+  if (any("fasta_filenames" %in% calls)) {
     stop("'fasta_filenames' is deprecated, use 'fasta_filename' instead.")
   }
-  if(any("site_models" %in% calls)) {
+  if (any("site_models" %in% calls)) {
     stop("'site_models' is deprecated, use 'site_model' instead.")
   }
-  if(any("clock_models" %in% calls)) {
+  if (any("clock_models" %in% calls)) {
     stop("'clock_models' is deprecated, use 'clock_model' instead.")
   }
-  if(any("tree_priors" %in% calls)) {
+  if (any("tree_priors" %in% calls)) {
     stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
   }
-  if(any("mrca_priors" %in% calls)) {
+  if (any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
   if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {

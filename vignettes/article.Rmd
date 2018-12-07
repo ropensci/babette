@@ -45,7 +45,7 @@ out <- bbt_run(
   "anthus_aco.fas",
   site_models = create_hky_site_model(),
   clock_models = create_rln_clock_model(),
-  tree_priors = create_bd_tree_prior(),
+  tree_prior = create_bd_tree_prior(),
   mcmc = mcmc
 )
 ```
@@ -68,7 +68,7 @@ if (1 == 2) {
 ```{r}
 out <- bbt_run(
   "anthus_aco.fas",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr()    
   ),
   mcmc = mcmc
@@ -78,7 +78,7 @@ out <- bbt_run(
 ```{r}
 out <- bbt_run(
   "anthus_aco.fas",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr(
       mean = 1.0
     )    

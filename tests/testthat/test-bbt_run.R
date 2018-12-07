@@ -246,7 +246,7 @@ test_that("Run BD tree prior", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      tree_priors = create_bd_tree_prior(),
+      tree_prior = create_bd_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -260,7 +260,7 @@ test_that("Run CBS tree prior", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      tree_priors = create_cbs_tree_prior(
+      tree_prior = create_cbs_tree_prior(
         group_sizes_dimension = 4
       ),
       mcmc = beautier::create_mcmc(chain_length = 2000)
@@ -276,7 +276,7 @@ test_that("Run CCP tree prior", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      tree_priors = create_ccp_tree_prior(),
+      tree_prior = create_ccp_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -292,7 +292,7 @@ test_that("Run CCP tree prior with tip dating", {
       tipdates_filename = beautier::get_beautier_path(
         "G_VII_pre2003_dates_4.txt"
       ),
-      tree_priors = create_ccp_tree_prior(),
+      tree_prior = create_ccp_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -306,7 +306,7 @@ test_that("Run CEP tree prior", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      tree_priors = create_cep_tree_prior(),
+      tree_prior = create_cep_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -321,7 +321,7 @@ test_that("Run Yule tree prior", {
   expect_silent(
     bbt_run(
       fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      tree_priors = create_yule_tree_prior(),
+      tree_prior = create_yule_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -443,7 +443,7 @@ test_that("with tip dating", {
   lines <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
     tipdates_filename = tipdates_filename,
-    tree_priors = create_ccp_tree_prior()
+    tree_prior = create_ccp_tree_prior()
   )
   expect_true(are_beast2_input_lines(lines))
 })
@@ -478,7 +478,7 @@ test_that("abuse", {
   expect_error(
     bbt_run(
       fasta_filenames = get_babette_path("anthus_aco.fas"),
-      tree_prior = "something"
+      tree_priors = "something"
     ),
     "'tree_priors' is deprecated, use 'tree_prior' instead"
   )

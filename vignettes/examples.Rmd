@@ -174,7 +174,7 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ```{r example_5, cache=TRUE}
 posterior <- bbt_run(
   "my_alignment.fas",
-  tree_priors = create_bd_tree_prior(), 
+  tree_prior = create_bd_tree_prior(), 
   mcmc = mcmc
 )
 ```
@@ -194,7 +194,7 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ```{r example_6, cache=TRUE}
 posterior <- bbt_run(
   "my_alignment.fas",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr(
       mean = 1.0,
       sigma = 0.1

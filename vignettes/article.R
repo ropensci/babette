@@ -26,7 +26,7 @@ out <- bbt_run(
   "anthus_aco.fas",
   site_models = create_hky_site_model(),
   clock_models = create_rln_clock_model(),
-  tree_priors = create_bd_tree_prior(),
+  tree_prior = create_bd_tree_prior(),
   mcmc = mcmc
 )
 
@@ -42,66 +42,4 @@ if (1 == 2) {
     mcmc = mcmc
   )
 }
-
-## ------------------------------------------------------------------------
-out <- bbt_run(
-  "anthus_aco.fas",
-  tree_priors = create_yule_tree_prior(
-    birth_rate_distr = create_exp_distr()    
-  ),
-  mcmc = mcmc
-)
-
-## ------------------------------------------------------------------------
-out <- bbt_run(
-  "anthus_aco.fas",
-  tree_priors = create_yule_tree_prior(
-    birth_rate_distr = create_exp_distr(
-      mean = 1.0
-    )    
-  ),
-  mcmc = mcmc
-)
-
-## ------------------------------------------------------------------------
-out <- bbt_run(
-  "anthus_aco.fas",
-  mrca_prior = create_mrca_prior(
-    alignment_id = get_alignment_id("anthus_aco.fas"),
-    taxa_names = get_taxa_names("anthus_aco.fas"),
-    mrca_distr = create_normal_distr(
-      mean = 15.0,
-      sigma = 0.01
-    )
-  ),
-  mcmc = mcmc
-)
-
-## ------------------------------------------------------------------------
-traces <- remove_burn_ins(
-  traces = out$estimates, 
-  burn_in_fraction = 0.2
-)
-
-## ------------------------------------------------------------------------
-esses <- calc_esses(
-  traces = traces, 
-  sample_interval = 1000
-)
-
-## ------------------------------------------------------------------------
-sum_stats <- calc_summary_stats(
-  traces = traces, 
-  sample_interval = 1000
-)
-
-## ------------------------------------------------------------------------
-plot_densitree(phylos = out$anthus_aco_trees)
-
-## ----cleanup, include = FALSE--------------------------------------------
-file.remove("test_output_0.fas")
-file.remove("my_fasta.fas")
-file.remove("my_alignment.fas")
-file.remove("anthus_aco.fas")
-file.remove("anthus_nd2.fas")
 

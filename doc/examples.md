@@ -96,7 +96,7 @@ posterior <- bbt_run(
 ```{r example_5}
 posterior <- bbt_run(
   "my_alignment.fas",
-  tree_priors = create_bd_tree_prior() 
+  tree_prior = create_bd_tree_prior() 
 )
 ```
 
@@ -107,7 +107,7 @@ posterior <- bbt_run(
 ```{r example_6}
 posterior <- bbt_run(
   "my_alignment.fas",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr()
   ) 
 )

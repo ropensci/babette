@@ -17,11 +17,7 @@ bbt_run(
       beautier::get_alignment_id(fasta_filenames)
     )
   ),
-  tree_priors = list(
-    beautier::create_yule_tree_prior(
-      beautier::get_alignment_id(fasta_filenames)
-    )
-  ),
+  tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
@@ -43,6 +39,7 @@ bbt_run(
   overwrite = FALSE,
   verbose = FALSE,
   cleanup = TRUE,
+  tree_priors = "deprecated",
   mrca_priors = "deprecated",
   posterior_crown_age = "deprecated"
 )
@@ -55,9 +52,6 @@ see \link[beautier]{create_site_models}}
 
 \item{clock_models}{one or more clock models,
 see \link[beautier]{create_clock_models}}
-
-\item{tree_priors}{one or more tree priors,
-see \link[beautier]{create_tree_priors}}
 
 \item{mrca_prior}{one Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
@@ -121,6 +115,9 @@ the default BEAST jar file's path}
 \item{verbose}{set to TRUE for more output}
 
 \item{cleanup}{set to FALSE to keep all temporary files}
+
+\item{tree_priors}{one or more tree priors,
+see \link[beautier]{create_tree_priors}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}

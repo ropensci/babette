@@ -54,11 +54,7 @@
 #'       beautier::get_alignment_id(fasta_filenames)
 #'     )
 #'   ),
-#'   tree_priors = list(
-#'     beautier::create_yule_tree_prior(
-#'       beautier::get_alignment_id(fasta_filenames)
-#'     )
-#'   ),
+#'   tree_prior = beautier::create_yule_tree_prior(),
 #'   mrca_prior = NA,
 #'   mcmc = beautier::create_mcmc(),
 #'   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
@@ -80,6 +76,7 @@
 #'   overwrite = FALSE,
 #'   verbose = FALSE,
 #'   cleanup = TRUE,
+#'   tree_priors = "deprecated",
 #'   mrca_priors = "deprecated",
 #'   posterior_crown_age = "deprecated"
 #' )
@@ -130,11 +127,7 @@ bbt_run <- function(
       beautier::get_alignment_id(fasta_filenames)
     )
   ),
-  tree_priors = list(
-    beautier::create_yule_tree_prior(
-      beautier::get_alignment_id(fasta_filenames)
-    )
-  ),
+  tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
@@ -155,6 +148,7 @@ bbt_run <- function(
   verbose = FALSE,
   cleanup = TRUE,
   # Deprecated parameters
+  tree_priors = NA,
   mrca_priors = "deprecated",
   posterior_crown_age = "deprecated"
 ) {
@@ -190,6 +184,9 @@ bbt_run <- function(
   if(any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
+  if(any("tree_priors" %in% calls)) {
+    stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
+  }
 
 
 
@@ -210,7 +207,7 @@ bbt_run <- function(
     input_filenames = fasta_filenames,
     site_models = site_models,
     clock_models = clock_models,
-    tree_priors = tree_priors,
+    tree_priors = tree_prior,
     mrca_priors = mrca_prior,
     mcmc = mcmc,
     output_filename = beast2_input_filename,

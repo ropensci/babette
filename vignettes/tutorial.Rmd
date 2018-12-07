@@ -188,7 +188,7 @@ Using this tree prior:
 ```{r cache=TRUE}
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  tree_priors = tree_prior,
+  tree_prior = tree_prior,
   mcmc = mcmc
 )
 ```

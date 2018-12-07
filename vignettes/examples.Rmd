@@ -74,7 +74,8 @@ Using all default settings, only specify a DNA alignment.
 [No screenshot, as this cannot be done in BEAUti yet]
 ```
 
-```{r example_2, cache=TRUE}
+```
+# Deprecated
 posterior <- bbt_run(
   "my_fasta.fas",
   posterior_crown_age = 15,
@@ -85,7 +86,8 @@ posterior <- bbt_run(
 `fasta_to_phylo` creates a random phylogeny from
 a FASTA file of a certain crown age. 
 
-```{r fig.width=7, fig.height=7}
+```
+# Deprecated
 ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)

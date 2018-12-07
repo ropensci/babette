@@ -51,9 +51,6 @@
 #'     \item{the \code{.log} file created by BEAST2 exists}
 #'     \item{the \code{.trees} files created by BEAST2 exist}
 #'  }
-#' @param posterior_crown_age the posterior's crown age. Use NA to let
-#'   BEAST2 estimate this parameter. Use a positive value to fix the
-#'   crown age to that value
 #' @param rng_seed the random number generator seed. Must be either
 #'   \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
 #'   results in BEAST2 picking a random seed.
@@ -78,7 +75,6 @@ bbt_default_params_doc <- function(
   mcmc,
   mrca_priors,
   overwrite,
-  posterior_crown_age,
   rng_seed,
   site_models,
   tree_priors,

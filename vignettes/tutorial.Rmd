@@ -38,7 +38,7 @@ bbt_run(
   clock_models,
   tree_priors,
   mrca_priors,
-  posterior_crown_age,
+  # posterior_crown_age, # Deprecated
   beast2_output_log_filename,
   beast2_output_trees_filenames,
   beast2_output_state_filename,
@@ -249,10 +249,10 @@ out <- bbt_run(
 
 ## `posterior_crown_age`
 
-`posterior_crown_age` is the `bbt_run` argument to specify a fixed crown age:
+`posterior_crown_age` was a `bbt_run` argument to specify a fixed crown age:
 
-```{r cache=TRUE}
-# Prefer to use the 'create_mrca_prior' version below
+```
+# Deprecated,  use the 'create_mrca_prior' version below
 out <- bbt_run(
   fasta_filenames = fasta_filename,
   posterior_crown_age = 15,
@@ -260,7 +260,7 @@ out <- bbt_run(
 )
 ```
 
-Prefer to use an MRCA prior with a sharp distribution around the desired crown
+Instead use an MRCA prior with a sharp distribution around the desired crown
 age! It is known such an MRCA prior gives better results:
 
 ```{r cache=TRUE}

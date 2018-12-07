@@ -35,6 +35,7 @@ Using all default settings, only specify a DNA alignment.
 ```
 
 ```
+# Deprecated, use an MRCA prior instead
 posterior <- bbt_run(
   "my_fasta.fas",
   posterior_crown_age = 15

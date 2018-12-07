@@ -87,7 +87,8 @@ out <- bbt_run(
 )
 ```
 
-```{r}
+```
+# Deprecated
 out <- bbt_run(
   "anthus_aco.fas",
   posterior_crown_age = 15,

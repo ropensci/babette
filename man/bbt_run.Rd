@@ -63,10 +63,6 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}
 
-\item{posterior_crown_age}{the posterior's crown age. Use NA to let
-BEAST2 estimate this parameter. Use a positive value to fix the
-crown age to that value}
-
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
 By default, this file is put in a temporary folder with a random
 filename, as the user needs not read it: it is used as input of BEAST2.

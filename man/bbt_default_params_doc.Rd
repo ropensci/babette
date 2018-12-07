@@ -8,7 +8,7 @@ documentation.}
 bbt_default_params_doc(beast2_input_filename, beast2_output_log_filename,
   beast2_output_state_filename, beast2_output_trees_filenames, beast2_path,
   cleanup, clock_models, fasta_filenames, mcmc, mrca_priors, overwrite,
-  posterior_crown_age, rng_seed, site_models, tree_priors, verbose)
+  rng_seed, site_models, tree_priors, verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -72,10 +72,6 @@ as returned by \code{\link{create_mrca_prior}}}
    \item{the \code{.log} file created by BEAST2 exists}
    \item{the \code{.trees} files created by BEAST2 exist}
 }}
-
-\item{posterior_crown_age}{the posterior's crown age. Use NA to let
-BEAST2 estimate this parameter. Use a positive value to fix the
-crown age to that value}
 
 \item{rng_seed}{the random number generator seed. Must be either
 \code{NA} or a positive non-zero value. An RNG seed of \code{NA}

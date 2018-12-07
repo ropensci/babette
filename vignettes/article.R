@@ -66,13 +66,6 @@ out <- bbt_run(
 ## ------------------------------------------------------------------------
 out <- bbt_run(
   "anthus_aco.fas",
-  posterior_crown_age = 15,
-  mcmc = mcmc
-)
-
-## ------------------------------------------------------------------------
-out <- bbt_run(
-  "anthus_aco.fas",
   mrca_priors = create_mrca_prior(
     alignment_id = get_alignment_id("anthus_aco.fas"),
     taxa_names = get_taxa_names("anthus_aco.fas"),

@@ -18,16 +18,16 @@ mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 site_model <- create_site_model_jc69()
 site_model <- create_jc69_site_model()
 
-## ------------------------------------------------------------------------
-clock_model <- create_clock_model_strict()
-clock_model <- create_strict_clock_model()
-
 ## ----cache=TRUE----------------------------------------------------------
 out <- bbt_run(
   fasta_filenames = fasta_filename,
-  clock_model = clock_model,
+  site_model = site_model,
   mcmc = mcmc
 )
+
+## ------------------------------------------------------------------------
+clock_model <- create_clock_model_strict()
+clock_model <- create_strict_clock_model()
 
 ## ------------------------------------------------------------------------
 tree_prior <- create_tree_prior_yule()

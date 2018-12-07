@@ -60,7 +60,7 @@ Set a path to a desired location and disable cleaning up:
 
 ```
 out <- bbt_run(
-  fasta_filenames = get_babette_path("anthus_aco_sub.fas"),
+  fasta_filename = get_babette_path("anthus_aco_sub.fas"),
   beast2_input_filename = "/home/richelbilderbeek/beast2.xml",
   cleanup = FALSE
 )
@@ -81,7 +81,7 @@ To estimate the marginal likelihood, create a Nested Sampling MCMC object:
 testit::assert(beastier::is_beast2_installed())
 testit::assert(mauricer::mrc_is_installed("NS"))
 out <- bbt_run(
-  fasta_filenames = get_babette_path("anthus_aco.fas"),
+  fasta_filename = get_babette_path("anthus_aco.fas"),
   mcmc = create_mcmc_nested_sampling(),
   beast2_path = get_default_beast2_bin_path()
 )

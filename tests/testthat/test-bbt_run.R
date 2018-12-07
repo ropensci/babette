@@ -7,7 +7,7 @@ test_that("use, one alignment", {
 
   expect_silent(
     out <- bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
     )
   )
@@ -42,7 +42,7 @@ test_that("use, one alignment, verbose, cleanup", {
 
   expect_output(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       verbose = TRUE
     )
@@ -67,7 +67,7 @@ test_that("use, one alignment, verbose, no cleanup", {
 
   expect_output(
     bbt_run(
-      fasta_filenames = fasta_filenames,
+      fasta_filename = fasta_filenames,
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       beast2_input_filename = beast2_input_filename,
       beast2_output_log_filename = beast2_output_log_filename,
@@ -93,12 +93,12 @@ test_that("use, one alignment, same RNG should give same results", {
 
   rng_seed <- 42
   out_1 <- bbt_run(
-    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
   )
   out_2 <- bbt_run(
-    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
   )
@@ -116,7 +116,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       beast2_output_trees_filenames = c("too", "many")
     ),
     "Must have as much FASTA filenames as BEAST2 output trees filenames"
@@ -132,7 +132,7 @@ test_that("Run all defaults", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
   )
@@ -150,7 +150,7 @@ test_that("Run GTR", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_gtr_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -165,7 +165,7 @@ test_that("Run HKY", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_hky_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -180,7 +180,7 @@ test_that("Run JC69", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_jc69_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -195,7 +195,7 @@ test_that("Run TN93", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_tn93_site_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -213,7 +213,7 @@ test_that("Run RLN clock", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       clock_model = create_rln_clock_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -227,7 +227,7 @@ test_that("Run strict clock", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       clock_model = create_strict_clock_model(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -245,7 +245,7 @@ test_that("Run BD tree prior", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_bd_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -259,7 +259,7 @@ test_that("Run CBS tree prior", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_cbs_tree_prior(
         group_sizes_dimension = 4
       ),
@@ -275,7 +275,7 @@ test_that("Run CCP tree prior", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_ccp_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -286,7 +286,7 @@ test_that("Run CCP tree prior with tip dating", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = beautier::get_beautier_path(
+      fasta_filename = beautier::get_beautier_path(
         "G_VII_pre2003_msa.fas"
       ),
       tipdates_filename = beautier::get_beautier_path(
@@ -305,7 +305,7 @@ test_that("Run CEP tree prior", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_cep_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -320,7 +320,7 @@ test_that("Run Yule tree prior", {
   if (!beastier::is_on_ci()) return()
   expect_silent(
     bbt_run(
-      fasta_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_yule_tree_prior(),
       mcmc = beautier::create_mcmc(chain_length = 2000)
     )
@@ -424,7 +424,7 @@ test_that("use, one alignment, plot with nLTT", {
 
   skip("Expose bug, https://github.com/richelbilderbeek/babette/issues/10")
   out <- bbt_run(
-    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
   )
   testit::assert(
@@ -452,7 +452,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       rng_seed = 0 # Error here
     ),
     "'rng_seed' should be NA or non-zero positive"
@@ -460,7 +460,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       site_models = "something"
     ),
     "'site_models' is deprecated, use 'site_model' instead"
@@ -468,7 +468,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       clock_models = "something"
     ),
     "'clock_models' is deprecated, use 'clock_model' instead"
@@ -476,7 +476,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       tree_priors = "something"
     ),
     "'tree_priors' is deprecated, use 'tree_prior' instead"
@@ -484,7 +484,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       posterior_crown_age = 15
     ),
     "'posterior_crown_age' is deprecated"
@@ -493,7 +493,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       mrca_priors = "something"
     ),
     "'mrca_priors' is deprecated, use 'mrca_prior' instead"

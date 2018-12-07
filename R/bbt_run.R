@@ -42,7 +42,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @usage
 #' bbt_run(
-#'   fasta_filenames,
+#'   fasta_filename,
 #'   site_model = beautier::create_jc69_site_model(),
 #'   clock_model = beautier::create_strict_clock_model(),
 #'   tree_prior = beautier::create_yule_tree_prior(),
@@ -67,6 +67,7 @@
 #'   overwrite = FALSE,
 #'   verbose = FALSE,
 #'   cleanup = TRUE,
+#'   fasta_filenames = "deprecated",
 #'   site_models = "deprecated",
 #'   clock_models = "deprecated",
 #'   tree_priors = "deprecated",
@@ -75,7 +76,7 @@
 #' )
 #' @examples
 #'  out <- bbt_run(
-#'    fasta_filenames = get_babette_path("anthus_aco.fas"),
+#'    fasta_filename = get_babette_path("anthus_aco.fas"),
 #'    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
 #'  )
 #'
@@ -108,7 +109,7 @@
 #'   the posterior's estimates (\code{posterior$estimates})
 #' @export
 bbt_run <- function(
-  fasta_filenames,
+  fasta_filename,
   tipdates_filename = NA,
   site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
@@ -133,6 +134,7 @@ bbt_run <- function(
   verbose = FALSE,
   cleanup = TRUE,
   # Deprecated parameters
+  fasta_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
@@ -168,6 +170,9 @@ bbt_run <- function(
       ")\n"
     )
   }
+  if(any("fasta_filenames" %in% calls)) {
+    stop("'fasta_filenames' is deprecated, use 'fasta_filename' instead.")
+  }
   if(any("site_models" %in% calls)) {
     stop("'site_models' is deprecated, use 'site_model' instead.")
   }
@@ -197,7 +202,7 @@ bbt_run <- function(
   )
 
   beautier::create_beast2_input_file(
-    input_filenames = fasta_filenames,
+    input_filenames = fasta_filename,
     site_models = site_model,
     clock_models = clock_model,
     tree_priors = tree_prior,

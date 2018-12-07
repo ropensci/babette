@@ -15,3 +15,9 @@ file.copy(babette::get_babette_path("anthus_nd2_sub.fas"), "anthus_nd2.fas")
 library(babette)
 mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 
+## ------------------------------------------------------------------------
+out <- bbt_run(
+  fasta_filename = "anthus_aco.fas", 
+  mcmc = mcmc
+)
+

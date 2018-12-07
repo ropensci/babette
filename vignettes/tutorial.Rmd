@@ -70,7 +70,7 @@ With `fasta_filename` available, we have the minimal
 requirements to call `bbt_run` like this:
 
 ```
-out <- bbt_run(fasta_filenames = fasta_filename)
+out <- bbt_run(fasta_filename = fasta_filename)
 ```
 
 Note that this code is not ran, as it would take too long.
@@ -92,7 +92,7 @@ it will finish fast:
 
 ```{r cache=TRUE}
 out <- bbt_run(
- fasta_filenames = fasta_filename,
+ fasta_filename = fasta_filename,
  mcmc = mcmc
 )
 ```
@@ -127,7 +127,7 @@ Using this site model:
 
 ```{r cache=TRUE}
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   site_model = site_model,
   mcmc = mcmc
 )
@@ -157,7 +157,7 @@ Using this clock model:
 
 ```{r cache=TRUE}
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   clock_model = clock_model,
   mcmc = mcmc
 )
@@ -187,7 +187,7 @@ Using this tree prior:
 
 ```{r cache=TRUE}
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   tree_prior = tree_prior,
   mcmc = mcmc
 )
@@ -240,7 +240,7 @@ Using such an MRCA prior:
 
 ```{r cache=TRUE}
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   mrca_prior = mrca_prior,
   mcmc = mcmc
 )
@@ -254,7 +254,7 @@ out <- bbt_run(
 ```
 # Deprecated,  use the 'create_mrca_prior' version below
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   posterior_crown_age = 15,
   mcmc = mcmc
 )
@@ -266,7 +266,7 @@ age! It is known such an MRCA prior gives better results:
 ```{r cache=TRUE}
 # Prefer this over using 'posterior_crown_age'
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
     taxa_names = get_taxa_names(filename = fasta_filename),
@@ -308,7 +308,7 @@ if (1 == 2) {
   )
     
   out <- bbt_run(
-    fasta_filenames = fasta_filename,
+    fasta_filename = fasta_filename,
     mcmc = mcmc,
     beast2_input_filename = beast2_input_filename,
     beast2_output_log_filename = beast2_output_log_filename,
@@ -326,7 +326,7 @@ if (1 == 2) {
 
 ```{r cache=TRUE}
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   mcmc = mcmc,
   rng_seed = 314
 )
@@ -350,7 +350,7 @@ Run `babette` if and only if BEAST2 is installed at that default location:
 ```{r}
 if (file.exists(beast2_path)) {
   out <- bbt_run(
-    fasta_filenames = fasta_filename,
+    fasta_filename = fasta_filename,
     mcmc = mcmc,
     beast2_path = beast2_path
   )
@@ -364,7 +364,7 @@ output is desired. Set this to TRUE for more output:
 
 ```{r cache=TRUE}
 out <- bbt_run(
-  fasta_filenames = fasta_filename,
+  fasta_filename = fasta_filename,
   mcmc = mcmc,
   verbose = TRUE
 )

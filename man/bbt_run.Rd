@@ -6,7 +6,7 @@
 run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run(
-  fasta_filenames,
+  fasta_filename,
   site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),
@@ -31,6 +31,7 @@ bbt_run(
   overwrite = FALSE,
   verbose = FALSE,
   cleanup = TRUE,
+  fasta_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
@@ -39,8 +40,6 @@ bbt_run(
 )
 }
 \arguments{
-\item{fasta_filenames}{one or more FASTA filename, each with one alignment}
-
 \item{site_model}{one site model,
 see \link[beautier]{create_site_models}}
 
@@ -113,6 +112,8 @@ the default BEAST jar file's path}
 
 \item{cleanup}{set to FALSE to keep all temporary files}
 
+\item{fasta_filenames}{one or more FASTA filename, each with one alignment}
+
 \item{site_models}{one or more site models,
 see \link[beautier]{create_site_models}}
 
@@ -173,7 +174,7 @@ run BEAST2, parse results (like Tracer)
 }
 \examples{
  out <- bbt_run(
-   fasta_filenames = get_babette_path("anthus_aco.fas"),
+   fasta_filename = get_babette_path("anthus_aco.fas"),
    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
  )
 

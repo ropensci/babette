@@ -34,7 +34,7 @@ mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 
 ```{r}
 out <- bbt_run(
-  fasta_filenames = "anthus_aco.fas", 
+  fasta_filename = "anthus_aco.fas", 
   mcmc = mcmc
 )
 ```

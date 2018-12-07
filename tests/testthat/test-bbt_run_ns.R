@@ -8,7 +8,7 @@ test_that("use", {
 
   testit::assert(mauricer::mrc_is_installed("NS"))
   out <- bbt_run(
-    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling(
       chain_length = 1000,
       store_every = 1000,
@@ -75,7 +75,7 @@ test_that("Nested sampling run should create no temporaries", {
   n_files_before <- length(list.files(new_work_dir))
 
   bbt_run(
-    fasta_filenames = get_babette_path("anthus_aco.fas"),
+    fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling(
       chain_length = 1000,
       store_every = 1000,
@@ -101,7 +101,7 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas"),
+      fasta_filename = get_babette_path("anthus_aco.fas"),
       mcmc = create_mcmc_nested_sampling(
         chain_length = 1000,
         sub_chain_length = 500

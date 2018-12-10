@@ -198,11 +198,11 @@ bbt_run <- function(
   )
 
   beautier::create_beast2_input_file(
-    input_filenames = fasta_filename,
-    site_models = site_model,
-    clock_models = clock_model,
-    tree_priors = tree_prior,
-    mrca_priors = mrca_prior,
+    input_filename = fasta_filename,
+    site_model = site_model,
+    clock_model = clock_model,
+    tree_prior = tree_prior,
+    mrca_prior = mrca_prior,
     mcmc = mcmc,
     output_filename = beast2_input_filename,
     tipdates_filename = tipdates_filename

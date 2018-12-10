@@ -336,7 +336,7 @@ test_that("Run MRCA, no distr", {
 
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename)
@@ -349,7 +349,7 @@ test_that("Run MRCA, MRCA distr", {
 
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -366,7 +366,7 @@ test_that("Run MRCA, no distr, subset of taxa", {
   taxa_names <- sample(x = get_taxa_names(fasta_filename), size = 2)
 
   lines <- beautier::create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = taxa_names
@@ -380,7 +380,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
   # Thanks to Raphael Scherrer for sharing this bug
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     clock_model = create_rln_clock_model(),
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
@@ -401,7 +401,7 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
   # Thanks to Jana Riederer for sharing this bug
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     clock_model = create_rln_clock_model(),
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
@@ -442,7 +442,7 @@ test_that("with tip dating", {
   fasta_filename <- beautier::get_beautier_path("G_VII_pre2003_msa.fas")
   tipdates_filename <- beautier::get_beautier_path("G_VII_pre2003_dates_4.txt")
   lines <- beautier::create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     tipdates_filename = tipdates_filename,
     tree_prior = create_ccp_tree_prior()
   )

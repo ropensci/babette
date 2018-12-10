@@ -46,13 +46,6 @@ ggplot2::ggplot(
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$my_fasta_trees, width = 2)
 
-## ----example_3, cache=TRUE-----------------------------------------------
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_model = create_jc69_site_model(),
-  mcmc = mcmc
-)
-
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(
   data = posterior$estimates,
@@ -80,15 +73,6 @@ ggplot2::ggplot(
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$my_alignment_trees, width = 2)
-
-## ----example_7, cache=TRUE-----------------------------------------------
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_model = create_hky_site_model(
-    gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
-  ),
-  mcmc = mcmc
-)
 
 ## ----fig.width=7, fig.height=7-------------------------------------------
 ggplot2::ggplot(

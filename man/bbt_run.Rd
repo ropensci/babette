@@ -7,6 +7,7 @@ run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run(
   fasta_filename,
+  tipdates_filename = NA,
   site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),

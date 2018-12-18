@@ -41,6 +41,10 @@ bbt_run(
 )
 }
 \arguments{
+\item{fasta_filename}{a FASTA filename}
+
+\item{tipdates_filename}{name of the file containing tip dates}
+
 \item{site_model}{one site model,
 see \link[beautier]{create_site_models}}
 

@@ -7,9 +7,10 @@ documentation.}
 \usage{
 bbt_default_params_doc(beast2_input_filename, beast2_output_log_filename,
   beast2_output_state_filename, beast2_output_trees_filenames, beast2_path,
-  cleanup, clock_model, clock_models, fasta_filenames, mcmc, mrca_prior,
-  mrca_priors, overwrite, posterior_crown_age, rng_seed, site_model,
-  site_models, tree_prior, tree_priors, verbose)
+  cleanup, clock_model, clock_models, fasta_filename, fasta_filenames,
+  mcmc, mrca_prior, mrca_priors, overwrite, posterior_crown_age, rng_seed,
+  site_model, site_models, tipdates_filename, tree_prior, tree_priors,
+  verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -59,6 +60,8 @@ see \link[beautier]{create_clock_model}}
 \item{clock_models}{one or more clock models,
 see \link[beautier]{create_clock_models}}
 
+\item{fasta_filename}{a FASTA filename}
+
 \item{fasta_filenames}{one or more FASTA filename, each with one alignment}
 
 \item{mcmc}{the MCMC options,
@@ -91,6 +94,8 @@ see \link[beautier]{create_site_models}}
 
 \item{site_models}{one or more site models,
 see \link[beautier]{create_site_models}}
+
+\item{tipdates_filename}{name of the file containing tip dates}
 
 \item{tree_prior}{one tree priors,
 as created by \link[beautier]{create_tree_prior}}

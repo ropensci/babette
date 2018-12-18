@@ -39,6 +39,7 @@
 #'   see \link[beautier]{create_clock_model}
 #' @param clock_models one or more clock models,
 #'   see \link[beautier]{create_clock_models}
+#' @param fasta_filename a FASTA filename
 #' @param fasta_filenames one or more FASTA filename, each with one alignment
 #' @param mcmc the MCMC options,
 #'   see \link[beautier]{create_mcmc}
@@ -63,6 +64,7 @@
 #'   see \link[beautier]{create_site_models}
 #' @param site_models one or more site models,
 #'   see \link[beautier]{create_site_models}
+#' @param tipdates_filename name of the file containing tip dates
 #' @param tree_prior one tree priors,
 #'   as created by \link[beautier]{create_tree_prior}
 #' @param tree_priors one or more tree priors,
@@ -81,7 +83,7 @@ bbt_default_params_doc <- function(
   cleanup,
   clock_model,
   clock_models,
-  fasta_filenames,
+  fasta_filename, fasta_filenames,
   mcmc,
   mrca_prior,
   mrca_priors,
@@ -90,6 +92,7 @@ bbt_default_params_doc <- function(
   rng_seed,
   site_model,
   site_models,
+  tipdates_filename,
   tree_prior,
   tree_priors,
   verbose

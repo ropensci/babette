@@ -11,6 +11,11 @@ test_that("use", {
   )
 })
 
+test_that("use", {
+  phylogeny <- ape::read.tree(text = "(((A:1, B:1):1, C:2):1, D:3);")
+  expect_silent(plot_densitree(c(phylogeny)))
+})
+
 test_that("abuse", {
 
   testthat::expect_error(

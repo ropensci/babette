@@ -123,7 +123,7 @@ bbt_run <- function(
   beast2_output_trees_filenames = tempfile(
     pattern = paste0(
       "beast2_",
-      beautier::get_alignment_ids(fasta_filenames), "_"
+      beautier::get_alignment_ids(fasta_filename), "_"
     ),
     fileext = ".trees"
   ),

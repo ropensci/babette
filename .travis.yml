@@ -19,7 +19,7 @@ r_github_packages:
   - richelbilderbeek/mauricer
   - richelbilderbeek/tracerer
   - MangoTheCat/goodpractice
-  - KlausVigo/phangorn
+  - KlausVigo/phangorn#devel
   - ropensci/spelling
 
 before_script:

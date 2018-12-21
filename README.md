@@ -97,6 +97,16 @@ Article about `babette`:
 
  * Bilderbeek, Richel JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018). https://doi.org/10.1111/2041-210X.13032
 
+```
+@article{bilderbeek2018babette,
+  title={babette: BEAUti 2, BEAST 2 and Tracer for R},
+  author={Bilderbeek, Richèl JC and Etienne, Rampal S},
+  journal={Methods in Ecology and Evolution},
+  year={2018},
+  publisher={Wiley Online Library}
+}
+```
+
 FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  
  * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.

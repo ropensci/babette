@@ -461,6 +461,13 @@ test_that("abuse", {
 
   expect_error(
     bbt_run(
+      fasta_filenames = get_babette_path("anthus_aco.fas")
+    ),
+    "'fasta_filenames' is deprecated, use 'fasta_filename' instead"
+  )
+
+  expect_error(
+    bbt_run(
       fasta_filename = get_babette_path("anthus_aco.fas"),
       site_models = "something"
     ),

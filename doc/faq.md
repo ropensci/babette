@@ -79,7 +79,7 @@ To estimate the marginal likelihood, create a Nested Sampling MCMC object:
 
 ```r
 testit::assert(beastier::is_beast2_installed())
-testit::assert(mauricer::mrc_is_installed("NS"))
+testit::assert(mauricer::is_beast2_pkg_installed("NS"))
 out <- bbt_run(
   fasta_filename = get_babette_path("anthus_aco.fas"),
   mcmc = create_mcmc_nested_sampling(),

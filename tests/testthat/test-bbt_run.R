@@ -74,8 +74,7 @@ test_that("use, one alignment, verbose, no cleanup", {
       beast2_output_log_filename = beast2_output_log_filename,
       beast2_output_trees_filenames = beast2_output_trees_filenames,
       beast2_output_state_filename = beast2_output_state_filename,
-      verbose = TRUE,
-      cleanup = FALSE
+      verbose = TRUE
     )
   )
   expect_true(file.exists(beast2_input_filename))
@@ -507,5 +506,12 @@ test_that("abuse", {
     "'mrca_priors' is deprecated, use 'mrca_prior' instead"
   )
 
+  expect_error(
+    bbt_run(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      cleanup = TRUE
+    ),
+    "'cleanup' is deprecated, cleanup must be done by the caller"
+  )
 
 })

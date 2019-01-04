@@ -67,13 +67,13 @@
 #'   beast2_path = beastier::get_default_beast2_path(),
 #'   overwrite = FALSE,
 #'   verbose = FALSE,
-#'   cleanup = TRUE,
 #'   fasta_filenames = "deprecated",
 #'   site_models = "deprecated",
 #'   clock_models = "deprecated",
 #'   tree_priors = "deprecated",
 #'   mrca_priors = "deprecated",
-#'   posterior_crown_age = "deprecated"
+#'   posterior_crown_age = "deprecated",
+#'   cleanup = "deprecated"
 #' )
 #' @examples
 #'  out <- bbt_run(
@@ -133,14 +133,14 @@ bbt_run <- function(
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = FALSE,
   verbose = FALSE,
-  cleanup = TRUE,
   # Deprecated parameters
   fasta_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated"
+  posterior_crown_age = "deprecated",
+  cleanup = "deprecated"
 ) {
 
   # Check for deprecated argument names
@@ -186,6 +186,19 @@ bbt_run <- function(
   if (any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
+  if (any("cleanup" %in% calls)) {
+    stop(
+      "'cleanup' is deprecated, cleanup must be done by the caller.\n",
+      "\n",
+      "Tip: use these lines:\n",
+      "\n",
+      "file.remove(beast2_input_filename)\n",
+      "file.remove(beast2_output_log_filename)\n",
+      "file.remove(beast2_output_trees_filenames)\n",
+      "file.remove(beast2_output_state_filename)\n"
+    )
+  }
+
   if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
     stop("Must have as much FASTA filenames as BEAST2 output trees filenames")
   }
@@ -231,34 +244,6 @@ bbt_run <- function(
     state_filename = beast2_output_state_filename
   )
 
-  # Cleanup
-  if (cleanup == TRUE) {
-    if (verbose == TRUE) {
-      print(
-        paste(
-          "Removing files:", beast2_input_filename, beast2_output_log_filename,
-          beast2_output_trees_filenames, beast2_output_state_filename
-        )
-      )
-    }
-    file.remove(beast2_input_filename)
-    file.remove(beast2_output_log_filename)
-    file.remove(beast2_output_trees_filenames)
-    file.remove(beast2_output_state_filename)
-    testit::assert(!file.exists(beast2_input_filename))
-    testit::assert(!file.exists(beast2_output_log_filename))
-    testit::assert(!file.exists(beast2_output_trees_filenames))
-    testit::assert(!file.exists(beast2_output_state_filename))
-  } else {
-    if (verbose == TRUE) {
-      print(
-        paste(
-          "Keeping files:", beast2_input_filename, beast2_output_log_filename,
-          beast2_output_trees_filenames, beast2_output_state_filename
-        )
-      )
-    }
-  }
   new_names <- names(out)
   new_names[1] <- paste0(beautier::get_alignment_id(fasta_filename), "_trees")
   names(out) <- new_names

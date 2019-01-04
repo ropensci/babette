@@ -31,13 +31,13 @@ bbt_run(
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = FALSE,
   verbose = FALSE,
-  cleanup = TRUE,
   fasta_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated"
+  posterior_crown_age = "deprecated",
+  cleanup = "deprecated"
 )
 }
 \arguments{
@@ -115,8 +115,6 @@ the default BEAST jar file's path}
 
 \item{verbose}{set to TRUE for more output}
 
-\item{cleanup}{set to FALSE to keep all temporary files}
-
 \item{fasta_filenames}{one or more FASTA filename, each with one alignment}
 
 \item{site_models}{one or more site models,
@@ -132,6 +130,8 @@ see \link[beautier]{create_tree_priors}}
 as returned by \code{\link{create_mrca_prior}}}
 
 \item{posterior_crown_age}{deprecated}
+
+\item{cleanup}{set to FALSE to keep all temporary files}
 }
 \value{
 a list with the following elements:\cr

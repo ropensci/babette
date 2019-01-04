@@ -1,30 +1,32 @@
 # babette
 
+[![Peer Review Status](https://badges.ropensci.org/209_status.svg)](https://github.com/ropensci/onboarding/issues/209)
+
 Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
 ---|---|---|---
-master|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?branch=master)](https://travis-ci.org/richelbilderbeek/babette)|[![Build status](https://ci.appveyor.com/api/projects/status/wy43dnx199ir3n2h/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/babette/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/babette/branch/master)
-develop|[![Build Status](https://travis-ci.org/richelbilderbeek/babette.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/babette)|[![Build status](https://ci.appveyor.com/api/projects/status/wy43dnx199ir3n2h/branch/develop?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette/branch/develop)|[![codecov.io](https://codecov.io/github/richelbilderbeek/babette/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/babette/branch/develop)
+master|[![Build Status](https://travis-ci.org/ropensci/babette.svg?branch=master)](https://travis-ci.org/ropensci/babette)|[![Build status](https://ci.appveyor.com/api/projects/status/wy43dnx199ir3n2h/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/babette/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=master)](https://codecov.io/github/ropensci/babette/branch/master)
+develop|[![Build Status](https://travis-ci.org/ropensci/babette.svg?branch=develop)](https://travis-ci.org/ropensci/babette)|[![Build status](https://ci.appveyor.com/api/projects/status/wy43dnx199ir3n2h/branch/develop?svg=true)](https://ci.appveyor.com/project/ropensci/babette/branch/develop)|[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=develop)](https://codecov.io/github/ropensci/babette/branch/develop)
 
 [![DOI](https://zenodo.org/badge/118616108.svg)](https://zenodo.org/badge/latestdoi/118616108)
 
 `babette` is an R package that combines:
 
- * [beautier](https://github.com/richelbilderbeek/beautier) creates BEAST2 input (`.xml`) files.
- * [beastier](https://github.com/richelbilderbeek/beastier) runs BEAST2
- * [mauricer](https://github.com/richelbilderbeek/mauricer) install BEAST2 packages
- * [tracerer](https://github.com/richelbilderbeek/tracerer) parses BEAST2 output (`.log`, `.trees`, etc) files.
+ * [beautier](https://github.com/ropensci/beautier) creates BEAST2 input (`.xml`) files.
+ * [beastier](https://github.com/ropensci/beastier) runs BEAST2
+ * [mauricer](https://github.com/ropensci/mauricer) install BEAST2 packages
+ * [tracerer](https://github.com/ropensci/tracerer) parses BEAST2 output (`.log`, `.trees`, etc) files.
 
 ![babette logo](pics/babette_logo.png)
 
 Related R packages:
 
- * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
+ * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
 
 ## Examples
 
 See:
 
- * [lumier](https://github.com/richelbilderbeek/lumier): R Shiny app to help create the R function call needed
+ * [lumier](https://github.com/ropensci/lumier): R Shiny app to help create the R function call needed
  * [examples](doc/examples.md)
  * [article](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13032), in 'Methods in Ecology and Evolution'
  * [blog post](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/) in Methods.Blog
@@ -43,16 +45,16 @@ See [FAQ](doc/faq.md).
 
 `babette` cannot do everything `BEAUti` and `BEAST2` and `Tracer` can.
 
-See [beautier](https://github.com/richelbilderbeek/beautier) 
+See [beautier](https://github.com/ropensci/beautier) 
 for missing features in creating a BEAST2 input (`.xml`) file.
 
-See [beastier](https://github.com/richelbilderbeek/beastier) for missing
+See [beastier](https://github.com/ropensci/beastier) for missing
 features in running BEAST2
 
-See [mauricer](https://github.com/richelbilderbeek/mauricer) for missing
+See [mauricer](https://github.com/ropensci/mauricer) for missing
 features in installing BEAST2 packages.
 
-See [tracerer](https://github.com/richelbilderbeek/tracerer) 
+See [tracerer](https://github.com/ropensci/tracerer) 
 for missing features in parsing BEAST2 output (`.log`, `.trees`, etc) files.
 
 ## There is a feature I miss
@@ -75,17 +77,17 @@ Sure, just add an Issue. Or send an email.
 
 Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
 ---|---|---|---
-[beautier](https://github.com/richelbilderbeek/beautier)|[![Build Status](https://travis-ci.org/richelbilderbeek/beautier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beautier)|[![Build status](https://ci.appveyor.com/api/projects/status/qlahq0nofnpg3i8j/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beautier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beautier/branch/master)
-[beastier](https://github.com/richelbilderbeek/beastier)|[![Build Status](https://travis-ci.org/richelbilderbeek/beastier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beastier)|[![Build status](https://ci.appveyor.com/api/projects/status/tny9jb7jkwbfamm2/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beastier/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beastier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastier/branch/master)
-[mauricer](https://github.com/richelbilderbeek/mauricer)|[![Build Status](https://travis-ci.org/richelbilderbeek/mauricer.svg?branch=master)](https://travis-ci.org/richelbilderbeek/mauricer)|[![Build status](https://ci.appveyor.com/api/projects/status/1jf90vxixax0qd7y/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mauricer/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/mauricer/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/mauricer/branch/master)
+[beautier](https://github.com/ropensci/beautier)|[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=master)](https://travis-ci.org/ropensci/beautier)|[![Build status](https://ci.appveyor.com/api/projects/status/qlahq0nofnpg3i8j/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/beautier/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beautier/branch/master)
+[beastier](https://github.com/ropensci/beastier)|[![Build Status](https://travis-ci.org/ropensci/beastier.svg?branch=master)](https://travis-ci.org/ropensci/beastier)|[![Build status](https://ci.appveyor.com/api/projects/status/tny9jb7jkwbfamm2/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/beastier/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beastier/branch/master)
+[mauricer](https://github.com/ropensci/mauricer)|[![Build Status](https://travis-ci.org/ropensci/mauricer.svg?branch=master)](https://travis-ci.org/ropensci/mauricer)|[![Build status](https://ci.appveyor.com/api/projects/status/1jf90vxixax0qd7y/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/mauricer/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/mauricer/coverage.svg?branch=master)](https://codecov.io/github/ropensci/mauricer/branch/master)
 [phangorn](https://github.com/KlausVigo/phangorn)|[![Build Status](https://travis-ci.org/KlausVigo/phangorn.svg?branch=master)](https://travis-ci.org/KlausVigo/phangorn)|.|[![codecov.io](https://codecov.io/github/KlausVigo/phangorn/coverage.svg?branch=master)](https://codecov.io/github/KlausVigo/phangorn/branch/master)
-[tracerer](https://github.com/richelbilderbeek/tracerer)|[![Build Status](https://travis-ci.org/richelbilderbeek/tracerer.svg?branch=master)](https://travis-ci.org/richelbilderbeek/tracerer)|[![Build status](https://ci.appveyor.com/api/projects/status/6ulxqop64tgbujch/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/tracerer/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/tracerer/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/tracerer/branch/master)
+[tracerer](https://github.com/ropensci/tracerer)|[![Build Status](https://travis-ci.org/ropensci/tracerer.svg?branch=master)](https://travis-ci.org/ropensci/tracerer)|[![Build status](https://ci.appveyor.com/api/projects/status/6ulxqop64tgbujch/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/tracerer/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/tracerer/coverage.svg?branch=master)](https://codecov.io/github/ropensci/tracerer/branch/master)
 
 ## Related packages
 
 Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
 ---|---|---
-[lumier](https://github.com/richelbilderbeek/lumier)|[![Build Status](https://travis-ci.org/richelbilderbeek/lumier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/lumier)|[![codecov.io](https://codecov.io/github/richelbilderbeek/lumier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/lumier/branch/master)
+[lumier](https://github.com/ropensci/lumier)|[![Build Status](https://travis-ci.org/ropensci/lumier.svg?branch=master)](https://travis-ci.org/ropensci/lumier)|[![codecov.io](https://codecov.io/github/ropensci/lumier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/lumier/branch/master)
 
 ## External links
 
@@ -110,3 +112,5 @@ Article about `babette`:
 FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  
  * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
+
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

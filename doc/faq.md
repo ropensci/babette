@@ -4,7 +4,7 @@
 
 ### Which version of BEAUti do you use as a guideline?
 
-Version 2.5.1, as can be found in the [install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
+Version 2.5.1, as can be found in the [install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
 
 ### How to install BEAST2?
 
@@ -24,7 +24,7 @@ mauricer::mrc_install("NS")
 
 Currently, `babette` does not have a road map itself, but `beautier` does:
 
- * [beautier road map](https://github.com/richelbilderbeek/beautier/blob/master/road_map.md)
+ * [beautier road map](https://github.com/ropensci/beautier/blob/master/road_map.md)
 
 ### How can I indicate a feature that I miss?
 
@@ -61,7 +61,7 @@ Set a path to a desired location and disable cleaning up:
 ```
 out <- bbt_run(
   fasta_filename = get_babette_path("anthus_aco_sub.fas"),
-  beast2_input_filename = "/home/richelbilderbeek/beast2.xml",
+  beast2_input_filename = "/home/ropensci/beast2.xml",
   cleanup = FALSE
 )
 ```
@@ -111,7 +111,7 @@ or
 
 ### Are there any related packages?
 
- * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
+ * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
  * [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
  * [RBeast](https://github.com/beast-dev/RBeast): misc other things
 

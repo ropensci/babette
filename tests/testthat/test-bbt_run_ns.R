@@ -55,7 +55,7 @@ test_that("use", {
   expect_true("trees" %in% names(out$ns))
 
   skip("TODO: measure Nested Sampling ESS. Issue 37, #37")
-  # https://github.com/richelbilderbeek/babette/issues/37
+  # https://github.com/ropensci/babette/issues/37
   expect_true("ess" %in% names(out$ns))
 })
 
@@ -65,8 +65,13 @@ test_that("Nested sampling run should create no temporaries", {
     skip("Cannot run Nested Sampling package from Windows")
   }
 
+<<<<<<< HEAD
   # From https://github.com/richelbilderbeek/babette/issues/36
   testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+=======
+  # From https://github.com/ropensci/babette/issues/36
+  testit::assert(mauricer::mrc_is_installed("NS"))
+>>>>>>> master
 
   # Run babette in a different folder
   old_work_dir <- getwd()

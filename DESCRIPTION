@@ -42,14 +42,5 @@ Suggests:
     rmarkdown,
     spelling,
     testthat
-Remotes: 
-    jimhester/covr,
-    jimhester/lintr,
-    richelbilderbeek/beautier,
-    richelbilderbeek/beastier,
-    richelbilderbeek/nLTT,
-    richelbilderbeek/tracerer,
-    MangoTheCat/goodpractice,
-    KlausVigo/phangorn
 Language: en-US
 Encoding: UTF-8

@@ -9,11 +9,11 @@ This package describes the `babette` installation and installation problems.
 `babette` is installed most easily using the `devtools` package:
 
 ```
-devtools::install_github("richelbilderbeek/beautier")
-devtools::install_github("richelbilderbeek/tracerer")
-devtools::install_github("richelbilderbeek/beastier")
-devtools::install_github("richelbilderbeek/mauricer")
-devtools::install_github("richelbilderbeek/babette")
+devtools::install_github("ropensci/beautier")
+devtools::install_github("ropensci/tracerer")
+devtools::install_github("ropensci/beastier")
+devtools::install_github("ropensci/mauricer")
+devtools::install_github("ropensci/babette")
 ```
 
 Because `babette` is not on CRAN yet, its dependencies need also be installed.

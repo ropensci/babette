@@ -20,8 +20,8 @@ License: GPL-3 | file LICENSE
 LazyData: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-URL: https://github.com/richelbilderbeek/babette
-BugReports: https://github.com/richelbilderbeek/babette/issues
+URL: https://github.com/ropensci/babette
+BugReports: https://github.com/ropensci/babette/issues
 Imports:
     beautier,
     beastier,
@@ -45,10 +45,10 @@ Suggests:
 Remotes: 
     jimhester/covr,
     jimhester/lintr,
-    richelbilderbeek/beautier,
-    richelbilderbeek/beastier,
-    richelbilderbeek/nLTT,
-    richelbilderbeek/tracerer,
+    ropensci/beautier,
+    ropensci/beastier,
+    ropensci/nLTT,
+    ropensci/tracerer,
     MangoTheCat/goodpractice,
     KlausVigo/phangorn
 Language: en-US

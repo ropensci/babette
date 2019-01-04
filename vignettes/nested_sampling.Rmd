@@ -39,12 +39,12 @@ testthat::expect_true(beastier::is_beast2_installed())
 ```
 
 ```{r}
-if (!mauricer::mrc_is_installed("NS"))
+if (!mauricer::is_beast2_pkg_installed("NS"))
 {
   print("Installing BEAST2 package 'NS'")
-  mauricer::mrc_install("NS")
+  mauricer::install_beast2_pkg("NS")
 }
-testthat::expect_true(mauricer::mrc_is_installed("NS"))
+testthat::expect_true(mauricer::is_beast2_pkg_installed("NS"))
 ```
 
 Here we setup how to interpret the Bayes factor:

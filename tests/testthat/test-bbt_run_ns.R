@@ -6,7 +6,7 @@ test_that("use", {
     skip("Cannot run Nested Sampling package from Windows")
   }
 
-  testit::assert(mauricer::mrc_is_installed("NS"))
+  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
   out <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling(
@@ -66,7 +66,7 @@ test_that("Nested sampling run should create no temporaries", {
   }
 
   # From https://github.com/richelbilderbeek/babette/issues/36
-  testit::assert(mauricer::mrc_is_installed("NS"))
+  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
 
   # Run babette in a different folder
   old_work_dir <- getwd()
@@ -109,10 +109,10 @@ test_that("Nested sampling run should create no temporaries", {
 
 test_that("abuse", {
 
-  if (!mauricer::mrc_is_installed("NS")) {
-    mauricer::mrc_install("NS")
+  if (!mauricer::is_beast2_pkg_installed("NS")) {
+    mauricer::install_beast2_pkg("NS")
   }
-  testit::assert(mauricer::mrc_is_installed("NS"))
+  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
 
   expect_error(
     bbt_run(

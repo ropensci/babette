@@ -10,12 +10,12 @@ test_that("use", {
 
   beast2_package_name <- "NS"
   # Check to need to install NS later
-  was_ns_installed <- mauricer::mrc_is_installed(beast2_package_name)
+  was_ns_installed <- mauricer::is_beast2_pkg_installed(beast2_package_name)
 
-  if (mauricer::mrc_is_installed(beast2_package_name)) {
-    mauricer::mrc_uninstall(beast2_package_name)
+  if (mauricer::is_beast2_pkg_installed(beast2_package_name)) {
+    mauricer::uninstall_beast2_pkg(beast2_package_name)
   }
-  testit::assert(!mauricer::mrc_is_installed(beast2_package_name))
+  testit::assert(!mauricer::is_beast2_pkg_installed(beast2_package_name))
 
   expect_error(
     babette:::bbt_check_beast2_packages(
@@ -27,7 +27,7 @@ test_that("use", {
     )
   )
 
-  mauricer::mrc_install(beast2_package_name)
+  mauricer::install_beast2_pkg(beast2_package_name)
 
   expect_silent(
     babette:::bbt_check_beast2_packages(
@@ -37,6 +37,6 @@ test_that("use", {
   )
 
   if (!was_ns_installed) {
-    mauricer::mrc_uninstall(beast2_package_name)
+    mauricer::uninstall_beast2_pkg(beast2_package_name)
   }
 })

@@ -15,7 +15,7 @@ beastier::install_beast2()
 ### How to install the BEAST2 NS package?
 
 ```
-mauricer::mrc_install("NS")
+mauricer::install_beast2_pkg("NS")
 ```
 
 ## `babette` development 

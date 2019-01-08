@@ -22,6 +22,9 @@ r_github_packages:
   - KlausVigo/phangorn
   - ropensci/spelling
 
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
+
 before_script:
   - # Java
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R CMD javareconf; fi

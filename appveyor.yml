@@ -24,6 +24,7 @@ environment:
 build_script:
   - travis-tool.sh install_deps
   - R -e "library(beastier); beastier::install_beast2()"
+  - travis-tool.sh install_github GuangchuangYu/ggtree
   - travis-tool.sh install_github ropensci/tracerer
   - travis-tool.sh install_github ropensci/beautier
   - travis-tool.sh install_github ropensci/beastier

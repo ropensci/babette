@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "babette",
   "description": "'BEAST2' (<http://www.beast2.org>) is a widely used\n  Bayesian phylogenetic tool, that uses DNA/RNA/protein data\n  and many model priors to create a posterior of jointly estimated \n  phylogenies and parameters.\n  'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), \n  'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> \n  and DensiTree (<http://www.beast2.org>).\n  'babette' provides for an alternative workflow of using \n  all these tools separately. This allows doing complex Bayesian\n  phylogenetics easily and reproducibly from R. ",
@@ -69,6 +72,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "ggtree",
+      "name": "ggtree",
+      "provider": {
+        "@id": "https://www.bioconductor.org",
+        "@type": "Organization",
+        "name": "BioConductor",
+        "url": "https://www.bioconductor.org"
+      },
+      "sameAs": "https://bioconductor.org/packages/release/bioc/html/ggtree.html"
     },
     {
       "@type": "SoftwareApplication",
@@ -227,8 +242,34 @@
   ],
   "releaseNotes": "https://github.com/ropensci/babette/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/babette/blob/master/README.md",
-  "fileSize": "331.823KB",
-  "contIntegration": ["https://travis-ci.org", "https://www.appveyor.com", "https://www.codecov.io", "https://travis-ci.org/ropensci/babette", "https://ci.appveyor.com/project/ropensci/babette/branch/master", "https://codecov.io/github/ropensci/babette/branch/master", "https://travis-ci.org/ropensci/babette", "https://ci.appveyor.com/project/ropensci/babette/branch/develop", "https://codecov.io/github/ropensci/babette/branch/develop", "https://travis-ci.org/ropensci/beautier", "https://ci.appveyor.com/project/ropensci/beautier/branch/master", "https://codecov.io/github/ropensci/beautier/branch/master", "https://travis-ci.org/ropensci/beastier", "https://ci.appveyor.com/project/ropensci/beastier/branch/master", "https://codecov.io/github/ropensci/beastier/branch/master", "https://travis-ci.org/ropensci/mauricer", "https://ci.appveyor.com/project/ropensci/mauricer/branch/master", "https://codecov.io/github/ropensci/mauricer/branch/master", "https://travis-ci.org/KlausVigo/phangorn", "https://codecov.io/github/KlausVigo/phangorn/branch/master", "https://travis-ci.org/ropensci/tracerer", "https://ci.appveyor.com/project/ropensci/tracerer/branch/master", "https://codecov.io/github/ropensci/tracerer/branch/master", "https://travis-ci.org/ropensci/lumier", "https://codecov.io/github/ropensci/lumier/branch/master"],
+  "fileSize": "344.007KB",
+  "contIntegration": [
+    "https://travis-ci.org",
+    "https://www.appveyor.com",
+    "https://www.codecov.io",
+    "https://travis-ci.org/ropensci/babette",
+    "https://ci.appveyor.com/project/ropensci/babette/branch/master",
+    "https://codecov.io/github/ropensci/babette/branch/master",
+    "https://travis-ci.org/ropensci/babette",
+    "https://ci.appveyor.com/project/ropensci/babette/branch/develop",
+    "https://codecov.io/github/ropensci/babette/branch/develop",
+    "https://travis-ci.org/ropensci/beautier",
+    "https://ci.appveyor.com/project/ropensci/beautier/branch/master",
+    "https://codecov.io/github/ropensci/beautier/branch/master",
+    "https://travis-ci.org/ropensci/beastier",
+    "https://ci.appveyor.com/project/ropensci/beastier/branch/master",
+    "https://codecov.io/github/ropensci/beastier/branch/master",
+    "https://travis-ci.org/ropensci/mauricer",
+    "https://ci.appveyor.com/project/ropensci/mauricer/branch/master",
+    "https://codecov.io/github/ropensci/mauricer/branch/master",
+    "https://travis-ci.org/KlausVigo/phangorn",
+    "https://codecov.io/github/KlausVigo/phangorn/branch/master",
+    "https://travis-ci.org/ropensci/tracerer",
+    "https://ci.appveyor.com/project/ropensci/tracerer/branch/master",
+    "https://codecov.io/github/ropensci/tracerer/branch/master",
+    "https://travis-ci.org/ropensci/lumier",
+    "https://codecov.io/github/ropensci/lumier/branch/master"
+  ],
   "citation": [
     {
       "@type": "ScholarlyArticle",

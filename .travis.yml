@@ -12,6 +12,7 @@ r_packages:
   - xml2
 
 r_github_packages:
+  - GuangchuangYu/ggtree
   - jimhester/covr
   - jimhester/lintr
   - ropensci/beastier

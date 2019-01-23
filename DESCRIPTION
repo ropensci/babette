@@ -38,6 +38,7 @@ Suggests:
     hunspell,
     knitr,
     lintr,
+    magrittr,
     mauricer,
     nLTT,
     rmarkdown,

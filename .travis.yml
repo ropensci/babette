@@ -29,6 +29,8 @@ r_github_packages:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
+  # magrittr
+  - Rscript -e 'install.packages("magrittr", repos="http://cran.us.r-project.org")'
 
 before_script:
   - # Java

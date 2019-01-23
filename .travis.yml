@@ -9,6 +9,7 @@ r_packages:
   - devtools
   - ggplot2
   - hunspell
+  - magrittr
   - xml2
 
 bioc_packages:

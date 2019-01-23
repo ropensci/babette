@@ -123,18 +123,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "magrittr",
-      "name": "magrittr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=magrittr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "mauricer",
       "name": "mauricer"
     },
@@ -254,7 +242,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/babette/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/babette/blob/master/README.md",
-  "fileSize": "344.016KB",
+  "fileSize": "344.008KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",

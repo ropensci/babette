@@ -12,11 +12,10 @@ r_packages:
   - magrittr
   - xml2
 
-# bioc_packages:
-#   - ggtree
+bioc_packages:
+  - ggtree
 
 r_github_packages:
-  - GuangchuangYu/ggtree@9416b852753df0957f812840b9b5eda74b37d9b3
   - jimhester/covr
   - jimhester/lintr
   - ropensci/beastier
@@ -29,8 +28,6 @@ r_github_packages:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
-  # magrittr
-  - Rscript -e 'install.packages("magrittr", repos="http://cran.us.r-project.org")'
 
 before_script:
   - # Java

@@ -12,11 +12,11 @@ r_packages:
   - magrittr
   - xml2
 
-bioc_packages:
-  - ggtree
+# bioc_packages:
+#   - ggtree
 
 r_github_packages:
-  - # GuangchuangYu/ggtree
+  - GuangchuangYu/ggtree
   - jimhester/covr
   - jimhester/lintr
   - ropensci/beastier

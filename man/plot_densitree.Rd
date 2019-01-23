@@ -2,12 +2,20 @@
 % Please edit documentation in R/plot_densitree.R
 \name{plot_densitree}
 \alias{plot_densitree}
-\title{Calls \code{phangorn}'s \link[phangorn]{densiTree} function}
+\title{Draw multiple trees on top of one another.}
 \usage{
-plot_densitree(phylos, ...)
+plot_densitree(phylos, library = "ggtree", ...)
 }
 \arguments{
 \item{phylos}{one or more phylogenies, must be of class \code{multiPhylo}}
+
+\item{library}{the library to use:
+\itemize{
+  \item \code{ggtree}: use \code{ggtree}'s
+    \link[ggtree]{ggtree} function
+  \item \code{phangorn}: use \code{phangorn}'s
+    \link[phangorn]{densiTree} function
+}}
 
 \item{...}{options to be passed to \code{phangorn}'s
 \link[phangorn]{densiTree} function}
@@ -16,7 +24,7 @@ plot_densitree(phylos, ...)
 nothing. Will produce a plot.
 }
 \description{
-Calls \code{phangorn}'s \link[phangorn]{densiTree} function
+Draw multiple trees on top of one another.
 }
 \examples{
   out <- bbt_run(

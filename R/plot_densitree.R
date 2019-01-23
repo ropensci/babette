@@ -1,4 +1,13 @@
-#' Calls \code{phangorn}'s \link[phangorn]{densiTree} function
+#' Draw multiple trees on top of one another.
+#'
+#'
+#' @param library the library to use:
+#'   \itemize{
+#'     \item \code{ggtree}: use \code{ggtree}'s
+#'       \link[ggtree]{ggtree} function
+#'     \item \code{phangorn}: use \code{phangorn}'s
+#'       \link[phangorn]{densiTree} function
+#'   }
 #' @param phylos one or more phylogenies, must be of class \code{multiPhylo}
 #' @param ... options to be passed to \code{phangorn}'s
 #'   \link[phangorn]{densiTree} function
@@ -11,9 +20,20 @@
 #'  )
 #'  plot_densitree(out$anthus_aco_trees)
 #' @export
-plot_densitree <- function(phylos, ...) {
+plot_densitree <- function(
+  phylos,
+  library = "ggtree",
+  ...
+) {
   if (class(phylos) != "multiPhylo") {
     stop("'phylos' must be of class 'multiPhylo'")
   }
-  phangorn::densiTree(phylos, ...)
+  if (library == "phangorn") {
+    phangorn::densiTree(phylos, ...)
+  } else {
+    testit::assert(library == "ggtree")
+    ggtree::ggtree(phylos, layout = "slanted", alpha =  1.0 / length(phylos)) +
+      ggtree::geom_tiplab() +
+      ggtree::geom_treescale()
+  }
 }

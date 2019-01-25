@@ -1,5 +1,7 @@
-.Rproj.user/
-.Rhistory
-.Rproj.user
-inst/doc
-scripts/build/
+*.html
+*.R
+*.trees
+*.log
+*.xml
+*.xml.state
+

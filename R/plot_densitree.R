@@ -22,7 +22,7 @@
 #' @export
 plot_densitree <- function(
   phylos,
-  library = "ggtree",
+  library = "phangorn",
   ...
 ) {
   if (class(phylos) != "multiPhylo") {

@@ -4,7 +4,7 @@
 \alias{plot_densitree}
 \title{Draw multiple trees on top of one another.}
 \usage{
-plot_densitree(phylos, library = "ggtree", ...)
+plot_densitree(phylos, library = "phangorn", ...)
 }
 \arguments{
 \item{phylos}{one or more phylogenies, must be of class \code{multiPhylo}}

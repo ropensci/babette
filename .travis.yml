@@ -18,10 +18,10 @@ bioc_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
-  - ropensci/beastier
   - ropensci/beautier
-  - ropensci/mauricer
   - ropensci/tracerer
+  - ropensci/beastier
+  - ropensci/mauricer
   - MangoTheCat/goodpractice
   - KlausVigo/phangorn
   - ropensci/spelling

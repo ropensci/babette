@@ -13,6 +13,9 @@ bbt_run_from_model(fasta_filename,
 \arguments{
 \item{fasta_filename}{a FASTA filename}
 
+\item{inference_model}{a Bayesian phylogentic inference model,
+as returned by \link[beautier]{create_inference_model}}
+
 \item{beast2_options}{BEAST2 options,
 as can be created by \link[beastier]{create_beast2_options}}
 

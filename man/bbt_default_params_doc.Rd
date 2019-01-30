@@ -8,9 +8,10 @@ documentation.}
 bbt_default_params_doc(beast2_input_filename, beast2_options,
   beast2_output_log_filename, beast2_output_state_filename,
   beast2_output_trees_filenames, beast2_path, cleanup, clock_model,
-  clock_models, fasta_filename, fasta_filenames, mcmc, mrca_prior,
-  mrca_priors, overwrite, posterior_crown_age, rng_seed, site_model,
-  site_models, tipdates_filename, tree_prior, tree_priors, verbose)
+  clock_models, fasta_filename, fasta_filenames, inference_model, mcmc,
+  mrca_prior, mrca_priors, overwrite, posterior_crown_age, rng_seed,
+  site_model, site_models, tipdates_filename, tree_prior, tree_priors,
+  verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -66,6 +67,9 @@ see \link[beautier]{create_clock_models}}
 \item{fasta_filename}{a FASTA filename}
 
 \item{fasta_filenames}{one or more FASTA filename, each with one alignment}
+
+\item{inference_model}{a Bayesian phylogentic inference model,
+as returned by \link[beautier]{create_inference_model}}
 
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}

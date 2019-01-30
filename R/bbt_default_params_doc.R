@@ -43,6 +43,8 @@
 #'   see \link[beautier]{create_clock_models}
 #' @param fasta_filename a FASTA filename
 #' @param fasta_filenames one or more FASTA filename, each with one alignment
+#' @param inference_model a Bayesian phylogentic inference model,
+#'   as returned by \link[beautier]{create_inference_model}
 #' @param mcmc the MCMC options,
 #'   see \link[beautier]{create_mcmc}
 #' @param mrca_prior one Most Recent Common Ancestor prior,
@@ -87,6 +89,7 @@ bbt_default_params_doc <- function(
   clock_model,
   clock_models,
   fasta_filename, fasta_filenames,
+  inference_model,
   mcmc,
   mrca_prior,
   mrca_priors,

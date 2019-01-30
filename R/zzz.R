@@ -2,7 +2,7 @@
 
   suppressPackageStartupMessages(
     lapply(
-      c("beautier", "beastier", "tracerer", "mauricer"),
+      c("beautier", "beastier", "tracerer"),
       library,
       character.only = TRUE,
       warn.conflicts = FALSE

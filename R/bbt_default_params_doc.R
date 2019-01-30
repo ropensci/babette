@@ -5,6 +5,8 @@
 #'   filename, as the user needs not read it: it is used as input of BEAST2.
 #'   Specifying a \code{beast2_input_filename} allows to store that file
 #'   in a more permanently stored location.
+#' @param beast2_options BEAST2 options,
+#'   as can be created by \link[beastier]{create_beast2_options}
 #' @param beast2_output_log_filename name of the log file created by BEAST2,
 #'   containing the parameter estimates in time. By default, this
 #'   file is put a temporary folder with a random
@@ -76,6 +78,7 @@
 #'   functions to find the documentation parameters
 bbt_default_params_doc <- function(
   beast2_input_filename,
+  beast2_options,
   beast2_output_log_filename,
   beast2_output_state_filename,
   beast2_output_trees_filenames,

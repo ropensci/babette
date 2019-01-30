@@ -5,12 +5,12 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-bbt_default_params_doc(beast2_input_filename, beast2_output_log_filename,
-  beast2_output_state_filename, beast2_output_trees_filenames, beast2_path,
-  cleanup, clock_model, clock_models, fasta_filename, fasta_filenames,
-  mcmc, mrca_prior, mrca_priors, overwrite, posterior_crown_age, rng_seed,
-  site_model, site_models, tipdates_filename, tree_prior, tree_priors,
-  verbose)
+bbt_default_params_doc(beast2_input_filename, beast2_options,
+  beast2_output_log_filename, beast2_output_state_filename,
+  beast2_output_trees_filenames, beast2_path, cleanup, clock_model,
+  clock_models, fasta_filename, fasta_filenames, mcmc, mrca_prior,
+  mrca_priors, overwrite, posterior_crown_age, rng_seed, site_model,
+  site_models, tipdates_filename, tree_prior, tree_priors, verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -18,6 +18,9 @@ By default, this file is put in a temporary folder with a random
 filename, as the user needs not read it: it is used as input of BEAST2.
 Specifying a \code{beast2_input_filename} allows to store that file
 in a more permanently stored location.}
+
+\item{beast2_options}{BEAST2 options,
+as can be created by \link[beastier]{create_beast2_options}}
 
 \item{beast2_output_log_filename}{name of the log file created by BEAST2,
 containing the parameter estimates in time. By default, this

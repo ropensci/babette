@@ -79,8 +79,7 @@
 bbt_run_from_model <- function(
   fasta_filename,
   inference_model = create_inference_model(),
-  beast2_options = create_beast2_options(),
-  beast2_input_filename = tempfile(fileext = ".xml")
+  beast2_options = create_beast2_options()
 ) {
   tryCatch(
     check_inference_model(inference_model),
@@ -111,7 +110,7 @@ bbt_run_from_model <- function(
     tree_prior = inference_model$tree_prior,
     mrca_prior = inference_model$mrca_prior,
     mcmc = inference_model$mcmc,
-    beast2_input_filename = beast2_input_filename,
+    beast2_input_filename = beast2_options$input_filename,
     rng_seed = beast2_options$rng_seed,
     beast2_output_log_filename = beast2_options$output_log_filename,
     beast2_output_trees_filenames = beast2_options$output_trees_filenames,

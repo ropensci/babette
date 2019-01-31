@@ -43,7 +43,7 @@
 #'   see \link[beautier]{create_clock_models}
 #' @param fasta_filename a FASTA filename
 #' @param fasta_filenames one or more FASTA filename, each with one alignment
-#' @param inference_model a Bayesian phylogentic inference model,
+#' @param inference_model a Bayesian phylogenetic inference model,
 #'   as returned by \link[beautier]{create_inference_model}
 #' @param mcmc the MCMC options,
 #'   see \link[beautier]{create_mcmc}

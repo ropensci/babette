@@ -18,7 +18,7 @@ bioc_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
-  - ropensci/beautier
+  - ropensci/beautier@develop
   - ropensci/tracerer
   - ropensci/beastier
   - ropensci/mauricer

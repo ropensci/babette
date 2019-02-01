@@ -7,8 +7,7 @@ run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run_from_model(fasta_filename,
   inference_model = create_inference_model(),
-  beast2_options = create_beast2_options(),
-  beast2_input_filename = tempfile(fileext = ".xml"))
+  beast2_options = create_beast2_options())
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename}
@@ -18,12 +17,6 @@ as returned by \link[beautier]{create_inference_model}}
 
 \item{beast2_options}{BEAST2 options,
 as can be created by \link[beastier]{create_beast2_options}}
-
-\item{beast2_input_filename}{path of the BEAST2 configuration file.
-By default, this file is put in a temporary folder with a random
-filename, as the user needs not read it: it is used as input of BEAST2.
-Specifying a \code{beast2_input_filename} allows to store that file
-in a more permanently stored location.}
 }
 \value{
 a list with the following elements:\cr

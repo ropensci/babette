@@ -86,7 +86,7 @@ bbt_run_from_model <- function(
     error = function(e) {
       stop(
         "'inference_model' must be a valid inference model\n",
-        "Error: ", e$message ,"\n",
+        "Error: ", e$message, "\n",
         "Value: ", inference_model
       )
     }
@@ -96,7 +96,7 @@ bbt_run_from_model <- function(
     error = function(e) {
       stop(
         "'beast2_options' must be a valid BEAST2 options object\n",
-        "Error: ", e$message ,"\n",
+        "Error: ", e$message, "\n",
         "Value: ", beast2_options
       )
     }

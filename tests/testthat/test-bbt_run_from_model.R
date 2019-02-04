@@ -16,6 +16,29 @@ test_that("use, one alignment", {
   )
 })
 
+test_that("use, nested sampling", {
+
+  if (rappdirs::app_dir()$os == "win") {
+    skip("Cannot run Nested Sampling package from Windows")
+  }
+
+  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+  out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = create_inference_model(
+      mcmc = create_mcmc_nested_sampling(
+        chain_length = 1000,
+        store_every = 1000,
+        sub_chain_length = 500
+      )
+    ),
+    beast2_options = create_beast2_options(
+      beast2_path = get_default_beast2_bin_path()
+    )
+  )
+  expect_true("ns" %in% names(out))
+})
+
 test_that("abuse", {
 
   expect_error(

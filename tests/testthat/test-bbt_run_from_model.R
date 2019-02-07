@@ -3,17 +3,17 @@ context("bbt_run_from_model")
 test_that("use, one alignment", {
   testit::assert(beastier::is_beast2_installed())
 
-  expect_silent(
-    bbt_run_from_model(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      inference_model = create_inference_model(
-        mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
-      ),
-      beast2_options = create_beast2_options(
-        overwrite = TRUE
-      )
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
+    ),
+    beast2_options = create_beast2_options(
+      overwrite = TRUE
     )
   )
+  expect_equal(4, length(bbt_out$anthus_aco_trees))
+  expect_equal(4, nrow(bbt_out$estimates))
 })
 
 test_that("use, nested sampling", {

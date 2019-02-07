@@ -254,6 +254,15 @@ bbt_run <- function(
   names(out) <- new_names
   out$output <- output
 
+  # Check that there are as much trees in the output,
+  # as there were in the file
+  n_trees_in_file <- tracerer::count_trees_in_file(
+    beast2_output_trees_filenames
+  )
+  testit::assert(class(out[[1]]) == "multiPhylo")
+  n_trees_in_output <- length(out[[1]])
+  testit::assert(n_trees_in_file == n_trees_in_output)
+
   # Process the package specific output,
   # for example, add an 'ns' atributed for Nested Sampling
   bbt_process_pkg_output( # nolint internal function

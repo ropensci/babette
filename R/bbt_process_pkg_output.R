@@ -22,7 +22,7 @@ bbt_process_pkg_output <- function(
 ) {
   if (beautier:::is_mcmc_nested_sampling(mcmc)) {
     out$ns <- bbt_create_ns(out$output) # nolint internal function
-    testit::assert(!beautier:::is_one_na(alignment_ids))
+    testit::assert(!beautier::is_one_na(alignment_ids))
     testit::assert(length(alignment_ids) == 1)
     ns_log_filename <- paste0(alignment_ids, ".posterior.log")
     ns_trees_filename <- paste0(alignment_ids, ".posterior.trees")

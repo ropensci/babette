@@ -2,7 +2,7 @@
 #' @param filename the file's name, without the path
 #' @return the full path of the filename, if and only if
 #'   the file is present. Will stop otherwise.
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @seealso for more files, use \code{\link{get_babette_paths}}
 #' @examples
 #'   testit::assert(is.character(get_babette_path("anthus_aco.fas")))

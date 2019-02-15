@@ -39,7 +39,7 @@
 #'     }
 #'   }
 #' }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @usage
 #' bbt_run(
 #'   fasta_filename,

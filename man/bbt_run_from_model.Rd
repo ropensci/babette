@@ -101,5 +101,5 @@ Use \code{\link[tracerer]{remove_burn_ins}}
   the posterior's estimates (\code{posterior$estimates})
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

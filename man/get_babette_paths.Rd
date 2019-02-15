@@ -29,5 +29,5 @@ Get the full paths of files in the 'inst/extdata' folder
 for one file, use \code{\link{get_babette_path}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

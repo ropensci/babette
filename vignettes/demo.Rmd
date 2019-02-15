@@ -1,6 +1,6 @@
 ---
 title: "babette demo"
-author: "Richel J.C. Bilderbeek"
+author: "Richèl J.C. Bilderbeek"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

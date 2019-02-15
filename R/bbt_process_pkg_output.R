@@ -13,7 +13,7 @@
 #'     \item \code{trees} the trees
 #'       created during the marginal likelihood estimation
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 bbt_process_pkg_output <- function(
   out,

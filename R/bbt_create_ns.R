@@ -5,7 +5,7 @@
 #'     \item \code{marg_log_lik} the marginal log likelihood estimate
 #'     \item \code{marg_log_lik_sd} the standard deviation around the estimate
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 bbt_create_ns <- function(
   output
 ) {

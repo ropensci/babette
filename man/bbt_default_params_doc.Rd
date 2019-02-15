@@ -122,5 +122,5 @@ This is an internal function, so it should be marked with
   functions to find the documentation parameters
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

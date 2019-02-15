@@ -34,5 +34,5 @@ Draw multiple trees on top of one another.
  plot_densitree(out$anthus_aco_trees)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -20,5 +20,5 @@ a list with the following elements:
 Put the info of a Nested Sampling run in a structure
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

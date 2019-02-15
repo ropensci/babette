@@ -1,7 +1,7 @@
 #' Get the alignment IDs from a file with one alignment
 #' @param xml_filename name of a BEAST2 XML input filename
 #' @return a character vector with one or more alignment IDs
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   alignment_id <- babette:::get_alignment_ids(
 #'     get_babette_path("2_4.xml")

@@ -1,6 +1,6 @@
 #' Create testing output similar to when running a BEAST2 run
 #' with nested sampling
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 bbt_create_test_ns_output <- function() {
   c(

@@ -39,7 +39,7 @@
 #'     }
 #'   }
 #' }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  out <- bbt_run_from_model(
 #'    fasta_filename = get_babette_path("anthus_aco.fas"),

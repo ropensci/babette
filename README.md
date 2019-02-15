@@ -97,7 +97,7 @@ Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov
 
 Article about `babette`:
 
- * Bilderbeek, Richel JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018). https://doi.org/10.1111/2041-210X.13032
+ * Bilderbeek, Richèl JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018). https://doi.org/10.1111/2041-210X.13032
 
 ```
 @article{bilderbeek2018babette,

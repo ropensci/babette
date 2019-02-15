@@ -1,6 +1,6 @@
 ---
 title: "babette: BEAUti 2, BEAST2 and Tracer for R"
-author: "Richel J.C. Bilderbeek"
+author: "Richèl J.C. Bilderbeek"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

@@ -4,18 +4,10 @@
 \alias{plot_densitree}
 \title{Draw multiple trees on top of one another.}
 \usage{
-plot_densitree(phylos, library = "phangorn", ...)
+plot_densitree(phylos, ...)
 }
 \arguments{
 \item{phylos}{one or more phylogenies, must be of class \code{multiPhylo}}
-
-\item{library}{the library to use:
-\itemize{
-  \item \code{ggtree}: use \code{ggtree}'s
-    \link[ggtree]{ggtree} function
-  \item \code{phangorn}: use \code{phangorn}'s
-    \link[phangorn]{densiTree} function
-}}
 
 \item{...}{options to be passed to \code{phangorn}'s
 \link[phangorn]{densiTree} function}

@@ -58,7 +58,6 @@ test_that("abuse", {
 })
 
 test_that("use, one alignment", {
-  # https://github.com/richelbilderbeek/pirouette/issues/99
   testit::assert(beastier::is_beast2_installed())
 
   bbt_out <- bbt_run_from_model(
@@ -71,4 +70,28 @@ test_that("use, one alignment", {
   )
   expect_equal(4, length(bbt_out$anthus_aco_trees))
   expect_equal(4, nrow(bbt_out$estimates))
+})
+
+test_that("use, from bug report", {
+  # Report at https://github.com/ropensci/babette/issues/65
+  # Thanks @thijsjanzen
+  testit::assert(beastier::is_beast2_installed())
+
+  output_log_filename <- tempfile(fileext = ".log")
+
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = create_inference_model(
+      tree_prior = create_yule_tree_prior(),
+      mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
+    ),
+    beast2_options = create_beast2_options(
+      rng_seed = 42,
+      verbose = TRUE,
+      overwrite = TRUE,
+      output_log_filename = output_log_filename
+    )
+  )
+  # Checked: this does work on Linux
+  expect_true(file.exists(output_log_filename))
 })

@@ -515,3 +515,30 @@ test_that("abuse", {
   )
 
 })
+
+test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
+
+  crown_age <- 10
+  x <- TESS::tess.sim.taxa.age(
+    n = 1, nTaxa = 20, age = crown_age, lambda = 1, mu = 0
+  )[[1]]
+  align <- phangorn::simSeq(x, l = 1000)
+
+  fasta_filename = "test.fasta"
+  phangorn::write.phyDat(
+    align,
+    file = fasta_filename,
+    format = "fasta"
+  )
+
+  library(babette)
+
+  posterior <- bbt_run(
+    fasta_filename,
+    mcmc = create_mcmc(chain_length = 1000000, store_every = 5000),
+    rng_seed = 42,
+    verbose = TRUE,
+    overwrite = TRUE
+  )
+
+})

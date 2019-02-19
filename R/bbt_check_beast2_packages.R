@@ -13,8 +13,8 @@ bbt_check_beast2_packages <- function(
       "Tip: use 'mauricer::install_beast2_pkg(\"NS\")'"
     )
   }
-  if (beautier:::is_mcmc_nested_sampling(mcmc) &&
-      !beastier:::is_bin_path(beast2_path)
+  if (beautier::is_mcmc_nested_sampling(mcmc) &&
+      !beastier::is_bin_path(beast2_path)
   ) {
     stop(
       "When using nested sampling (that is, ",

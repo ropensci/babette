@@ -34,7 +34,6 @@ Suggests:
     ape,
     devtools,
     ggplot2,
-    ggtree,
     hunspell,
     knitr,
     lintr,

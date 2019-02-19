@@ -12,9 +12,6 @@ r_packages:
   - magrittr
   - xml2
 
-bioc_packages:
-  - ggtree
-
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr

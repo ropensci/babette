@@ -75,18 +75,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "ggtree",
-      "name": "ggtree",
-      "provider": {
-        "@id": "https://www.bioconductor.org",
-        "@type": "Organization",
-        "name": "BioConductor",
-        "url": "https://www.bioconductor.org"
-      },
-      "sameAs": "https://bioconductor.org/packages/release/bioc/html/ggtree.html"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "hunspell",
       "name": "hunspell",
       "provider": {
@@ -242,7 +230,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/babette/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/babette/blob/master/README.md",
-  "fileSize": "1409.176KB",
+  "fileSize": "1400.011KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",
@@ -298,5 +286,9 @@
       }
     }
   ],
-  "keywords": ["r", "r-package", "rstats"]
+  "keywords": [
+    "r",
+    "r-package",
+    "rstats"
+  ]
 }

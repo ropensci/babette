@@ -2,16 +2,12 @@ language: r
 
 matrix:
   include:
-  - r: oldrel
+  - r: release
     os: linux
-  - r: release
-    os: oldrel
-  - r: release
+  - r: devel
     os: linux
   - r: release
     os: osx
-  - r: devel
-    os: linux
 
 cache: packages
 

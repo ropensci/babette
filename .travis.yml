@@ -1,14 +1,19 @@
 language: r
-r:
-  - oldrel
-  - release
-  - devel
+
+matrix:
+  include:
+  - r: oldrel
+    os: linux
+  - r: release
+    os: oldrel
+  - r: release
+    os: linux
+  - r: release
+    os: osx
+  - r: devel
+    os: linux
 
 cache: packages
-
-os: 
-  - osx
-  - linux
 
 r_packages:
   - devtools

@@ -518,6 +518,8 @@ test_that("abuse", {
 
 test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
 
+  require(TESS)
+  set.seed(42)
   crown_age <- 10
   x <- TESS::tess.sim.taxa.age(
     n = 1, nTaxa = 20, age = crown_age, lambda = 1, mu = 0
@@ -533,7 +535,15 @@ test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
 
   posterior <- bbt_run(
     fasta_filename,
-    mcmc = create_mcmc(chain_length = 1000000, store_every = 5000),
+    mcmc = create_mcmc(chain_length = 5000, store_every = 1000),
+    rng_seed = 42,
+    verbose = TRUE,
+    overwrite = TRUE
+  )
+
+  posterior <- bbt_run(
+    fasta_filename,
+    mcmc = create_mcmc(chain_length = 5000, store_every = 1000),
     rng_seed = 42,
     verbose = TRUE,
     overwrite = TRUE

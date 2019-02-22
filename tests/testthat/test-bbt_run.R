@@ -531,11 +531,9 @@ test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
     format = "fasta"
   )
 
-  library(babette)
-
   posterior <- bbt_run(
     fasta_filename,
-    mcmc = create_mcmc(chain_length = 1000000, store_every = 5000),
+    mcmc = create_mcmc(chain_length = 3000, store_every = 1000),
     rng_seed = 42,
     verbose = TRUE,
     overwrite = TRUE

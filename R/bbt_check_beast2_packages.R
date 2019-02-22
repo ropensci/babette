@@ -5,7 +5,7 @@ bbt_check_beast2_packages <- function(
   mcmc,
   beast2_path = get_default_beast2_bin_path()
 ) {
-  if (beautier:::is_mcmc_nested_sampling(mcmc) &&
+  if (beautier::is_mcmc_nested_sampling(mcmc) &&
     !mauricer::is_beast2_pkg_installed("NS")
   ) {
     stop(

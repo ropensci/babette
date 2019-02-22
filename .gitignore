@@ -48,3 +48,5 @@ vignettes/*.trees
 anthus_aco.posterior.*
 scripts/build/
 *.fasta
+test.log
+test.trees

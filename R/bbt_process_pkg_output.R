@@ -20,7 +20,7 @@ bbt_process_pkg_output <- function(
   mcmc,
   alignment_ids = NA
 ) {
-  if (beautier:::is_mcmc_nested_sampling(mcmc)) {
+  if (beautier::is_mcmc_nested_sampling(mcmc)) {
     out$ns <- bbt_create_ns(out$output) # nolint internal function
     testit::assert(!beautier::is_one_na(alignment_ids))
     testit::assert(length(alignment_ids) == 1)

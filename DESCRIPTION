@@ -41,6 +41,7 @@ Suggests:
     nLTT,
     rmarkdown,
     spelling,
+    TESS,
     testthat
 Language: en-US
 Encoding: UTF-8

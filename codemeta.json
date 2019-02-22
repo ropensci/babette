@@ -152,6 +152,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "TESS",
+      "name": "TESS",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=TESS"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "provider": {
@@ -230,7 +242,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/babette/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/babette/blob/master/README.md",
-  "fileSize": "1400.011KB",
+  "fileSize": "1414.418KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",

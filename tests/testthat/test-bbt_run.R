@@ -518,7 +518,6 @@ test_that("abuse", {
 
 test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
 
-  require(TESS)
   set.seed(42)
   crown_age <- 10
   x <- TESS::tess.sim.taxa.age(

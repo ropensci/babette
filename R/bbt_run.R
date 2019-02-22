@@ -239,9 +239,36 @@ bbt_run <- function(
     verbose = verbose
   )
 
-  testit::assert(file.exists(beast2_output_log_filename))
-  testit::assert(file.exists(beast2_output_trees_filenames))
-  testit::assert(file.exists(beast2_output_state_filename))
+  testit::assert(file.exists(beast2_output_log_filename) &&
+    length(
+      paste0(
+        "beast2_output_log_filename not found. \n",
+        "This can be caused by:\n",
+        " * (Linux) the home folder is encrypted\n",
+        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
+      )
+    )
+  )
+  testit::assert(file.exists(beast2_output_trees_filenames) &&
+    length(
+      paste0(
+        "beast2_output_trees_filename not found. \n",
+        "This can be caused by:\n",
+        " * (Linux) the home folder is encrypted\n",
+        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
+      )
+    )
+  )
+  testit::assert(file.exists(beast2_output_state_filename) &&
+    length(
+      paste0(
+        "beast2_output_state_filename not found. \n",
+        "This can be caused by:\n",
+        " * (Linux) the home folder is encrypted\n",
+        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
+      )
+    )
+  )
 
   out <- tracerer::parse_beast_output_files(
     trees_filenames = beast2_output_trees_filenames,

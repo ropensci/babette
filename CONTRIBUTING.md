@@ -37,7 +37,17 @@ Emails with code will not be accepted.
 
 ## Submitting bugs
 
-Awesome. These are your options:
+Awesome that your are reading this!
+
+First, know that `babette` is thouroughly tested. 
+Most reported bugs are due to users' local settings,
+caused by `babette`'s creation of temporary files.
+This may cause a problem if:
+
+ * (Linux) the home folder is encrypted
+ * (MacOS) if `babette` is run in a folder monitored by DropBox
+
+If this is not the case, these are your options:
 
  * Add an Issue, with the test that fails
  * Submit a Pull Request, where the test is added to the `tests/testthat` folder

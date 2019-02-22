@@ -532,12 +532,15 @@ test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
     format = "fasta"
   )
 
+  beast2_output_log_filename <- tempfile(fileext = ".log")
+
   posterior <- bbt_run(
     fasta_filename,
     mcmc = create_mcmc(chain_length = 5000, store_every = 1000),
     rng_seed = 42,
     verbose = TRUE,
-    overwrite = TRUE
+    overwrite = TRUE,
+    beast2_output_log_filename = beast2_output_log_filename
   )
 
   posterior <- bbt_run(
@@ -548,4 +551,5 @@ test_that("file.exists(output_log_filename) is not TRUE, on MacOS, #65", {
     overwrite = TRUE
   )
 
+  expect_true(file.exists(beast2_output_log_filename))
 })

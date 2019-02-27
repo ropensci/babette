@@ -45,6 +45,7 @@ caused by `babette`'s creation of temporary files.
 This may cause a problem if:
 
  * (Linux) the home folder is encrypted
+ * (Linux) [CentOS is used](https://github.com/ropensci/babette/issues/31).
  * (MacOS) if `babette` is run in a folder monitored by DropBox
 
 If this is not the case, these are your options:

@@ -54,6 +54,8 @@ Submit an Issue. Or send an email to Richel Bilderbeek.
  * macOS
  * Windows
 
+Other Linux distros may work, [CentOS does not work](https://github.com/ropensci/babette/issues/31).
+
 ### How can I inspect a generated BEAST2 XML file?
 
 Set a path to a desired location and disable cleaning up:

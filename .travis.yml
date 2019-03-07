@@ -31,6 +31,8 @@ r_github_packages:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install clang-omp; fi
+
 
 before_script:
   - # Java

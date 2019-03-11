@@ -7,5 +7,4 @@
 ^\.travis\.yml$
 ^install_beast2$
 ^CONTRIBUTING\.md$
-^NEWS\.md$
 ^appveyor\.yml$

@@ -18,13 +18,15 @@ r_packages:
   - magrittr
   - xml2
 
+r_binary_packages:
+  - phangorn
+
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - ropensci/beastier
   - ropensci/mauricer
   - MangoTheCat/goodpractice
-  - KlausVigo/phangorn
   - ropensci/spelling
 
 before_install:

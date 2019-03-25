@@ -5,8 +5,8 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "babette",
-  "description": "'BEAST2' (<http://www.beast2.org>) is a widely used\n  Bayesian phylogenetic tool, that uses DNA/RNA/protein data\n  and many model priors to create a posterior of jointly estimated \n  phylogenies and parameters.\n  'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), \n  'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> \n  and DensiTree (<http://www.beast2.org>).\n  'babette' provides for an alternative workflow of using \n  all these tools separately. This allows doing complex Bayesian\n  phylogenetics easily and reproducibly from R. ",
-  "name": "babette: Control BEAST2 from R",
+  "description": "'BEAST2' (<http://www.beast2.org>) is a widely used\n    Bayesian phylogenetic tool, that uses DNA/RNA/protein data\n    and many model priors to create a posterior of jointly estimated \n    phylogenies and parameters.\n    'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), \n    'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> \n    and 'DensiTree' (<http://www.beast2.org>).\n    'babette' provides for an alternative workflow of using \n    all these tools separately. This allows doing complex Bayesian\n    phylogenetics easily and reproducibly from 'R'. ",
+  "name": "babette: Control BEAST2",
   "codeRepository": "https://github.com/ropensci/babette",
   "issueTracker": "https://github.com/ropensci/babette/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
@@ -167,7 +167,14 @@
     {
       "@type": "SoftwareApplication",
       "identifier": "beautier",
-      "name": "beautier"
+      "name": "beautier",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=beautier"
     },
     {
       "@type": "SoftwareApplication",
@@ -201,7 +208,14 @@
     {
       "@type": "SoftwareApplication",
       "identifier": "tracerer",
-      "name": "tracerer"
+      "name": "tracerer",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tracerer"
     },
     {
       "@type": "SoftwareApplication",
@@ -230,7 +244,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/babette/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/babette/blob/master/README.md",
-  "fileSize": "1414.236KB",
+  "fileSize": "1394.164KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",

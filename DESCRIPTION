@@ -1,22 +1,22 @@
 Package: babette
-Title: Control BEAST2 from R
+Title: Control BEAST2
 Version: 2.0
 Authors@R: c(
-  person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
-  person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
-  person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"))
+    person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
+    person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
+    person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"))
 Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
-  Bayesian phylogenetic tool, that uses DNA/RNA/protein data
-  and many model priors to create a posterior of jointly estimated 
-  phylogenies and parameters.
-  'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), 
-  'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> 
-  and DensiTree (<http://www.beast2.org>).
-  'babette' provides for an alternative workflow of using 
-  all these tools separately. This allows doing complex Bayesian
-  phylogenetics easily and reproducibly from R. 
-License: GPL-3 | file LICENSE
+    Bayesian phylogenetic tool, that uses DNA/RNA/protein data
+    and many model priors to create a posterior of jointly estimated 
+    phylogenies and parameters.
+    'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), 
+    'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> 
+    and 'DensiTree' (<http://www.beast2.org>).
+    'babette' provides for an alternative workflow of using 
+    all these tools separately. This allows doing complex Bayesian
+    phylogenetics easily and reproducibly from 'R'. 
+License: GPL-3
 LazyData: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr

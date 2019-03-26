@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette 2.0.2 (2019-03-26)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Fix spelling error
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 2.0.1 (2019-03-26)
 
 ### NEW FEATURES

@@ -18,8 +18,8 @@ r_packages:
   - magrittr
   - xml2
 
-#r_binary_packages:
-#  - phangorn
+r_binary_packages:
+  - phangorn
 
 r_github_packages:
   - jimhester/covr
@@ -28,11 +28,6 @@ r_github_packages:
   - ropensci/mauricer
   - MangoTheCat/goodpractice
   - ropensci/spelling
-  - KlausVigo/phangorn
-
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install clang; fi
 
 before_script:
   - # Java

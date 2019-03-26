@@ -2,6 +2,44 @@
 
 Newest versions at top.
 
+## babette 2.0.1 (2019-03-26)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Travis CI uses `phangorn`s binary R package  
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+## babette 2.0 (2019-01-06)
+
+### NEW FEATURES
+
+  * Transferred GitHub repo ownership to `ropensci`
+  * CRAN and rOpenSci release candidate
+
+### MINOR IMPROVEMENTS
+
+  * Tagged for [the academic article about babette](https://github.com/ropensci/babette_article)
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+
 ## babette 1.2.5 (2018-10-25)
 
 ### NEW FEATURES

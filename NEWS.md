@@ -24,7 +24,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * Transferred GitHub repo ownership to `ropensci`
+  * Transferred GitHub repository ownership to `ropensci`
   * CRAN and rOpenSci release candidate
 
 ### MINOR IMPROVEMENTS

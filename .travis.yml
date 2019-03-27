@@ -33,7 +33,8 @@ before_script:
   - # Java
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R CMD javareconf; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R --quiet -e 'install.packages("rJava", type="source", repos="http://cran.us.r-project.org")'; fi
-  - Rscript -e "beastier::install_beast2()"
+  # babette must build cleanly without BEAST2 installed, as on CRAN there is no install script
+  #- Rscript -e "beastier::install_beast2()"
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
   - sudo pip install proselint

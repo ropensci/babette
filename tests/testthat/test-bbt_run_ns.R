@@ -2,6 +2,8 @@ context("bbt_run_ns")
 
 test_that("use", {
 
+  if (!beastier::is_beast2_installed()) return()
+
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }
@@ -61,6 +63,8 @@ test_that("use", {
 
 test_that("Nested sampling run should create no temporaries", {
 
+  if (!beastier::is_beast2_installed()) return()
+
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }
@@ -108,6 +112,8 @@ test_that("Nested sampling run should create no temporaries", {
 })
 
 test_that("abuse", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   if (!mauricer::is_beast2_pkg_installed("NS")) {
     mauricer::install_beast2_pkg("NS")

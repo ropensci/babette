@@ -1,7 +1,7 @@
 context("bbt_run_from_model")
 
 test_that("use, one alignment", {
-  testit::assert(beastier::is_beast2_installed())
+  if (!beastier::is_beast2_installed()) return()
 
   bbt_out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
@@ -18,6 +18,7 @@ test_that("use, one alignment", {
 
 test_that("use, nested sampling", {
 
+  if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }
@@ -58,6 +59,8 @@ test_that("abuse", {
 })
 
 test_that("use, one alignment", {
+  if (!beastier::is_beast2_installed()) return()
+
   testit::assert(beastier::is_beast2_installed())
 
   bbt_out <- bbt_run_from_model(
@@ -73,6 +76,9 @@ test_that("use, one alignment", {
 })
 
 test_that("use, from bug report", {
+
+  if (!beastier::is_beast2_installed()) return()
+
   # Report at https://github.com/ropensci/babette/issues/65
   # Thanks @thijsjanzen
   testit::assert(beastier::is_beast2_installed())

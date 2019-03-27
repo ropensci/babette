@@ -2,6 +2,7 @@ context("plot_densitree")
 
 test_that("use", {
 
+  if (!beastier::is_beast2_installed()) return()
   fasta_filename <- get_babette_path("anthus_aco.fas")
   out <- bbt_run(
     fasta_filename = fasta_filename,

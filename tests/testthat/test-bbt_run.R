@@ -1,6 +1,9 @@
 context("bbt_run")
 
 test_that("use, one alignment", {
+
+  if (!beastier::is_beast2_installed()) return()
+
   testit::assert(beastier::is_beast2_installed())
 
   out <- NA
@@ -39,6 +42,9 @@ test_that("use, one alignment", {
 })
 
 test_that("use, one alignment, verbose, cleanup", {
+
+  if (!beastier::is_beast2_installed()) return()
+
   testit::assert(beastier::is_beast2_installed())
 
   expect_output(
@@ -51,6 +57,9 @@ test_that("use, one alignment, verbose, cleanup", {
 })
 
 test_that("use, one alignment, verbose, no cleanup", {
+
+  if (!beastier::is_beast2_installed()) return()
+
   testit::assert(beastier::is_beast2_installed())
 
   fasta_filenames <- get_babette_path("anthus_aco.fas")
@@ -84,6 +93,8 @@ test_that("use, one alignment, verbose, no cleanup", {
 })
 
 test_that("use, one alignment, same RNG should give same results", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   if (rappdirs::app_dir()$os == "mac") {
     skip("RNG seed is unreliable under macOS")
@@ -129,7 +140,10 @@ test_that("abuse", {
 ################################################################################
 
 test_that("Run all defaults", {
+
+  if (!beastier::is_beast2_installed()) return()
   if (!beastier::is_on_ci()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -147,7 +161,10 @@ test_that("Run all defaults", {
 ################################################################################
 
 test_that("Run GTR", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -162,7 +179,10 @@ test_that("Run GTR", {
 ################################################################################
 
 test_that("Run HKY", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -177,7 +197,10 @@ test_that("Run HKY", {
 ################################################################################
 
 test_that("Run JC69", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -192,7 +215,10 @@ test_that("Run JC69", {
 ################################################################################
 
 test_that("Run TN93", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -210,7 +236,10 @@ test_that("Run TN93", {
 # Clock model: RLN
 ################################################################################
 test_that("Run RLN clock", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -224,7 +253,10 @@ test_that("Run RLN clock", {
 # Clock model: strict
 ################################################################################
 test_that("Run strict clock", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -242,7 +274,10 @@ test_that("Run strict clock", {
 # Tree prior: BD
 ################################################################################
 test_that("Run BD tree prior", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -256,7 +291,10 @@ test_that("Run BD tree prior", {
 # Tree prior: CBS
 ################################################################################
 test_that("Run CBS tree prior", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -272,7 +310,10 @@ test_that("Run CBS tree prior", {
 # Tree prior: CCP
 ################################################################################
 test_that("Run CCP tree prior", {
+
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -284,6 +325,8 @@ test_that("Run CCP tree prior", {
 
 test_that("Run CCP tree prior with tip dating", {
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
   expect_silent(
     bbt_run(
       fasta_filename = beautier::get_beautier_path(
@@ -303,6 +346,7 @@ test_that("Run CCP tree prior with tip dating", {
 ################################################################################
 test_that("Run CEP tree prior", {
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -318,6 +362,7 @@ test_that("Run CEP tree prior", {
 ################################################################################
 test_that("Run Yule tree prior", {
   if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
@@ -333,6 +378,8 @@ test_that("Run Yule tree prior", {
 ################################################################################
 test_that("Run MRCA, no distr", {
 
+  if (!beastier::is_beast2_installed()) return()
+
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
     input_filename = fasta_filename,
@@ -345,6 +392,8 @@ test_that("Run MRCA, no distr", {
 })
 
 test_that("Run MRCA, MRCA distr", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
@@ -359,6 +408,8 @@ test_that("Run MRCA, MRCA distr", {
 })
 
 test_that("Run MRCA, no distr, subset of taxa", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   fasta_filename <- get_fasta_filename()
   set.seed(0)
@@ -375,6 +426,8 @@ test_that("Run MRCA, no distr, subset of taxa", {
 })
 
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   # Thanks to Raphael Scherrer for sharing this bug
   fasta_filename <- get_fasta_filename()
@@ -396,6 +449,8 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
 })
 
 test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   # Thanks to Jana Riederer for sharing this bug
   fasta_filename <- get_fasta_filename()
@@ -437,6 +492,8 @@ test_that("use, one alignment, plot with nLTT", {
 })
 
 test_that("with tip dating", {
+
+  if (!beastier::is_beast2_installed()) return()
 
   fasta_filename <- beautier::get_beautier_path("G_VII_pre2003_msa.fas")
   tipdates_filename <- beautier::get_beautier_path("G_VII_pre2003_dates_4.txt")

@@ -2,12 +2,14 @@
 % Please edit documentation in R/get_bbt_run_test_output.R
 \name{get_bbt_run_test_output}
 \alias{get_bbt_run_test_output}
-\title{Get an example output of \link{bbt_run} or \link{bbt_run_from_model}.}
+\title{Get an example output of \code{\link{bbt_run}}
+or \code{\link{bbt_run_from_model}}.}
 \usage{
 get_bbt_run_test_output()
 }
 \value{
-the same results as \link{bbt_run} or \link{bbt_run_from_model}
+the same results as \code{\link{bbt_run}}
+  or \code{\link{bbt_run_from_model}}
 }
 \description{
 This output is used in testing.

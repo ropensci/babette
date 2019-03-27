@@ -26,28 +26,20 @@ as described in [1]
 library(babette)
 ```
 
-Check if BEAST2 is installed. If not, install it
+`babette` needs to have BEAST2 installed to work.
+
+In the case BEAST2 is not installed, we'll use
+this fabricated data:
 
 ```{r}
-
-if (!beastier::is_beast2_installed())
-{
-  print("Installing BEAST2 to default location")
-  beastier::install_beast2()
-}
-testthat::expect_true(beastier::is_beast2_installed())
-```
-
-```{r}
-if (!mauricer::is_beast2_pkg_installed("NS"))
-{
-  print("Installing BEAST2 package 'NS'")
-  mauricer::install_beast2_pkg("NS")
-}
-testthat::expect_true(mauricer::is_beast2_pkg_installed("NS"))
+out_jc69 <- get_bbt_run_test_output()
+out_jc69$ns$marg_log_lik <- c(-1.1)
+out_jc69$ns$marg_log_lik_sd <- c(0.1)
+out_gtr <- out_jc69
 ```
 
 Here we setup how to interpret the Bayes factor:
+
 ```{r}
 interpret_bayes_factor <- function(bayes_factor) {
   if (bayes_factor < 10^-2.0) {
@@ -118,18 +110,20 @@ sample size above 200).
 Here we do two BEAST2 runs, with both site models:
 
 ```{r}
-out_jc69 <- bbt_run(
-  fasta_filename = fasta_filename,
-  site_model = beautier::create_jc69_site_model(),
-  mcmc = mcmc,
-  beast2_path = beastier::get_default_beast2_bin_path()
-)
-out_gtr <- bbt_run(
-  fasta_filename = fasta_filename,
-  site_model = beautier::create_gtr_site_model(),
-  mcmc = mcmc,
-  beast2_path = beastier::get_default_beast2_bin_path()
-)
+if (is_beast2_installed()) {
+  out_jc69 <- bbt_run(
+    fasta_filename = fasta_filename,
+    site_model = beautier::create_jc69_site_model(),
+    mcmc = mcmc,
+    beast2_path = beastier::get_default_beast2_bin_path()
+  )
+  out_gtr <- bbt_run(
+    fasta_filename = fasta_filename,
+    site_model = beautier::create_gtr_site_model(),
+    mcmc = mcmc,
+    beast2_path = beastier::get_default_beast2_bin_path()
+  )
+}
 ```
 
 I will display the marginal likelihoods in a nice table:

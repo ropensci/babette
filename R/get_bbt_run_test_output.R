@@ -1,7 +1,9 @@
-#' Get an example output of \link{bbt_run} or \link{bbt_run_from_model}.
+#' Get an example output of \code{\link{bbt_run}}
+#' or \code{\link{bbt_run_from_model}}.
 #'
 #' This output is used in testing.
-#' @return the same results as \link{bbt_run} or \link{bbt_run_from_model}
+#' @return the same results as \code{\link{bbt_run}}
+#'   or \code{\link{bbt_run_from_model}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  out <- get_bbt_run_test_output()

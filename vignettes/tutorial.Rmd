@@ -25,6 +25,11 @@ First, load `babette`:
 library(babette)
 ```
 
+
+```{r}
+out <- get_bbt_run_test_output()
+```
+
 The main function of `babette` is `bbt_run`. Here is part of its help:
 
 ```
@@ -91,10 +96,12 @@ With these MCMC options, we can now call `bbt_run` in way that
 it will finish fast:
 
 ```{r cache=TRUE}
-out <- bbt_run(
- fasta_filename = fasta_filename,
- mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+   fasta_filename = fasta_filename,
+   mcmc = mcmc
+  )
+}
 ```
 
 The return value, `out` contains the results of the MCMC run.
@@ -126,11 +133,13 @@ site_model <- create_jc69_site_model()
 Using this site model:
 
 ```{r cache=TRUE}
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  site_model = site_model,
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    site_model = site_model,
+    mcmc = mcmc
+  )
+}
 ```
 
 ## `clock_models`
@@ -156,11 +165,13 @@ clock_model <- create_strict_clock_model()
 Using this clock model:
 
 ```{r cache=TRUE}
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  clock_model = clock_model,
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    clock_model = clock_model,
+    mcmc = mcmc
+  )
+}
 ```
 
 ## `tree_priors`
@@ -186,11 +197,13 @@ tree_prior <- create_yule_tree_prior()
 Using this tree prior:
 
 ```{r cache=TRUE}
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  tree_prior = tree_prior,
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    tree_prior = tree_prior,
+    mcmc = mcmc
+  )
+}
 ```
 
 ## `mrca_priors`
@@ -239,11 +252,13 @@ mrca_prior <- create_mrca_prior(
 Using such an MRCA prior:
 
 ```{r cache=TRUE}
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  mrca_prior = mrca_prior,
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    mrca_prior = mrca_prior,
+    mcmc = mcmc
+  )
+}
 ```
 
 
@@ -264,19 +279,21 @@ Instead use an MRCA prior with a sharp distribution around the desired crown
 age! It is known such an MRCA prior gives better results:
 
 ```{r cache=TRUE}
-# Prefer this over using 'posterior_crown_age'
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  mrca_prior = create_mrca_prior(
-    alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
-    taxa_names = get_taxa_names(filename = fasta_filename),
-    mrca_distr = create_normal_distr(
-      mean = 15.0, 
-      sigma = 0.0001
-    )
-  ),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  # Prefer this over using 'posterior_crown_age'
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    mrca_prior = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
+      taxa_names = get_taxa_names(filename = fasta_filename),
+      mrca_distr = create_normal_distr(
+        mean = 15.0, 
+        sigma = 0.0001
+      )
+    ),
+    mcmc = mcmc
+  )
+}
 ```
 
 ## Temporary filenames
@@ -295,7 +312,7 @@ in a temporary folder.
 To store these files in the present working directory, specify their names:
 
 ```{r}
-if (1 == 2) {
+if (is_beast2_installed()) {
   beast2_input_filename <- "beast_input.xml"
   beast2_output_log_filename <- "beast_ouput.log"
   beast2_output_trees_filenames <- "beast_output.trees"
@@ -325,11 +342,13 @@ if (1 == 2) {
 `rng_seed` is the `bbt_run` argument to specify a random number generator seed.
 
 ```{r cache=TRUE}
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  mcmc = mcmc,
-  rng_seed = 314
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    mcmc = mcmc,
+    rng_seed = 314
+  )
+}
 ```
 
 ## `beast2_path`	
@@ -348,7 +367,7 @@ print(beast2_path)
 Run `babette` if and only if BEAST2 is installed at that default location:
 
 ```{r}
-if (file.exists(beast2_path)) {
+if (is_beast2_installed()) {
   out <- bbt_run(
     fasta_filename = fasta_filename,
     mcmc = mcmc,
@@ -363,11 +382,13 @@ if (file.exists(beast2_path)) {
 output is desired. Set this to TRUE for more output:
 
 ```{r cache=TRUE}
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  mcmc = mcmc,
-  verbose = TRUE
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = fasta_filename,
+    mcmc = mcmc,
+    verbose = TRUE
+  )
+}
 ```
 
 ## `cleanup`

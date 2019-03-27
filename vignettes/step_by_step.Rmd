@@ -62,7 +62,9 @@ This file can both be loaded by BEAUti and be used by BEAST2.
 The file can be checked if it is indeed a valid input file:
 
 ```{r}
-testit::assert(is_beast2_input_file(beast2_input_file))
+if (is_beast2_installed()) {
+  testit::assert(is_beast2_input_file(beast2_input_file))
+}
 ```
 
 ## Run MCMC
@@ -71,19 +73,25 @@ This step is commonly done using BEAST2 from the command-line or using its GUI.
 With `babette`, this can be done as follows:
 
 ```{r}
-log_filename <- tempfile(fileext = ".log")
-trees_filename <- tempfile(fileext = "trees")
-state_filename <- tempfile(fileext = ".xml.state")
-run_beast2(
-  input_filename = beast2_input_file,
-  output_log_filename = log_filename,
-  output_trees_filenames = trees_filename,
-  output_state_filename = state_filename
-)
-testit::assert(file.exists(log_filename))
-testit::assert(file.exists(trees_filename))
-testit::assert(file.exists(state_filename))
+log_filename <- get_tracerer_path("beast2_example_output.log")
+trees_filename <- get_tracerer_path("beast2_example_output.trees")
+state_filename <- get_tracerer_path("beast2_example_output.xml.state")
 
+if (is_beast2_installed()) {
+  
+  log_filename <- tempfile(fileext = ".log")
+  trees_filename <- tempfile(fileext = "trees")
+  state_filename <- tempfile(fileext = ".xml.state")
+  run_beast2(
+    input_filename = beast2_input_file,
+    output_log_filename = log_filename,
+    output_trees_filenames = trees_filename,
+    output_state_filename = state_filename
+  )
+  testit::assert(file.exists(log_filename))
+  testit::assert(file.exists(trees_filename))
+  testit::assert(file.exists(state_filename))
+}
 ```
 
 ## Display (part of) the BEAST2 output files

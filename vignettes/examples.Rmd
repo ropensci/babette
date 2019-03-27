@@ -32,8 +32,18 @@ For all examples, do load `babette`:
 library(babette)
 ```
 
-All these examples assume that `BEAST2` is installed at the default 
-location at `r get_default_beast2_path()`.
+All these examples check that `BEAST2` is installed at the default 
+location at `r get_default_beast2_path()`. If this is not the case,
+we will use some fabricated output:
+
+```{r}
+posterior <- get_bbt_run_test_output()
+posterior$test_output_0_trees <- posterior$anthus_aco_trees
+posterior$my_fasta_trees <- posterior$anthus_aco_trees
+posterior$my_alignment_trees <- posterior$anthus_aco_trees
+posterior$estimates$BDBirthRate <- posterior$estimates$birthRate
+names(posterior)
+```
 
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`).
 Instead of a full run, the MCMC chain length is shortened to 10K states,
@@ -50,10 +60,12 @@ Using all default settings, only specify a DNA alignment.
 ![Example #1: all default](all_default.png)
 
 ```{r example_1, cache=TRUE}
-posterior <- bbt_run(
-  "test_output_0.fas",
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "test_output_0.fas",
+    mcmc = mcmc
+  )
+}
 ```
 
 All other parameters are set to their defaults, as in BEAUti.
@@ -101,19 +113,21 @@ An alternative is to date the node of the most recent common ancestor
 of all taxa:
 
 ```{r example_2_mrca, cache=FALSE}
-posterior <- bbt_run(
-  "my_fasta.fas",
-  mcmc = mcmc,
-  mrca_prior = create_mrca_prior(
-    taxa_names = sample(get_taxa_names("my_fasta.fas"), size = 3),
-    alignment_id = get_alignment_id("my_fasta.fas"),
-    is_monophyletic = TRUE,
-    mrca_distr = create_normal_distr(
-      mean = 15.0,
-      sigma = 0.025
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_fasta.fas",
+    mcmc = mcmc,
+    mrca_prior = create_mrca_prior(
+      taxa_names = sample(get_taxa_names("my_fasta.fas"), size = 3),
+      alignment_id = get_alignment_id("my_fasta.fas"),
+      is_monophyletic = TRUE,
+      mrca_distr = create_normal_distr(
+        mean = 15.0,
+        sigma = 0.025
+      )
     )
   )
-)
+}
 ```
 
 Here we use an MRCA prior with fixed (non-estimated) values of the mean
@@ -132,11 +146,13 @@ plot_densitree(posterior$my_fasta_trees, width = 2)
 ![Example #3: JC69 site model](jc69_2_4.png)
 
 ```{r example_3, cache=TRUE}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_model = create_jc69_site_model(),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_alignment.fas",
+    site_model = create_jc69_site_model(),
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r fig.width=7, fig.height=7}
@@ -152,11 +168,13 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ![Example #4: Relaxed clock log normal](rln_2_4.png)
 
 ```{r example_4, cache=TRUE}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  clock_model = create_rln_clock_model(),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_alignment.fas",
+    clock_model = create_rln_clock_model(),
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r fig.width=7, fig.height=7}
@@ -172,11 +190,13 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ![Example #5: Birth-Death tree prior](bd_2_4.png)
 
 ```{r example_5, cache=TRUE}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  tree_prior = create_bd_tree_prior(), 
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_alignment.fas",
+    tree_prior = create_bd_tree_prior(), 
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r fig.width=7, fig.height=7}
@@ -192,16 +212,18 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ![Example #6: Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
 
 ```{r example_6, cache=TRUE}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = create_normal_distr(
-      mean = 1.0,
-      sigma = 0.1
-    )
-  ),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_alignment.fas",
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = create_normal_distr(
+        mean = 1.0,
+        sigma = 0.1
+      )
+    ),
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r fig.width=7, fig.height=7}
@@ -219,13 +241,15 @@ Thanks to Yacine Ben Chehida for this use case
 ![Example #7: HKY site model with a non-zero proportion of invariants](hky_prop_invariant_0_5_2_4.png)
 
 ```{r example_7, cache=TRUE}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_model = create_hky_site_model(
-    gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
-  ),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_alignment.fas",
+    site_model = create_hky_site_model(
+      gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
+    ),
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r fig.width=7, fig.height=7}
@@ -243,13 +267,15 @@ Thanks to Yacine Ben Chehida for this use case
 ![Example #8: Strict clock with a known clock rate](strict_clock_rate_0_5_2_4.png)
 
 ```{r example_8, cache=TRUE}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  clock_model = create_strict_clock_model(
-    clock_rate_param = 0.5
-  ), 
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  posterior <- bbt_run(
+    "my_alignment.fas",
+    clock_model = create_strict_clock_model(
+      clock_rate_param = 0.5
+    ), 
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r fig.width=7, fig.height=7}

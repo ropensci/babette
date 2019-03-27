@@ -1,0 +1,75 @@
+#' Get an example output of \link{bbt_run} or \link{bbt_run_from_model}.
+#'
+#' This output is used in testing.
+#' @return the same results as \link{bbt_run} or \link{bbt_run_from_model}
+#' @author Richèl J.C. Bilderbeek
+#' @examples
+#'  out <- get_bbt_run_test_output()
+#'
+#'  library(testthat)
+#'  expect_true("estimates" %in% names(out))
+#'  expect_true("anthus_aco_trees" %in% names(out))
+#'  expect_true("operators" %in% names(out))
+#'  expect_true("output" %in% names(out))
+#'  expect_true(class(out$anthus_aco_trees[[1]]) == "phylo")
+#'  expect_true(length(out$anthus_aco_trees) == 2)
+#'
+#'  expect_true("Sample" %in% names(out$estimates))
+#'  expect_true("posterior" %in% names(out$estimates))
+#'  expect_true("likelihood" %in% names(out$estimates))
+#'  expect_true("prior" %in% names(out$estimates))
+#'  expect_true("treeLikelihood" %in% names(out$estimates))
+#'  expect_true("TreeHeight" %in% names(out$estimates))
+#'  expect_true("YuleModel" %in% names(out$estimates))
+#'  expect_true("birthRate" %in% names(out$estimates))
+#'
+#'  expect_true("operator" %in% names(out$operators))
+#'  expect_true("p" %in% names(out$operators))
+#'  expect_true("accept" %in% names(out$operators))
+#'  expect_true("reject" %in% names(out$operators))
+#'  expect_true("acceptFC" %in% names(out$operators))
+#'  expect_true("rejectFC" %in% names(out$operators))
+#'  expect_true("rejectIv" %in% names(out$operators))
+#'  expect_true("rejectOp" %in% names(out$operators))
+#' @export
+get_bbt_run_test_output <- function() {
+
+  anthus_aco_trees <- c(
+    ape::read.tree(text = "((A:2, B:2):1, C:3);"),
+    ape::read.tree(text = "((A:1, B:1):2, C:3);")
+  )
+
+  estimates <- data.frame(
+    Sample = c(0, 1000),
+    posterior = c(-1.1, -2.2),
+    likelihood = c(-3.3, -4.4),
+    prior = c(-5.5, -6.6),
+    treeLikelihood = c(-7.7, -8.8),
+    TreeHeight = c(2.5, 2.8),
+    YuleModel = c(0.5, 0.6),
+    birthRate = c(0.1, 0.2)
+  )
+
+  operators <- data.frame(
+    operator = c(
+      "treeScaler.t:test-alignment_to_beast_posterior",
+      "treeRootScaler.t:test-alignment_to_beast_posterior"
+    ),
+    p = c(0.4, 0.6),
+    accept = c(1, 2),
+    reject = c(3, 4),
+    acceptFC = c(5, 6),
+    rejectFC = c(7, 8),
+    rejectIv = c(9, 10),
+    rejectOp = c(11, 12)
+  )
+
+  output <- bbt_create_test_ns_output()
+
+  list(
+    estimates = estimates,
+    anthus_aco_trees = anthus_aco_trees,
+    operators = operators,
+    output = output
+  )
+}

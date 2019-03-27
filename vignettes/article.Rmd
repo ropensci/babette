@@ -32,22 +32,32 @@ library(babette)
 mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
 ```
 
+Use a null value for `out`:
+
 ```{r}
-out <- bbt_run(
-  fasta_filename = "anthus_aco.fas", 
-  mcmc = mcmc
-)
+out <- NA
+```
+
+```{r}
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    fasta_filename = "anthus_aco.fas", 
+    mcmc = mcmc
+  )
+}
 ```
 
 
 ```{r}
-out <- bbt_run(
-  "anthus_aco.fas",
-  site_model = create_hky_site_model(),
-  clock_model = create_rln_clock_model(),
-  tree_prior = create_bd_tree_prior(),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    "anthus_aco.fas",
+    site_model = create_hky_site_model(),
+    clock_model = create_rln_clock_model(),
+    tree_prior = create_bd_tree_prior(),
+    mcmc = mcmc
+  )
+}
 ```
 
 
@@ -56,25 +66,29 @@ out <- bbt_run(
 ```
 
 ```{r}
-out <- bbt_run(
-  "anthus_aco.fas",
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = create_exp_distr()    
-  ),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    "anthus_aco.fas",
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = create_exp_distr()    
+    ),
+    mcmc = mcmc
+  )
+}
 ```
 
 ```{r}
-out <- bbt_run(
-  "anthus_aco.fas",
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = create_exp_distr(
-      mean = 1.0
-    )    
-  ),
-  mcmc = mcmc
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    "anthus_aco.fas",
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = create_exp_distr(
+        mean = 1.0
+      )    
+    ),
+    mcmc = mcmc
+  )
+}
 ```
 
 ```
@@ -87,21 +101,28 @@ out <- bbt_run(
 ```
 
 ```{r}
-out <- bbt_run(
-  "anthus_aco.fas",
-  mrca_prior = create_mrca_prior(
-    alignment_id = get_alignment_id("anthus_aco.fas"),
-    taxa_names = get_taxa_names("anthus_aco.fas"),
-    mrca_distr = create_normal_distr(
-      mean = 15.0,
-      sigma = 0.01
-    )
-  ),
-  mcmc = mcmc,
-  overwrite = TRUE
-)
+if (is_beast2_installed()) {
+  out <- bbt_run(
+    "anthus_aco.fas",
+    mrca_prior = create_mrca_prior(
+      alignment_id = get_alignment_id("anthus_aco.fas"),
+      taxa_names = get_taxa_names("anthus_aco.fas"),
+      mrca_distr = create_normal_distr(
+        mean = 15.0,
+        sigma = 0.01
+      )
+    ),
+    mcmc = mcmc,
+    overwrite = TRUE
+  )
+}
 ```
 
+```{r}
+if (is_one_na(out)) {
+  out <- get_bbt_run_test_output()
+}
+```
 
 ```{r}
 traces <- remove_burn_ins(

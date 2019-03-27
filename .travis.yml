@@ -59,14 +59,12 @@ after_success:
   #- ./scripts/check_dead_links
 
 after_failure:
-  # - sudo Rscript install_this_r_package.R
-  # - Rscript -e 'library(beautier); testit::assert(has_beast2())'
-  - cat /home/travis/build/ropensci/beautier/..Rcheck/00install.out
-  - cat /home/travis/build/ropensci/beautier/..Rcheck/00check.log
+  - cat /home/travis/build/ropensci/babette/..Rcheck/00install.out
+  - cat /home/travis/build/ropensci/babette/..Rcheck/00check.log
   - cd ~; find . | egrep "beast"
   - cd ~; find . | egrep "\.log"
   - cd ~; find . | egrep "\.trees"
   - cd ~; find . | egrep "\.xml"
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
-  - cat /home/travis/build/ropensci/beautier/..Rcheck/tests/testthat/testthat.log
+  - cat /home/travis/build/ropensci/babette/..Rcheck/tests/testthat/testthat.log

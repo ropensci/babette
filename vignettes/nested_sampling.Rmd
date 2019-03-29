@@ -111,17 +111,25 @@ Here we do two BEAST2 runs, with both site models:
 
 ```{r}
 if (is_beast2_installed()) {
-  out_jc69 <- bbt_run(
+  out_jc69 <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    site_model = beautier::create_jc69_site_model(),
-    mcmc = mcmc,
-    beast2_path = beastier::get_default_beast2_bin_path()
+    inference_model = create_inference_model(
+      site_model = beautier::create_jc69_site_model(),
+      mcmc = mcmc
+    ),
+    beast2_options = create_beast2_options(
+      beast2_path = beastier::get_default_beast2_bin_path() 
+    )
   )
-  out_gtr <- bbt_run(
+  out_gtr <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    site_model = beautier::create_gtr_site_model(),
-    mcmc = mcmc,
-    beast2_path = beastier::get_default_beast2_bin_path()
+    inference_model = create_inference_model(
+      site_model = beautier::create_gtr_site_model(),
+      mcmc = mcmc
+    ),
+    beast2_options = create_beast2_options(
+      beast2_path = beastier::get_default_beast2_bin_path() 
+    )
   )
 }
 ```

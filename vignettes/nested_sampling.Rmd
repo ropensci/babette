@@ -110,7 +110,7 @@ sample size above 200).
 Here we do two BEAST2 runs, with both site models:
 
 ```{r}
-if (is_beast2_installed()) {
+if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
   out_jc69 <- bbt_run_from_model(
     fasta_filename = fasta_filename,
     inference_model = create_inference_model(
@@ -137,26 +137,28 @@ if (is_beast2_installed()) {
 I will display the marginal likelihoods in a nice table:
 
 ```{r}
-df <- data.frame(
-  model = c("JC69", "GTR"),
-  mar_log_lik = c(out_jc69$ns$marg_log_lik, out_gtr$ns$marg_log_lik),
-  mar_log_lik_sd = c(out_jc69$ns$marg_log_lik_sd, out_gtr$ns$marg_log_lik_sd)
-)
-knitr::kable(df)
+if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
+  df <- data.frame(
+    model = c("JC69", "GTR"),
+    mar_log_lik = c(out_jc69$ns$marg_log_lik, out_gtr$ns$marg_log_lik),
+    mar_log_lik_sd = c(out_jc69$ns$marg_log_lik_sd, out_gtr$ns$marg_log_lik_sd)
+  )
+  knitr::kable(df)
+}
 ```
 
 The Bayes factor is ratio between the marginal (non-log) likelihoods.
 In this case, we use the simpler JC69 model as a focus: 
 
 ```{r}
-bayes_factor <- exp(out_jc69$ns$marg_log_lik) / exp(out_gtr$ns$marg_log_lik)
-print(interpret_bayes_factor(bayes_factor))
+if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
+  bayes_factor <- exp(out_jc69$ns$marg_log_lik) / exp(out_gtr$ns$marg_log_lik)
+  print(interpret_bayes_factor(bayes_factor))
+}
 ```
 
 Whatever the support is, be sure to take the error of the marginal 
 likelihood estimation into account. 
-
-
 
 ## References
 

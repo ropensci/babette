@@ -22,6 +22,7 @@ test_that("use, nested sampling", {
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }
+  if (!mauricer::is_beast2_pkg_installed("NS")) return()
 
   testit::assert(mauricer::is_beast2_pkg_installed("NS"))
   out <- bbt_run_from_model(

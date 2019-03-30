@@ -25,6 +25,7 @@ BugReports: https://github.com/ropensci/babette/issues
 Imports:
     beautier,
     beastier,
+    mauricer,
     phangorn,
     stringr,
     tracerer,
@@ -37,7 +38,6 @@ Suggests:
     hunspell,
     knitr,
     lintr,
-    mauricer,
     nLTT,
     rmarkdown,
     spelling,

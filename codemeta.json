@@ -111,11 +111,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "mauricer",
-      "name": "mauricer"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "nLTT",
       "name": "nLTT",
       "provider": {
@@ -183,6 +178,11 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "mauricer",
+      "name": "mauricer"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "phangorn",
       "name": "phangorn",
       "provider": {
@@ -244,7 +244,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/babette/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/babette/blob/master/README.md",
-  "fileSize": "1394.308KB",
+  "fileSize": "1040.984KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",

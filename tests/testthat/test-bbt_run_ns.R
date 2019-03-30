@@ -7,6 +7,7 @@ test_that("use", {
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }
+  if (!mauricer::is_beast2_pkg_installed("NS")) return()
 
   testit::assert(mauricer::is_beast2_pkg_installed("NS"))
   out <- bbt_run(
@@ -68,6 +69,7 @@ test_that("Nested sampling run should create no temporaries", {
   if (rappdirs::app_dir()$os == "win") {
     skip("Cannot run Nested Sampling package from Windows")
   }
+  if (!mauricer::is_beast2_pkg_installed("NS")) return()
 
   # From https://github.com/ropensci/babette/issues/36
   testit::assert(mauricer::is_beast2_pkg_installed("NS"))
@@ -114,10 +116,8 @@ test_that("Nested sampling run should create no temporaries", {
 test_that("abuse", {
 
   if (!beastier::is_beast2_installed()) return()
+  if (!mauricer::is_beast2_pkg_installed("NS")) return()
 
-  if (!mauricer::is_beast2_pkg_installed("NS")) {
-    mauricer::install_beast2_pkg("NS")
-  }
   testit::assert(mauricer::is_beast2_pkg_installed("NS"))
 
   expect_error(

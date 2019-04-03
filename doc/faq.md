@@ -115,6 +115,7 @@ or
 
  * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
  * [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
+ * [BEASTifier](https://github.com/josephwb/BEASTifier): generate BEAST input files from a NEXUS file, similar to [beautier](https://github.com/ropensci/beautier)
  * [RBeast](https://github.com/beast-dev/RBeast): misc other things
 
 ### What are the FASTA files?

@@ -11,8 +11,9 @@ matrix:
 
 cache: packages
 
+# No devtools, see https://github.com/r-lib/devtools/issues/2020
 r_packages:
-  - devtools
+  # - devtools
   - ggplot2
   - hunspell
   - magrittr
@@ -28,6 +29,8 @@ r_github_packages:
   - ropensci/mauricer
   - MangoTheCat/goodpractice
   - ropensci/spelling
+
+before_install: R -e 'source("https://install-github.me/r-lib/remotes")'
 
 before_script:
   - # Java

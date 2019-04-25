@@ -43,8 +43,8 @@ before_script:
   #- sudo npm install -g markdown-link-check
 
 script:
-  - # travis_wait 30 R CMD build .
-  - # travis_wait 40 R CMD check *tar.gz
+  - travis_wait 30 R CMD build .
+  - travis_wait 40 R CMD check *tar.gz
 
 after_success:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then Rscript -e 'lintr::lint_package()'; fi

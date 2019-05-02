@@ -16,11 +16,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r}
-setwd(tempdir())
-print(getwd())
-```
-
 ## Introduction
 
 This vignette demonstrates how to use `babette`.

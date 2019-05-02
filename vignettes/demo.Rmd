@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r}
+setwd(tempdir())
+print(getwd())
+```
+
 ## Introduction
 
 This vignette demonstrates how to use `babette`.
@@ -49,7 +54,7 @@ mcmc <- create_mcmc(
 
 For a reliable inference, use an ESS of at least 200.
 
-```{r cache=TRUE}
+```{r}
 if (is_beast2_installed()) {
   out <- bbt_run(
     get_babette_path("anthus_aco.fas"),

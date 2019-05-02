@@ -1,9 +1,0 @@
-digraph G
-{
-  babette -> beastier;
-  babette -> mauricer;
-  mauricer -> beastier;
-  beastier -> tracerer;
-  beastier -> beautier;
-  lumier -> beautier;
-}

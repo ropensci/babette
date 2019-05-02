@@ -36,6 +36,10 @@
 #'   the default BEAST binary file's path
 #'   Use \code{get_default_beast2_jar_path} to get
 #'   the default BEAST jar file's path
+#' @param beast2_working_dir the folder BEAST2 will work in. This is
+#'   an (empty) temporary folder by default. This allows to call
+#'   BEAST2 in multiple parallel processes, as each process can have
+#'   its own working directory
 #' @param cleanup set to FALSE to keep all temporary files
 #' @param clock_model one clock model,
 #'   see \link[beautier]{create_clock_model}
@@ -85,6 +89,7 @@ bbt_default_params_doc <- function(
   beast2_output_state_filename,
   beast2_output_trees_filenames,
   beast2_path,
+  beast2_working_dir,
   cleanup,
   clock_model,
   clock_models,

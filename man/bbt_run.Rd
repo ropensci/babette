@@ -94,6 +94,11 @@ is parsed and returned by this function.
 Specifying a \code{beast2_output_state_filename} allows to store that file
 in a more permanently stored location.}
 
+\item{beast2_working_dir}{the folder BEAST2 will work in. This is
+an (empty) temporary folder by default. This allows to call
+BEAST2 in multiple parallel processes, as each process can have
+its own working directory}
+
 \item{beast2_path}{name of either a BEAST2 binary file
 (usually simply \code{beast})
 or a BEAST2 jar file

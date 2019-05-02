@@ -133,6 +133,7 @@ bbt_run <- function(
   beast2_output_state_filename = tempfile(
     pattern = "beast2_", fileext = ".xml.state"
   ),
+  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = FALSE,
   verbose = FALSE,
@@ -237,6 +238,7 @@ bbt_run <- function(
     output_log_filename = beast2_output_log_filename,
     output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,
+    beast2_working_dir = beast2_working_dir,
     beast2_path = beast2_path,
     overwrite = overwrite,
     verbose = verbose
@@ -298,6 +300,7 @@ bbt_run <- function(
   bbt_process_pkg_output( # nolint internal function
     out = out,
     mcmc = mcmc,
+    beast2_working_dir = beast2_working_dir,
     alignment_ids = beautier::get_alignment_ids(fasta_filename)
   )
 }

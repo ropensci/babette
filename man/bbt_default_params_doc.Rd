@@ -7,11 +7,11 @@ documentation.}
 \usage{
 bbt_default_params_doc(beast2_input_filename, beast2_options,
   beast2_output_log_filename, beast2_output_state_filename,
-  beast2_output_trees_filenames, beast2_path, cleanup, clock_model,
-  clock_models, fasta_filename, fasta_filenames, inference_model, mcmc,
-  mrca_prior, mrca_priors, overwrite, posterior_crown_age, rng_seed,
-  site_model, site_models, tipdates_filename, tree_prior, tree_priors,
-  verbose)
+  beast2_output_trees_filenames, beast2_path, beast2_working_dir, cleanup,
+  clock_model, clock_models, fasta_filename, fasta_filenames,
+  inference_model, mcmc, mrca_prior, mrca_priors, overwrite,
+  posterior_crown_age, rng_seed, site_model, site_models,
+  tipdates_filename, tree_prior, tree_priors, verbose)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.
@@ -55,6 +55,11 @@ Use \code{get_default_beast2_bin_path} to get
 the default BEAST binary file's path
 Use \code{get_default_beast2_jar_path} to get
 the default BEAST jar file's path}
+
+\item{beast2_working_dir}{the folder BEAST2 will work in. This is
+an (empty) temporary folder by default. This allows to call
+BEAST2 in multiple parallel processes, as each process can have
+its own working directory}
 
 \item{cleanup}{set to FALSE to keep all temporary files}
 

@@ -27,6 +27,7 @@ r_github_packages:
   - ropensci/beastier
   - ropensci/mauricer
   - MangoTheCat/goodpractice
+  - richelbilderbeek/nLTT
   - ropensci/spelling
 
 before_script:

@@ -28,6 +28,7 @@ bbt_run(
   beast2_output_state_filename = tempfile(
     pattern = "beast2_", fileext = ".xml.state"
   ),
+  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = FALSE,
   verbose = FALSE,

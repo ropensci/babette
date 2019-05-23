@@ -2,7 +2,6 @@ context("test-get_bbt_run_test_output")
 
 test_that("use", {
 
-  skip("WIP")
   out <- get_bbt_run_test_output()
 
   # Same tests as in code examples

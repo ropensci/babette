@@ -1,6 +1,9 @@
 #' Process the BEAST2 output dependent on BEAST2 package specifics
 #' @inheritParams bbt_default_params_doc
-#' @param out complete babette output
+#' @param out a list with the complete babette output, with elements:
+#' \itemize{
+#'   \item \code{output} textual output of a BEAST2 run
+#' }
 #' @param mcmc an MCMC
 #' @param alignment_ids alignment IDs, as obtained by
 #'   \link[beautier]{get_alignment_ids}
@@ -19,23 +22,15 @@
 bbt_process_pkg_output <- function(
   out,
   mcmc,
-  beast2_working_dir,
+  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
   alignment_ids = NA
 ) {
   if (beautier::is_mcmc_nested_sampling(mcmc)) {
-    out$ns <- bbt_create_ns(out$output) # nolint internal function
-    testit::assert(!beautier::is_one_na(alignment_ids))
-    testit::assert(length(alignment_ids) == 1)
-    ns_log_filename <- file.path(
-      beast2_working_dir, paste0(alignment_ids, ".posterior.log")
+    out <- bbt_process_pkg_output_ns(
+      out = out,
+      beast2_working_dir = beast2_working_dir,
+      alignment_ids = alignment_ids
     )
-    ns_trees_filename <- file.path(
-      beast2_working_dir, paste0(alignment_ids, ".posterior.trees")
-    )
-    out$ns$estimates <- tracerer::parse_beast_log(ns_log_filename)
-    out$ns$trees <- tracerer::parse_beast_trees(ns_trees_filename)
-    file.remove(ns_log_filename)
-    file.remove(ns_trees_filename)
   }
   out
 }

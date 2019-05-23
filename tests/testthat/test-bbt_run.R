@@ -97,7 +97,8 @@ test_that("use, one alignment, same RNG should give same results", {
   if (!beastier::is_beast2_installed()) return()
 
   if (rappdirs::app_dir()$os == "mac") {
-    skip("RNG seed is unreliable under macOS")
+    return()
+    # RNG seed is unreliable under macOS
   }
 
   testit::assert(beastier::is_beast2_installed())

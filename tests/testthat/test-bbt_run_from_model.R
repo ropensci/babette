@@ -19,9 +19,7 @@ test_that("use, one alignment", {
 test_that("use, nested sampling", {
 
   if (!beastier::is_beast2_installed()) return()
-  if (rappdirs::app_dir()$os == "win") {
-    skip("Cannot run Nested Sampling package from Windows")
-  }
+  if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_pkg_installed("NS")) return()
 
   testit::assert(mauricer::is_beast2_pkg_installed("NS"))

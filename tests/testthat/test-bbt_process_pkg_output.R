@@ -15,15 +15,17 @@ test_that("no package, no change", {
 
 test_that("NS adds ns", {
 
-  skip("WIP")
   out <- bbt_process_pkg_output(
     out = list(output = babette:::bbt_create_test_ns_output()),
     alignment_ids = "anthus_aco_sub",
-    mcmc = create_nested_sampling_mcmc()
+    mcmc = create_nested_sampling_mcmc(),
+    beast2_working_dir = dirname(
+      get_babette_path("anthus_aco_sub.posterior.log")
+    )
   )
   expect_true("ns" %in% names(out))
-  expect_true(out$ns$marg_log_lik == -12.34)
-  expect_true(out$ns$marg_log_lik_sd == 3.14)
+  expect_equal(out$ns$marg_log_lik, -141.1645, tolerance = 0.000001)
+  expect_equal(out$ns$marg_log_lik_sd, 1.160143, tolerance = 0.000001)
 })
 
 test_that("abuse", {

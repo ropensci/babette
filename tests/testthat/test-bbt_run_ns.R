@@ -17,35 +17,35 @@ test_that("use", {
     beast2_path = get_default_beast2_bin_path()
   )
 
-  testthat::expect_true("estimates" %in% names(out))
-  testthat::expect_true("anthus_aco_trees" %in% names(out))
-  testthat::expect_true("operators" %in% names(out))
-  testthat::expect_true("output" %in% names(out))
+  expect_true("estimates" %in% names(out))
+  expect_true("anthus_aco_trees" %in% names(out))
+  expect_true("operators" %in% names(out))
+  expect_true("output" %in% names(out))
 
   if (1 == 2) {
     # This assumption is false: a Nested Sampling run runs until
     # convergence
-    testthat::expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
-    testthat::expect_equal(length(out$anthus_aco_trees), 2)
+    expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
+    expect_equal(length(out$anthus_aco_trees), 2)
   }
 
-  testthat::expect_true("Sample" %in% names(out$estimates))
-  testthat::expect_true("posterior" %in% names(out$estimates))
-  testthat::expect_true("likelihood" %in% names(out$estimates))
-  testthat::expect_true("prior" %in% names(out$estimates))
-  testthat::expect_true("treeLikelihood" %in% names(out$estimates))
-  testthat::expect_true("TreeHeight" %in% names(out$estimates))
-  testthat::expect_true("YuleModel" %in% names(out$estimates))
-  testthat::expect_true("birthRate" %in% names(out$estimates))
+  expect_true("Sample" %in% names(out$estimates))
+  expect_true("posterior" %in% names(out$estimates))
+  expect_true("likelihood" %in% names(out$estimates))
+  expect_true("prior" %in% names(out$estimates))
+  expect_true("treeLikelihood" %in% names(out$estimates))
+  expect_true("TreeHeight" %in% names(out$estimates))
+  expect_true("YuleModel" %in% names(out$estimates))
+  expect_true("birthRate" %in% names(out$estimates))
 
-  testthat::expect_true("operator" %in% names(out$operators))
-  testthat::expect_true("p" %in% names(out$operators))
-  testthat::expect_true("accept" %in% names(out$operators))
-  testthat::expect_true("reject" %in% names(out$operators))
-  testthat::expect_true("acceptFC" %in% names(out$operators))
-  testthat::expect_true("rejectFC" %in% names(out$operators))
-  testthat::expect_true("rejectIv" %in% names(out$operators))
-  testthat::expect_true("rejectOp" %in% names(out$operators))
+  expect_true("operator" %in% names(out$operators))
+  expect_true("p" %in% names(out$operators))
+  expect_true("accept" %in% names(out$operators))
+  expect_true("reject" %in% names(out$operators))
+  expect_true("acceptFC" %in% names(out$operators))
+  expect_true("rejectFC" %in% names(out$operators))
+  expect_true("rejectIv" %in% names(out$operators))
+  expect_true("rejectOp" %in% names(out$operators))
 
   expect_true("ns" %in% names(out))
   expect_true("marg_log_lik" %in% names(out$ns))
@@ -53,9 +53,6 @@ test_that("use", {
 
   expect_true("estimates" %in% names(out$ns))
   expect_true("trees" %in% names(out$ns))
-
-  skip("TODO: measure Nested Sampling ESS. Issue 37, #37")
-  # https://github.com/ropensci/babette/issues/37
   expect_true("ess" %in% names(out$ns))
 })
 

@@ -478,8 +478,9 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
 
 test_that("use, one alignment, plot with nLTT", {
 
-  skip("Expose bug, https://github.com/ropensci/babette/issues/10")
-  out <- bbt_run(
+  if (!beastier::is_beast2_installed()) return()
+
+    out <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
   )
@@ -489,7 +490,6 @@ test_that("use, one alignment, plot with nLTT", {
   expect_silent(
     nLTT::nltts_plot(out$anthus_aco_trees)
   )
-
 })
 
 test_that("with tip dating", {

@@ -3,7 +3,9 @@ test_that("NS adds ns", {
   out <- bbt_process_pkg_output_ns(
     out = list(output = babette:::bbt_create_test_ns_output()),
     alignment_ids = "anthus_aco_sub",
-    beast2_working_dir = dirname(get_babette_path("anthus_aco_sub.posterior.log"))
+    beast2_working_dir = dirname(
+      get_babette_path("anthus_aco_sub.posterior.log")
+    )
   )
   expect_true("ns" %in% names(out))
   expect_equal(out$ns$marg_log_lik, -141.1645, tolerance = 0.000001)

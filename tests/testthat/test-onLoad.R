@@ -2,6 +2,11 @@ context("onLoad")
 
 test_that("use", {
 
-  babette:::.onLoad()
+  expect_silent(
+    babette:::.onLoad(
+      libname = "irrelevant",
+      pkgname = "irrelevant"
+    )
+  )
 
 })

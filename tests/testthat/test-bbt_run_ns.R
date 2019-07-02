@@ -1,6 +1,6 @@
 context("bbt_run_ns")
 
-test_that("use", {
+test_that("use, bin (Linux only)", {
 
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
@@ -38,6 +38,54 @@ test_that("use", {
   expect_true("YuleModel" %in% names(out$estimates))
   expect_true("birthRate" %in% names(out$estimates))
 
+  expect_true("operator" %in% names(out$operators))
+  expect_true("p" %in% names(out$operators))
+  expect_true("accept" %in% names(out$operators))
+  expect_true("reject" %in% names(out$operators))
+  expect_true("acceptFC" %in% names(out$operators))
+  expect_true("rejectFC" %in% names(out$operators))
+  expect_true("rejectIv" %in% names(out$operators))
+  expect_true("rejectOp" %in% names(out$operators))
+
+  expect_true("ns" %in% names(out))
+  expect_true("marg_log_lik" %in% names(out$ns))
+  expect_true("marg_log_lik_sd" %in% names(out$ns))
+
+  expect_true("estimates" %in% names(out$ns))
+  expect_true("trees" %in% names(out$ns))
+  expect_true("ess" %in% names(out$ns))
+})
+
+test_that("use, jar (Windows + ?Linux)", {
+
+  skip("Issue #68")
+  if (!beastier::is_beast2_installed()) return()
+  if (rappdirs::app_dir()$os != "win") return()
+  if (!mauricer::is_beast2_pkg_installed("NS")) return()
+
+  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+  out <- bbt_run(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    mcmc = create_mcmc_nested_sampling(
+      chain_length = 1000,
+      store_every = 1000,
+      sub_chain_length = 500
+    ),
+    beast2_path = get_default_beast2_jar_path()
+  )
+
+  expect_true("estimates" %in% names(out))
+  expect_true("anthus_aco_trees" %in% names(out))
+  expect_true("operators" %in% names(out))
+  expect_true("output" %in% names(out))
+  expect_true("Sample" %in% names(out$estimates))
+  expect_true("posterior" %in% names(out$estimates))
+  expect_true("likelihood" %in% names(out$estimates))
+  expect_true("prior" %in% names(out$estimates))
+  expect_true("treeLikelihood" %in% names(out$estimates))
+  expect_true("TreeHeight" %in% names(out$estimates))
+  expect_true("YuleModel" %in% names(out$estimates))
+  expect_true("birthRate" %in% names(out$estimates))
   expect_true("operator" %in% names(out$operators))
   expect_true("p" %in% names(out$operators))
   expect_true("accept" %in% names(out$operators))

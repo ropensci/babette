@@ -71,7 +71,8 @@ test_that("use, jar (Windows + ?Linux)", {
       store_every = 1000,
       sub_chain_length = 500
     ),
-    beast2_path = get_default_beast2_jar_path()
+    beast2_path = get_default_beast2_jar_path(),
+    verbose = TRUE
   )
 
   expect_true("estimates" %in% names(out))

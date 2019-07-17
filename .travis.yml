@@ -29,6 +29,7 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - richelbilderbeek/nLTT
   - ropensci/spelling
+  - ropensci/tracerer@develop
 
 before_script:
   - # if Linux, show distro

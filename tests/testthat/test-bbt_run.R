@@ -114,13 +114,19 @@ test_that("use, one alignment, same RNG should give same results", {
     mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
     rng_seed = rng_seed
   )
+  expect_equal(length(out_1), length(out_2))
   # The screen output will be different here:
   # [35] "Writing state to file /tmp/RtmpRyToHX/beast2_39f46a37b262.xml.state"
+  replacement_1_index <- which(grepl(x = out_1$output, pattern = "Writing state to file"))
+  out_2$output[replacement_1_index] <- out_1$output[replacement_1_index]
+
   # [38] "File: beast2_39f41cfb21ef.xml seed: 42 threads: 1"
+  replacement_2_index <- which(grepl(x = out_1$output, pattern = "File: beast2_"))
+  out_2$output[replacement_2_index] <- out_1$output[replacement_2_index]
+
   # [107] "Total calculation time: 0.197 seconds"
-  out_2$output[35] <- out_1$output[35]
-  out_2$output[38] <- out_1$output[38]
-  out_2$output[107] <- out_1$output[107]
+  replacement_3_index <- which(grepl(x = out_1$output, pattern = "Total calculation time: "))
+  out_2$output[replacement_3_index] <- out_1$output[replacement_3_index]
   expect_identical(out_1, out_2)
 })
 

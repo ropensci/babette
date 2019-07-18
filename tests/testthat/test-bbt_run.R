@@ -115,6 +115,10 @@ test_that("use, one alignment, same RNG should give same results", {
     rng_seed = rng_seed
   )
   expect_equal(length(out_1), length(out_2))
+
+  # The screen output will be differ in three lines
+  expect_equal(3, sum(out_1$output != out_2$output))
+
   # The screen output will be different here:
   # [35] "Writing state to file /tmp/RtmpRyToHX/beast2_39f46a37b262.xml.state"
   replacement_1_index <- which(grepl(x = out_1$output, pattern = "Writing state to file"))
@@ -127,6 +131,7 @@ test_that("use, one alignment, same RNG should give same results", {
   # [107] "Total calculation time: 0.197 seconds"
   replacement_3_index <- which(grepl(x = out_1$output, pattern = "Total calculation time: "))
   out_2$output[replacement_3_index] <- out_1$output[replacement_3_index]
+
   expect_identical(out_1, out_2)
 })
 

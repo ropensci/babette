@@ -117,10 +117,10 @@ test_that("use, one alignment, same RNG should give same results", {
   # The screen output will be different here:
   # [35] "Writing state to file /tmp/RtmpRyToHX/beast2_39f46a37b262.xml.state"
   # [38] "File: beast2_39f41cfb21ef.xml seed: 42 threads: 1"
-  # [101] "Total calculation time: 0.197 seconds"
+  # [107] "Total calculation time: 0.197 seconds"
   out_2$output[35] <- out_1$output[35]
   out_2$output[38] <- out_1$output[38]
-  out_2$output[101] <- out_1$output[101]
+  out_2$output[107] <- out_1$output[107]
   expect_identical(out_1, out_2)
 })
 

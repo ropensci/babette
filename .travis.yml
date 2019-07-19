@@ -72,3 +72,4 @@ after_failure:
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
   - cat /home/travis/build/ropensci/babette/..Rcheck/tests/testthat/testthat.log
+

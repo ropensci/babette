@@ -9,7 +9,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_babette_deps <- function() {
-  repo_names <- c("beautier", "tracerer", "beastier", "mcbette")
+  repo_names <- c("beautier", "tracerer", "beastier", "mauricer")
   for (repo_name in repo_names) {
     remotes::install_github(
       paste0("ropensci/", repo_name),

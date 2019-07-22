@@ -27,6 +27,7 @@ Imports:
     beastier,
     mauricer,
     phangorn,
+    remotes,
     stringr,
     tracerer,
     testit,

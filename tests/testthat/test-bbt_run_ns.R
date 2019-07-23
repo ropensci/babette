@@ -4,9 +4,8 @@ test_that("use, bin (Linux only)", {
 
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
-  if (!mauricer::is_beast2_pkg_installed("NS")) return()
+  if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
   out <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling(
@@ -61,9 +60,9 @@ test_that("use, jar (Windows + ?Linux)", {
   skip("Issue #68")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os != "win") return()
-  if (!mauricer::is_beast2_pkg_installed("NS")) return()
+  if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+  testit::assert(mauricer::is_beast2_ns_pkg_installed())
   out <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling(
@@ -109,10 +108,10 @@ test_that("Nested sampling run should create no temporaries", {
 
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
-  if (!mauricer::is_beast2_pkg_installed("NS")) return()
+  if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
   # From https://github.com/ropensci/babette/issues/36
-  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+  testit::assert(mauricer::is_beast2_ns_pkg_installed())
 
   # Run babette in a different folder
   old_work_dir <- getwd()
@@ -156,9 +155,9 @@ test_that("Nested sampling run should create no temporaries", {
 test_that("abuse", {
 
   if (!beastier::is_beast2_installed()) return()
-  if (!mauricer::is_beast2_pkg_installed("NS")) return()
+  if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+  testit::assert(mauricer::is_beast2_ns_pkg_installed())
 
   expect_error(
     bbt_run(

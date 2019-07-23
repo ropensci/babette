@@ -20,9 +20,9 @@ test_that("use, nested sampling", {
 
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
-  if (!mauricer::is_beast2_pkg_installed("NS")) return()
+  if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  testit::assert(mauricer::is_beast2_pkg_installed("NS"))
+  testit::assert(mauricer::is_beast2_ns_pkg_installed())
   out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     inference_model = create_inference_model(

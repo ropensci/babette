@@ -6,7 +6,7 @@ bbt_check_beast2_packages <- function(
   beast2_path = get_default_beast2_bin_path()
 ) {
   if (beautier::is_mcmc_nested_sampling(mcmc) &&
-    !mauricer::is_beast2_pkg_installed("NS")
+    isFALSE(mauricer::is_beast2_ns_pkg_installed())
   ) {
     stop(
       "Must install 'NS' to use 'create_mcmc_nested_sampling'. ",

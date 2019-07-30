@@ -100,3 +100,22 @@ test_that("use, from bug report", {
   # Checked: this does work on Linux
   expect_true(file.exists(output_log_filename))
 })
+
+test_that("use, sub-sub-subfolder", {
+  if (!beastier::is_beast2_installed()) return()
+
+  expect_silent(
+    bbt_run_from_model(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      inference_model = create_inference_model(
+        mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
+      ),
+      beast2_options = create_beast2_options(
+        output_log_filename = file.path(tempdir(), "a", "b", "c", "d.log"),
+        output_trees_filenames = file.path(tempdir(), "e", "f", "g", "h.trees"),
+        output_state_filename = file.path(tempdir(), "i", "j", "k", "l.xml.state"),
+        overwrite = TRUE
+      )
+    )
+  )
+})

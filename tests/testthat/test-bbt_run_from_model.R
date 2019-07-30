@@ -113,7 +113,9 @@ test_that("use, sub-sub-subfolder", {
       beast2_options = create_beast2_options(
         output_log_filename = file.path(tempdir(), "a", "b", "c", "d.log"),
         output_trees_filenames = file.path(tempdir(), "e", "f", "g", "h.trees"),
-        output_state_filename = file.path(tempdir(), "i", "j", "k", "l.xml.state"),
+        output_state_filename = file.path(
+          tempdir(), "i", "j", "k", "l.xml.state"
+        ),
         overwrite = TRUE
       )
     )

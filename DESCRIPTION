@@ -27,7 +27,6 @@ Imports:
     beastier (>= 2.0.17),
     mauricer,
     phangorn,
-    remotes,
     stringr,
     tracerer,
     testit,

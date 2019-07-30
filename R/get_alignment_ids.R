@@ -18,10 +18,7 @@
 get_alignment_ids <- function(
   xml_filename
 ) {
-
-  if (!file.exists(xml_filename)) {
-    stop("'xml_filename' must be the name of an existing file")
-  }
+  beautier::check_file_exists(xml_filename, "xml_filename")
 
   xml <- xml2::read_xml(xml_filename)
   xml_data <- xml2::xml_find_all(xml, ".//data")

@@ -27,6 +27,6 @@ test_that("abuse", {
       out = list(output = babette:::bbt_create_test_ns_output()),
       alignment_ids = "absent"
     ),
-    "Nested sampling log file absent. Cannot find file with name"
+    "File '.*' not found"
   )
 })

@@ -231,7 +231,7 @@ bbt_run <- function(
     output_filename = beast2_input_filename,
     tipdates_filename = tipdates_filename
   )
-  testit::assert(file.exists(beast2_input_filename))
+  beautier::check_file_exists(beast2_input_filename, "beast2_input_filename")
 
   output <- beastier::run_beast2(
     input_filename = beast2_input_filename,

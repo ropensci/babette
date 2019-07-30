@@ -23,7 +23,7 @@ VignetteBuilder: knitr
 URL: https://github.com/ropensci/babette
 BugReports: https://github.com/ropensci/babette/issues
 Imports:
-    beautier,
+    beautier (>= 2.2.2),
     beastier (>= 2.0.17),
     mauricer,
     phangorn,

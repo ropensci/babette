@@ -34,21 +34,9 @@ bbt_process_pkg_output_ns <- function(
   ns_trees_filename <- file.path(
     beast2_working_dir, paste0(alignment_ids, ".posterior.trees")
   )
-  if (!file.exists(ns_log_filename)) {
-    stop(
-      "Nested sampling log file absent. ",
-      "Cannot find file with name '", ns_log_filename, "'."
-    )
-  }
-  if (!file.exists(ns_trees_filename)) {
-    stop(
-      "Nested sampling trees file absent. ",
-      "Cannot find file with name '", ns_trees_filename, "'."
-    )
-  }
-  testit::assert(file.exists(ns_log_filename))
-  testit::assert(file.exists(ns_trees_filename))
 
+  beautier::check_file_exists(ns_log_filename, "ns_log_filename")
+  beautier::check_file_exists(ns_trees_filename, "ns_trees_filename")
 
   out$ns <- bbt_create_ns(out$output) # nolint internal function
   out$ns$estimates <- tracerer::parse_beast_log(ns_log_filename)

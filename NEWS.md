@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
-  * Builds on Travis CI's Bionic distro
+  * Builds on Travis CI's Bionic distribution
 
 ### BUG FIXES
 

@@ -121,3 +121,21 @@ test_that("use, sub-sub-subfolder", {
     )
   )
 })
+
+test_that("Run CBS tree prior with too few taxa must give clear error", {
+
+  if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
+  expect_error(
+    bbt_run_from_model(
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+      create_inference_model(
+        tree_prior = create_cbs_tree_prior(
+          group_sizes_dimension = 123
+        )
+      )
+    ),
+    "'group_sizes_dimension' .* must be less than the number of taxa"
+  )
+})

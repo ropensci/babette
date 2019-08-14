@@ -324,6 +324,22 @@ test_that("Run CBS tree prior", {
   )
 })
 
+test_that("Run CBS tree prior with too few taxa must give clear error", {
+
+  if (!beastier::is_on_ci()) return()
+  if (!beastier::is_beast2_installed()) return()
+
+  expect_error(
+    bbt_run(
+      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+      tree_prior = create_cbs_tree_prior(
+        group_sizes_dimension = 123
+      )
+    ),
+    "'group_sizes_dimension' .* must be less than the number of taxa"
+  )
+})
+
 ################################################################################
 # Tree prior: CCP
 ################################################################################

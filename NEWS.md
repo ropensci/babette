@@ -2,11 +2,12 @@
 
 Newest versions at top.
 
-## babette 2.0.3 (unreleased)
+## babette 2.0.3 (2019-08-26)
 
 ### NEW FEATURES
 
-  * None
+  * babette can run when the BEAST2 options request temporary files
+    in sub-sub-subfolders
 
 ### MINOR IMPROVEMENTS
 

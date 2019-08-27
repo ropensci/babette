@@ -1,4 +1,4 @@
-.onLoad <- function(libname, pkgname){
+.onLoad <- function(libname, pkgname) { # nolint .onLoad cannot be snake_case
 
   suppressPackageStartupMessages(
     lapply(

@@ -12,12 +12,14 @@ library(babette)
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 
 and create a BEAST2 input file called `my_beast.xml`.
 
-## Example #0: quick start
+## Example #0: install and self-test
 
 ```
+remotes::install_github("ropensci/mauricer")
+remotes::install_github("ropensci/babette", ref = "develop")
 library(babette)
 install_beast2()
-bbt_run(get_fasta_filename())
+bbt_self_test()
 ```
 
 ## Example #1: all default

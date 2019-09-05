@@ -10,5 +10,5 @@ bbt_self_test()
 Do a self test to verify babette works correctly
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

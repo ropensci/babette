@@ -1,5 +1,5 @@
 #' Do a self test to verify babette works correctly
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 bbt_self_test <- function() {
   bbt_run_from_model( # nolint babette function

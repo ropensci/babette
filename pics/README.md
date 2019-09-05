@@ -12,7 +12,7 @@ The swan is drawn by Jose Scholte, who kindly allowed her work to be used for fr
 
 ### `babette` logo
 
-The logo is created by Richel J.C. Bilderbeek, by modifying the swan picture and merging it with the R logo.
+The logo is created by Richèl J.C. Bilderbeek, by modifying the swan picture and merging it with the R logo.
 
 ![babette logo](babette_logo.png)
 

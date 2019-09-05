@@ -1,7 +1,7 @@
-#' Do a minimal run to verify babette works correctly
+#' Do a self test to verify babette works correctly
 #' @author Richel J.C. Bilderbeek
 #' @export
-bbt_minimal_run <- function() {
+bbt_self_test <- function() {
   bbt_run_from_model( # nolint babette function
     fasta_filename = beautier::get_fasta_filename(),
     inference_model = beautier::create_inference_model(

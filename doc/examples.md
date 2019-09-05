@@ -12,6 +12,14 @@ library(babette)
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 
 and create a BEAST2 input file called `my_beast.xml`.
 
+## Example #0: quick start
+
+```
+library(babette)
+install_beast2()
+bbt_run(get_fasta_filename())
+```
+
 ## Example #1: all default
 
 Using all default settings, only specify a DNA alignment.
@@ -28,20 +36,7 @@ All other parameters are set to their defaults, as in BEAUti.
 
 ## Example #2: fixed crown age
 
-Using all default settings, only specify a DNA alignment.
-
-```
-[No screenshot, as this cannot be done in BEAUti yet]
-```
-
-```
-posterior <- bbt_run(
-  "my_fasta.fas",
-  posterior_crown_age = 15
-)
-```
-
-An alternative is to date the node of the most recent common ancestor
+The way to do so, is to date the node of the most recent common ancestor
 of all taxa:
 
 ![Example #2: using a MRCA to specify a crown age](mrca_crown_age.png)
@@ -55,8 +50,8 @@ posterior <- bbt_run(
     alignment_id = get_alignment_id("my_fasta.fas"),
     is_monophyletic = TRUE,
     mrca_distr = create_normal_distr(
-      mean = create_mean_param(value = 15.0, estimate = FALSE),
-      sigma = create_sigma_param(value = 0.025, estimate = FALSE)
+      mean = 15.0,
+      sigma = 0.025
     )
   )
 )

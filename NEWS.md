@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## babette 2.0.4 (not released yet)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Add `update_babette` to update all `babette` dependencies
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+
 ## babette 2.0.3 (2019-08-26)
 
 ### NEW FEATURES

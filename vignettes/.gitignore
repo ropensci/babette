@@ -5,3 +5,5 @@
 *.xml
 *.xml.state
 
+nested_sampling_files/
+step_by_step_files/

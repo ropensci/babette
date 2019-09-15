@@ -27,13 +27,13 @@ Imports:
     beastier (>= 2.0.17),
     mauricer,
     phangorn,
+    remotes,
     stringr,
     tracerer,
     testit,
     xml2
 Suggests:
     ape,
-    devtools,
     ggplot2,
     hunspell,
     knitr,

@@ -2,6 +2,10 @@
 
 The `babette` documentation.
 
+## Installation
+
+See [install.md](install.md).
+
 ## Create the dependency graph from the `.dot` file
 
 ```

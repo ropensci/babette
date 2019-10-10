@@ -1,7 +1,7 @@
 #' Create testing output similar to when running a BEAST2 run
 #' with nested sampling
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 bbt_create_test_ns_output <- function() {
   c(
     "[/usr/lib/jvm/java-8-oracle/bin/java, -Djava.library.path=/usr/local/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib, -cp, ::/home/richel/.beast/2.5/MODEL_SELECTION/lib/MODEL_SELECTION.addon.jar:/home/richel/.beast/2.5/BEASTLabs/lib/BEASTlabs.addon.jar:/home/richel/.beast/2.5/NS/lib/NS.addon.jar:/home/richel/.beast/2.5/BEAST/lib/beast.src.jar:/home/richel/.beast/2.5/BEAST/lib/beast.jar, beast.app.beastapp.BeastMain, nested_sampling.xml]", # nolint output is long

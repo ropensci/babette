@@ -8,8 +8,8 @@ matrix:
     os: linux
   - r: devel
     os: linux
-  #- r: release
-  #  os: osx
+  - r: release
+    os: osx
 
 r_packages:
   - devtools
@@ -25,7 +25,7 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - ropensci/beautier
-  - ropensci/beastier
+  - ropensci/beastier@develop
   - ropensci/mauricer
   - MangoTheCat/goodpractice
   - richelbilderbeek/nLTT

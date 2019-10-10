@@ -38,7 +38,7 @@ bbt_process_pkg_output_ns <- function(
   beautier::check_file_exists(ns_log_filename, "ns_log_filename")
   beautier::check_file_exists(ns_trees_filename, "ns_trees_filename")
 
-  out$ns <- bbt_create_ns(out$output) # nolint internal function
+  out$ns <- babette::bbt_create_ns(out$output)
   out$ns$estimates <- tracerer::parse_beast_log(ns_log_filename)
   out$ns$trees <- tracerer::parse_beast_trees(ns_trees_filename)
   out

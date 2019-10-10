@@ -16,7 +16,7 @@
 get_babette_paths <- function(filenames) {
 
   for (i in seq_along(filenames)) {
-    filenames[i] <- get_babette_path(filenames[i]) # nolint internal function
+    filenames[i] <- babette::get_babette_path(filenames[i])
   }
 
   filenames

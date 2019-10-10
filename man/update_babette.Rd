@@ -2,12 +2,14 @@
 % Please edit documentation in R/update_babette.R
 \name{update_babette}
 \alias{update_babette}
-\title{Update all babette dependencies}
+\title{Update all babette dependencies, by installing their
+latests versions}
 \usage{
 update_babette()
 }
 \description{
-Update all babette dependencies
+Update all babette dependencies, by installing their
+latests versions
 }
 \author{
 Giovanni Laudanno, Richèl J.C. Bilderbeek

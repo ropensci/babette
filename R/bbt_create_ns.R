@@ -6,6 +6,7 @@
 #'     \item \code{marg_log_lik_sd} the standard deviation around the estimate
 #'   }
 #' @author Richèl J.C. Bilderbeek
+#' @export
 bbt_create_ns <- function(
   output
 ) {

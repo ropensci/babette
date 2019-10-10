@@ -1,5 +1,5 @@
 #' Update all babette dependencies, by installing their
-#' latests versions
+#' latest versions
 #' @author Giovanni Laudanno, Richèl J.C. Bilderbeek
 #' @export
 update_babette <- function() {

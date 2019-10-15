@@ -149,7 +149,7 @@ test_that("use, MCMC store every of 2k", {
   inference_model <- create_inference_model(
     mcmc = create_mcmc(chain_length = 6000, store_every = 2000)
   )
-  beast2_options = create_beast2_options(
+  beast2_options <- create_beast2_options(
     overwrite = TRUE
   )
 

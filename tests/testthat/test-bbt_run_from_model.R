@@ -141,19 +141,34 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
 })
 
 test_that("use, MCMC store every of 2k", {
+
+  skip("Expose #73")
+
   if (!beastier::is_beast2_installed()) return()
+
+  inference_model <- create_inference_model(
+    mcmc = create_mcmc(chain_length = 6000, store_every = 2000)
+  )
+  beast2_options = create_beast2_options(
+    overwrite = TRUE
+  )
 
   bbt_out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = create_inference_model(
-      mcmc = create_mcmc(chain_length = 6000, store_every = 2000)
-    ),
-    beast2_options = create_beast2_options(
-      overwrite = TRUE
-    )
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   expect_equal(4, nrow(bbt_out$estimates))
 
-  skip("Expose #73")
+
+  as.character(
+    na.omit(
+      stringr::str_match(
+        string = readLines(beast2_options$input_filename),
+        pattern = ".*(store|log)Every.*"
+      )[, 1]
+    )
+  )
+
   expect_equal(4, length(bbt_out$anthus_aco_trees))
 })

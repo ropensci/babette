@@ -2,12 +2,13 @@
 
 Newest versions at top.
 
-## babette 2.0.4 (not released yet)
+
+## beastier 2.1 (unreleased)
 
 ### NEW FEATURES
 
   * None
-
+  
 ### MINOR IMPROVEMENTS
 
   * Add `update_babette` to update all `babette` dependencies
@@ -18,8 +19,9 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
-  * None
-
+  * In `create_beast2_options`, 
+    `output_log_filename` and `output_trees_filenames` are removed
+    as arguments. These values are set by the BEAST2 XML
 
 ## babette 2.0.3 (2019-08-26)
 

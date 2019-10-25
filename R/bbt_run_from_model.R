@@ -116,8 +116,6 @@ bbt_run_from_model <- function(
     mcmc = inference_model$mcmc,
     beast2_input_filename = beast2_options$input_filename,
     rng_seed = beast2_options$rng_seed,
-    beast2_output_log_filename = beast2_options$output_log_filename,
-    beast2_output_trees_filenames = beast2_options$output_trees_filenames,
     beast2_output_state_filename = beast2_options$output_state_filename,
     beast2_working_dir = beast2_options$beast2_working_dir,
     beast2_path = beast2_options$beast2_path,

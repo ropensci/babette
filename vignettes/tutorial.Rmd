@@ -301,8 +301,6 @@ if (is_beast2_installed()) {
 These are the `bbt_run` temporary filenames:
 
   * `beast2_input_filename`: the BEAST2 input file
-  * `beast2_output_log_filename`: the log file created by BEAST2
-  * `beast2_output_trees_filenames`: the .tree file(s) created by BEAST2	
   * `beast2_output_state_filename`: the `.xml.state` file created by BEAST2
 
 The purpose of `babette` is to remove the explicit interfacing with BEAST2,
@@ -314,13 +312,9 @@ To store these files in the present working directory, specify their names:
 ```{r}
 if (is_beast2_installed()) {
   beast2_input_filename <- "beast_input.xml"
-  beast2_output_log_filename <- "beast_ouput.log"
-  beast2_output_trees_filenames <- "beast_output.trees"
   beast2_output_state_filename <- "beast_state.xml.state"
   all_files <- c(
     beast2_input_filename,
-    beast2_output_log_filename,
-    beast2_output_trees_filenames,
     beast2_output_state_filename
   )
     
@@ -328,8 +322,6 @@ if (is_beast2_installed()) {
     fasta_filename = fasta_filename,
     mcmc = mcmc,
     beast2_input_filename = beast2_input_filename,
-    beast2_output_log_filename = beast2_output_log_filename,
-    beast2_output_trees_filenames = beast2_output_trees_filenames,
     beast2_output_state_filename = beast2_output_state_filename
   )
   testit::assert(all(file.exists(all_files)))

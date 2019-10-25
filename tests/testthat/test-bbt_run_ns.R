@@ -121,8 +121,6 @@ test_that("Nested sampling run should create no temporaries", {
 
   # Temporary files created
   beast2_input_filename <- tempfile(".xml")
-  beast2_output_log_filename <- tempfile("log")
-  beast2_output_trees_filenames <- tempfile("trees")
   beast2_output_state_filename <- tempfile(".state.xml")
 
   bbt_run(
@@ -135,15 +133,11 @@ test_that("Nested sampling run should create no temporaries", {
     ),
     beast2_path = get_default_beast2_bin_path(),
     beast2_input_filename = beast2_input_filename,
-    beast2_output_log_filename = beast2_output_log_filename,
-    beast2_output_trees_filenames = beast2_output_trees_filenames,
     beast2_output_state_filename = beast2_output_state_filename
   )
 
   # Delete the temporary files
   file.remove(beast2_input_filename)
-  file.remove(beast2_output_log_filename)
-  file.remove(beast2_output_trees_filenames)
   file.remove(beast2_output_state_filename)
 
   files_after <- list.files(new_work_dir)
@@ -189,8 +183,6 @@ test_that("use BEAST2 working directory in same folder as BEAST2 output", {
     run_beast2_from_options(
       create_beast2_options(
         input_filename = get_beastier_path("nested_sampling.xml"),
-        output_log_filename = file.path(folder_name, "out.log"),
-        output_trees_filenames = file.path(folder_name, "out.trees"),
         output_state_filename = file.path(folder_name, "out.xml.state"),
         beast2_working_dir = folder_name
       )

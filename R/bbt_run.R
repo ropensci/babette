@@ -123,14 +123,8 @@ bbt_run <- function(
   mcmc = beautier::create_mcmc(),
   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
   rng_seed = 1,
-  beast2_output_log_filename = tempfile(pattern = "beast2_", fileext = "log"),
-  beast2_output_trees_filenames = tempfile(
-    pattern = paste0(
-      "beast2_",
-      beautier::get_alignment_ids(fasta_filename), "_"
-    ),
-    fileext = ".trees"
-  ),
+  beast2_output_log_filename = "beast2_output_log_filename_is_deprecated",
+  beast2_output_trees_filenames = "beast2_output_trees_filenames_is_deprecated",
   beast2_output_state_filename = tempfile(
     pattern = "beast2_", fileext = ".xml.state"
   ),
@@ -199,19 +193,21 @@ bbt_run <- function(
       "\n",
       "file.remove(beast2_input_filename)\n",
       "file.remove(beast2_output_log_filename)\n",
-      "file.remove(beast2_output_trees_filenames)\n",
+      "file.remove(mcmc$treeslog$filename)\n",
       "file.remove(beast2_output_state_filename)\n"
     )
   }
-
-  if (length(fasta_filenames) != length(beast2_output_trees_filenames)) {
+  if (any("output_log_filename" %in% calls)) {
     stop(
-      "Must have as much FASTA filenames as BEAST2 output trees filenames.\n",
-      "Number of FASTA filenames: ", length(fasta_filenames), ".\n",
-      "Number of BEAST2 output filenames: ",
-      length(beast2_output_trees_filenames), ".\n"
+      "'output_log_filename' is deprecated, it is stored in the BEAST2 XML"
     )
   }
+  if (any("output_trees_filenames" %in% calls)) {
+    stop(
+      "'output_trees_filenames' is deprecated, it is stored in the BEAST2 XML"
+    )
+  }
+
   if (!is.na(rng_seed) && !(rng_seed > 0)) {
     stop("'rng_seed' should be NA or non-zero positive")
   }
@@ -236,8 +232,6 @@ bbt_run <- function(
   output <- beastier::run_beast2(
     input_filename = beast2_input_filename,
     rng_seed = rng_seed,
-    output_log_filename = beast2_output_log_filename,
-    output_trees_filenames = beast2_output_trees_filenames,
     output_state_filename = beast2_output_state_filename,
     beast2_working_dir = beast2_working_dir,
     beast2_path = beast2_path,
@@ -245,20 +239,20 @@ bbt_run <- function(
     verbose = verbose
   )
 
-  testit::assert(file.exists(beast2_output_log_filename) &&
+  testit::assert(file.exists(mcmc$tracelog$filename) &&
     length(
       paste0(
-        "beast2_output_log_filename not found. \n",
+        "'mcmc$tracelog$filename' not found. \n",
         "This can be caused by:\n",
         " * (Linux) the home folder is encrypted\n",
         " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
       )
     )
   )
-  testit::assert(file.exists(beast2_output_trees_filenames) &&
+  testit::assert(file.exists(mcmc$treeslog$filename) &&
     length(
       paste0(
-        "beast2_output_trees_filename not found. \n",
+        "'mcmc$treeslog$filename' not found. \n",
         "This can be caused by:\n",
         " * (Linux) the home folder is encrypted\n",
         " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
@@ -277,8 +271,8 @@ bbt_run <- function(
   )
 
   out <- tracerer::parse_beast_output_files(
-    trees_filenames = beast2_output_trees_filenames,
-    log_filename = beast2_output_log_filename,
+    trees_filenames = mcmc$treeslog$filename,
+    log_filename = mcmc$tracelog$filename,
     state_filename = beast2_output_state_filename
   )
 
@@ -290,7 +284,7 @@ bbt_run <- function(
   # Check that there are as much trees in the output,
   # as there were in the file
   n_trees_in_file <- tracerer::count_trees_in_file(
-    beast2_output_trees_filenames
+    mcmc$treeslog$filename
   )
   testit::assert(class(out[[1]]) == "multiPhylo")
   n_trees_in_output <- length(out[[1]])

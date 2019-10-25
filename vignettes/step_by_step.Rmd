@@ -79,17 +79,11 @@ state_filename <- get_tracerer_path("beast2_example_output.xml.state")
 
 if (is_beast2_installed()) {
   
-  log_filename <- tempfile(fileext = ".log")
-  trees_filename <- tempfile(fileext = "trees")
   state_filename <- tempfile(fileext = ".xml.state")
   run_beast2(
     input_filename = beast2_input_file,
-    output_log_filename = log_filename,
-    output_trees_filenames = trees_filename,
     output_state_filename = state_filename
   )
-  testit::assert(file.exists(log_filename))
-  testit::assert(file.exists(trees_filename))
   testit::assert(file.exists(state_filename))
 }
 ```

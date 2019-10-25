@@ -64,15 +64,9 @@ test_that("use, one alignment, verbose, no cleanup", {
 
   fasta_filenames <- get_babette_path("anthus_aco.fas")
   beast2_input_filename <- tempfile(fileext = ".xml")
-  beast2_output_log_filename <- tempfile(fileext = ".log")
-  beast2_output_trees_filenames <- tempfile(
-    pattern = beautier::get_alignment_ids(fasta_filenames), fileext = ".xml"
-  )
   beast2_output_state_filename <- tempfile(fileext = ".xml.state")
 
   testit::assert(!file.exists(beast2_input_filename))
-  testit::assert(!file.exists(beast2_output_log_filename))
-  testit::assert(!file.exists(beast2_output_trees_filenames))
   testit::assert(!file.exists(beast2_output_state_filename))
 
   expect_output(
@@ -80,15 +74,11 @@ test_that("use, one alignment, verbose, no cleanup", {
       fasta_filename = fasta_filenames,
       mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
       beast2_input_filename = beast2_input_filename,
-      beast2_output_log_filename = beast2_output_log_filename,
-      beast2_output_trees_filenames = beast2_output_trees_filenames,
       beast2_output_state_filename = beast2_output_state_filename,
       verbose = TRUE
     )
   )
   expect_true(file.exists(beast2_input_filename))
-  expect_true(file.exists(beast2_output_log_filename))
-  expect_true(file.exists(beast2_output_trees_filenames))
   expect_true(file.exists(beast2_output_state_filename))
 })
 
@@ -148,7 +138,7 @@ test_that("abuse", {
       fasta_filename = get_babette_path("anthus_aco.fas"),
       beast2_output_trees_filenames = c("too", "many")
     ),
-    "Must have as much FASTA filenames as BEAST2 output trees filenames"
+    "deprecated"
   )
 
 })

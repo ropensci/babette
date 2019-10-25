@@ -37,8 +37,6 @@ babette::bbt_run_from_model(
   ),
   beast2_options = beastier::create_beast2_options(
     input_filename = get_pff_tempfile(pattern = "in_", fileext = ".xml"),
-    output_log_filename = get_pff_tempfile(pattern = "out_", fileext = ".log"),
-    output_trees_filenames = get_pff_tempfile(pattern = "out_", fileext = ".trees"),
     output_state_filename = get_pff_tempfile(pattern = "out_", fileext = ".state.xml"),
     beast2_working_dir = get_pff_tempfile(),
     beast2_path = beastier::get_default_beast2_bin_path(),

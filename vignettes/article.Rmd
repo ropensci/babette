@@ -27,9 +27,9 @@ file.copy(babette::get_babette_path("anthus_nd2_sub.fas"), "anthus_nd2.fas")
 This vignette does the same as the code in 
 the [bioRxiv article](https://doi.org/10.1101/271866).
 
-```{r}
+```{r setup}
 library(babette)
-mcmc <- create_test_mcmc(chain_length = 2000)
+mcmc <- create_test_mcmc()
 ```
 
 Use a null value for `out`:
@@ -38,7 +38,7 @@ Use a null value for `out`:
 out <- NA
 ```
 
-```{r}
+```{r simplest_run}
 if (is_beast2_installed()) {
   out <- bbt_run(
     fasta_filename = "anthus_aco.fas", 
@@ -48,7 +48,7 @@ if (is_beast2_installed()) {
 ```
 
 
-```{r}
+```{r run_with_different_site_clock_and_tree_models}
 if (is_beast2_installed()) {
   out <- bbt_run(
     "anthus_aco.fas",
@@ -65,7 +65,7 @@ if (is_beast2_installed()) {
 # Currently, support for multiple alignments has been deprecated
 ```
 
-```{r}
+```{r run_with_distr}
 if (is_beast2_installed()) {
   out <- bbt_run(
     "anthus_aco.fas",
@@ -77,7 +77,7 @@ if (is_beast2_installed()) {
 }
 ```
 
-```{r}
+```{r run_with_distr_with_mean}
 if (is_beast2_installed()) {
   out <- bbt_run(
     "anthus_aco.fas",
@@ -100,7 +100,7 @@ out <- bbt_run(
 )
 ```
 
-```{r}
+```{r run_with_crown_age}
 if (is_beast2_installed()) {
   out <- bbt_run(
     "anthus_aco.fas",
@@ -118,13 +118,13 @@ if (is_beast2_installed()) {
 }
 ```
 
-```{r}
+```{r add_fake_output_if_beast2_was_not_installed}
 if (is_one_na(out)) {
   out <- get_bbt_run_test_output()
 }
 ```
 
-```{r}
+```{r remove_the_traces}
 traces <- remove_burn_ins(
   traces = out$estimates, 
   burn_in_fraction = 0.2

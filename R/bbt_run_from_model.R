@@ -26,7 +26,7 @@
 #'   }
 #'   \item{
 #'     \code{ns}: (optional) the results of a marginal likelihood estimation,
-#'     will exist only when \code{create_mcmc_nested_sampling} was
+#'     will exist only when \code{create_ns_mcmc} was
 #'     used for \code{mcmc}.
 #'     This structure will contain the following elements:
 #'     \itemize{
@@ -204,7 +204,7 @@ bbt_run_from_model <- function(
   # for example, add an 'ns' atributed for Nested Sampling
   bbt_process_pkg_output( # nolint internal function
     out = out,
-    mcmc = inference_model$mcmc,
+    inference_model = inference_model,
     fasta_filename = fasta_filename
   )
 

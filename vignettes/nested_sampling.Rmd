@@ -96,15 +96,10 @@ image(ape::read.FASTA(fasta_filename))
 In this vignette, the MCMC run is set up to be short:
 
 ```{r}
-mcmc <- beautier::create_mcmc_nested_sampling(
-  chain_length = 10000, 
-  store_every = -1,
-  particle_count = 1,
-  sub_chain_length = 500
-)
+mcmc <- beautier::create_test_ns_mcmc()
 ```
-
-For academic research, better use a longer MCMC chain (with an effective
+  
+  For academic research, better use a longer MCMC chain (with an effective
 sample size above 200).
 
 Here we do two BEAST2 runs, with both site models:

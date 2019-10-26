@@ -26,7 +26,7 @@
 #'   }
 #'   \item{
 #'     \code{ns}: (optional) the results of a marginal likelihood estimation,
-#'     will exist only when \code{create_mcmc_nested_sampling} was
+#'     will exist only when \code{create_ns_mcmc()} was
 #'     used for \code{mcmc}.
 #'     This structure will contain the following elements:
 #'     \itemize{

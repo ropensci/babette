@@ -21,14 +21,11 @@
 #' @noRd
 bbt_process_pkg_output <- function(
   out,
-  mcmc,
+  inference_model,
   fasta_filename
 ) {
-  if (beautier::is_mcmc_nested_sampling(mcmc)) {
-    out <- bbt_process_pkg_output_ns(
-      out = out,
-      fasta_filename = fasta_filename
-    )
+  if (beautier::is_mcmc_nested_sampling(inference_model$mcmc)) {
+    out$ns <- babette::bbt_create_ns(out$output)
   }
   out
 }

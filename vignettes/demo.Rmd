@@ -26,11 +26,6 @@ First, load the library:
 library(babette)
 ```
 
-
-```{r}
-out <- get_bbt_run_test_output() 
-```
-
 The following example shows how to analyze one alignment:
 
  * How to let `babette` run BEAST2
@@ -47,15 +42,18 @@ mcmc <- create_test_mcmc(
     log_every = sample_interval
   )
 )
+inference_model <- create_test_inference_model(
+  mcmc = mcmc
+)
 ```
 
 For a reliable inference, use an ESS of at least 200.
 
 ```{r}
 if (is_beast2_installed()) {
-  out <- bbt_run(
-    get_babette_path("anthus_aco.fas"),
-    mcmc = mcmc
+  out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco_sub.fas"),
+    inference_model = inference_model
   )
 }
 ```
@@ -95,5 +93,5 @@ knitr::kable(sum_stats)
 Phylogenies:
 
 ```{r fig.width=7, fig.height=7}
-plot_densitree(out$anthus_aco_trees, width = 2)
+plot_densitree(out$anthus_aco_sub_trees, width = 2)
 ```

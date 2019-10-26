@@ -41,7 +41,7 @@ bbt_create_ns <- function(
   x <- stringr::str_extract(output, "Max ESS: [0-9\\.]+$")
   x <- x[!is.na(x)]
   # There are two ESSes, just pick the first
-  testit::assert(length(x) == 2)
+  testit::assert(length(x) >= 2)
   x <- x[1]
 
   # Get the marginal log likelihood

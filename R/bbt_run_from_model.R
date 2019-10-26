@@ -204,8 +204,7 @@ bbt_run_from_model <- function(
   # for example, add an 'ns' atributed for Nested Sampling
   bbt_process_pkg_output( # nolint internal function
     out = out,
-    inference_model = inference_model,
-    fasta_filename = fasta_filename
+    inference_model = inference_model
   )
 
 }

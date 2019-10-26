@@ -1,5 +1,5 @@
 test_that("use", {
-  inference_model <- create_test_inference_model()
+  inference_model <- beautier::create_test_inference_model()
   beast2_options <- create_beast2_options()
   expect_silent(prepare_file_creation(inference_model, beast2_options))
 })
@@ -10,7 +10,7 @@ test_that("tracelog file in sub-sub-sub-folder", {
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
 
-  inference_model <- create_test_inference_model(
+  inference_model <- beautier::create_test_inference_model(
     mcmc = create_test_mcmc(
       tracelog = create_test_tracelog(
         filename = filename
@@ -27,7 +27,7 @@ test_that("screenlog file in sub-sub-sub-folder", {
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
 
-  inference_model <- create_test_inference_model(
+  inference_model <- beautier::create_test_inference_model(
     mcmc = create_test_mcmc(
       screenlog = create_test_screenlog(
         filename = filename
@@ -44,7 +44,7 @@ test_that("treelog file in sub-sub-sub-folder", {
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
 
-  inference_model <- create_test_inference_model(
+  inference_model <- beautier::create_test_inference_model(
     mcmc = create_test_mcmc(
       treelog = create_test_treelog(
         filename = filename
@@ -61,7 +61,7 @@ test_that("state file in sub-sub-sub-folder", {
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
 
-  inference_model <- create_test_inference_model()
+  inference_model <- beautier::create_test_inference_model()
   beast2_options <- create_beast2_options(
     output_state_filename = filename
   )
@@ -74,7 +74,7 @@ test_that("state file in root folder", {
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
 
-  inference_model <- create_test_inference_model()
+  inference_model <- beautier::create_test_inference_model()
   beast2_options <- create_beast2_options(
     output_state_filename = filename
   )

@@ -1,11 +1,9 @@
-context("bbt_run_from_model")
-
 test_that("use, one alignment", {
   if (!beastier::is_beast2_installed()) return()
 
   bbt_out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = create_test_inference_model()
+    inference_model = beautier::create_test_inference_model()
   )
   expect_equal(4, length(bbt_out$anthus_aco_trees))
   expect_equal(4, nrow(bbt_out$estimates))
@@ -53,16 +51,18 @@ test_that("creates files", {
   if (!beastier::is_beast2_installed()) return()
   testit::assert(beastier::is_beast2_installed())
 
-  mcmc <- beautier::create_test_mcmc()
+  inference_model <- create_test_inference_model()
+  beast2_options <- create_beast2_options()
 
   bbt_out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = create_inference_model(mcmc = mcmc)
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
-  # Checked: this does work on Linux
-  expect_true(file.exists(mcmc$tracelog$filename))
-  expect_true(file.exists(mcmc$screenlog$filename))
-  expect_true(file.exists(mcmc$screenlog$filename))
+  expect_true(file.exists(inference_model$mcmc$tracelog$filename))
+  expect_true(file.exists(inference_model$mcmc$screenlog$filename))
+  expect_true(file.exists(inference_model$mcmc$screenlog$filename))
+  expect_true(file.exists(beast2_options$output_state_filename))
 })
 
 test_that("use, sub-sub-subfolder", {
@@ -111,37 +111,4 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
     ),
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
-})
-
-test_that("use, MCMC store every of 2k", {
-
-  skip("Expose #73")
-
-  if (!beastier::is_beast2_installed()) return()
-
-  inference_model <- create_inference_model(
-    mcmc = create_test_mcmc(chain_length = 6000)
-  )
-  beast2_options <- create_beast2_options(
-    overwrite = TRUE
-  )
-
-  bbt_out <- bbt_run_from_model(
-    fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = inference_model,
-    beast2_options = beast2_options
-  )
-  expect_equal(4, nrow(bbt_out$estimates))
-
-
-  as.character(
-    na.omit(
-      stringr::str_match(
-        string = readLines(beast2_options$input_filename),
-        pattern = ".*(store|log)Every.*"
-      )[, 1]
-    )
-  )
-
-  expect_equal(4, length(bbt_out$anthus_aco_trees))
 })

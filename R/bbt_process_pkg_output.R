@@ -21,8 +21,7 @@
 #' @noRd
 bbt_process_pkg_output <- function(
   out,
-  inference_model,
-  fasta_filename
+  inference_model
 ) {
   if (beautier::is_mcmc_nested_sampling(inference_model$mcmc)) {
     out$ns <- babette::bbt_create_ns(out$output)

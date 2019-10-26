@@ -80,7 +80,7 @@
 #'  if (is_beast2_installed()) {
 #'    out <- bbt_run(
 #'      fasta_filename = get_babette_path("anthus_aco.fas"),
-#'      mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+#'      mcmc = create_test_mcmc()
 #'    )
 #'
 #'    library(testthat)
@@ -128,7 +128,7 @@ bbt_run <- function(
   beast2_output_state_filename = tempfile(
     pattern = "beast2_", fileext = ".xml.state"
   ),
-  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
+  beast2_working_dir = "beast2_working_dir_trees_filenames_is_deprecated",
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = FALSE,
   verbose = FALSE,
@@ -192,8 +192,8 @@ bbt_run <- function(
       "Tip: use these lines:\n",
       "\n",
       "file.remove(beast2_input_filename)\n",
-      "file.remove(beast2_output_log_filename)\n",
-      "file.remove(mcmc$treeslog$filename)\n",
+      "file.remove(mcmc$tracelog$filename)\n",
+      "file.remove(mcmc$treelog$filename)\n",
       "file.remove(beast2_output_state_filename)\n"
     )
   }
@@ -207,95 +207,31 @@ bbt_run <- function(
       "'output_trees_filenames' is deprecated, it is stored in the BEAST2 XML"
     )
   }
-
-  if (!is.na(rng_seed) && !(rng_seed > 0)) {
-    stop("'rng_seed' should be NA or non-zero positive")
+  if (any("beast2_working_dir" %in% calls)) {
+    stop(
+      "'beast2_working_dir' is deprecated"
+    )
   }
-  beastier::check_beast2_path(beast2_path)
-  bbt_check_beast2_packages(
-    mcmc = mcmc,
-    beast2_path = beast2_path
-  )
 
-  beautier::create_beast2_input_file(
-    input_filename = fasta_filename,
+  inference_model <- beautier::create_inference_model(
     site_model = site_model,
     clock_model = clock_model,
     tree_prior = tree_prior,
     mrca_prior = mrca_prior,
     mcmc = mcmc,
-    output_filename = beast2_input_filename,
     tipdates_filename = tipdates_filename
   )
-  beautier::check_file_exists(beast2_input_filename, "beast2_input_filename")
-
-  output <- beastier::run_beast2(
+  beast2_options <- beastier::create_beast2_options(
     input_filename = beast2_input_filename,
     rng_seed = rng_seed,
     output_state_filename = beast2_output_state_filename,
-    beast2_working_dir = beast2_working_dir,
     beast2_path = beast2_path,
     overwrite = overwrite,
     verbose = verbose
   )
-
-  testit::assert(file.exists(mcmc$tracelog$filename) &&
-    length(
-      paste0(
-        "'mcmc$tracelog$filename' not found. \n",
-        "This can be caused by:\n",
-        " * (Linux) the home folder is encrypted\n",
-        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
-      )
-    )
-  )
-  testit::assert(file.exists(mcmc$treeslog$filename) &&
-    length(
-      paste0(
-        "'mcmc$treeslog$filename' not found. \n",
-        "This can be caused by:\n",
-        " * (Linux) the home folder is encrypted\n",
-        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
-      )
-    )
-  )
-  testit::assert(file.exists(beast2_output_state_filename) &&
-    length(
-      paste0(
-        "beast2_output_state_filename not found. \n",
-        "This can be caused by:\n",
-        " * (Linux) the home folder is encrypted\n",
-        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
-      )
-    )
-  )
-
-  out <- tracerer::parse_beast_output_files(
-    trees_filenames = mcmc$treeslog$filename,
-    log_filename = mcmc$tracelog$filename,
-    state_filename = beast2_output_state_filename
-  )
-
-  new_names <- names(out)
-  new_names[1] <- paste0(beautier::get_alignment_id(fasta_filename), "_trees")
-  names(out) <- new_names
-  out$output <- output
-
-  # Check that there are as much trees in the output,
-  # as there were in the file
-  n_trees_in_file <- tracerer::count_trees_in_file(
-    mcmc$treeslog$filename
-  )
-  testit::assert(class(out[[1]]) == "multiPhylo")
-  n_trees_in_output <- length(out[[1]])
-  testit::assert(n_trees_in_file == n_trees_in_output)
-
-  # Process the package specific output,
-  # for example, add an 'ns' atributed for Nested Sampling
-  bbt_process_pkg_output( # nolint internal function
-    out = out,
-    mcmc = mcmc,
-    beast2_working_dir = beast2_working_dir,
-    alignment_ids = beautier::get_alignment_ids(fasta_filename)
+  bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }

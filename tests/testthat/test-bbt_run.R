@@ -8,12 +8,10 @@ test_that("use, one alignment", {
 
   out <- NA
 
-  expect_silent(
-    out <- bbt_run(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
-      overwrite = TRUE
-    )
+  out <- bbt_run(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    mcmc = create_test_mcmc(chain_length = 2000),
+    overwrite = TRUE
   )
   expect_true("estimates" %in% names(out))
   expect_true("anthus_aco_trees" %in% names(out))
@@ -50,7 +48,7 @@ test_that("use, one alignment, verbose, cleanup", {
   expect_output(
     bbt_run(
       fasta_filename = get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
+      mcmc = create_test_mcmc(chain_length = 2000),
       verbose = TRUE
     )
   )
@@ -72,7 +70,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   expect_output(
     bbt_run(
       fasta_filename = fasta_filenames,
-      mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
+      mcmc = create_test_mcmc(chain_length = 2000),
       beast2_input_filename = beast2_input_filename,
       beast2_output_state_filename = beast2_output_state_filename,
       verbose = TRUE
@@ -96,12 +94,12 @@ test_that("use, one alignment, same RNG should give same results", {
   rng_seed <- 42
   out_1 <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
+    mcmc = create_test_mcmc(chain_length = 2000),
     rng_seed = rng_seed
   )
   out_2 <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc(chain_length = 1000, store_every = 1000),
+    mcmc = create_test_mcmc(chain_length = 2000),
     rng_seed = rng_seed
   )
   expect_equal(length(out_1), length(out_2))
@@ -155,7 +153,7 @@ test_that("Run all defaults", {
   expect_silent(
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -177,7 +175,7 @@ test_that("Run GTR", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_gtr_site_model(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -195,7 +193,7 @@ test_that("Run HKY", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_hky_site_model(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -213,7 +211,7 @@ test_that("Run JC69", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_jc69_site_model(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -231,7 +229,7 @@ test_that("Run TN93", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       site_model = create_tn93_site_model(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -252,7 +250,7 @@ test_that("Run RLN clock", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       clock_model = create_rln_clock_model(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -269,7 +267,7 @@ test_that("Run strict clock", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       clock_model = create_strict_clock_model(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -290,7 +288,7 @@ test_that("Run BD tree prior", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_bd_tree_prior(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -309,7 +307,7 @@ test_that("Run CBS tree prior", {
       tree_prior = create_cbs_tree_prior(
         group_sizes_dimension = 4
       ),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -342,7 +340,7 @@ test_that("Run CCP tree prior", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_ccp_tree_prior(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -360,7 +358,7 @@ test_that("Run CCP tree prior with tip dating", {
         "G_VII_pre2003_dates_4.txt"
       ),
       tree_prior = create_ccp_tree_prior(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -375,7 +373,7 @@ test_that("Run CEP tree prior", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_cep_tree_prior(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -391,7 +389,7 @@ test_that("Run Yule tree prior", {
     bbt_run(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
       tree_prior = create_yule_tree_prior(),
-      mcmc = beautier::create_mcmc(chain_length = 2000)
+      mcmc = create_test_mcmc(chain_length = 2000)
     )
   )
 })
@@ -505,7 +503,7 @@ test_that("use, one alignment, plot with nLTT", {
 
     out <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+    mcmc = create_test_mcmc(chain_length = 2000)
   )
   testit::assert(
     all(grepl(pattern = "STATE_", x = names(out$anthus_aco_trees)) == FALSE)

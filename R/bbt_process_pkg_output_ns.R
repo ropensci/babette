@@ -19,15 +19,19 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 bbt_process_pkg_output_ns <- function(
-  out,
-  alignment_ids,
-  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder")
+  fasta_filename,
+  out
 ) {
-  if (beautier::is_one_na(alignment_ids)) {
-    stop("'alignment_ids' cannot be NA when there is a nested sampling MCMC")
+  if (beautier::is_one_na(fasta_filename)) {
+    stop("'fasta_filename' cannot be NA when there is a nested sampling MCMC")
   }
+  alignment_ids <- beautier::get_alignment_ids(fasta_filename)
+
   testit::assert(!beautier::is_one_na(alignment_ids))
   testit::assert(length(alignment_ids) == 1)
+
+  stop("TODO: Use MCMC's filename")
+  beast2_working_dir <- tempfile()
   ns_log_filename <- file.path(
     beast2_working_dir, paste0(alignment_ids, ".posterior.log")
   )

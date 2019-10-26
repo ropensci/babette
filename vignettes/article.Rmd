@@ -29,7 +29,7 @@ the [bioRxiv article](https://doi.org/10.1101/271866).
 
 ```{r}
 library(babette)
-mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
+mcmc <- create_test_mcmc(chain_length = 2000)
 ```
 
 Use a null value for `out`:

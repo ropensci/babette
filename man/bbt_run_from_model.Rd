@@ -6,8 +6,8 @@
 run BEAST2, parse results (like Tracer)}
 \usage{
 bbt_run_from_model(fasta_filename,
-  inference_model = create_inference_model(),
-  beast2_options = create_beast2_options())
+  inference_model = beautier::create_inference_model(),
+  beast2_options = beastier::create_beast2_options())
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename}
@@ -68,7 +68,7 @@ run BEAST2, parse results (like Tracer)
     out <- bbt_run_from_model(
       fasta_filename = get_babette_path("anthus_aco.fas"),
       inference_model = create_inference_model(
-        mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+        mcmc = create_test_mcmc()
       )
     )
 

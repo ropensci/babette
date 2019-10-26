@@ -50,7 +50,7 @@ Instead of a full run, the MCMC chain length is shortened to 10K states,
 with a measurement every 1K states:
 
 ```{r}
-mcmc <- create_mcmc(chain_length = 10000, store_every = 1000)
+mcmc <- create_test_mcmc(chain_length = 10000)
 ```
 
 ## Example #1: all default

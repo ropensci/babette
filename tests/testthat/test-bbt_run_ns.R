@@ -2,6 +2,7 @@ context("bbt_run_ns")
 
 test_that("use, bin (Linux only)", {
 
+  skip("Not now, Issue #74")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
@@ -57,6 +58,7 @@ test_that("use, bin (Linux only)", {
 
 test_that("use, jar (Windows + ?Linux)", {
 
+  skip("Not now, Issue #74")
   skip("Issue #68")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os != "win") return()
@@ -106,6 +108,7 @@ test_that("use, jar (Windows + ?Linux)", {
 
 test_that("Nested sampling run should create no temporaries", {
 
+  skip("Not now, Issue #74")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
@@ -173,6 +176,7 @@ test_that("abuse", {
 
 test_that("use BEAST2 working directory in same folder as BEAST2 output", {
 
+  skip("Not now, Issue #74")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()

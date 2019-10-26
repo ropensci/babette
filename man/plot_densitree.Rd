@@ -22,7 +22,7 @@ Draw multiple trees on top of one another.
   if (is_beast2_installed()) {
      out <- bbt_run(
       get_babette_path("anthus_aco.fas"),
-      mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
+      mcmc = create_test_mcmc(chain_length = 10000)
     )
     plot_densitree(out$anthus_aco_trees)
   }

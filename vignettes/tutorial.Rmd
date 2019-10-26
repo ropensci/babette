@@ -43,9 +43,6 @@ bbt_run(
   clock_models,
   tree_priors,
   mrca_priors,
-  # posterior_crown_age, # Deprecated
-  beast2_output_log_filename,
-  beast2_output_trees_filenames,
   beast2_output_state_filename,
   verbose, 
   cleanup
@@ -89,7 +86,7 @@ the `mcmc` argument is used.
 `mcmc` is the `bbt_run` argument to specify the MCMC run options:
 
 ```{r}
-mcmc <- create_mcmc(chain_length = 2000, store_every = 1000)
+mcmc <- create_test_mcmc()
 ```
 
 With these MCMC options, we can now call `bbt_run` in way that
@@ -264,19 +261,8 @@ if (is_beast2_installed()) {
 
 ## `posterior_crown_age`
 
-`posterior_crown_age` was a `bbt_run` argument to specify a fixed crown age:
-
-```
-# Deprecated,  use the 'create_mrca_prior' version below
-out <- bbt_run(
-  fasta_filename = fasta_filename,
-  posterior_crown_age = 15,
-  mcmc = mcmc
-)
-```
-
 Instead use an MRCA prior with a sharp distribution around the desired crown
-age! It is known such an MRCA prior gives better results:
+age.
 
 ```{r cache=TRUE}
 if (is_beast2_installed()) {

@@ -33,12 +33,11 @@ babette::bbt_run_from_model(
     site_model = beautier::create_jc69_site_model(),
     clock_model = beautier::create_strict_clock_model(),
     tree_prior = beautier::create_yule_tree_prior(),
-    mcmc = beautier::create_mcmc(chain_length = 3e3)
+    mcmc = beautier::create_test_mcmc(chain_length = 3e3)
   ),
   beast2_options = beastier::create_beast2_options(
     input_filename = get_pff_tempfile(pattern = "in_", fileext = ".xml"),
     output_state_filename = get_pff_tempfile(pattern = "out_", fileext = ".state.xml"),
-    beast2_working_dir = get_pff_tempfile(),
     beast2_path = beastier::get_default_beast2_bin_path(),
     verbose = TRUE
   )

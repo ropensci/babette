@@ -22,14 +22,12 @@
 bbt_process_pkg_output <- function(
   out,
   mcmc,
-  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
-  alignment_ids = NA
+  fasta_filename
 ) {
   if (beautier::is_mcmc_nested_sampling(mcmc)) {
     out <- bbt_process_pkg_output_ns(
       out = out,
-      beast2_working_dir = beast2_working_dir,
-      alignment_ids = alignment_ids
+      fasta_filename = fasta_filename
     )
   }
   out

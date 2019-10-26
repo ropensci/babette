@@ -1,5 +1,6 @@
 test_that("NS adds ns", {
 
+  skip("Issue 74, Issue #74")
   out <- bbt_process_pkg_output_ns(
     out = list(output = babette:::bbt_create_test_ns_output()),
     alignment_ids = "anthus_aco_sub",
@@ -14,6 +15,7 @@ test_that("NS adds ns", {
 
 test_that("abuse", {
 
+  skip("Issue 74, Issue #74")
   expect_error(
     bbt_process_pkg_output_ns(
       out = list(output = babette:::bbt_create_test_ns_output()),

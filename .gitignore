@@ -50,3 +50,5 @@ scripts/build/
 *.fasta
 test.log
 test.trees
+anthus_aco.*
+*.log

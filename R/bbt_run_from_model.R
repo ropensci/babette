@@ -46,7 +46,7 @@
 #'     out <- bbt_run_from_model(
 #'       fasta_filename = get_babette_path("anthus_aco.fas"),
 #'       inference_model = create_inference_model(
-#'         mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+#'         mcmc = create_test_mcmc()
 #'       )
 #'     )
 #'
@@ -82,11 +82,11 @@
 #' @export
 bbt_run_from_model <- function(
   fasta_filename,
-  inference_model = create_inference_model(),
-  beast2_options = create_beast2_options()
+  inference_model = beautier::create_inference_model(),
+  beast2_options = beastier::create_beast2_options()
 ) {
   tryCatch(
-    check_inference_model(inference_model),
+    beautier::check_inference_model(inference_model),
     error = function(e) {
       stop(
         "'inference_model' must be a valid inference model\n",
@@ -96,7 +96,7 @@ bbt_run_from_model <- function(
     }
   )
   tryCatch(
-    check_beast2_options(beast2_options),
+    beastier::check_beast2_options(beast2_options),
     error = function(e) {
       stop(
         "'beast2_options' must be a valid BEAST2 options object\n",
@@ -106,20 +106,106 @@ bbt_run_from_model <- function(
     }
   )
 
-  bbt_run(
-    fasta_filename = fasta_filename,
-    tipdates_filename = inference_model$tipdates_filename,
-    site_model = inference_model$site_model,
-    clock_model = inference_model$clock_model,
-    tree_prior = inference_model$tree_prior,
-    mrca_prior = inference_model$mrca_prior,
+  # The inference model and BEAST2 options contain paths that may point
+  # to sub-sub-sub folders. Create those folders and test
+  # if thes folders can be written to
+  prepare_file_creation(inference_model, beast2_options)
+
+
+  # if (!is.na(rng_seed) && !(rng_seed > 0)) {
+  #   stop("'rng_seed' should be NA or non-zero positive")
+  # }
+
+  beastier::check_beast2_path(beast2_options$beast2_path)
+  bbt_check_beast2_packages(
     mcmc = inference_model$mcmc,
-    beast2_input_filename = beast2_options$input_filename,
-    rng_seed = beast2_options$rng_seed,
-    beast2_output_state_filename = beast2_options$output_state_filename,
-    beast2_working_dir = beast2_options$beast2_working_dir,
-    beast2_path = beast2_options$beast2_path,
-    overwrite = beast2_options$overwrite,
-    verbose = beast2_options$verbose
+    beast2_path = beast2_options$beast2_path
   )
+
+  beautier::create_beast2_input_file_from_model(
+    input_filename = fasta_filename,
+    output_filename = beast2_options$input_filename,
+    inference_model = inference_model
+  )
+  beautier::check_file_exists(
+    beast2_options$input_filename,
+    "beast2_options$input_filename"
+  )
+
+  output <- beastier::run_beast2_from_options(beast2_options)
+
+  # By default, mcmc$tracelog$filename is initialized with NA.
+  # Overwrite it with the BEAST2 default filename
+  if (is.na(inference_model$mcmc$tracelog$filename)) {
+    inference_model$mcmc$tracelog$filename <- paste0(
+      beautier::get_alignment_id(fasta_filename), ".log"
+    )
+  }
+  testit::assert(!is.na(inference_model$mcmc$tracelog$filename))
+  testit::assert(file.exists(inference_model$mcmc$tracelog$filename) &&
+    length(
+      paste0(
+        "'mcmc$tracelog$filename' not found. \n",
+        "This can be caused by:\n",
+        " * (Linux) the home folder is encrypted\n",
+        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
+      )
+    )
+  )
+  # By default, mcmc$tracelog$filename is initialized with NA.
+  # Overwrite it with the BEAST2 default filename
+  inference_model$mcmc$treelog$filename <- gsub(
+    x = inference_model$mcmc$treelog$filename,
+    pattern = "\\$\\(tree\\)",
+    replacement = beautier::get_alignment_id(fasta_filename)
+  )
+  testit::assert(file.exists(inference_model$mcmc$treelog$filename) &&
+    length(
+      paste0(
+        "'mcmc$treelog$filename' not found. \n",
+        "This can be caused by:\n",
+        " * (Linux) the home folder is encrypted\n",
+        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
+      )
+    )
+  )
+  testit::assert(file.exists(beast2_options$output_state_filename) &&
+    length(
+      paste0(
+        "beast2_output_state_filename not found. \n",
+        "This can be caused by:\n",
+        " * (Linux) the home folder is encrypted\n",
+        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
+      )
+    )
+  )
+
+  out <- tracerer::parse_beast_output_files(
+    trees_filenames = inference_model$mcmc$treelog$filename,
+    log_filename = inference_model$mcmc$tracelog$filename,
+    state_filename = beast2_options$output_state_filename
+  )
+
+  new_names <- names(out)
+  new_names[1] <- paste0(beautier::get_alignment_id(fasta_filename), "_trees")
+  names(out) <- new_names
+  out$output <- output
+
+  # Check that there are as much trees in the output,
+  # as there were in the file
+  n_trees_in_file <- tracerer::count_trees_in_file(
+    inference_model$mcmc$treelog$filename
+  )
+  testit::assert(class(out[[1]]) == "multiPhylo")
+  n_trees_in_output <- length(out[[1]])
+  testit::assert(n_trees_in_file == n_trees_in_output)
+
+  # Process the package specific output,
+  # for example, add an 'ns' atributed for Nested Sampling
+  bbt_process_pkg_output( # nolint internal function
+    out = out,
+    mcmc = inference_model$mcmc,
+    fasta_filename = fasta_filename
+  )
+
 }

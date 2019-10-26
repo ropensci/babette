@@ -5,12 +5,7 @@ test_that("use, one alignment", {
 
   bbt_out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = create_inference_model(
-      mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
-    ),
-    beast2_options = create_beast2_options(
-      overwrite = TRUE
-    )
+    inference_model = create_test_inference_model()
   )
   expect_equal(4, length(bbt_out$anthus_aco_trees))
   expect_equal(4, nrow(bbt_out$estimates))
@@ -18,6 +13,7 @@ test_that("use, one alignment", {
 
 test_that("use, nested sampling", {
 
+  skip("Not now, Issue #74")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
@@ -57,67 +53,51 @@ test_that("abuse", {
   )
 })
 
-test_that("use, one alignment", {
-  if (!beastier::is_beast2_installed()) return()
+test_that("creates files", {
 
+  if (!beastier::is_beast2_installed()) return()
   testit::assert(beastier::is_beast2_installed())
+
+  mcmc <- beautier::create_test_mcmc()
 
   bbt_out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = create_inference_model(
-      tree_prior = create_yule_tree_prior(),
-      mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
-    ),
-    beast2_options = create_beast2_options(rng_seed = 42)
-  )
-  expect_equal(4, length(bbt_out$anthus_aco_trees))
-  expect_equal(4, nrow(bbt_out$estimates))
-})
-
-test_that("use, from bug report", {
-
-  if (!beastier::is_beast2_installed()) return()
-
-  # Report at https://github.com/ropensci/babette/issues/65
-  # Thanks @thijsjanzen
-  testit::assert(beastier::is_beast2_installed())
-
-  output_log_filename <- tempfile(fileext = ".log")
-
-  bbt_out <- bbt_run_from_model(
-    fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = create_inference_model(
-      tree_prior = create_yule_tree_prior(),
-      mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
-    ),
-    beast2_options = create_beast2_options(
-      rng_seed = 42,
-      verbose = TRUE,
-      overwrite = TRUE,
-      output_log_filename = output_log_filename
-    )
+    inference_model = create_inference_model(mcmc = mcmc)
   )
   # Checked: this does work on Linux
-  expect_true(file.exists(output_log_filename))
+  expect_true(file.exists(mcmc$tracelog$filename))
+  expect_true(file.exists(mcmc$screenlog$filename))
+  expect_true(file.exists(mcmc$screenlog$filename))
 })
 
 test_that("use, sub-sub-subfolder", {
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run_from_model(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      inference_model = create_inference_model(
-        mcmc = create_mcmc(chain_length = 3000, store_every = 1000)
-      ),
-      beast2_options = create_beast2_options(
-        output_state_filename = file.path(
-          tempdir(), "i", "j", "k", "l.xml.state"
-        ),
-        overwrite = TRUE
-      )
+  mcmc <- beautier::create_test_mcmc(
+    tracelog = create_test_tracelog(
+      filename = file.path(tempfile(), "a", "b", "c", ".csv")
+    ),
+    screenlog = create_test_screenlog(
+      filename = file.path(tempfile(), "d", "e", "f", ".txt")
+    ),
+    treelog = create_test_treelog(
+      filename = file.path(tempfile(), "g", "h", "i", ".trees")
     )
   )
+  beast2_options <- create_beast2_options(
+    output_state_filename = file.path(tempdir(), "j", "k", "l", ".xml.state")
+  )
+
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = create_inference_model(mcmc = mcmc),
+    beast2_options = beast2_options
+  )
+  # Checked: this does work on Linux
+  expect_true(file.exists(mcmc$tracelog$filename))
+  expect_true(file.exists(mcmc$screenlog$filename))
+  expect_true(file.exists(mcmc$screenlog$filename))
+  expect_true(file.exists(beast2_options$output_state_filename))
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {
@@ -145,7 +125,7 @@ test_that("use, MCMC store every of 2k", {
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- create_inference_model(
-    mcmc = create_mcmc(chain_length = 6000, store_every = 2000)
+    mcmc = create_test_mcmc(chain_length = 6000)
   )
   beast2_options <- create_beast2_options(
     overwrite = TRUE

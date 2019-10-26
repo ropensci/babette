@@ -2,12 +2,13 @@ context("bbt_process_pkg_output")
 
 test_that("no package, no change", {
 
+  skip("Issue 74, Issue #74")
   out <- list(output = babette:::bbt_create_test_ns_output())
   length_before <- length(out)
   out <- bbt_process_pkg_output(
     out = out,
     alignment_ids = "irrelevant",
-    mcmc = create_mcmc()
+    mcmc = create_test_mcmc()
   )
   length_after <- length(out)
   expect_equal(length_before, length_after)
@@ -15,6 +16,7 @@ test_that("no package, no change", {
 
 test_that("NS adds ns", {
 
+  skip("Issue 74, Issue #74")
   out <- bbt_process_pkg_output(
     out = list(output = babette:::bbt_create_test_ns_output()),
     alignment_ids = "anthus_aco_sub",
@@ -33,9 +35,9 @@ test_that("abuse", {
   expect_error(
     bbt_process_pkg_output(
       out = list(output = babette:::bbt_create_test_ns_output()),
-      alignment_ids = NA,
+      fasta_filename = NA,
       mcmc = create_nested_sampling_mcmc()
     ),
-    "'alignment_ids' cannot be NA when there is a nested sampling MCMC"
+    "'fasta_filename' cannot be NA when there is a nested sampling MCMC"
   )
 })

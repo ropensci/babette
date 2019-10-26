@@ -187,7 +187,7 @@ run BEAST2, parse results (like Tracer)
  if (is_beast2_installed()) {
    out <- bbt_run(
      fasta_filename = get_babette_path("anthus_aco.fas"),
-     mcmc = create_mcmc(chain_length = 1000, store_every = 1000)
+     mcmc = create_test_mcmc()
    )
 
    library(testthat)

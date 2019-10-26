@@ -2,7 +2,7 @@ inference_model <- beautier::create_inference_model(
   site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),
-  mcmc = beautier::create_mcmc(chain_length = 3e3, store_every = 1000)
+  mcmc = beautier::create_test_mcmc(chain_length = 3e3)
 )
 
 babette::bbt_run_from_model(

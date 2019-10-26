@@ -6,7 +6,7 @@ test_that("use", {
   fasta_filename <- get_babette_path("anthus_aco.fas")
   out <- bbt_run(
     fasta_filename = fasta_filename,
-    mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
+    mcmc = create_test_mcmc(chain_length = 10000),
     mrca_prior = beautier::create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),

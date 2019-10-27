@@ -53,11 +53,23 @@ with a measurement every 1K states:
 mcmc <- create_test_mcmc(chain_length = 10000)
 ```
 
+We will re-create this MCMC setup, as doing so initializes it with new filenames for
+temporary files. These temporary files should not exist before a run and should exist
+after a run. Sure, there is the option to overwrite...
+
 ## Example #1: all default
 
 Using all default settings, only specify a DNA alignment.
 
 ![Example #1: all default](all_default.png)
+
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
 
 ```{r example_1, cache=TRUE}
 if (is_beast2_installed()) {
@@ -110,7 +122,15 @@ plot_densitree(posterior$my_fasta_trees, width = 2)
 ![Example #2: using a MRCA to specify a crown age](mrca_crown_age.png)
 
 An alternative is to date the node of the most recent common ancestor
-of all taxa:
+of all taxa.
+
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
 
 ```{r example_2_mrca, cache=FALSE}
 if (is_beast2_installed()) {
@@ -145,6 +165,14 @@ plot_densitree(posterior$my_fasta_trees, width = 2)
 
 ![Example #3: JC69 site model](jc69_2_4.png)
 
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
+
 ```{r example_3, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
@@ -166,6 +194,14 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ## Example #4: Relaxed clock log normal
 
 ![Example #4: Relaxed clock log normal](rln_2_4.png)
+
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
 
 ```{r example_4, cache=TRUE}
 if (is_beast2_installed()) {
@@ -189,6 +225,14 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 
 ![Example #5: Birth-Death tree prior](bd_2_4.png)
 
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
+
 ```{r example_5, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
@@ -210,6 +254,14 @@ plot_densitree(posterior$my_alignment_trees, width = 2)
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
 ![Example #6: Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
+
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
 
 ```{r example_6, cache=TRUE}
 if (is_beast2_installed()) {
@@ -240,6 +292,14 @@ Thanks to Yacine Ben Chehida for this use case
 
 ![Example #7: HKY site model with a non-zero proportion of invariants](hky_prop_invariant_0_5_2_4.png)
 
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
+
 ```{r example_7, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
@@ -265,6 +325,14 @@ Thanks to Yacine Ben Chehida for this use case
 ## Example #8: Strict clock with a known clock rate
 
 ![Example #8: Strict clock with a known clock rate](strict_clock_rate_0_5_2_4.png)
+
+Create the MCMC:
+
+```{r}
+mcmc <- create_test_mcmc(chain_length = 10000)
+```
+
+Run `babette`:
 
 ```{r example_8, cache=TRUE}
 if (is_beast2_installed()) {

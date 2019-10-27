@@ -80,7 +80,7 @@ test_that("use, one alignment, verbose, no cleanup", {
   expect_true(file.exists(beast2_output_state_filename))
 })
 
-test_that("use, one alignment, same RNG should give same results", {
+test_that("same RNG seed gives same results", {
 
   if (!beastier::is_beast2_installed()) return()
 
@@ -90,55 +90,64 @@ test_that("use, one alignment, same RNG should give same results", {
   }
 
   testit::assert(beastier::is_beast2_installed())
+  inference_model_1 <- create_test_inference_model()
+  inference_model_2 <- create_test_inference_model()
+  beast2_options_1 <- create_beast2_options(rng_seed = 42)
+  beast2_options_2 <- create_beast2_options(rng_seed = 42)
 
   rng_seed <- 42
-  out_1 <- bbt_run(
+  out_1 <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_test_mcmc(chain_length = 2000),
-    rng_seed = rng_seed
+    inference_model = inference_model_1,
+    beast2_options = beast2_options_1
   )
-  out_2 <- bbt_run(
+  out_2 <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_test_mcmc(chain_length = 2000),
-    rng_seed = rng_seed
+    inference_model = inference_model_1,
+    beast2_options = beast2_options_1
   )
   expect_equal(length(out_1), length(out_2))
 
-  # The screen output will be differ in three lines
-  expect_equal(3, sum(out_1$output != out_2$output))
+  # To show the lines that differ
+  out_1$output[  out_1$output != out_2$output ]
+  # Example:
+  # [1] "Writing file /home/richel/.cache/tracelog_7ed358b9e023.log"
+  # [2] "Writing file /home/richel/.cache/screenlog_7ed3567b6ea9.csv"
+  # [3] "Writing file /home/richel/.cache/treelog_7ed3c268edc.trees"
+  # [4] "Total calculation time: 0.956 seconds"
+
+  # The screen output will be differ in four lines (see above)
+  expect_equal(4, sum(out_1$output != out_2$output))
+
+  # Here we replace the four sentences, because we know what these look like
+  # After that, the text should be identical
 
   # The screen output will be different here:
-  # [35] "Writing state to file /tmp/RtmpRyToHX/beast2_39f46a37b262.xml.state"
+  # [1] "Writing file /home/richel/.cache/tracelog_7ed358b9e023.log"
   replacement_1_index <- which(
-    grepl(x = out_1$output, pattern = "Writing state to file")
+    grepl(x = out_1$output, pattern = "Writing file.*/tracelog")
   )
   out_2$output[replacement_1_index] <- out_1$output[replacement_1_index]
 
-  # [38] "File: beast2_39f41cfb21ef.xml seed: 42 threads: 1"
+  # [2] "Writing file /home/richel/.cache/screenlog_7ed3567b6ea9.csv"
   replacement_2_index <- which(
-    grepl(x = out_1$output, pattern = "File: beast2_")
+    grepl(x = out_1$output, pattern = "Writing file.*/screenlog")
   )
   out_2$output[replacement_2_index] <- out_1$output[replacement_2_index]
 
-  # [107] "Total calculation time: 0.197 seconds"
+  # [3] "Writing file /home/richel/.cache/treelog_7ed3c268edc.trees"
   replacement_3_index <- which(
-    grepl(x = out_1$output, pattern = "Total calculation time: ")
+    grepl(x = out_1$output, pattern = "Writing file.*/treelog")
   )
   out_2$output[replacement_3_index] <- out_1$output[replacement_3_index]
 
-  expect_identical(out_1, out_2)
-})
-
-test_that("abuse", {
-
-  expect_error(
-    bbt_run(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      beast2_output_trees_filenames = c("too", "many")
-    ),
-    "deprecated"
+  # [4] "Total calculation time: 0.956 seconds"
+  replacement_4_index <- which(
+    grepl(x = out_1$output, pattern = "Total calculation time: ")
   )
+  out_2$output[replacement_4_index] <- out_1$output[replacement_4_index]
 
+  expect_identical(out_1, out_2)
 })
 
 ################################################################################
@@ -529,17 +538,12 @@ test_that("with tip dating", {
 
 test_that("abuse", {
 
+  # Only check for deprecated arguments, the
+  # rest is checked when 'create_inference_model' is applied
+  # on all argument
   expect_error(
     bbt_run(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      rng_seed = 0 # Error here
-    ),
-    "'rng_seed' should be NA or non-zero positive"
-  )
-
-  expect_error(
-    bbt_run(
-      fasta_filenames = get_babette_path("anthus_aco.fas")
+      fasta_filename = get_babette_path("anthus_aco.fas")
     ),
     "'fasta_filenames' is deprecated, use 'fasta_filename' instead"
   )
@@ -593,4 +597,27 @@ test_that("abuse", {
     "'cleanup' is deprecated, cleanup must be done by the caller"
   )
 
+  expect_error(
+    bbt_run(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      beast2_output_log_filename = "irrelevant"
+    ),
+    "'beast2_output_log_filename' is deprecated"
+  )
+
+  expect_error(
+    bbt_run(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      beast2_output_trees_filenames = "irrelevant"
+    ),
+    "'beast2_output_trees_filenames' is deprecated"
+  )
+
+  expect_error(
+    bbt_run(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      beast2_working_dir = "irrelevant"
+    ),
+    "'beast2_working_dir' is deprecated"
+  )
 })

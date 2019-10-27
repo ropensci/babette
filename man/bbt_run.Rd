@@ -16,11 +16,10 @@ bbt_run(fasta_filename, tipdates_filename = NA,
   beast2_path = beastier::get_default_beast2_path(), overwrite = TRUE,
   verbose = FALSE, beast2_output_log_filename = "deprecated",
   beast2_output_trees_filenames = "deprecated",
-  beast2_working_dir = "beast2_working_dir_trees_filenames_is_deprecated",
-  fasta_filenames = "deprecated", site_models = "deprecated",
-  clock_models = "deprecated", tree_priors = "deprecated",
-  mrca_priors = "deprecated", posterior_crown_age = "deprecated",
-  cleanup = "deprecated")
+  beast2_working_dir = "deprecated", fasta_filenames = "deprecated",
+  site_models = "deprecated", clock_models = "deprecated",
+  tree_priors = "deprecated", mrca_priors = "deprecated",
+  posterior_crown_age = "deprecated", cleanup = "deprecated")
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename}

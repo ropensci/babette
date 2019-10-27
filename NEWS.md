@@ -2,16 +2,16 @@
 
 Newest versions at top.
 
-
 ## beastier 2.1 (unreleased)
 
 ### NEW FEATURES
 
-  * None
+  * Follow the `beastier` v2.3 new interface, in which the log filenames
+    are part of the MCMC (as created by `create_mcmc`)
   
 ### MINOR IMPROVEMENTS
 
-  * Add `update_babette` to update all `babette` dependencies
+  * None
 
 ### BUG FIXES
 

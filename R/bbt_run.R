@@ -100,7 +100,7 @@ bbt_run <- function(
   # Deprecated parameters
   beast2_output_log_filename = "deprecated",
   beast2_output_trees_filenames = "deprecated",
-  beast2_working_dir = "beast2_working_dir_trees_filenames_is_deprecated",
+  beast2_working_dir = "deprecated",
   fasta_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
@@ -165,14 +165,22 @@ bbt_run <- function(
       "file.remove(beast2_output_state_filename)\n"
     )
   }
-  if (any("output_log_filename" %in% calls)) {
+  if (any("beast2_output_log_filename" %in% calls)) {
     stop(
-      "'output_log_filename' is deprecated, it is stored in the BEAST2 XML"
+      "'beast2_output_log_filename' is deprecated: ",
+      "this filename is stored in the BEAST2 XML. ",
+      "To set it, set the 'filename' argument of 'create_tracelog', ",
+      "which is part of an MCMC (see 'create_mcmc'), ",
+      "which is part of an inference model (see 'create_inference_model')"
     )
   }
-  if (any("output_trees_filenames" %in% calls)) {
+  if (any("beast2_output_trees_filenames" %in% calls)) {
     stop(
-      "'output_trees_filenames' is deprecated, it is stored in the BEAST2 XML"
+      "'beast2_output_trees_filenames' is deprecated: ",
+      "this filename is stored in the BEAST2 XML. ",
+      "To set it, set the 'filename' argument of 'create_treelog', ",
+      "which is part of an MCMC (see 'create_mcmc'), ",
+      "which is part of an inference model (see 'create_inference_model')"
     )
   }
   if (any("beast2_working_dir" %in% calls)) {

@@ -5,7 +5,10 @@ test_that("use", {
 })
 
 test_that("tracelog file in sub-sub-sub-folder", {
-  filename <- file.path(tempfile(), "sub", "sub", "sub", "file.log")
+  filename <- file.path(
+    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    "sub", "sub", "sub", "file.log"
+  )
 
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
@@ -22,7 +25,10 @@ test_that("tracelog file in sub-sub-sub-folder", {
 })
 
 test_that("screenlog file in sub-sub-sub-folder", {
-  filename <- file.path(tempfile(), "sub", "sub", "sub", "file.csv")
+  filename <- file.path(
+    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    "sub", "sub", "sub", "file.csv"
+  )
 
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
@@ -39,7 +45,10 @@ test_that("screenlog file in sub-sub-sub-folder", {
 })
 
 test_that("treelog file in sub-sub-sub-folder", {
-  filename <- file.path(tempfile(), "sub", "sub", "sub", "file.trees")
+  filename <- file.path(
+    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    "sub", "sub", "sub", "file.trees"
+  )
 
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))
@@ -56,7 +65,10 @@ test_that("treelog file in sub-sub-sub-folder", {
 })
 
 test_that("state file in sub-sub-sub-folder", {
-  filename <- file.path(tempfile(), "sub", "sub", "sub", "file.xml.state")
+  filename <- file.path(
+    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    "sub", "sub", "sub", "file.xml.state"
+  )
 
   # Cannot create the file yet, as the sub-sub-folders are not created
   expect_warning(file.create(filename))

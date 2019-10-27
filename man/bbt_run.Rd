@@ -5,41 +5,22 @@
 \title{Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 run BEAST2, parse results (like Tracer)}
 \usage{
-bbt_run(
-  fasta_filename,
-  tipdates_filename = NA,
+bbt_run(fasta_filename, tipdates_filename = NA,
   site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
-  tree_prior = beautier::create_yule_tree_prior(),
-  mrca_prior = NA,
+  tree_prior = beautier::create_yule_tree_prior(), mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
-  beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
+  beast2_input_filename = beastier::create_temp_input_filename(),
   rng_seed = 1,
-  beast2_output_log_filename = tempfile(
-    pattern = "beast2_", fileext = "log"
-  ),
-  beast2_output_trees_filenames = tempfile(
-    pattern = paste0(
-      "beast2_",
-      beautier::get_alignment_ids(fasta_filename), "_"
-    ),
-    fileext = ".trees"
-  ),
-  beast2_output_state_filename = tempfile(
-    pattern = "beast2_", fileext = ".xml.state"
-  ),
-  beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
-  beast2_path = beastier::get_default_beast2_path(),
-  overwrite = FALSE,
-  verbose = FALSE,
-  fasta_filenames = "deprecated",
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated",
-  cleanup = "deprecated"
-)
+  beast2_output_state_filename = beastier::create_temp_output_state_filename(),
+  beast2_path = beastier::get_default_beast2_path(), overwrite = TRUE,
+  verbose = FALSE, beast2_output_log_filename = "deprecated",
+  beast2_output_trees_filenames = "deprecated",
+  beast2_working_dir = "beast2_working_dir_trees_filenames_is_deprecated",
+  fasta_filenames = "deprecated", site_models = "deprecated",
+  clock_models = "deprecated", tree_priors = "deprecated",
+  mrca_priors = "deprecated", posterior_crown_age = "deprecated",
+  cleanup = "deprecated")
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename}
@@ -71,22 +52,6 @@ in a more permanently stored location.}
 \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
 results in BEAST2 picking a random seed.}
 
-\item{beast2_output_log_filename}{name of the log file created by BEAST2,
-containing the parameter estimates in time. By default, this
-file is put a temporary folder with a random
-filename, as the user needs not read it: its content
-is parsed and returned by this function.
-Specifying a \code{beast2_output_log_filename} allows to store that file
-in a more permanently stored location.}
-
-\item{beast2_output_trees_filenames}{name of the one or more trees
-files created by BEAST2, one per alignment. By default, these
-files are put a temporary folder with a random
-filename, as the user needs not read it: their content
-is parsed and returned by this function.
-Specifying \code{beast2_output_trees_filenames} allows to store these
-one or more files in a more permanently stored location.}
-
 \item{beast2_output_state_filename}{name of the final state file created
 by BEAST2, containing the operator acceptances. By default, this
 file is put a temporary folder with a random
@@ -94,11 +59,6 @@ filename, as the user needs not read it: its content
 is parsed and returned by this function.
 Specifying a \code{beast2_output_state_filename} allows to store that file
 in a more permanently stored location.}
-
-\item{beast2_working_dir}{the folder BEAST2 will work in. This is
-an (empty) temporary folder by default. This allows to call
-BEAST2 in multiple parallel processes, as each process can have
-its own working directory}
 
 \item{beast2_path}{name of either a BEAST2 binary file
 (usually simply \code{beast})
@@ -121,6 +81,27 @@ a tracelog, screenlog or treelog file already exists, BEAST2 (and
 thus \link{babette}) will freeze.}
 
 \item{verbose}{set to TRUE for more output}
+
+\item{beast2_output_log_filename}{name of the log file created by BEAST2,
+containing the parameter estimates in time. By default, this
+file is put a temporary folder with a random
+filename, as the user needs not read it: its content
+is parsed and returned by this function.
+Specifying a \code{beast2_output_log_filename} allows to store that file
+in a more permanently stored location.}
+
+\item{beast2_output_trees_filenames}{name of the one or more trees
+files created by BEAST2, one per alignment. By default, these
+files are put a temporary folder with a random
+filename, as the user needs not read it: their content
+is parsed and returned by this function.
+Specifying \code{beast2_output_trees_filenames} allows to store these
+one or more files in a more permanently stored location.}
+
+\item{beast2_working_dir}{the folder BEAST2 will work in. This is
+an (empty) temporary folder by default. This allows to call
+BEAST2 in multiple parallel processes, as each process can have
+its own working directory}
 
 \item{fasta_filenames}{one or more FASTA filename, each with one alignment}
 

@@ -123,8 +123,8 @@ test_that("Nested sampling run should create no temporaries", {
   files_before <- list.files(new_work_dir)
 
   # Temporary files created
-  beast2_input_filename <- tempfile(".xml")
-  beast2_output_state_filename <- tempfile(".state.xml")
+  beast2_input_filename <- beastier::create_temp_input_filename()
+  beast2_output_state_filename <- beastier::create_temp_output_state_filename()
 
   bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
@@ -181,7 +181,7 @@ test_that("use BEAST2 working directory in same folder as BEAST2 output", {
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  folder_name <- tempfile()
+  folder_name <- tempfiletmpdir = rappdirs::user_cache_dir()()
 
   expect_silent(
     run_beast2_from_options(

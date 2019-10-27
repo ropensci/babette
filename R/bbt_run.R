@@ -40,42 +40,6 @@
 #'   }
 #' }
 #' @author Richèl J.C. Bilderbeek
-#' @usage
-#' bbt_run(
-#'   fasta_filename,
-#'   tipdates_filename = NA,
-#'   site_model = beautier::create_jc69_site_model(),
-#'   clock_model = beautier::create_strict_clock_model(),
-#'   tree_prior = beautier::create_yule_tree_prior(),
-#'   mrca_prior = NA,
-#'   mcmc = beautier::create_mcmc(),
-#'   beast2_input_filename = tempfile(pattern = "beast2_", fileext = ".xml"),
-#'   rng_seed = 1,
-#'   beast2_output_log_filename = tempfile(
-#'     pattern = "beast2_", fileext = "log"
-#'   ),
-#'   beast2_output_trees_filenames = tempfile(
-#'     pattern = paste0(
-#'       "beast2_",
-#'       beautier::get_alignment_ids(fasta_filename), "_"
-#'     ),
-#'     fileext = ".trees"
-#'   ),
-#'   beast2_output_state_filename = tempfile(
-#'     pattern = "beast2_", fileext = ".xml.state"
-#'   ),
-#'   beast2_working_dir = tempfile(pattern = "beast2_tmp_folder"),
-#'   beast2_path = beastier::get_default_beast2_path(),
-#'   overwrite = TRUE,
-#'   verbose = FALSE,
-#'   fasta_filenames = "deprecated",
-#'   site_models = "deprecated",
-#'   clock_models = "deprecated",
-#'   tree_priors = "deprecated",
-#'   mrca_priors = "deprecated",
-#'   posterior_crown_age = "deprecated",
-#'   cleanup = "deprecated"
-#' )
 #' @examples
 #'  if (is_beast2_installed()) {
 #'    out <- bbt_run(

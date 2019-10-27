@@ -10,14 +10,15 @@ test_that("use", {
   # to reinstall it
   if (!beastier::is_on_ci()) return()
 
-  beast2_package_name <- "NS"
   # Check to need to install NS later
-  was_ns_installed <- mauricer::is_beast2_pkg_installed(beast2_package_name)
+  was_ns_installed <- mauricer::is_beast2_ns_pkg_installed()
 
   if (mauricer::is_beast2_pkg_installed(beast2_package_name)) {
-    mauricer::uninstall_beast2_pkg(beast2_package_name)
+    mauricer::uninstall_beast2_pkg("NS")
   }
-  testit::assert(!mauricer::is_beast2_pkg_installed(beast2_package_name))
+
+  skip("Fix mauricer issue 5, Issue 5, Issue #5")
+  testit::assert(!mauricer::is_beast2_ns_pkg_installed())
 
   expect_error(
     babette:::bbt_check_beast2_packages(

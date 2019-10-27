@@ -1,24 +1,24 @@
-context("bbt_run")
-
-test_that("use, one alignment", {
+test_that("output is well-formed", {
 
   if (!beastier::is_beast2_installed()) return()
 
   testit::assert(beastier::is_beast2_installed())
 
-  out <- NA
+  mcmc <- create_test_mcmc()
 
   out <- bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_test_mcmc(chain_length = 2000),
-    overwrite = TRUE
+    mcmc = mcmc
   )
   expect_true("estimates" %in% names(out))
   expect_true("anthus_aco_trees" %in% names(out))
   expect_true("operators" %in% names(out))
   expect_true("output" %in% names(out))
   expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
-  expect_equal(length(out$anthus_aco_trees), 2)
+
+  #' The number of expected trees. The tree at state zero is also logged
+  n_trees_expected <- 1 + (mcmc$chain_length / mcmc$treelog$log_every)
+  expect_equal(length(out$anthus_aco_trees), n_trees_expected)
 
   expect_true("Sample" %in% names(out$estimates))
   expect_true("posterior" %in% names(out$estimates))
@@ -543,7 +543,7 @@ test_that("abuse", {
   # on all argument
   expect_error(
     bbt_run(
-      fasta_filename = get_babette_path("anthus_aco.fas")
+      fasta_filenames = get_babette_path("anthus_aco.fas")
     ),
     "'fasta_filenames' is deprecated, use 'fasta_filename' instead"
   )

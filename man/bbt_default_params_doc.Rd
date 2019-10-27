@@ -93,9 +93,9 @@ If \link{FALSE}, BEAST2 will not overwrite the
 \code{beast2_options$output_state_filename} if its present
 and \link{babette} will give an error message.
 Note that if \code{overwrite} is set to \link{FALSE} when
-a trace log (see \link{create_tracelog}),
-screen log (see \link{create_screenlog})
-or tree log (see \link{create_treelog})
+a \code{tracelog} (see \link{create_tracelog}),
+\code{screenlog} (see \link{create_screenlog})
+or \code{treelog} (see \link{create_treelog})
 file already exists,
 BEAST2 (and thus \link{babette}) will freeze.}
 

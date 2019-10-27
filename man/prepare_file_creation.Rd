@@ -16,5 +16,5 @@ as can be created by \link[beastier]{create_beast2_options}}
 \description{
 The inference model and BEAST2 options contain paths that may point
 to sub-sub-sub folders. Create those folders and test
-if thes folders can be written to
+if these folders can be written to
 }

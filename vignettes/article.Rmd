@@ -27,8 +27,11 @@ file.copy(babette::get_babette_path("anthus_nd2_sub.fas"), "anthus_nd2.fas")
 This vignette does the same as the code in 
 the [bioRxiv article](https://doi.org/10.1101/271866).
 
-```{r setup}
+```{r load_babette}
 library(babette)
+```
+
+```{r create_mcmc}
 mcmc <- create_test_mcmc()
 ```
 

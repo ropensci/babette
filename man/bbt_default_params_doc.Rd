@@ -85,15 +85,16 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
 
-\item{overwrite}{if TRUE: overwrite the \code{.log}
- and \code{.trees} files if one of these exists.
- If FALSE, BEAST2 will not be started if
- \itemize{
-   \item{the \code{.log} file exists}
-   \item{the \code{.trees} files exist}
-   \item{the \code{.log} file created by BEAST2 exists}
-   \item{the \code{.trees} files created by BEAST2 exist}
-}}
+\item{overwrite}{will BEAST2 overwrite files? Like BEAST2,
+this is set to TRUE by default.
+If \link{TRUE}, BEAST2 will overwrite the
+\code{beast2_options$output_state_filename} if its present.
+If \link{FALSE}, BEAST2 will not overwrite the
+\code{beast2_options$output_state_filename} if its present
+and \link{babette} will give an error message.
+Note that if \code{overwrite} is set to \link{FALSE} when
+a tracelog, screenlog or treelog file already exists, BEAST2 (and
+thus \link{babette}) will freeze.}
 
 \item{posterior_crown_age}{deprecated}
 

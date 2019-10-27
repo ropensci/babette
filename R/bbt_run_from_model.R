@@ -111,11 +111,6 @@ bbt_run_from_model <- function(
   # if thes folders can be written to
   prepare_file_creation(inference_model, beast2_options)
 
-
-  # if (!is.na(rng_seed) && !(rng_seed > 0)) {
-  #   stop("'rng_seed' should be NA or non-zero positive")
-  # }
-
   beastier::check_beast2_path(beast2_options$beast2_path)
   bbt_check_beast2_packages(
     mcmc = inference_model$mcmc,

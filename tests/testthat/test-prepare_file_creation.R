@@ -64,7 +64,7 @@ test_that("treelog file in sub-sub-sub-folder", {
   expect_silent(prepare_file_creation(inference_model, beast2_options))
 })
 
-test_that("state file in sub-sub-sub-folder", {
+test_that("output_state_filename in sub-sub-sub-folder", {
   filename <- file.path(
     tempfile(tmpdir = rappdirs::user_cache_dir()),
     "sub", "sub", "sub", "file.xml.state"

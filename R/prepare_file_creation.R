@@ -23,6 +23,19 @@ prepare_file_creation <- function(
   for (filename in filename) {
     file.create(filename, showWarnings = FALSE)
     if (!file.exists(filename)) {
+      print(
+        paste0(
+          "Cannot create file '", filename, "'",
+          ", will try to gather some diagnostic info...")
+      )
+      print(
+        paste0("Warnings when creating the folder '", dirname(filename), "'")
+      )
+      dir.create(dirname(filename), showWarnings = TRUE, recursive = TRUE)
+      print(
+        paste0("Warnings when creating the file '", filename, "'")
+      )
+      file.create(filename, showWarnings = FALSE)
       stop(
         "Cannot create file '", filename, "'. \n",
         "Maybe no permissions to write there?"

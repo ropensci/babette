@@ -41,22 +41,27 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   if (is_beast2_installed()) {
+#' if (is_beast2_installed()) {
 #'
-#'     out <- bbt_run_from_model(
-#'       fasta_filename = get_babette_path("anthus_aco.fas"),
-#'       inference_model = create_inference_model(
-#'         mcmc = create_test_mcmc()
-#'       )
-#'     )
+#'   inference_model <- create_test_inference_model()
 #'
-#'     library(testthat)
-#'     expect_true("estimates" %in% names(out))
-#'     expect_true("anthus_aco_trees" %in% names(out))
-#'     expect_true("operators" %in% names(out))
-#'     expect_true("output" %in% names(out))
-#'     expect_true(class(out$anthus_aco_trees[[1]]) == "phylo")
-#'     expect_true(length(out$anthus_aco_trees) == 2)
+#'   out <- bbt_run_from_model(
+#'     fasta_filename = get_babette_path("anthus_aco.fas"),
+#'     inference_model = inference_model
+#'   )
+#'
+#'   library(testthat)
+#'   expect_true("estimates" %in% names(out))
+#'   expect_true("anthus_aco_trees" %in% names(out))
+#'   expect_true("operators" %in% names(out))
+#'   expect_true("output" %in% names(out))
+#'   expect_true(is_phylo(out$anthus_aco_trees[[1]]))
+#'
+#'    #' The number of expected trees. The tree at state zero is also logged
+#'    n_trees_expected <- 1 + (inference_model$mcmc$chain_length /
+#'      inference_model$mcmc$treelog$log_every
+#'    )
+#'    expect_equal(length(out$anthus_aco_trees), n_trees_expected)
 #'
 #'     expect_true("Sample" %in% names(out$estimates))
 #'     expect_true("posterior" %in% names(out$estimates))

@@ -3,6 +3,7 @@
 #' The inference model and BEAST2 options contain paths that may point
 #' to sub-sub-sub folders. Create those folders and test
 #' if thes folders can be written to
+#' @inheritParams bbt_default_params_doc
 #' @export
 prepare_file_creation <- function(
   inference_model,

@@ -167,9 +167,12 @@ run BEAST2, parse results (like Tracer)
 }
 \examples{
  if (is_beast2_installed()) {
+
+   mcmc <- create_test_mcmc()
+
    out <- bbt_run(
      fasta_filename = get_babette_path("anthus_aco.fas"),
-     mcmc = create_test_mcmc()
+     mcmc = mcmc
    )
 
    library(testthat)
@@ -177,8 +180,11 @@ run BEAST2, parse results (like Tracer)
    expect_true("anthus_aco_trees" \%in\% names(out))
    expect_true("operators" \%in\% names(out))
    expect_true("output" \%in\% names(out))
-   expect_true(class(out$anthus_aco_trees[[1]]) == "phylo")
-   expect_true(length(out$anthus_aco_trees) == 2)
+   expect_true(is_phylo(out$anthus_aco_trees[[1]]))
+
+   #' The number of expected trees. The tree at state zero is also logged
+   n_trees_expected <- 1 + (mcmc$chain_length / mcmc$treelog$log_every)
+   expect_equal(length(out$anthus_aco_trees), n_trees_expected)
 
    expect_true("Sample" \%in\% names(out$estimates))
    expect_true("posterior" \%in\% names(out$estimates))

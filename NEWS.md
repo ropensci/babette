@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beastier 2.1 (2019-10-27)
+## babette 2.1 (2019-10-27)
 
 ### NEW FEATURES
 

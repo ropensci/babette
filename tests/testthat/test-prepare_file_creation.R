@@ -90,5 +90,14 @@ test_that("state file in root folder", {
   beast2_options <- create_beast2_options(
     output_state_filename = filename
   )
-  expect_error(prepare_file_creation(inference_model, beast2_options))
+
+  # Both creates warnings and prints to screen
+  sink("/dev/null")
+  expect_error(
+    suppressWarnings(
+      prepare_file_creation(inference_model, beast2_options)
+    ),
+    "Cannot create file '/not_in_root_please.xml.state'"
+  )
+  sink()
 })

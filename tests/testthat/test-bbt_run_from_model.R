@@ -1,4 +1,4 @@
-test_that("use, one alignment", {
+test_that("minimal use", {
   if (!beastier::is_beast2_installed()) return()
 
   bbt_out <- bbt_run_from_model(
@@ -7,6 +7,22 @@ test_that("use, one alignment", {
   )
   expect_equal(4, length(bbt_out$anthus_aco_trees))
   expect_equal(4, nrow(bbt_out$estimates))
+})
+
+test_that("minimal use with BEAUti shorthand", {
+  if (!beastier::is_beast2_installed()) return()
+
+  expect_silent(
+    bbt_run_from_model(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      inference_model = beautier::create_test_inference_model(
+        mcmc = create_test_mcmc(
+          tracelog = create_test_tracelog(filename = NA),
+          treelog = create_test_treelog("$(tree).trees")
+        )
+      )
+    )
+  )
 })
 
 test_that("use, nested sampling", {

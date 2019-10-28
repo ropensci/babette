@@ -2,23 +2,18 @@ context("bbt_run_ns")
 
 test_that("use, bin (Linux only)", {
 
-  skip("Not now, Issue #74")
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
   out <- bbt_run(
-    fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc_nested_sampling(
-      chain_length = 1000,
-      store_every = 1000,
-      sub_chain_length = 500
-    ),
+    fasta_filename = get_babette_path("anthus_aco_sub.fas"),
+    mcmc = create_test_ns_mcmc(),
     beast2_path = get_default_beast2_bin_path()
   )
 
   expect_true("estimates" %in% names(out))
-  expect_true("anthus_aco_trees" %in% names(out))
+  expect_true("anthus_aco_sub_trees" %in% names(out))
   expect_true("operators" %in% names(out))
   expect_true("output" %in% names(out))
 
@@ -51,8 +46,6 @@ test_that("use, bin (Linux only)", {
   expect_true("marg_log_lik" %in% names(out$ns))
   expect_true("marg_log_lik_sd" %in% names(out$ns))
 
-  expect_true("estimates" %in% names(out$ns))
-  expect_true("trees" %in% names(out$ns))
   expect_true("ess" %in% names(out$ns))
 })
 

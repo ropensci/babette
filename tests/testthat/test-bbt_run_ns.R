@@ -99,49 +99,6 @@ test_that("use, jar (Windows + ?Linux)", {
   expect_true("ess" %in% names(out$ns))
 })
 
-test_that("Nested sampling run should create no temporaries", {
-
-  skip("Not now, Issue #74")
-  if (!beastier::is_beast2_installed()) return()
-  if (rappdirs::app_dir()$os == "win") return()
-  if (!mauricer::is_beast2_ns_pkg_installed()) return()
-
-  # From https://github.com/ropensci/babette/issues/36
-  testit::assert(mauricer::is_beast2_ns_pkg_installed())
-
-  # Run babette in a different folder
-  old_work_dir <- getwd()
-  new_work_dir <- tempdir()
-  setwd(new_work_dir)
-  files_before <- list.files(new_work_dir)
-
-  # Temporary files created
-  beast2_input_filename <- beastier::create_temp_input_filename()
-  beast2_output_state_filename <- beastier::create_temp_output_state_filename()
-
-  bbt_run(
-    fasta_filename = get_babette_path("anthus_aco.fas"),
-    mcmc = create_mcmc_nested_sampling(
-      chain_length = 1000,
-      store_every = 1000,
-      sub_chain_length = 500,
-      epsilon = 1.0
-    ),
-    beast2_path = get_default_beast2_bin_path(),
-    beast2_input_filename = beast2_input_filename,
-    beast2_output_state_filename = beast2_output_state_filename
-  )
-
-  # Delete the temporary files
-  file.remove(beast2_input_filename)
-  file.remove(beast2_output_state_filename)
-
-  files_after <- list.files(new_work_dir)
-  setwd(old_work_dir)
-  list.files(new_work_dir)
-  expect_equal(files_before, files_after)
-})
-
 test_that("abuse", {
 
   if (!beastier::is_beast2_installed()) return()

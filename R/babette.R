@@ -28,4 +28,5 @@
 #' }
 #' @docType package
 #' @name babette
+#' @import beautier tracerer beastier mauricer
 NULL

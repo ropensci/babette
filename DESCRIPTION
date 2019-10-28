@@ -23,14 +23,15 @@ RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 URL: https://github.com/ropensci/babette
 BugReports: https://github.com/ropensci/babette/issues
-Imports:
+Depends:
     beautier (>= 2.3),
     beastier (>= 2.1),
     mauricer,
+    tracerer
+Imports:
     phangorn,
     remotes,
     stringr,
-    tracerer,
     testit,
     xml2
 Suggests:

@@ -3,7 +3,6 @@
 #' @author Giovanni Laudanno, Richèl J.C. Bilderbeek
 #' @export
 update_babette <- function() {
-  return()
   repo_names <- c(
     "ropensci/beautier", "ropensci/tracerer", "ropensci/beastier",
     "ropensci/mauricer"

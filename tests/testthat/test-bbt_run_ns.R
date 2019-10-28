@@ -166,23 +166,3 @@ test_that("abuse", {
     )
   )
 })
-
-test_that("use BEAST2 working directory in same folder as BEAST2 output", {
-
-  skip("Not now, Issue #74")
-  if (!beastier::is_beast2_installed()) return()
-  if (rappdirs::app_dir()$os == "win") return()
-  if (!mauricer::is_beast2_ns_pkg_installed()) return()
-
-  folder_name <- tempfiletmpdir = rappdirs::user_cache_dir()()
-
-  expect_silent(
-    run_beast2_from_options(
-      create_beast2_options(
-        input_filename = get_beastier_path("nested_sampling.xml"),
-        output_state_filename = file.path(folder_name, "out.xml.state"),
-        beast2_working_dir = folder_name
-      )
-    )
-  )
-})

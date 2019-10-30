@@ -14,11 +14,11 @@ and create a BEAST2 input file called `my_beast.xml`.
 
 ## Example #0: install and self-test
 
+See [install.md](install.md) for the [installation instructions](install.md).
+
+Do a self-test:
+
 ```
-remotes::install_github("ropensci/mauricer")
-remotes::install_github("ropensci/babette", ref = "develop")
-library(babette)
-install_beast2()
 bbt_self_test()
 ```
 

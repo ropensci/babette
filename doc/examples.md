@@ -1,6 +1,6 @@
 # Examples
 
- * Want something more interactive? [beastier](https://github.com/richelbilderbeek/lumier) 
+ * Want something more interactive? [lumier](https://github.com/richelbilderbeek/lumier) 
    is an R Shiny app to help create the R function call needed!
 
 For all examples, do load `babette`:

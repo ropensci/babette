@@ -2,12 +2,16 @@
 
 This package describes the `babette` installation and installation problems.
 
+## Install `rJava`
+
+If you have problems installing rJava, [Duck](http://www.duckduckgo.com) 
+or [view my rJava notes](rjava.md).
+
 ## `babette` installation
 
  * Video how to install `babette`: [download (.mkv)](http://richelbilderbeek.nl/babette_install_windows.mkv) [YouTube](https://youtu.be/SiJlssZeeaM)
 
 `babette` is not on CRAN yet. Up until then, this is how to install `babette`.
-
 
 `babette` is installed most easily using the `devtools` package:
 

@@ -16,7 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r create_files, include = FALSE}
+## Creating files to use
+
+To make the examples simpler, I create all files locally here:
+
+```{r create_files}
 file.copy(babette::get_babette_path("anthus_aco.fas"), "test_output_0.fas")
 file.copy(babette::get_babette_path("anthus_aco.fas"), "my_fasta.fas")
 file.copy(babette::get_babette_path("anthus_aco.fas"), "my_alignment.fas")

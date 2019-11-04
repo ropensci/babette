@@ -109,7 +109,7 @@ test_that("same RNG seed gives same results", {
   expect_equal(length(out_1), length(out_2))
 
   # To show the lines that differ
-  out_1$output[  out_1$output != out_2$output ]
+  out_1$output[out_1$output != out_2$output]
   # Example:
   # [1] "Writing file /home/richel/.cache/tracelog_7ed358b9e023.log"
   # [2] "Writing file /home/richel/.cache/screenlog_7ed3567b6ea9.csv"

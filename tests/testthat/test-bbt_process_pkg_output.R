@@ -14,7 +14,7 @@ test_that("no package, no change", {
 
 test_that("NS adds ns", {
 
-  inference_model = beautier::create_test_inference_model(
+  inference_model <- beautier::create_test_inference_model(
     mcmc = create_test_ns_mcmc()
   )
 

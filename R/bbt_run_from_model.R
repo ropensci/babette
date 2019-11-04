@@ -114,7 +114,7 @@ bbt_run_from_model <- function(
   # The inference model and BEAST2 options contain paths that may point
   # to sub-sub-sub folders. Create those folders and test
   # if thes folders can be written to
-  prepare_file_creation(inference_model, beast2_options)
+  babette::prepare_file_creation(inference_model, beast2_options)
 
   beastier::check_beast2_path(beast2_options$beast2_path)
   bbt_check_beast2_packages(

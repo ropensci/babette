@@ -2,6 +2,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 bbt_self_test <- function() {
+  testit::assert(beastier::is_beast2_installed())
   bbt_run_from_model( # nolint babette function
     fasta_filename = beautier::get_fasta_filename(),
     inference_model = beautier::create_inference_model(

@@ -62,7 +62,7 @@ test_that("use, one alignment, verbose, no cleanup", {
 
   fasta_filenames <- get_babette_path("anthus_aco.fas")
   beast2_input_filename <- beastier::create_temp_input_filename()
-  beast2_output_state_filename <- beastier::create_temp_output_state_filename()
+  beast2_output_state_filename <- beastier::create_temp_state_filename()
 
   testit::assert(!file.exists(beast2_input_filename))
   testit::assert(!file.exists(beast2_output_state_filename))

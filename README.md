@@ -27,7 +27,7 @@ Related R packages:
 See:
 
  * [lumier](https://github.com/ropensci/lumier): R Shiny app to help create the R function call needed
- * [examples](doc/examples.md)
+ * [examples](https://github.com/richelbilderbeek/babette_examples): examples tested by Travis CI and AppVeyor
  * [article](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13032), in 'Methods in Ecology and Evolution'
  * [blog post](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/) in Methods.Blog
  * [pre-print article](https://doi.org/10.1101/271866), in bioRxiv

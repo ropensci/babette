@@ -6,6 +6,10 @@ The `babette` documentation.
 
 See [install.md](install.md).
 
+# Examples
+
+See [the babette examples](https://github.com/richelbilderbeek/babette_examples).
+
 ## Create the dependency graph from the `.dot` file
 
 ```

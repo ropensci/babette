@@ -16,11 +16,8 @@ and create a BEAST2 input file called `my_beast.xml`.
 
 See [install.md](install.md) for the [installation instructions](install.md).
 
-Do a self-test:
-
-```
-bbt_self_test()
-```
+See [babette example 0: self-test](https://github.com/richelbilderbeek/babette_example_1)
+for the code.
 
 ## Example #1: all default
 
@@ -37,71 +34,31 @@ of all taxa:
 
 ![Example #2: using a MRCA to specify a crown age](mrca_crown_age.png)
 
-```{r example_2_mrca, cache=FALSE}
-posterior <- bbt_run(
-  "my_fasta.fas",
-  mcmc = mcmc,
-  mrca_priors = create_mrca_prior(
-    taxa_names = get_taxa_names("my_fasta.fas"),
-    alignment_id = get_alignment_id("my_fasta.fas"),
-    is_monophyletic = TRUE,
-    mrca_distr = create_normal_distr(
-      mean = 15.0,
-      sigma = 0.025
-    )
-  )
-)
-```
-
-Here we use an MRCA prior with fixed (non-estimated) values of the mean
-and standard deviation for the common ancestor node's time.
-
+See [babette example 2: fixed crown age](https://github.com/richelbilderbeek/babette_example_2)
 
 ## Example #3: JC69 site model
 
 ![Example #3: JC69 site model](jc69_2_4.png)
 
-```
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_models = create_jc69_site_model()
-)
-```
+See [babette example 3: JC69 site model](https://github.com/richelbilderbeek/babette_example_3)
 
 ## Example #4: Relaxed clock log normal
 
 ![Example #4: Relaxed clock log normal](rln_2_4.png)
 
-```{r example_4}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  clock_models = create_rln_clock_model()
-)
-```
+See [babette example 4: Relaxed clock log normal](https://github.com/richelbilderbeek/babette_example_4)
 
 ## Example #5: Birth-Death tree prior
 
 ![Example #5: Birth-Death tree prior](bd_2_4.png)
 
-```{r example_5}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  tree_priors = create_bd_tree_prior() 
-)
-```
+See [babette example 5: Birth-Death tree prior](https://github.com/richelbilderbeek/babette_example_5)
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
 ![Example #6: Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
 
-```{r example_6}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  tree_priors = create_yule_tree_prior(
-    birth_rate_distr = create_normal_distr()
-  ) 
-)
-```
+See [babette example 6: Yule tree prior with a normally distributed birth rate](https://github.com/richelbilderbeek/babette_example_6)
 
 Thanks to Yacine Ben Chehida for this use case
 
@@ -109,14 +66,7 @@ Thanks to Yacine Ben Chehida for this use case
 
 ![Example #7: HKY site model with a non-zero proportion of invariants](hky_prop_invariant_0_5_2_4.png)
 
-```{r example_7}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  site_models = create_hky_site_model(
-    gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
-  )
-)
-```
+See [babette example 7: HKY site model with a non-zero proportion of invariants](https://github.com/richelbilderbeek/babette_example_7)
 
 Thanks to Yacine Ben Chehida for this use case
 
@@ -124,42 +74,7 @@ Thanks to Yacine Ben Chehida for this use case
 
 ![Example #8: Strict clock with a known clock rate](strict_clock_rate_0_5_2_4.png)
 
-```{r example_8}
-posterior <- bbt_run(
-  "my_alignment.fas",
-  clock_models = create_strict_clock_model(
-    clock_rate_param = create_clock_rate_param(value = 0.5)) 
-)
-```
+See [babette example 8: Strict clock with a known clock rate](https://github.com/richelbilderbeek/babette_example_8)
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
-## Example #9: Two alignments
-
-![Example 9: Two alignments](anthus_2_4.png)
-
-```{r example_9}
-posterior <- bbt_run(
-  c("anthus_aco.fas", "anthus_nd2.fas")
-)
-```
-
-Thanks to Paul van Els for this use case and supplying these FASTA files.
-
-## Example #10: Two alignments, different site models
-
-![Example 10: Two alignments, different site models](aco_hky_nd2_tn93.png)
-
-```{r example_10}
-babette::posterior <- bbt_run(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  site_models = list(
-    create_hky_site_model(), 
-    create_tn93_site_model()
-  )
-)
-```
-
-Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.
-
-Thanks to Paul van Els for this use case.

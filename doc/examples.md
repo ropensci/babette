@@ -28,13 +28,7 @@ Using all default settings, only specify a DNA alignment.
 
 ![Example #1: all default](all_default.png)
 
-```
-posterior <- bbt_run(
-  "test_output_0.fas"
-)
-```
-
-All other parameters are set to their defaults, as in BEAUti.
+See [babette example 1: all default](https://github.com/richelbilderbeek/babette_example_1)
 
 ## Example #2: fixed crown age
 

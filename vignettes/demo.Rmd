@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
+![](babette_logo.png)
+
 This vignette demonstrates how to use `babette`.
 
 First, load the library:

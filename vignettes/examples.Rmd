@@ -16,19 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Creating files to use
+## Introduduction
 
-To make the examples simpler, I create all files locally here:
+![](babette_logo.png)
 
-```{r create_files}
-file.copy(babette::get_babette_path("anthus_aco.fas"), "test_output_0.fas")
-file.copy(babette::get_babette_path("anthus_aco.fas"), "my_fasta.fas")
-file.copy(babette::get_babette_path("anthus_aco.fas"), "my_alignment.fas")
-file.copy(babette::get_babette_path("anthus_aco.fas"), "anthus_aco.fas")
-file.copy(babette::get_babette_path("anthus_nd2.fas"), "anthus_nd2.fas")
-```
-
-# Examples
+This vignette shows some examples how to use `babette`.
 
 For all examples, do load `babette`:
 
@@ -42,14 +34,16 @@ we will use some fabricated output:
 
 ```{r}
 posterior <- get_bbt_run_test_output()
-posterior$test_output_0_trees <- posterior$anthus_aco_trees
-posterior$my_fasta_trees <- posterior$anthus_aco_trees
-posterior$my_alignment_trees <- posterior$anthus_aco_trees
-posterior$estimates$BDBirthRate <- posterior$estimates$birthRate
+posterior$anthus_aco_sub_trees <- posterior$anthus_aco_trees
 names(posterior)
 ```
 
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`).
+
+```{r}
+fasta_filename <- get_babette_path("anthus_aco_sub.fas")
+```
+
 Instead of a full run, the MCMC chain length is shortened to 10K states,
 with a measurement every 1K states:
 
@@ -67,18 +61,10 @@ Using all default settings, only specify a DNA alignment.
 
 ![Example #1: all default](all_default.png)
 
-Create the MCMC:
-
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
-
-Run `babette`:
-
 ```{r example_1, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "test_output_0.fas",
+    fasta_filename = fasta_filename,
     mcmc = mcmc
   )
 }
@@ -91,39 +77,12 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$test_output_0_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
-## Example #2: fixed crown age
+## Example #2: using an MRCA prior to specify a crown age
 
-Using all default settings, only specify a DNA alignment.
-
-```
-[No screenshot, as this cannot be done in BEAUti yet]
-```
-
-```
-# Deprecated
-posterior <- bbt_run(
-  "my_fasta.fas",
-  posterior_crown_age = 15,
-  mcmc = mcmc
-)
-```
-
-`fasta_to_phylo` creates a random phylogeny from
-a FASTA file of a certain crown age. 
-
-```
-# Deprecated
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_fasta_trees, width = 2)
-```
-
-![Example #2: using a MRCA to specify a crown age](mrca_crown_age.png)
+![Example #2: using an MRCA prior to specify a crown age](mrca_crown_age.png)
 
 An alternative is to date the node of the most recent common ancestor
 of all taxa.
@@ -134,16 +93,16 @@ Create the MCMC:
 mcmc <- create_test_mcmc(chain_length = 10000)
 ```
 
-Run `babette`:
+
 
 ```{r example_2_mrca, cache=FALSE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_fasta.fas",
+    fasta_filename = fasta_filename,
     mcmc = mcmc,
     mrca_prior = create_mrca_prior(
-      taxa_names = sample(get_taxa_names("my_fasta.fas"), size = 3),
-      alignment_id = get_alignment_id("my_fasta.fas"),
+      taxa_names = sample(get_taxa_names(fasta_filename), size = 3),
+      alignment_id = get_alignment_id(fasta_filename),
       is_monophyletic = TRUE,
       mrca_distr = create_normal_distr(
         mean = 15.0,
@@ -162,25 +121,19 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_fasta_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 ## Example #3: JC69 site model
 
 ![Example #3: JC69 site model](jc69_2_4.png)
 
-Create the MCMC:
 
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
-
-Run `babette`:
 
 ```{r example_3, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_alignment.fas",
+    fasta_filename = fasta_filename,
     site_model = create_jc69_site_model(),
     mcmc = mcmc
   )
@@ -192,25 +145,19 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 ## Example #4: Relaxed clock log normal
 
 ![Example #4: Relaxed clock log normal](rln_2_4.png)
 
-Create the MCMC:
 
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
-
-Run `babette`:
 
 ```{r example_4, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_alignment.fas",
+    fasta_filename = fasta_filename,
     clock_model = create_rln_clock_model(),
     mcmc = mcmc
   )
@@ -222,25 +169,19 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 ## Example #5: Birth-Death tree prior
 
 ![Example #5: Birth-Death tree prior](bd_2_4.png)
 
-Create the MCMC:
 
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
-
-Run `babette`:
 
 ```{r example_5, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_alignment.fas",
+    fasta_filename = fasta_filename,
     tree_prior = create_bd_tree_prior(), 
     mcmc = mcmc
   )
@@ -252,25 +193,20 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
 ![Example #6: Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
 
-Create the MCMC:
 
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
 
-Run `babette`:
 
 ```{r example_6, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_alignment.fas",
+    fasta_filename = fasta_filename,
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         mean = 1.0,
@@ -287,7 +223,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 Thanks to Yacine Ben Chehida for this use case
@@ -296,18 +232,10 @@ Thanks to Yacine Ben Chehida for this use case
 
 ![Example #7: HKY site model with a non-zero proportion of invariants](hky_prop_invariant_0_5_2_4.png)
 
-Create the MCMC:
-
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
-
-Run `babette`:
-
 ```{r example_7, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_alignment.fas",
+    fasta_filename = fasta_filename,
     site_model = create_hky_site_model(
       gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
     ),
@@ -321,7 +249,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 Thanks to Yacine Ben Chehida for this use case
@@ -330,18 +258,12 @@ Thanks to Yacine Ben Chehida for this use case
 
 ![Example #8: Strict clock with a known clock rate](strict_clock_rate_0_5_2_4.png)
 
-Create the MCMC:
 
-```{r}
-mcmc <- create_test_mcmc(chain_length = 10000)
-```
-
-Run `babette`:
 
 ```{r example_8, cache=TRUE}
 if (is_beast2_installed()) {
   posterior <- bbt_run(
-    "my_alignment.fas",
+    fasta_filename = fasta_filename,
     clock_model = create_strict_clock_model(
       clock_rate_param = 0.5
     ), 
@@ -355,15 +277,7 @@ ggplot2::ggplot(
   data = posterior$estimates,
   ggplot2::aes(x = Sample)
 ) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
-plot_densitree(posterior$my_alignment_trees, width = 2)
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
-
-```{r cleanup, include = FALSE}
-file.remove("test_output_0.fas")
-file.remove("my_fasta.fas")
-file.remove("my_alignment.fas")
-file.remove("anthus_aco.fas")
-file.remove("anthus_nd2.fas")
-```

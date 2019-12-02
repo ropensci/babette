@@ -11,9 +11,7 @@ Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
     Bayesian phylogenetic tool, that uses DNA/RNA/protein data
     and many model priors to create a posterior of jointly estimated 
     phylogenies and parameters.
-    'BEAST2' is commonly accompanied by 'BEAUti 2' (<http://www.beast2.org>), 
-    'Tracer' <http://tree.bio.ed.ac.uk/software/tracer/> 
-    and 'DensiTree' (<http://www.beast2.org>).
+    'BEAST2' is commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'.
     'babette' provides for an alternative workflow of using 
     all these tools separately. This allows doing complex Bayesian
     phylogenetics easily and reproducibly from 'R'. 

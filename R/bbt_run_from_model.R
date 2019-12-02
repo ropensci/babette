@@ -202,7 +202,7 @@ bbt_run_from_model <- function(
 
   # Process the package specific output,
   # for example, add an 'ns' atributed for Nested Sampling
-  babette::bbt_process_pkg_output(
+  bbt_process_pkg_output(
     out = out,
     inference_model = inference_model
   )

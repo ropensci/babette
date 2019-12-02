@@ -24,10 +24,10 @@ r_binary_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
-  - ropensci/beastier
-  - ropensci/mauricer
   - richelbilderbeek/nLTT
   - ropensci/spelling
+  #- ropensci/beastier
+  #- ropensci/mauricer
 
 before_script:
   - # if Linux, show distro

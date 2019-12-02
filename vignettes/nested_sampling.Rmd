@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction
+
+![](babette_logo.png)
+
 This vignette demonstrates how to use the Nested Sampling approach
 to obtain the marginal likelihood and a Bayes factor, 
 as described in [1]

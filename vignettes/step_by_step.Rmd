@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction
+
+![](babette_logo.png)
+
 This demo shows how to run the `babette` pipeline step by step.
 
 The `babette` demo shows how to use `babette` at its highest level:

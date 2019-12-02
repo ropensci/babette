@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction
+
+![](babette_logo.png)
+
 This vignette is a tutorial how to use `babette` and its most 
 important `bbt_run` function.
 

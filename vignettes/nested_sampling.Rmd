@@ -90,7 +90,7 @@ DNA nucleotide substitution model is the better fit.
 Load the DNA alignment, a subset of taxa from [2]:
 
 
-```{r}
+```{r fig.width=7}
 fasta_filename <- get_babette_path("anthus_aco_sub.fas")
 image(ape::read.FASTA(fasta_filename))
 ```

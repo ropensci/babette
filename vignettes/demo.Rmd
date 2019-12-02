@@ -20,7 +20,8 @@ knitr::opts_chunk$set(
 
 ![](babette_logo.png)
 
-This vignette demonstrates how to use `babette`.
+This vignette briefly demonstrates multiple features of `babette`,
+without going into much detail.
 
 First, load the library:
 
@@ -28,28 +29,25 @@ First, load the library:
 library(babette)
 ```
 
-The following example shows how to analyze one alignment:
+This vignette shows how to:
 
- * How to let `babette` run BEAST2
- * How the plot the posterior estimates
- * How to show the effective sample sizes (ESS)
+ * Let `babette` run BEAST2
+ * Plot the posterior estimates
+ * Show the effective sample sizes (ESS)
+ * Show the summary statistics
+ * Plot the posterior phylogenies
  
 In all cases, this is done for a short MCMC chain length of 10K:
 
 ```{r}
-sample_interval <- 1000
-mcmc <- create_test_mcmc(
-  chain_length = 10000,
-  tracelog = create_tracelog(
-    log_every = sample_interval
-  )
-)
-inference_model <- create_test_inference_model(
-  mcmc = mcmc
-)
+inference_model <- create_test_inference_model()
+mcmc <- inference_model$mcmc
+sample_interval <- mcmc$tracelog$log_every
 ```
 
-For a reliable inference, use an ESS of at least 200.
+## Let `babette` run BEAST2
+
+For an alignment, we'll use a `babette` example alignment.
 
 ```{r}
 if (is_beast2_installed()) {
@@ -59,6 +57,8 @@ if (is_beast2_installed()) {
   )
 }
 ```
+
+## Plot the posterior estimates
 
 ```{r}
 if (is_beast2_installed()) {
@@ -72,6 +72,8 @@ if (is_beast2_installed()) {
   p + geom_line(aes(y = birthRate), color = "blue")
 }
 ```
+
+## Show the effective sample sizes (ESS)
 
 Effective sample sizes, with 20% burn-in removed:
 
@@ -87,7 +89,9 @@ if (is_beast2_installed()) {
 }
 ```
 
-Summary statistics:
+For a reliable inference, use an ESS of at least 200.
+
+## Show the summary statisticss
   
 ```{r}
 if (is_beast2_installed()) {
@@ -97,7 +101,7 @@ if (is_beast2_installed()) {
 }
 ```
 
-Phylogenies:
+## Plot the posterior phylogenies
 
 ```{r fig.width=7, fig.height=7}
 if (is_beast2_installed()) {

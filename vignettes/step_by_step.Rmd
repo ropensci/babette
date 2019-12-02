@@ -20,11 +20,9 @@ knitr::opts_chunk$set(
 
 ![](babette_logo.png)
 
-This demo shows how to run the `babette` pipeline step by step.
+This step-by-step demo shows how to run the `babette` pipeline in detail.
 
-The `babette` demo shows how to use `babette` at its highest level:
-all intermediate steps are ignored, and all intermediate files are put
-in a temporary folder.
+First, load `babette`:
 
 ```{r load_babette, results='hide', warning=FALSE, error=FALSE, message=FALSE}
 library(babette)
@@ -33,13 +31,8 @@ library(babette)
 In all cases, this is done for a short MCMC chain length of 10K:
 
 ```{r}
-sample_interval <- 1000
-mcmc <- create_test_mcmc(
-  chain_length = 10000, 
-  tracelog = create_tracelog(
-    log_every = sample_interval
-  )
-)
+mcmc <- create_test_mcmc()
+sample_interval <- mcmc$tracelog$log_every
 ```
 
 ## Create a BEAST2 input file

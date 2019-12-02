@@ -24,10 +24,8 @@ r_binary_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
-  - ropensci/beautier
   - ropensci/beastier
   - ropensci/mauricer
-  - MangoTheCat/goodpractice
   - richelbilderbeek/nLTT
   - ropensci/spelling
 

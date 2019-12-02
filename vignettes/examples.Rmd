@@ -189,11 +189,13 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
-plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
+if (is_beast2_installed()) {
+  ggplot2::ggplot(
+    data = posterior$estimates,
+    ggplot2::aes(x = Sample)
+  ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
+  plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
+}
 ```
 
 ## Example #6: Yule tree prior with a normally distributed birth rate

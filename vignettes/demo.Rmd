@@ -91,7 +91,7 @@ if (is_beast2_installed()) {
 
 For a reliable inference, use an ESS of at least 200.
 
-## Show the summary statisticss
+## Show the summary statistics
   
 ```{r}
 if (is_beast2_installed()) {

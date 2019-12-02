@@ -20,7 +20,8 @@ knitr::opts_chunk$set(
 
 ![](babette_logo.png)
 
-This vignette shows some examples how to use `babette`.
+This vignette shows some examples how to set up different inference models 
+in `babette`.
 
 For all examples, do load `babette`:
 
@@ -73,10 +74,6 @@ if (is_beast2_installed()) {
 All other parameters are set to their defaults, as in BEAUti.
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
@@ -117,10 +114,6 @@ Here we use an MRCA prior with fixed (non-estimated) values of the mean
 and standard deviation for the common ancestor node's time.
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
@@ -141,10 +134,6 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
@@ -165,10 +154,6 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
@@ -189,13 +174,7 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-if (is_beast2_installed()) {
-  ggplot2::ggplot(
-    data = posterior$estimates,
-    ggplot2::aes(x = Sample)
-  ) + ggplot2::geom_line(ggplot2::aes(y = BDBirthRate))
-  plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
-}
+plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
@@ -221,10 +200,6 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
@@ -247,10 +222,6 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
@@ -275,10 +246,6 @@ if (is_beast2_installed()) {
 ```
 
 ```{r fig.width=7, fig.height=7}
-ggplot2::ggplot(
-  data = posterior$estimates,
-  ggplot2::aes(x = Sample)
-) + ggplot2::geom_line(ggplot2::aes(y = birthRate))
 plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 

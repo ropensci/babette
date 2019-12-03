@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 ![](babette_logo.png)
 
 This vignette is a tutorial how to use `babette` and its most 
-important `bbt_run` function.
+important `bbt_run_from_model` function.
 
 First, load `babette`:
 
@@ -29,7 +29,7 @@ First, load `babette`:
 library(babette)
 ```
 
-The main function of `babette` is `bbt_run`. Here is part of its help:
+The main function of `babette` is `bbt_run_from_model`. Here is part of its help:
 
 ```
 Do a full run: create a BEAST2 configuration file (like BEAUti 2), run BEAST2, parse results (like Tracer)
@@ -58,15 +58,16 @@ FASTA file to work on. `babette` is bundled with some FASTA files,
 so obtaining a path to a FASTA file is easy:
 
 ```{r}
-fasta_filename <- get_babette_path("anthus_aco.fas")
-testit::assert(file.exists(fasta_filename))
+fasta_filename <- get_babette_path("anthus_aco_sub.fas")
+library(testthat)
+expect_true(file.exists(fasta_filename))
 ```
 
 With `fasta_filename` available, we have the minimal
-requirements to call `bbt_run` like this:
+requirements to call `bbt_run_from_model` like this:
 
 ```
-out <- bbt_run(fasta_filename)
+out <- bbt_run_from_model(fasta_filename)
 ```
 
 Note that this code is not ran, as it would take too long.
@@ -75,16 +76,24 @@ the MCMC run that will be executed is set to one million states by default.
 To specify the MCMC options and shorten this run, 
 the `mcmc` argument is used.
 
-## `mcmc` 
+## `inference_model` and `mcmc` 
 
-`mcmc` is the `bbt_run` argument to specify the MCMC run options:
+The inference run's MCMC is part of the inference model.
+To get an inference model with a short MCMC, create 
+a test inference model like this:
 
 ```{r}
 inference_model <- create_test_inference_model()
+names(inference_model)
+```
+
+`mcmc` is the `bbt_run_from_model` argument to specify the MCMC run options:
+
+```{r}
 print(inference_model$mcmc$chain_length)
 ```
 
-With these MCMC options, we can now call `bbt_run` in way that
+With these MCMC options, we can now call `bbt_run_from_model` in way that
 it will finish fast:
 
 ```{r cache=TRUE}
@@ -98,11 +107,11 @@ if (is_beast2_installed()) {
 
 The return value, `out` contains the results of the MCMC run.
 For this tutorial, visualizing `out` is ignored, as the 'Demo' vignette
-discusses this. Instead, we will work through the other `bbt_run` parameters.
+discusses this. Instead, we will work through the other `bbt_run_from_model` parameters.
 
 ## `site_models` 
 
-`site_models` is the `bbt_run` argument to select one or more site models.
+`site_models` is the `bbt_run_from_model` argument to select one or more site models.
 As this tutorial works on a DNA alignment, such a site model can also
 be called a nucleotide substitution model.
 
@@ -136,7 +145,7 @@ if (is_beast2_installed()) {
 
 ## `clock_models`
 
-`clock_models` is the `bbt_run` argument to select one or more clock models.
+`clock_models` is the `bbt_run_from_model` argument to select one or more clock models.
 
 Picking a clock model is easy: just type:
 
@@ -168,7 +177,7 @@ if (is_beast2_installed()) {
 
 ## `tree_priors`
 
-`tree_priors` is the `bbt_run` argument to select one or more tree priors.
+`tree_priors` is the `bbt_run_from_model` argument to select one or more tree priors.
 
 Picking a tree prior is easy: just type:
 
@@ -200,7 +209,7 @@ if (is_beast2_installed()) {
 
 ## `mrca_priors`
 
-`mrca_priors` is the `bbt_run` argument to add one or more Most
+`mrca_priors` is the `bbt_run_from_model` argument to add one or more Most
 Recent Common Ancestor (hence, MRCA) priors.
 With such a prior, it can be specified which taxa have a shared
 common ancestor and when it existed.
@@ -258,32 +267,3 @@ if (is_beast2_installed()) {
   )
 }
 ```
-
-## Temporary filenames
-
-These are the `bbt_run` temporary filenames:
-
-  * `beast2_input_filename`: the BEAST2 input file
-  * `beast2_output_state_filename`: the `.xml.state` file created by BEAST2
-
-The purpose of `babette` is to remove the explicit interfacing with BEAST2,
-thus users needs not specify this. By default, these files have random names
-in a temporary folder.
-
-To store these files in the present working directory, specify their names:
-
-```{r}
-if (is_beast2_installed()) {
-
-  beast2_options <- create_beast2_options()
-  out <- bbt_run_from_model(
-    fasta_filename = get_babette_path("anthus_aco_sub.fas"),
-    inference_model = create_test_inference_model(),
-    beast2_options = beast2_options 
-  )
-  testit::assert(file.exists(beast2_options$input_filename))
-  testit::assert(file.exists(beast2_options$output_state_filename))
-}
-```
-
-

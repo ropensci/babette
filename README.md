@@ -2,7 +2,7 @@
 
 [![Peer Review Status](https://badges.ropensci.org/209_status.svg)](https://github.com/ropensci/onboarding/issues/209)
 
-Branch |[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)                                                       |[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)                                                                                                                          |[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
+Branch |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                       |[![AppVeyor logo](man/figures/AppVeyor.png)](https://www.appveyor.com)                                                                                                                          |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
 -------|--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------
 master |[![Build Status](https://travis-ci.org/ropensci/babette.svg?branch=master)](https://travis-ci.org/ropensci/babette) |[![Build status](https://ci.appveyor.com/api/projects/status/jv76errjocm5d5yq/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette-on-windows/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=master)](https://codecov.io/github/ropensci/babette/branch/master)
 develop|[![Build Status](https://travis-ci.org/ropensci/babette.svg?branch=develop)](https://travis-ci.org/ropensci/babette)| .                                                                                                                                                                                       |[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=develop)](https://codecov.io/github/ropensci/babette/branch/develop)
@@ -16,7 +16,7 @@ develop|[![Build Status](https://travis-ci.org/ropensci/babette.svg?branch=devel
  * [mauricer](https://github.com/ropensci/mauricer) install BEAST2 packages
  * [tracerer](https://github.com/ropensci/tracerer) parses BEAST2 output (`.log`, `.trees`, etc) files.
 
-![babette logo](pics/babette_logo.png)
+![babette logo](man/figures/babette_logo.png)
 
 Related R packages:
 
@@ -75,7 +75,7 @@ Sure, just add an Issue. Or send an email.
 
 ## Dependencies
 
-Package                                          |[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)                                                          |[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
+Package                                          |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                          |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
 -------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------
 [beautier](https://github.com/ropensci/beautier) |[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=master)](https://travis-ci.org/ropensci/beautier)  |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beautier/branch/master)
 [beastier](https://github.com/ropensci/beastier) |[![Build Status](https://travis-ci.org/ropensci/beastier.svg?branch=master)](https://travis-ci.org/ropensci/beastier)  |[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beastier/branch/master)
@@ -95,7 +95,7 @@ Package                                                                       | 
 
 ## Related packages
 
-Package|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
+Package|[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)|[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
 ---|---|---
 [lumier](https://github.com/ropensci/lumier)|[![Build Status](https://travis-ci.org/ropensci/lumier.svg?branch=master)](https://travis-ci.org/ropensci/lumier)|[![codecov.io](https://codecov.io/github/ropensci/lumier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/lumier/branch/master)
 

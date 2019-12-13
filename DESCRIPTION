@@ -19,7 +19,7 @@ License: GPL-3
 LazyData: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-URL: https://github.com/ropensci/babette
+URL: https://docs.ropensci.org/babette, https://github.com/ropensci/babette
 BugReports: https://github.com/ropensci/babette/issues
 Depends:
     beautier (>= 2.3),

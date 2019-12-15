@@ -1,33 +1,18 @@
 #!/bin/bash
+# Push babette and all dependencies
+#
+# Usage:
+#
+# ./babette/scripts/push
+#
+#
 
-# Push all GitHubs under babette
+for package in beautier tracerer beastier mauricer babette
+do
+  cd $package
+  git add --all :/
+  git commit -m "Move 'pics' to 'man/figures', fix https://github.com/ropensci/babette/issues/80"
+  git push
+  cd ..
+done
 
-cd ..
-git add --all :/
-git commit -m "babette update"
-git push
-cd ..
-
-cd beautier
-git add --all :/
-git commit -m "babette update"
-git push
-cd ..
-
-cd beastier
-git add --all :/
-git commit -m "babette update"
-git push
-cd ..
-
-cd tracerer
-git add --all :/
-git commit -m "babette update"
-git push
-cd ..
-
-cd mauricer
-git add --all :/
-git commit -m "babette update"
-git push
-cd ..

@@ -1,7 +1,8 @@
 #!/bin/bash
-
-cd ..
-cd ..
+#
+# Usage
+#
+# ./babette/scripts/merge
 
 for folder in beautier beastier tracerer mauricer babette lumier
 do

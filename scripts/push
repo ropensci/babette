@@ -11,7 +11,7 @@ for package in beautier tracerer beastier mauricer babette
 do
   cd $package
   git add --all :/
-  git commit -m "Move 'pics' to 'man/figures', fix https://github.com/ropensci/babette/issues/80"
+  git commit -m "babette update"
   git push
   cd ..
 done

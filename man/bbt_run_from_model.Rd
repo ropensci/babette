@@ -5,9 +5,11 @@
 \title{Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 run BEAST2, parse results (like Tracer)}
 \usage{
-bbt_run_from_model(fasta_filename,
+bbt_run_from_model(
+  fasta_filename,
   inference_model = beautier::create_inference_model(),
-  beast2_options = beastier::create_beast2_options())
+  beast2_options = beastier::create_beast2_options()
+)
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename}

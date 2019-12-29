@@ -2,7 +2,7 @@ context("bbt_process_pkg_output")
 
 test_that("no package, no change", {
 
-  out <- list(output = babette:::bbt_create_test_ns_output())
+  out <- list(output = babette::bbt_create_test_ns_output())
   length_before <- length(out)
   out <- bbt_process_pkg_output(
     out = out,
@@ -19,7 +19,7 @@ test_that("NS adds ns", {
   )
 
   out <- bbt_process_pkg_output(
-    out = list(output = babette:::bbt_create_test_ns_output()),
+    out = list(output = babette::bbt_create_test_ns_output()),
     inference_model = inference_model
   )
   expect_true("ns" %in% names(out))

@@ -20,7 +20,7 @@ test_that("use", {
   testit::assert(!mauricer::is_beast2_ns_pkg_installed())
 
   expect_error(
-    babette:::bbt_check_beast2_packages(
+    babette::bbt_check_beast2_packages(
       mcmc = create_mcmc_nested_sampling(),
       beast2_path = get_default_beast2_bin_path()
     ),
@@ -30,7 +30,7 @@ test_that("use", {
   mauricer::install_beast2_pkg("NS")
 
   expect_silent(
-    babette:::bbt_check_beast2_packages(
+    babette::bbt_check_beast2_packages(
       mcmc = create_mcmc_nested_sampling(),
       beast2_path = get_default_beast2_bin_path()
     )

@@ -5,21 +5,31 @@
 \title{Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 run BEAST2, parse results (like Tracer)}
 \usage{
-bbt_run(fasta_filename, tipdates_filename = NA,
+bbt_run(
+  fasta_filename,
+  tipdates_filename = NA,
   site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
-  tree_prior = beautier::create_yule_tree_prior(), mrca_prior = NA,
+  tree_prior = beautier::create_yule_tree_prior(),
+  mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
   beast2_input_filename = beastier::create_temp_input_filename(),
   rng_seed = 1,
   beast2_output_state_filename = beastier::create_temp_state_filename(),
-  beast2_path = beastier::get_default_beast2_path(), overwrite = TRUE,
-  verbose = FALSE, beast2_output_log_filename = "deprecated",
+  beast2_path = beastier::get_default_beast2_path(),
+  overwrite = TRUE,
+  verbose = FALSE,
+  beast2_output_log_filename = "deprecated",
   beast2_output_trees_filenames = "deprecated",
-  beast2_working_dir = "deprecated", fasta_filenames = "deprecated",
-  site_models = "deprecated", clock_models = "deprecated",
-  tree_priors = "deprecated", mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated", cleanup = "deprecated")
+  beast2_working_dir = "deprecated",
+  fasta_filenames = "deprecated",
+  site_models = "deprecated",
+  clock_models = "deprecated",
+  tree_priors = "deprecated",
+  mrca_priors = "deprecated",
+  posterior_crown_age = "deprecated",
+  cleanup = "deprecated"
+)
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename}

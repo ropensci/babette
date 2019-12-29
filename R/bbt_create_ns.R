@@ -1,11 +1,22 @@
 #' Put the info of a Nested Sampling run in a structure
 #' @param output screen output
+#' @seealso use \code{\link{bbt_create_test_ns_output}} to obtain
+#' a test screen output.
 #' @return a list with the following elements:
 #'   \itemize{
 #'     \item \code{marg_log_lik} the marginal log likelihood estimate
 #'     \item \code{marg_log_lik_sd} the standard deviation around the estimate
 #'   }
 #' @author Richèl J.C. Bilderbeek
+#' @examples
+#' library(testthat)
+#'
+#' ns <- bbt_create_ns(
+#'   output = bbt_create_test_ns_output()
+#' )
+#' expect_equal(ns$marg_log_lik, -141, tolerance = 0.2)
+#' expect_equal(ns$marg_log_lik_sd, 1.60, tolerance = 0.5)
+#' expect_equal(ns$ess, 5.49, tolerance = 0.2)
 #' @export
 bbt_create_ns <- function(
   output

@@ -5,8 +5,7 @@
 \title{Checks if \code{bbt_run} has the BEAST packages needed to process
 its arguments. Will throw if not.}
 \usage{
-bbt_check_beast2_packages(mcmc,
-  beast2_path = get_default_beast2_bin_path())
+bbt_check_beast2_packages(mcmc, beast2_path = get_default_beast2_bin_path())
 }
 \arguments{
 \item{mcmc}{the MCMC options,

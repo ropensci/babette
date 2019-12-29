@@ -3,7 +3,6 @@
 \docType{package}
 \name{babette}
 \alias{babette}
-\alias{babette-package}
 \title{babette: A package for Bayesian phylogenetics.}
 \description{
 'babette' provides for an alternative workflow of using

@@ -5,13 +5,33 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-bbt_default_params_doc(beast2_input_filename, beast2_options,
-  beast2_output_log_filename, beast2_output_state_filename,
-  beast2_output_trees_filenames, beast2_path, beast2_working_dir, cleanup,
-  clock_model, clock_models, fasta_filename, fasta_filenames,
-  inference_model, mcmc, mrca_prior, mrca_priors, overwrite,
-  posterior_crown_age, rng_seed, site_model, site_models,
-  tipdates_filename, tree_prior, tree_priors, verbose)
+bbt_default_params_doc(
+  beast2_input_filename,
+  beast2_options,
+  beast2_output_log_filename,
+  beast2_output_state_filename,
+  beast2_output_trees_filenames,
+  beast2_path,
+  beast2_working_dir,
+  cleanup,
+  clock_model,
+  clock_models,
+  fasta_filename,
+  fasta_filenames,
+  inference_model,
+  mcmc,
+  mrca_prior,
+  mrca_priors,
+  overwrite,
+  posterior_crown_age,
+  rng_seed,
+  site_model,
+  site_models,
+  tipdates_filename,
+  tree_prior,
+  tree_priors,
+  verbose
+)
 }
 \arguments{
 \item{beast2_input_filename}{path of the BEAST2 configuration file.

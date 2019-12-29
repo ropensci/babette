@@ -19,6 +19,20 @@ a list with the following elements:
 \description{
 Put the info of a Nested Sampling run in a structure
 }
+\examples{
+library(testthat)
+
+ns <- bbt_create_ns(
+  output = bbt_create_test_ns_output()
+)
+expect_equal(ns$marg_log_lik, -141, tolerance = 0.2)
+expect_equal(ns$marg_log_lik_sd, 1.60, tolerance = 0.5)
+expect_equal(ns$ess, 5.49, tolerance = 0.2)
+}
+\seealso{
+use \code{\link{bbt_create_test_ns_output}} to obtain
+a test screen output.
+}
 \author{
 Richèl J.C. Bilderbeek
 }

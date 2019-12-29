@@ -1,5 +1,5 @@
 Package: babette
-Title: Control BEAST2
+Title: Control 'BEAST2'
 Version: 2.1
 Authors@R: c(
     person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),

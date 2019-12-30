@@ -78,7 +78,7 @@ state_filename <- get_tracerer_path("beast2_example_output.xml.state")
 
 if (is_beast2_installed()) {
   
-  state_filename <- tempfile(fileext = ".xml.state")
+  state_filename <- beastier::create_temp_state_filename()
   run_beast2(
     input_filename = beast2_input_file,
     output_state_filename = state_filename

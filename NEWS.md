@@ -11,6 +11,7 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
   * Process feedback CRAN (Issue 81)
+  * Renamed internal function names to be more descriptive
 
 ### BUG FIXES
 

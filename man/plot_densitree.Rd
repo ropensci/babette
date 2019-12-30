@@ -19,13 +19,13 @@ nothing. Will produce a plot.
 Draw multiple trees on top of one another.
 }
 \examples{
-  if (is_beast2_installed()) {
-     out <- bbt_run(
-      get_babette_path("anthus_aco.fas"),
-      mcmc = create_test_mcmc(chain_length = 10000)
-    )
-    plot_densitree(out$anthus_aco_trees)
-  }
+if (is_beast2_installed()) {
+   out <- bbt_run(
+    get_babette_path("anthus_aco.fas"),
+    mcmc = create_test_mcmc(chain_length = 10000)
+  )
+  plot_densitree(out$anthus_aco_trees)
+}
 }
 \author{
 Richèl J.C. Bilderbeek

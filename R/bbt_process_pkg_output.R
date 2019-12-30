@@ -6,7 +6,7 @@
 #' }
 #' @param mcmc an MCMC
 #' @param alignment_ids alignment IDs, as obtained by
-#'   \link[beautier]{get_alignment_ids}
+#'   \link[beautier]{get_alignment_ids_from_xml}
 #' @return complete babette output with added attributes,
 #'   which depends on the BEAST2 package specificics
 #'   \itemize{

@@ -1,4 +1,7 @@
 test_that("use", {
-  if (!beastier::is_beast2_installed()) return()
-  expect_silent(bbt_self_test())
+  if (is_beast2_installed()) {
+    expect_silent(bbt_self_test())
+  } else {
+    expect_error(bbt_self_test())
+  }
 })

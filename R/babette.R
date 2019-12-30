@@ -49,6 +49,9 @@
 #'   expect_true("rejectOp" %in% names(out$operators))
 #' }
 #' @seealso
+#' Use \link{bbt_self_test} to do verify \link{babette} is installed
+#' correctly.\cr
+#'
 #' These are packages associated with 'babette':
 #' \itemize{
 #'   \item{

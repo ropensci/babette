@@ -5,11 +5,31 @@
 \title{Update all babette dependencies, by installing their
 latest versions}
 \usage{
-update_babette()
+update_babette(upgrade = "default")
+}
+\arguments{
+\item{upgrade}{One of "default", "ask", "always", or "never". "default"
+respects the value of the \code{R_REMOTES_UPGRADE} environment variable if set,
+and falls back to "ask" if unset. "ask" prompts the user for which out of
+date packages to upgrade. For non-interactive sessions "ask" is equivalent
+to "always". \code{TRUE} and \code{FALSE} are also accepted and correspond to
+"always" and "never" respectively.}
 }
 \description{
 Update all babette dependencies, by installing their
 latest versions
+}
+\examples{
+library(testthat)
+
+if (is_on_travis()) {
+
+  # Updates the babette dependencies without asking
+  update_babette(upgrade = "always")
+
+  # Updating again should produce no output, as there is no
+  expect_silent(update_babette(upgrade = "always"))
+}
 }
 \author{
 Giovanni Laudanno, Richèl J.C. Bilderbeek

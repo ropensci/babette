@@ -1,6 +1,47 @@
-#' Checks if \code{bbt_run} has the BEAST packages needed to process
-#' its arguments. Will throw if not.
+#' Checks if \link{\code{bbt_run}} has the 'BEAST2' packages needed to process
+#' its arguments. Will \link{throw} if not.
+#'
+#' For example, to use a Nested Sampling MCMC, the 'BEAST2' 'NS' package
+#' needs to be installed.
 #' @inheritParams bbt_default_params_doc
+#' @examples
+#' library(testthat)
+#'
+#' # This test uninstalls the NS BEAST2 package.
+#' # Only do that on CI services, else a user without internet
+#' # suddenly finds the NS BEAST2 package installed and unable
+#' # to reinstall it
+#' if (is_beast2_installed() && is_on_ci) {
+#'
+#'   # Check to need to install NS later
+#'   was_ns_installed <- is_beast2_ns_pkg_installed()
+#'
+#'   if (is_beast2_ns_pkg_installed()) {
+#'     uninstall_beast2_pkg("NS")
+#'   }
+#'
+#'   # Without the NS BEAST2 package installed,
+#'   # a Nested Sampling MCMC cannot be created.
+#'   expect_false(is_beast2_ns_pkg_installed())
+#'   expect_error(
+#'     bbt_check_beast2_packages(
+#'       mcmc = create_ns_mcmc()
+#'     ),
+#'     "Must install 'NS' to use 'create_ns_mcmc'."
+#'   )
+#'
+#'   install_beast2_pkg("NS")
+#'
+#'   expect_silent(
+#'     bbt_check_beast2_packages(
+#'       mcmc = create_ns_mcmc()
+#'     )
+#'   )
+#'
+#'   if (!was_ns_installed) {
+#'     uninstall_beast2_pkg("BS")
+#'   }
+#' }
 #' @export
 bbt_check_beast2_packages <- function(
   mcmc,

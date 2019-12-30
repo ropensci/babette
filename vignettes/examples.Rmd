@@ -34,7 +34,7 @@ location at `r get_default_beast2_path()`. If this is not the case,
 we will use some fabricated output:
 
 ```{r}
-posterior <- get_bbt_run_test_output()
+posterior <- create_test_bbt_run_output()
 posterior$anthus_aco_sub_trees <- posterior$anthus_aco_trees
 names(posterior)
 ```

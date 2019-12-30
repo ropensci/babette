@@ -86,7 +86,7 @@
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
-bbt_default_params_doc <- function(
+default_params_doc <- function(
   beast2_input_filename,
   beast2_options,
   beast2_output_log_filename,

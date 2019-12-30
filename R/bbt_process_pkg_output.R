@@ -1,5 +1,5 @@
 #' Process the BEAST2 output dependent on BEAST2 package specifics
-#' @inheritParams bbt_default_params_doc
+#' @inheritParams default_params_doc
 #' @param out a list with the complete babette output, with elements:
 #' \itemize{
 #'   \item \code{output} textual output of a BEAST2 run

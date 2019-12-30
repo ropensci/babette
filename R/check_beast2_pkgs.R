@@ -3,7 +3,7 @@
 #'
 #' For example, to use a Nested Sampling MCMC, the 'BEAST2' 'NS' package
 #' needs to be installed.
-#' @inheritParams bbt_default_params_doc
+#' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)
 #'

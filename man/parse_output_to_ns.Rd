@@ -23,14 +23,14 @@ Put the info of a Nested Sampling run in a structure
 library(testthat)
 
 ns <- parse_output_to_ns(
-  output = bbt_create_test_ns_output()
+  output = create_test_ns_output()
 )
 expect_equal(ns$marg_log_lik, -141, tolerance = 0.2)
 expect_equal(ns$marg_log_lik_sd, 1.60, tolerance = 0.5)
 expect_equal(ns$ess, 5.49, tolerance = 0.2)
 }
 \seealso{
-use \code{\link{bbt_create_test_ns_output}} to obtain
+use \code{\link{create_test_ns_output}} to obtain
 a test screen output.
 }
 \author{

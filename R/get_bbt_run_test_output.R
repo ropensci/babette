@@ -66,7 +66,7 @@ get_bbt_run_test_output <- function() {
     rejectOp = c(11, 12)
   )
 
-  output <- babette::bbt_create_test_ns_output()
+  output <- babette::create_test_ns_output()
 
   list(
     estimates = estimates,

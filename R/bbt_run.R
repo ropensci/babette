@@ -8,7 +8,7 @@
 #'     parameter estimates
 #'   }
 #'   \item{
-#'     \code{[alignment_id]_trees}: a \code{\link[ape]{multiPhylo}}
+#'     \code{[alignment_id]_trees}: a \code{multiPhylo}
 #'     containing the phylogenies
 #'     in the 'BEAST2' posterior. \code{[alignment_id]}
 #'     is the ID of the alignment. For example,
@@ -26,7 +26,7 @@
 #'   }
 #'   \item{
 #'     \code{ns}: (optional) the results of a marginal likelihood estimation,
-#'     will exist only when \code{\link[beautier]{create_ns_mcmc()}} was
+#'     will exist only when \code{\link[beautier]{create_ns_mcmc}} was
 #'     used for the MCMC.
 #'     This structure will contain the following elements:
 #'     \itemize{

@@ -36,7 +36,7 @@ In the case 'BEAST2' is not installed, we'll use
 this fabricated data:
 
 ```{r}
-out_jc69 <- get_bbt_run_test_output()
+out_jc69 <- create_test_bbt_run_output()
 out_jc69$ns$marg_log_lik <- c(-1.1)
 out_jc69$ns$marg_log_lik_sd <- c(0.1)
 out_gtr <- out_jc69

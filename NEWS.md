@@ -10,8 +10,7 @@ Newest versions at top.
   
 ### MINOR IMPROVEMENTS
 
-  * Process feedback CRAN, 
-    see [https://github.com/ropensci/babette/issues/81](https://github.com/ropensci/babette/issues/81)
+  * Process feedback CRAN (Issue 81)
 
 ### BUG FIXES
 

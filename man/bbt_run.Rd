@@ -18,17 +18,7 @@ bbt_run(
   beast2_output_state_filename = beastier::create_temp_state_filename(),
   beast2_path = beastier::get_default_beast2_path(),
   overwrite = TRUE,
-  verbose = FALSE,
-  beast2_output_log_filename = "deprecated",
-  beast2_output_trees_filenames = "deprecated",
-  beast2_working_dir = "deprecated",
-  fasta_filenames = "deprecated",
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated",
-  cleanup = "deprecated"
+  verbose = FALSE
 )
 }
 \arguments{
@@ -93,45 +83,6 @@ file already exists,
 'BEAST2'  (and thus \link{babette}) will freeze.}
 
 \item{verbose}{set to TRUE for more output}
-
-\item{beast2_output_log_filename}{name of the log file created by 'BEAST2',
-containing the parameter estimates in time. By default, this
-file is put a temporary folder with a random
-filename, as the user needs not read it: its content
-is parsed and returned by this function.
-Specifying a \code{beast2_output_log_filename} allows to store that file
-in a more permanently stored location.}
-
-\item{beast2_output_trees_filenames}{name of the one or more trees
-files created by 'BEAST2', one per alignment. By default, these
-files are put a temporary folder with a random
-filename, as the user needs not read it: their content
-is parsed and returned by this function.
-Specifying \code{beast2_output_trees_filenames} allows to store these
-one or more files in a more permanently stored location.}
-
-\item{beast2_working_dir}{the folder 'BEAST2'  will work in. This is
-an (empty) temporary folder by default. This allows to call
-'BEAST2'  in multiple parallel processes, as each process can have
-its own working directory}
-
-\item{fasta_filenames}{one or more FASTA filename, each with one alignment}
-
-\item{site_models}{one or more site models,
-see \link[beautier]{create_site_models}}
-
-\item{clock_models}{one or more clock models,
-see \link[beautier]{create_clock_models}}
-
-\item{tree_priors}{one or more tree priors,
-see \link[beautier]{create_tree_priors}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{posterior_crown_age}{deprecated}
-
-\item{cleanup}{set to FALSE to keep all temporary files}
 }
 \value{
 a list with the following elements:\cr

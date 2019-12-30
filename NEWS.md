@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## babette 2.1.1 (2019-12-30)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * Process feedback CRAN, 
+    see [https://github.com/ropensci/babette/issues/81](https://github.com/ropensci/babette/issues/81)
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * Remove arguments that are deprecated, as there is no CRAN
+    version yet
+
 ## babette 2.1 (2019-10-27)
 
 ### NEW FEATURES

@@ -68,7 +68,6 @@
 #'  or \code{treelog} (see \link{create_treelog})
 #'  file already exists,
 #'  'BEAST2'  (and thus \link{babette}) will freeze.
-#' @param posterior_crown_age deprecated
 #' @param rng_seed the random number generator seed. Must be either
 #'   \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
 #'   results in 'BEAST2'  picking a random seed.

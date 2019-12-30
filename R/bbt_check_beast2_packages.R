@@ -1,6 +1,7 @@
 #' Checks if \code{bbt_run} has the BEAST packages needed to process
 #' its arguments. Will throw if not.
 #' @inheritParams bbt_default_params_doc
+#' @export
 bbt_check_beast2_packages <- function(
   mcmc,
   beast2_path = get_default_beast2_bin_path()

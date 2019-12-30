@@ -102,7 +102,6 @@ default_params_doc <- function(
   mrca_prior,
   mrca_priors,
   overwrite,
-  posterior_crown_age,
   rng_seed,
   site_model,
   site_models,

@@ -11,7 +11,7 @@
 #' # Only do that on CI services, else a user without internet
 #' # suddenly finds the NS BEAST2 package installed and unable
 #' # to reinstall it
-#' if (is_beast2_installed() && is_on_ci) {
+#' if (is_beast2_installed() && is_on_ci()) {
 #'
 #'   # Check to need to install NS later
 #'   was_ns_installed <- is_beast2_ns_pkg_installed()

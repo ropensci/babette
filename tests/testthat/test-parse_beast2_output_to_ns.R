@@ -1,5 +1,5 @@
 test_that("use", {
-  ns <- parse_output_to_ns(
+  ns <- parse_beast2_output_to_ns(
     output = create_test_ns_output()
   )
   expect_equal(ns$marg_log_lik, -141, tolerance = 0.2)

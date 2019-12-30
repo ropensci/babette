@@ -24,7 +24,7 @@ parse_beast2_output <- function(
   inference_model
 ) {
   if (beautier::is_mcmc_nested_sampling(inference_model$mcmc)) {
-    out$ns <- babette::parse_output_to_ns(out$output)
+    out$ns <- babette::parse_beast2_output_to_ns(out$output)
   }
   out
 }

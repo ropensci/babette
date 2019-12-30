@@ -1,8 +1,6 @@
-context("test-get_bbt_run_test_output")
-
 test_that("use", {
 
-  out <- get_bbt_run_test_output()
+  out <- create_test_bbt_run_output()
 
   # Same tests as in code examples
   expect_true("estimates" %in% names(out))

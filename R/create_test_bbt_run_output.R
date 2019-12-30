@@ -6,7 +6,7 @@
 #'   or \code{\link{bbt_run_from_model}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  out <- get_bbt_run_test_output()
+#'  out <- create_test_bbt_run_output()
 #'
 #'  library(testthat)
 #'  expect_true("estimates" %in% names(out))
@@ -34,7 +34,7 @@
 #'  expect_true("rejectIv" %in% names(out$operators))
 #'  expect_true("rejectOp" %in% names(out$operators))
 #' @export
-get_bbt_run_test_output <- function() {
+create_test_bbt_run_output <- function() {
 
   anthus_aco_trees <- c(
     ape::read.tree(text = "((A:2, B:2):1, C:3);"),

@@ -18,7 +18,7 @@
 #'       created during the marginal likelihood estimation
 #'   }
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 parse_beast2_output <- function(
   out,
   inference_model

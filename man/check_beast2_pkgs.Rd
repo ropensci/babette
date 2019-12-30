@@ -3,7 +3,7 @@
 \name{check_beast2_pkgs}
 \alias{check_beast2_pkgs}
 \title{Checks if \link{\code{bbt_run}} has the 'BEAST2' packages needed to process
-its arguments. Will \link{throw} if not.}
+its arguments. Will \link{stop} if not.}
 \usage{
 check_beast2_pkgs(mcmc, beast2_path = get_default_beast2_bin_path())
 }

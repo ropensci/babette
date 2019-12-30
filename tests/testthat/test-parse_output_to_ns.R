@@ -1,7 +1,5 @@
-context("bbt_create_ns")
-
 test_that("use", {
-  ns <- bbt_create_ns(
+  ns <- parse_output_to_ns(
     output = bbt_create_test_ns_output()
   )
   expect_equal(ns$marg_log_lik, -141, tolerance = 0.2)

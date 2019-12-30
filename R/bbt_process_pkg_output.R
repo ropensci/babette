@@ -24,7 +24,7 @@ bbt_process_pkg_output <- function(
   inference_model
 ) {
   if (beautier::is_mcmc_nested_sampling(inference_model$mcmc)) {
-    out$ns <- babette::bbt_create_ns(out$output)
+    out$ns <- babette::parse_output_to_ns(out$output)
   }
   out
 }

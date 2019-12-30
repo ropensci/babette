@@ -1,4 +1,4 @@
-#' Checks if \link{\code{bbt_run}} has the 'BEAST2' packages needed to process
+#' Checks if \code{\link{bbt_run}} has the 'BEAST2' packages needed to process
 #' its arguments. Will \link{stop} if not.
 #'
 #' For example, to use a Nested Sampling MCMC, the 'BEAST2' 'NS' package

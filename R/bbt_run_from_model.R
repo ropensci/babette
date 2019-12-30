@@ -213,7 +213,7 @@ bbt_run_from_model <- function(
 
   # Process the package specific output,
   # for example, add an 'ns' atributed for Nested Sampling
-  bbt_process_pkg_output(
+  parse_beast2_output(
     out = out,
     inference_model = inference_model
   )

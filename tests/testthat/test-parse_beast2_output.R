@@ -1,10 +1,10 @@
-context("bbt_process_pkg_output")
+context("parse_beast2_output")
 
 test_that("no package, no change", {
 
   out <- list(output = babette::create_test_ns_output())
   length_before <- length(out)
-  out <- bbt_process_pkg_output(
+  out <- parse_beast2_output(
     out = out,
     inference_model = beautier::create_test_inference_model()
   )
@@ -18,7 +18,7 @@ test_that("NS adds ns", {
     mcmc = create_test_ns_mcmc()
   )
 
-  out <- bbt_process_pkg_output(
+  out <- parse_beast2_output(
     out = list(output = babette::create_test_ns_output()),
     inference_model = inference_model
   )

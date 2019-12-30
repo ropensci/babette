@@ -19,7 +19,7 @@
 #'   }
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-bbt_process_pkg_output <- function(
+parse_beast2_output <- function(
   out,
   inference_model
 ) {

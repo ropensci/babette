@@ -2,8 +2,8 @@
 % Please edit documentation in R/bbt_run_from_model.R
 \name{bbt_run_from_model}
 \alias{bbt_run_from_model}
-\title{Do a full run: create a BEAST2 configuration file (like BEAUti 2),
-run BEAST2, parse results (like Tracer)}
+\title{Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+run 'BEAST2', parse results (like 'Tracer')}
 \usage{
 bbt_run_from_model(
   fasta_filename,
@@ -17,20 +17,20 @@ bbt_run_from_model(
 \item{inference_model}{a Bayesian phylogenetic inference model,
 as returned by \link[beautier]{create_inference_model}}
 
-\item{beast2_options}{BEAST2 options,
+\item{beast2_options}{'BEAST2'  options,
 as can be created by \link[beastier]{create_beast2_options}}
 }
 \value{
 a list with the following elements:\cr
 \itemize{
   \item{
-    \code{estimates}: a data frame with BEAST2
+    \code{estimates}: a data frame with 'BEAST2'
     parameter estimates
   }
   \item{
     \code{[alignment_id]_trees}: a \code{multiPhylo}
     containing the phylogenies
-    in the BEAST2 posterior. \code{[alignment_id]}
+    in the 'BEAST2' posterior. \code{[alignment_id]}
     is the ID of the alignment. For example,
     when running \code{bbt_run_from_model} with
     \code{anthus_aco.fas}, this element will have
@@ -38,7 +38,7 @@ a list with the following elements:\cr
   }
   \item{
     \code{operators}: a data frame with the
-    BEAST2 MCMC operator acceptances
+    'BEAST2' MCMC operator acceptances
   }
   \item{
     \code{output}: a numeric vector with the output
@@ -61,8 +61,8 @@ a list with the following elements:\cr
 }
 }
 \description{
-Do a full run: create a BEAST2 configuration file (like BEAUti 2),
-run BEAST2, parse results (like Tracer)
+Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+run 'BEAST2', parse results (like 'Tracer')
 }
 \examples{
 library(testthat)

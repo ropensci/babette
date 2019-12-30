@@ -11,9 +11,9 @@ check_beast2_pkgs(mcmc, beast2_path = get_default_beast2_bin_path())
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}
 
-\item{beast2_path}{name of either a BEAST2 binary file
+\item{beast2_path}{name of either a 'BEAST2'  binary file
 (usually simply \code{beast})
-or a BEAST2 jar file
+or a 'BEAST2'  jar file
 (usually has a \code{.jar} extension).
 Use \code{get_default_beast2_bin_path} to get
 the default BEAST binary file's path

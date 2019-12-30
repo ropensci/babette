@@ -1,16 +1,16 @@
-#' Do a full run: create a BEAST2 configuration file (like BEAUti 2),
-#' run BEAST2, parse results (like Tracer)
+#' Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+#' run 'BEAST2', parse results (like 'Tracer')
 #' @inheritParams default_params_doc
 #' @return a list with the following elements:\cr
 #' \itemize{
 #'   \item{
-#'     \code{estimates}: a data frame with BEAST2
+#'     \code{estimates}: a data frame with 'BEAST2'
 #'     parameter estimates
 #'   }
 #'   \item{
 #'     \code{[alignment_id]_trees}: a \code{multiPhylo}
 #'     containing the phylogenies
-#'     in the BEAST2 posterior. \code{[alignment_id]}
+#'     in the 'BEAST2' posterior. \code{[alignment_id]}
 #'     is the ID of the alignment. For example,
 #'     when running \code{bbt_run_from_model} with
 #'     \code{anthus_aco.fas}, this element will have
@@ -18,7 +18,7 @@
 #'   }
 #'   \item{
 #'     \code{operators}: a data frame with the
-#'     BEAST2 MCMC operator acceptances
+#'     'BEAST2' MCMC operator acceptances
 #'   }
 #'   \item{
 #'     \code{output}: a numeric vector with the output

@@ -1,5 +1,5 @@
 #' Get the alignment IDs from a file with one alignment
-#' @param xml_filename name of a BEAST2 XML input filename
+#' @param xml_filename name of a 'BEAST2' XML input filename
 #' @return a character vector with one or more alignment IDs
 #' @author Richèl J.C. Bilderbeek
 #' @examples

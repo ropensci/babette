@@ -8,17 +8,17 @@
 #'     parameter estimates
 #'   }
 #'   \item{
-#'     \code{[alignment_id]_trees}: a \code{multiPhylo}
+#'     \code{[alignment_id]_trees}: a \code{\link[ape]{multiPhylo}}
 #'     containing the phylogenies
-#'     in the BEAST2 posterior. \code{[alignment_id]}
+#'     in the 'BEAST2' posterior. \code{[alignment_id]}
 #'     is the ID of the alignment. For example,
-#'     when running \code{bbt_run} with
+#'     when running \code{\link{bbt_run}} with
 #'     \code{anthus_aco.fas}, this element will have
 #'     name \code{anthus_aco_trees}
 #'   }
 #'   \item{
 #'     \code{operators}: a data frame with the
-#'     BEAST2 MCMC operator acceptances
+#'     'BEAST2' MCMC operator acceptances
 #'   }
 #'   \item{
 #'     \code{output}: a numeric vector with the output
@@ -26,8 +26,8 @@
 #'   }
 #'   \item{
 #'     \code{ns}: (optional) the results of a marginal likelihood estimation,
-#'     will exist only when \code{create_ns_mcmc()} was
-#'     used for \code{mcmc}.
+#'     will exist only when \code{\link[beautier]{create_ns_mcmc()}} was
+#'     used for the MCMC.
 #'     This structure will contain the following elements:
 #'     \itemize{
 #'       \item \code{marg_log_lik} the marginal log likelihood estimate
@@ -41,44 +41,47 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  if (is_beast2_installed()) {
+#' library(testthat)
 #'
-#'    mcmc <- create_test_mcmc()
+#' if (is_beast2_installed()) {
 #'
-#'    out <- bbt_run(
-#'      fasta_filename = get_babette_path("anthus_aco.fas"),
-#'      mcmc = mcmc
-#'    )
+#'   mcmc <- create_test_mcmc()
 #'
-#'    library(testthat)
-#'    expect_true("estimates" %in% names(out))
-#'    expect_true("anthus_aco_trees" %in% names(out))
-#'    expect_true("operators" %in% names(out))
-#'    expect_true("output" %in% names(out))
-#'    expect_true(is_phylo(out$anthus_aco_trees[[1]]))
+#'   out <- bbt_run(
+#'     fasta_filename = get_babette_path("anthus_aco.fas"),
+#'     mcmc = mcmc
+#'   )
 #'
-#'    #' The number of expected trees. The tree at state zero is also logged
-#'    n_trees_expected <- 1 + (mcmc$chain_length / mcmc$treelog$log_every)
-#'    expect_equal(length(out$anthus_aco_trees), n_trees_expected)
+#'   expect_true("estimates" %in% names(out))
+#'   expect_true("anthus_aco_trees" %in% names(out))
+#'   expect_true("operators" %in% names(out))
+#'   expect_true("output" %in% names(out))
+#'   expect_true(is_phylo(out$anthus_aco_trees[[1]]))
 #'
-#'    expect_true("Sample" %in% names(out$estimates))
-#'    expect_true("posterior" %in% names(out$estimates))
-#'    expect_true("likelihood" %in% names(out$estimates))
-#'    expect_true("prior" %in% names(out$estimates))
-#'    expect_true("treeLikelihood" %in% names(out$estimates))
-#'    expect_true("TreeHeight" %in% names(out$estimates))
-#'    expect_true("YuleModel" %in% names(out$estimates))
-#'    expect_true("birthRate" %in% names(out$estimates))
+#'   #' The number of expected trees. The tree at state zero is also logged
+#'   n_trees_expected <- 1 + (mcmc$chain_length /
+#'     mcmc$treelog$log_every
+#'   )
+#'   expect_equal(length(out$anthus_aco_trees), n_trees_expected)
 #'
-#'    expect_true("operator" %in% names(out$operators))
-#'    expect_true("p" %in% names(out$operators))
-#'    expect_true("accept" %in% names(out$operators))
-#'    expect_true("reject" %in% names(out$operators))
-#'    expect_true("acceptFC" %in% names(out$operators))
-#'    expect_true("rejectFC" %in% names(out$operators))
-#'    expect_true("rejectIv" %in% names(out$operators))
-#'    expect_true("rejectOp" %in% names(out$operators))
-#'  }
+#'   expect_true("Sample" %in% names(out$estimates))
+#'   expect_true("posterior" %in% names(out$estimates))
+#'   expect_true("likelihood" %in% names(out$estimates))
+#'   expect_true("prior" %in% names(out$estimates))
+#'   expect_true("treeLikelihood" %in% names(out$estimates))
+#'   expect_true("TreeHeight" %in% names(out$estimates))
+#'   expect_true("YuleModel" %in% names(out$estimates))
+#'   expect_true("birthRate" %in% names(out$estimates))
+#'
+#'   expect_true("operator" %in% names(out$operators))
+#'   expect_true("p" %in% names(out$operators))
+#'   expect_true("accept" %in% names(out$operators))
+#'   expect_true("reject" %in% names(out$operators))
+#'   expect_true("acceptFC" %in% names(out$operators))
+#'   expect_true("rejectFC" %in% names(out$operators))
+#'   expect_true("rejectIv" %in% names(out$operators))
+#'   expect_true("rejectOp" %in% names(out$operators))
+#' }
 #' @seealso Use \code{\link[tracerer]{remove_burn_ins}}
 #'   to remove the burn-ins from
 #'   the posterior's estimates (\code{posterior$estimates})

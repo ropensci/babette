@@ -1,6 +1,6 @@
-#' Prepare for BEAST2 creating files
+#' Prepare for 'BEAST2' creating files
 #'
-#' The inference model and BEAST2 options contain paths that may point
+#' The inference model and 'BEAST2' options contain paths that may point
 #' to sub-sub-sub folders. Create those folders and test
 #' if these folders can be written to
 #' @inheritParams default_params_doc

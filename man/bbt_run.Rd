@@ -51,38 +51,38 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}
 
-\item{beast2_input_filename}{path of the BEAST2 configuration file.
+\item{beast2_input_filename}{path of the 'BEAST2'  configuration file.
 By default, this file is put in a temporary folder with a random
-filename, as the user needs not read it: it is used as input of BEAST2.
+filename, as the user needs not read it: it is used as input of 'BEAST2'.
 Specifying a \code{beast2_input_filename} allows to store that file
 in a more permanently stored location.}
 
 \item{rng_seed}{the random number generator seed. Must be either
 \code{NA} or a positive non-zero value. An RNG seed of \code{NA}
-results in BEAST2 picking a random seed.}
+results in 'BEAST2'  picking a random seed.}
 
 \item{beast2_output_state_filename}{name of the final state file created
-by BEAST2, containing the operator acceptances. By default, this
+by 'BEAST2', containing the operator acceptances. By default, this
 file is put a temporary folder with a random
 filename, as the user needs not read it: its content
 is parsed and returned by this function.
 Specifying a \code{beast2_output_state_filename} allows to store that file
 in a more permanently stored location.}
 
-\item{beast2_path}{name of either a BEAST2 binary file
+\item{beast2_path}{name of either a 'BEAST2'  binary file
 (usually simply \code{beast})
-or a BEAST2 jar file
+or a 'BEAST2'  jar file
 (usually has a \code{.jar} extension).
 Use \code{get_default_beast2_bin_path} to get
 the default BEAST binary file's path
 Use \code{get_default_beast2_jar_path} to get
 the default BEAST jar file's path}
 
-\item{overwrite}{will BEAST2 overwrite files? Like BEAST2,
+\item{overwrite}{will 'BEAST2'  overwrite files? Like 'BEAST2',
 this is set to \link{TRUE} by default.
-If \link{TRUE}, BEAST2 will overwrite the
+If \link{TRUE}, 'BEAST2'  will overwrite the
 \code{beast2_options$output_state_filename} if its present.
-If \link{FALSE}, BEAST2 will not overwrite the
+If \link{FALSE}, 'BEAST2'  will not overwrite the
 \code{beast2_options$output_state_filename} if its present
 and \link{babette} will give an error message.
 Note that if \code{overwrite} is set to \link{FALSE} when
@@ -90,11 +90,11 @@ a \code{tracelog} (see \link{create_tracelog}),
 \code{screenlog} (see \link{create_screenlog})
 or \code{treelog} (see \link{create_treelog})
 file already exists,
-BEAST2 (and thus \link{babette}) will freeze.}
+'BEAST2'  (and thus \link{babette}) will freeze.}
 
 \item{verbose}{set to TRUE for more output}
 
-\item{beast2_output_log_filename}{name of the log file created by BEAST2,
+\item{beast2_output_log_filename}{name of the log file created by 'BEAST2',
 containing the parameter estimates in time. By default, this
 file is put a temporary folder with a random
 filename, as the user needs not read it: its content
@@ -103,16 +103,16 @@ Specifying a \code{beast2_output_log_filename} allows to store that file
 in a more permanently stored location.}
 
 \item{beast2_output_trees_filenames}{name of the one or more trees
-files created by BEAST2, one per alignment. By default, these
+files created by 'BEAST2', one per alignment. By default, these
 files are put a temporary folder with a random
 filename, as the user needs not read it: their content
 is parsed and returned by this function.
 Specifying \code{beast2_output_trees_filenames} allows to store these
 one or more files in a more permanently stored location.}
 
-\item{beast2_working_dir}{the folder BEAST2 will work in. This is
+\item{beast2_working_dir}{the folder 'BEAST2'  will work in. This is
 an (empty) temporary folder by default. This allows to call
-BEAST2 in multiple parallel processes, as each process can have
+'BEAST2'  in multiple parallel processes, as each process can have
 its own working directory}
 
 \item{fasta_filenames}{one or more FASTA filename, each with one alignment}
@@ -141,17 +141,17 @@ a list with the following elements:\cr
     parameter estimates
   }
   \item{
-    \code{[alignment_id]_trees}: a \code{multiPhylo}
+    \code{[alignment_id]_trees}: a \code{\link[ape]{multiPhylo}}
     containing the phylogenies
-    in the BEAST2 posterior. \code{[alignment_id]}
+    in the 'BEAST2' posterior. \code{[alignment_id]}
     is the ID of the alignment. For example,
-    when running \code{bbt_run} with
+    when running \code{\link{bbt_run}} with
     \code{anthus_aco.fas}, this element will have
     name \code{anthus_aco_trees}
   }
   \item{
     \code{operators}: a data frame with the
-    BEAST2 MCMC operator acceptances
+    'BEAST2' MCMC operator acceptances
   }
   \item{
     \code{output}: a numeric vector with the output
@@ -159,8 +159,8 @@ a list with the following elements:\cr
   }
   \item{
     \code{ns}: (optional) the results of a marginal likelihood estimation,
-    will exist only when \code{create_ns_mcmc()} was
-    used for \code{mcmc}.
+    will exist only when \code{\link[beautier]{create_ns_mcmc()}} was
+    used for the MCMC.
     This structure will contain the following elements:
     \itemize{
       \item \code{marg_log_lik} the marginal log likelihood estimate
@@ -178,44 +178,47 @@ Do a full run: create a BEAST2 configuration file (like BEAUti 2),
 run BEAST2, parse results (like Tracer)
 }
 \examples{
- if (is_beast2_installed()) {
+library(testthat)
 
-   mcmc <- create_test_mcmc()
+if (is_beast2_installed()) {
 
-   out <- bbt_run(
-     fasta_filename = get_babette_path("anthus_aco.fas"),
-     mcmc = mcmc
-   )
+  mcmc <- create_test_mcmc()
 
-   library(testthat)
-   expect_true("estimates" \%in\% names(out))
-   expect_true("anthus_aco_trees" \%in\% names(out))
-   expect_true("operators" \%in\% names(out))
-   expect_true("output" \%in\% names(out))
-   expect_true(is_phylo(out$anthus_aco_trees[[1]]))
+  out <- bbt_run(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    mcmc = mcmc
+  )
 
-   #' The number of expected trees. The tree at state zero is also logged
-   n_trees_expected <- 1 + (mcmc$chain_length / mcmc$treelog$log_every)
-   expect_equal(length(out$anthus_aco_trees), n_trees_expected)
+  expect_true("estimates" \%in\% names(out))
+  expect_true("anthus_aco_trees" \%in\% names(out))
+  expect_true("operators" \%in\% names(out))
+  expect_true("output" \%in\% names(out))
+  expect_true(is_phylo(out$anthus_aco_trees[[1]]))
 
-   expect_true("Sample" \%in\% names(out$estimates))
-   expect_true("posterior" \%in\% names(out$estimates))
-   expect_true("likelihood" \%in\% names(out$estimates))
-   expect_true("prior" \%in\% names(out$estimates))
-   expect_true("treeLikelihood" \%in\% names(out$estimates))
-   expect_true("TreeHeight" \%in\% names(out$estimates))
-   expect_true("YuleModel" \%in\% names(out$estimates))
-   expect_true("birthRate" \%in\% names(out$estimates))
+  #' The number of expected trees. The tree at state zero is also logged
+  n_trees_expected <- 1 + (mcmc$chain_length /
+    mcmc$treelog$log_every
+  )
+  expect_equal(length(out$anthus_aco_trees), n_trees_expected)
 
-   expect_true("operator" \%in\% names(out$operators))
-   expect_true("p" \%in\% names(out$operators))
-   expect_true("accept" \%in\% names(out$operators))
-   expect_true("reject" \%in\% names(out$operators))
-   expect_true("acceptFC" \%in\% names(out$operators))
-   expect_true("rejectFC" \%in\% names(out$operators))
-   expect_true("rejectIv" \%in\% names(out$operators))
-   expect_true("rejectOp" \%in\% names(out$operators))
- }
+  expect_true("Sample" \%in\% names(out$estimates))
+  expect_true("posterior" \%in\% names(out$estimates))
+  expect_true("likelihood" \%in\% names(out$estimates))
+  expect_true("prior" \%in\% names(out$estimates))
+  expect_true("treeLikelihood" \%in\% names(out$estimates))
+  expect_true("TreeHeight" \%in\% names(out$estimates))
+  expect_true("YuleModel" \%in\% names(out$estimates))
+  expect_true("birthRate" \%in\% names(out$estimates))
+
+  expect_true("operator" \%in\% names(out$operators))
+  expect_true("p" \%in\% names(out$operators))
+  expect_true("accept" \%in\% names(out$operators))
+  expect_true("reject" \%in\% names(out$operators))
+  expect_true("acceptFC" \%in\% names(out$operators))
+  expect_true("rejectFC" \%in\% names(out$operators))
+  expect_true("rejectIv" \%in\% names(out$operators))
+  expect_true("rejectOp" \%in\% names(out$operators))
+}
 }
 \seealso{
 Use \code{\link[tracerer]{remove_burn_ins}}

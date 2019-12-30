@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_file_creation.R
 \name{prepare_file_creation}
 \alias{prepare_file_creation}
-\title{Prepare for BEAST2 creating files}
+\title{Prepare for 'BEAST2' creating files}
 \usage{
 prepare_file_creation(inference_model, beast2_options)
 }
@@ -10,11 +10,11 @@ prepare_file_creation(inference_model, beast2_options)
 \item{inference_model}{a Bayesian phylogenetic inference model,
 as returned by \link[beautier]{create_inference_model}}
 
-\item{beast2_options}{BEAST2 options,
+\item{beast2_options}{'BEAST2'  options,
 as can be created by \link[beastier]{create_beast2_options}}
 }
 \description{
-The inference model and BEAST2 options contain paths that may point
+The inference model and 'BEAST2' options contain paths that may point
 to sub-sub-sub folders. Create those folders and test
 if these folders can be written to
 }

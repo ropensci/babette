@@ -1,20 +1,20 @@
-#' Get the alignment IDs from a file with one alignment
-#' @param xml_filename name of a 'BEAST2' XML input filename
-#' @return a character vector with one or more alignment IDs
+#' Get the alignment IDs from one or more 'BEAST2' XML input files.
+#' @param xml_filename name of a 'BEAST2' XML input file.
+#' @return a character vector with one or more alignment IDs.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   alignment_id <- babette::get_alignment_ids_from_xml(
-#'     get_babette_path("2_4.xml")
-#'   )
-#'   testit::assert(alignment_id == "test_output_0")
+#' library(testthat)
 #'
-#'   alignment_ids <- babette::get_alignment_ids_from_xml(
-#'     get_babette_path("anthus_2_4.xml")
-#'   )
-#'   testit::assert(alignment_ids
-#'     == c("Anthus_nd2", "Anthus_aco")
-#'   )
-#' @noRd
+#' alignment_id <- get_alignment_ids_from_xml(
+#'   get_babette_path("2_4.xml")
+#' )
+#' expect_equal(alignment_id, "test_output_0")
+#'
+#' alignment_ids <- get_alignment_ids_from_xml(
+#'   get_babette_path("anthus_2_4.xml")
+#' )
+#' expect_equal(alignment_ids, c("Anthus_nd2", "Anthus_aco"))
+#' @export
 get_alignment_ids_from_xml <- function(
   xml_filename
 ) {

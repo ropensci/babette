@@ -1,6 +1,16 @@
 #' Create testing output similar to when running a 'BEAST2' run
 #' with nested sampling
 #' @author Richèl J.C. Bilderbeek
+#' @seealso Use \link{parse_beast2_output_to_ns} to parse
+#' this output to a Nested Sampling result.
+#' See \link[beautier]{create_ns_mcmc} to see how to do a marginal
+#' likelihood estimation using Nested Sampling.
+#' @examples
+#' library(testthat)
+#'
+#' output <- create_test_ns_output()
+#' expect_true(is.character(output))
+#' expect_true(length(output) > 100)
 #' @export
 create_test_ns_output <- function() {
   c(

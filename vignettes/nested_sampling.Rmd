@@ -30,9 +30,9 @@ as described in [1]
 library(babette)
 ```
 
-`babette` needs to have BEAST2 installed to work.
+`babette` needs to have 'BEAST2' installed to work.
 
-In the case BEAST2 is not installed, we'll use
+In the case 'BEAST2' is not installed, we'll use
 this fabricated data:
 
 ```{r}
@@ -106,7 +106,7 @@ mcmc <- beautier::create_test_ns_mcmc()
   For academic research, better use a longer MCMC chain (with an effective
 sample size above 200).
 
-Here we do two BEAST2 runs, with both site models:
+Here we do two 'BEAST2' runs, with both site models:
 
 ```{r}
 if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {

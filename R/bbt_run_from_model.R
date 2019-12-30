@@ -105,14 +105,14 @@ bbt_run_from_model <- function(
     beastier::check_beast2_options(beast2_options),
     error = function(e) {
       stop(
-        "'beast2_options' must be a valid BEAST2 options object\n",
+        "'beast2_options' must be a valid 'BEAST2' options object\n",
         "Error: ", e$message, "\n",
         "Value: ", beast2_options
       )
     }
   )
 
-  # The inference model and BEAST2 options contain paths that may point
+  # The inference model and 'BEAST2' options contain paths that may point
   # to sub-sub-sub folders. Create those folders and test
   # if thes folders can be written to
   babette::prepare_file_creation(inference_model, beast2_options)
@@ -136,7 +136,7 @@ bbt_run_from_model <- function(
   output <- beastier::run_beast2_from_options(beast2_options)
 
   # By default, mcmc$tracelog$filename is initialized with NA.
-  # Overwrite it with the BEAST2 default filename
+  # Overwrite it with the 'BEAST2' default filename
   if (is.na(inference_model$mcmc$tracelog$filename)) {
     inference_model$mcmc$tracelog$filename <- paste0(
       beautier::get_alignment_id(fasta_filename), ".log"
@@ -154,7 +154,7 @@ bbt_run_from_model <- function(
     )
   )
   # By default, mcmc$tracelog$filename is initialized with NA.
-  # Overwrite it with the BEAST2 default filename
+  # Overwrite it with the 'BEAST2' default filename
   inference_model$mcmc$treelog$filename <- gsub(
     x = inference_model$mcmc$treelog$filename,
     pattern = "\\$\\(tree\\)",

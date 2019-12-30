@@ -31,7 +31,7 @@ library(babette)
 
 This vignette shows how to:
 
- * Let `babette` run BEAST2
+ * Let `babette` run 'BEAST2'
  * Plot the posterior estimates
  * Show the effective sample sizes (ESS)
  * Show the summary statistics
@@ -45,7 +45,7 @@ mcmc <- inference_model$mcmc
 sample_interval <- mcmc$tracelog$log_every
 ```
 
-## Let `babette` run BEAST2
+## Let `babette` run 'BEAST2'
 
 For an alignment, we'll use a `babette` example alignment.
 

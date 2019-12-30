@@ -2,8 +2,8 @@
 % Please edit documentation in R/bbt_run.R
 \name{bbt_run}
 \alias{bbt_run}
-\title{Do a full run: create a BEAST2 configuration file (like BEAUti 2),
-run BEAST2, parse results (like Tracer)}
+\title{Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+run 'BEAST2', parse results (like 'Tracer')}
 \usage{
 bbt_run(
   fasta_filename,
@@ -137,7 +137,7 @@ as returned by \code{\link{create_mrca_prior}}}
 a list with the following elements:\cr
 \itemize{
   \item{
-    \code{estimates}: a data frame with BEAST2
+    \code{estimates}: a data frame with 'BEAST2'
     parameter estimates
   }
   \item{
@@ -174,8 +174,8 @@ a list with the following elements:\cr
 }
 }
 \description{
-Do a full run: create a BEAST2 configuration file (like BEAUti 2),
-run BEAST2, parse results (like Tracer)
+Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+run 'BEAST2', parse results (like 'Tracer')
 }
 \examples{
 library(testthat)

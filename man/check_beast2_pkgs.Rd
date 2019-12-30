@@ -27,9 +27,9 @@ needs to be installed.
 \examples{
 library(testthat)
 
-# This test uninstalls the NS BEAST2 package.
+# This test uninstalls the NS 'BEAST2' package.
 # Only do that on CI services, else a user without internet
-# suddenly finds the NS BEAST2 package installed and unable
+# suddenly finds the NS 'BEAST2' package installed and unable
 # to reinstall it
 if (is_beast2_installed() && is_on_ci()) {
 
@@ -40,7 +40,7 @@ if (is_beast2_installed() && is_on_ci()) {
     uninstall_beast2_pkg("NS")
   }
 
-  # Without the NS BEAST2 package installed,
+  # Without the NS 'BEAST2' package installed,
   # a Nested Sampling MCMC cannot be created.
   expect_false(is_beast2_ns_pkg_installed())
   expect_error(

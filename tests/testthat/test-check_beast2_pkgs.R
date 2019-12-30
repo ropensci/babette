@@ -4,9 +4,9 @@ test_that("use", {
 
   if (!beastier::is_beast2_installed()) return()
 
-  # This test uninstalls the NS BEAST2 package.
+  # This test uninstalls the NS 'BEAST2' package.
   # Only do that on CI services, else a user without internet
-  # suddenly finds the NS BEAST2 package installed and unable
+  # suddenly finds the NS 'BEAST2' package installed and unable
   # to reinstall it
   if (!beastier::is_on_ci()) return()
 

@@ -84,7 +84,7 @@ test_that("abuse", {
     paste0(
       "When using nested sampling \\(that is, ",
       "using 'create_ns_mcmc'\\), ",
-      "one must use the binary BEAST2 executable \\(that is, using ",
+      "one must use the binary 'BEAST2' executable \\(that is, using ",
       "'beast2_path = get_default_beast2_bin_path\\(\\)'\\)"
     )
   )

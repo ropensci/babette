@@ -2,13 +2,13 @@
 % Please edit documentation in R/create_test_ns_output.R
 \name{create_test_ns_output}
 \alias{create_test_ns_output}
-\title{Create testing output similar to when running a BEAST2 run
+\title{Create testing output similar to when running a 'BEAST2' run
 with nested sampling}
 \usage{
 create_test_ns_output()
 }
 \description{
-Create testing output similar to when running a BEAST2 run
+Create testing output similar to when running a 'BEAST2' run
 with nested sampling
 }
 \author{

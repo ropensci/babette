@@ -58,7 +58,7 @@ test_that("abuse", {
       fasta_filename = get_babette_path("anthus_aco.fas"),
       beast2_options = "nonsense"
     ),
-    "'beast2_options' must be a valid BEAST2 options object"
+    "'beast2_options' must be a valid 'BEAST2' options object"
   )
 })
 

@@ -1,10 +1,10 @@
-#' Do a full run: create a BEAST2 configuration file (like BEAUti 2),
-#' run BEAST2, parse results (like Tracer)
+#' Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+#' run 'BEAST2', parse results (like 'Tracer')
 #' @inheritParams default_params_doc
 #' @return a list with the following elements:\cr
 #' \itemize{
 #'   \item{
-#'     \code{estimates}: a data frame with BEAST2
+#'     \code{estimates}: a data frame with 'BEAST2'
 #'     parameter estimates
 #'   }
 #'   \item{
@@ -171,7 +171,7 @@ bbt_run <- function(
   if (any("beast2_output_log_filename" %in% calls)) {
     stop(
       "'beast2_output_log_filename' is deprecated: ",
-      "this filename is stored in the BEAST2 XML. ",
+      "this filename is stored in the 'BEAST2' XML. ",
       "To set it, set the 'filename' argument of 'create_tracelog', ",
       "which is part of an MCMC (see 'create_mcmc'), ",
       "which is part of an inference model (see 'create_inference_model')"
@@ -180,7 +180,7 @@ bbt_run <- function(
   if (any("beast2_output_trees_filenames" %in% calls)) {
     stop(
       "'beast2_output_trees_filenames' is deprecated: ",
-      "this filename is stored in the BEAST2 XML. ",
+      "this filename is stored in the 'BEAST2' XML. ",
       "To set it, set the 'filename' argument of 'create_treelog', ",
       "which is part of an MCMC (see 'create_mcmc'), ",
       "which is part of an inference model (see 'create_inference_model')"

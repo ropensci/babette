@@ -7,9 +7,9 @@
 #' @examples
 #' library(testthat)
 #'
-#' # This test uninstalls the NS BEAST2 package.
+#' # This test uninstalls the NS 'BEAST2' package.
 #' # Only do that on CI services, else a user without internet
-#' # suddenly finds the NS BEAST2 package installed and unable
+#' # suddenly finds the NS 'BEAST2' package installed and unable
 #' # to reinstall it
 #' if (is_beast2_installed() && is_on_ci()) {
 #'
@@ -20,7 +20,7 @@
 #'     uninstall_beast2_pkg("NS")
 #'   }
 #'
-#'   # Without the NS BEAST2 package installed,
+#'   # Without the NS 'BEAST2' package installed,
 #'   # a Nested Sampling MCMC cannot be created.
 #'   expect_false(is_beast2_ns_pkg_installed())
 #'   expect_error(
@@ -61,7 +61,7 @@ check_beast2_pkgs <- function(
     stop(
       "When using nested sampling (that is, ",
       "using 'create_ns_mcmc'), ",
-      "one must use the binary BEAST2 executable (that is, using ",
+      "one must use the binary 'BEAST2' executable (that is, using ",
       "'beast2_path = get_default_beast2_bin_path()')"
     )
   }

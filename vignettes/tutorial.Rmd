@@ -32,7 +32,7 @@ library(babette)
 The main function of `babette` is `bbt_run_from_model`. Here is part of its help:
 
 ```
-Do a full run: create a BEAST2 configuration file (like BEAUti 2), run BEAST2, parse results (like Tracer)
+Do a full run: create a 'BEAST2' configuration file (like BEAUti 2), run 'BEAST2', parse results (like Tracer)
 
 Usage
 

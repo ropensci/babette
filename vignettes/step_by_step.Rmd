@@ -35,7 +35,7 @@ mcmc <- create_test_mcmc()
 sample_interval <- mcmc$tracelog$log_every
 ```
 
-## Create a BEAST2 input file
+## Create a 'BEAST2' input file
 
 This step is commonly done using BEAUti. 
 With `babette`, this can be done as follows:
@@ -50,13 +50,13 @@ create_beast2_input_file(
 testit::assert(file.exists(beast2_input_file))
 ```
 
-## Display (part of) the BEAST2 input file
+## Display (part of) the 'BEAST2' input file
 
 ```{r}
 print(head(readLines(beast2_input_file)))
 ```
 
-This file can both be loaded by BEAUti and be used by BEAST2.
+This file can both be loaded by BEAUti and be used by 'BEAST2'.
 
 The file can be checked if it is indeed a valid input file:
 
@@ -68,7 +68,7 @@ if (is_beast2_installed()) {
 
 ## Run MCMC
 
-This step is commonly done using BEAST2 from the command-line or using its GUI. 
+This step is commonly done using 'BEAST2' from the command-line or using its GUI. 
 With `babette`, this can be done as follows:
 
 ```{r}
@@ -87,7 +87,7 @@ if (is_beast2_installed()) {
 }
 ```
 
-## Display (part of) the BEAST2 output files
+## Display (part of) the 'BEAST2' output files
 
 The `.log` file contains the model parameters and parameter estimates:
 

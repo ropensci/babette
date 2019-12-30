@@ -1,4 +1,4 @@
-#' Create testing output similar to when running a BEAST2 run
+#' Create testing output similar to when running a 'BEAST2' run
 #' with nested sampling
 #' @author Richèl J.C. Bilderbeek
 #' @export

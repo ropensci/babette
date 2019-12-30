@@ -1,14 +1,14 @@
-#' Process the BEAST2 output dependent on BEAST2 package specifics
+#' Process the 'BEAST2' output dependent on 'BEAST2' package specifics
 #' @inheritParams default_params_doc
 #' @param out a list with the complete babette output, with elements:
 #' \itemize{
-#'   \item \code{output} textual output of a BEAST2 run
+#'   \item \code{output} textual output of a 'BEAST2' run
 #' }
 #' @param mcmc an MCMC
 #' @param alignment_ids alignment IDs, as obtained by
 #'   \link[beautier]{get_alignment_ids_from_xml}
 #' @return complete babette output with added attributes,
-#'   which depends on the BEAST2 package specificics
+#'   which depends on the 'BEAST2' package specificics
 #'   \itemize{
 #'     \item \code{marg_log_lik} the marginal log likelihood estimate
 #'     \item \code{marg_log_lik_sd} the standard deviation around the estimate

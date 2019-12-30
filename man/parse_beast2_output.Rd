@@ -14,11 +14,6 @@ parse_beast2_output(out, inference_model)
 
 \item{inference_model}{a Bayesian phylogenetic inference model,
 as returned by \link[beautier]{create_inference_model}}
-
-\item{mcmc}{an MCMC}
-
-\item{alignment_ids}{alignment IDs, as obtained by
-\link[beautier]{get_alignment_ids_from_xml}}
 }
 \value{
 complete babette output with added attributes,

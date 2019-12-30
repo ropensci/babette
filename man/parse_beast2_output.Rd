@@ -22,7 +22,7 @@ as returned by \link[beautier]{create_inference_model}}
 }
 \value{
 complete babette output with added attributes,
-  which depends on the 'BEAST2' package specificics
+  which depends on the 'BEAST2' package.
   \itemize{
     \item \code{marg_log_lik} the marginal log likelihood estimate
     \item \code{marg_log_lik_sd} the standard deviation around the estimate

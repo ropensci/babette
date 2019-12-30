@@ -8,7 +8,7 @@
 #' @param alignment_ids alignment IDs, as obtained by
 #'   \link[beautier]{get_alignment_ids_from_xml}
 #' @return complete babette output with added attributes,
-#'   which depends on the 'BEAST2' package specificics
+#'   which depends on the 'BEAST2' package.
 #'   \itemize{
 #'     \item \code{marg_log_lik} the marginal log likelihood estimate
 #'     \item \code{marg_log_lik_sd} the standard deviation around the estimate

@@ -24,7 +24,7 @@
 #'   # a Nested Sampling MCMC cannot be created.
 #'   expect_false(is_beast2_ns_pkg_installed())
 #'   expect_error(
-#'     bbt_check_beast2_packages(
+#'     check_beast2_pkgs(
 #'       mcmc = create_ns_mcmc()
 #'     ),
 #'     "Must install 'NS' to use 'create_ns_mcmc'."
@@ -33,7 +33,7 @@
 #'   install_beast2_pkg("NS")
 #'
 #'   expect_silent(
-#'     bbt_check_beast2_packages(
+#'     check_beast2_pkgs(
 #'       mcmc = create_ns_mcmc()
 #'     )
 #'   )
@@ -43,7 +43,7 @@
 #'   }
 #' }
 #' @export
-bbt_check_beast2_packages <- function(
+check_beast2_pkgs <- function(
   mcmc,
   beast2_path = get_default_beast2_bin_path()
 ) {

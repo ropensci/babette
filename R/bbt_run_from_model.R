@@ -117,7 +117,7 @@ bbt_run_from_model <- function(
   babette::prepare_file_creation(inference_model, beast2_options)
 
   beastier::check_beast2_path(beast2_options$beast2_path)
-  bbt_check_beast2_packages(
+  check_beast2_pkgs(
     mcmc = inference_model$mcmc,
     beast2_path = beast2_options$beast2_path
   )

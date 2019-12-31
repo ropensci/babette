@@ -63,11 +63,11 @@ See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting use cases`
 
 ## I want to collaborate
 
-See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting code'
+See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting code`
 
 ## I think I have found a bug
 
-See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs' 
+See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting bugs` 
 
 ## There's something else I want to say
 

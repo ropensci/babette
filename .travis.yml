@@ -42,13 +42,10 @@ after_success:
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "devel" ]; then travis_wait 20 Rscript -e 'covr::codecov()'; fi
   # Proselint
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "release" ]; then proselint *.md | egrep -v "typography\.symbols\.curly_quotes"; fi
-  # Goodpractice
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "release" ]; then travis_wait 60 Rscript -e 'goodpractice::gp()'; fi
   # No local files created
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi; fi
   # Do a CRAN build. No time :-(
   #- cd scripts; ./build_cran
-  #- travis_wait 30 Rscript -e 'goodpractice::gp()'
   # temporarily disabled due to CERT_UNTRUSTED
   #- ./scripts/check_dead_links
 

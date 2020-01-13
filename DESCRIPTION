@@ -1,10 +1,10 @@
-Package: babette
+Package: raztr
 Title: Control 'BEAST2'
 Version: 2.1.1
 Authors@R: c(
     person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
-    person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
-    person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
+    person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/richelbilderbeek/onboarding/issues/209"),
+    person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/richelbilderbeek/onboarding/issues/209"),
     person("Giovanni", "Laudanno", email = "glaudanno@gmail.com", role = "ctb"))
 Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
@@ -12,15 +12,13 @@ Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
     and many model priors to create a posterior of jointly estimated 
     phylogenies and parameters.
     'BEAST2' is commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'.
-    'babette' provides for an alternative workflow of using 
+    'raztr' provides for an alternative workflow of using 
     all these tools separately. This allows doing complex Bayesian
     phylogenetics easily and reproducibly from 'R'. 
 License: GPL-3
 LazyData: true
 RoxygenNote: 7.0.2
 VignetteBuilder: knitr
-URL: https://docs.ropensci.org/babette, https://github.com/ropensci/babette
-BugReports: https://github.com/ropensci/babette/issues
 Depends:
     beautier (>= 2.3),
     beastier (>= 2.1),

@@ -9,33 +9,50 @@ or [view my rJava notes](rjava.md).
 
 ## `babette` installation
 
+There are two types of `babette` installations:
+
+ * Stable (recommended)
+ * Bleeding edge
+
+`babette` assumes that BEAST2 is installed. 
+See below at `Install BEAST2` how to install BEAST2.
+
+### Stable
+
+`babette` is on CRAN. 
+
+```
+install.packages("babette")
+```
+
+### Bleeding endge
+
  * Video how to install `babette`: [download (.mkv)](http://richelbilderbeek.nl/babette_install_windows.mkv) [YouTube](https://youtu.be/SiJlssZeeaM)
 
-`babette` is not on CRAN yet. Up until then, this is how to install `babette`.
-
-`babette` is installed most easily using the `devtools` package:
+`babette` is installed most easily using the `remotes` package:
 
 ```
-remotes::install_github("ropensci/beautier")
-remotes::install_github("ropensci/tracerer")
-remotes::install_github("ropensci/beastier")
-remotes::install_github("ropensci/mauricer")
-remotes::install_github("ropensci/babette")
+remotes::install_github("ropensci/beautier", dependencies = TRUE)
+remotes::install_github("ropensci/tracerer", dependencies = TRUE)
+remotes::install_github("ropensci/beastier", dependencies = TRUE)
+remotes::install_github("ropensci/mauricer", dependencies = TRUE)
+remotes::install_github("ropensci/babette", dependencies = TRUE)
 ```
 
-Because `babette` is not on CRAN yet, its dependencies need also be installed.
+## Install BEAST2
 
-`babette` assumes that BEAST2 is installed. If not, one can install BEAST2 from R using `beastier`:
+`babette` assumes that BEAST2 is installed. 
+If not, one can install BEAST2 from R using `babette`:
 
 ```{r}
-beastier::install_beast2()
+library(babette); install_beast2()
 ```
 
 This will download and extract BEAST2 to:
 
-OS|Full path
----|---
-Linux|`~/.local/share/beast`
+OS     |Full path
+-------|----------------------------------
+Linux  |`~/.local/share/beast`
 Windows|`C:/Users/<username>/Local/beast`
 
 ## `babette` installation problems

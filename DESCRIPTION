@@ -1,4 +1,4 @@
-Package: raztr
+Package: babette
 Title: Control 'BEAST2'
 Version: 2.1.1
 Authors@R: c(
@@ -12,7 +12,7 @@ Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
     and many model priors to create a posterior of jointly estimated 
     phylogenies and parameters.
     'BEAST2' is commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'.
-    'raztr' provides for an alternative workflow of using 
+    'babette' provides for an alternative workflow of using 
     all these tools separately. This allows doing complex Bayesian
     phylogenetics easily and reproducibly from 'R'. 
 License: GPL-3

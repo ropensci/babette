@@ -1,6 +1,9 @@
 # babette
 
 [![Peer Review Status](https://badges.ropensci.org/209_status.svg)](https://github.com/ropensci/onboarding/issues/209)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/babette)](https://cran.r-project.org/package=babette)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/babette)]( https://CRAN.R-project.org/package=babette)
+[![](http://cranlogs.r-pkg.org/badges/babette)](https://CRAN.R-project.org/package=babette)
 
 Branch   |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                |[![AppVeyor logo](man/figures/AppVeyor.png)](https://www.appveyor.com)                                                                                                                   |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
 ---------|--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------

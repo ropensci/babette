@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette 2.1.2 (unreleased)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * Use https of BEAST2 website
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 2.1.1 (2019-12-30)
 
 ### NEW FEATURES

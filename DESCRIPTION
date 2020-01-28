@@ -43,4 +43,4 @@ Suggests:
     testthat (>= 2.1.0)
 Language: en-US
 Encoding: UTF-8
-SystemRequirements: BEAST2 (http://www.beast2.org/)
+SystemRequirements: BEAST2 (https://www.beast2.org/)

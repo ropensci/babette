@@ -8,8 +8,9 @@ matrix:
     os: linux
   - r: devel
     os: linux
-  #- r: release
-  #  os: osx
+  - r: release
+    os: osx
+    osx_image: xcode9.2
 
 r_github_packages:
   - jimhester/covr
@@ -22,6 +23,9 @@ before_script:
   - # Java
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R CMD javareconf; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R --quiet -e 'install.packages("rJava", type="source", repos="http://cran.us.r-project.org")'; fi
+  # PDF
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr update --self; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr install inconsolata; fi
   # babette must build cleanly without BEAST2 installed, as on CRAN there is no install script
   - Rscript -e "beastier::install_beast2()"
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi

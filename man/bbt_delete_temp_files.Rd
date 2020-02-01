@@ -6,6 +6,13 @@
 \usage{
 bbt_delete_temp_files(inference_model, beast2_options)
 }
+\arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model,
+as returned by \link[beautier]{create_inference_model}}
+
+\item{beast2_options}{'BEAST2'  options,
+as can be created by \link[beastier]{create_beast2_options}}
+}
 \description{
 Delete all the temporary files created by \link{bbt_run_from_model}
 }

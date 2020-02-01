@@ -1,5 +1,7 @@
 #' Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
 #' run 'BEAST2', parse results (like 'Tracer')
+#'
+#' Prefer using \code{\link{bbt_run_from_model}}, as it has a cleaner interface.
 #' @inheritParams default_params_doc
 #' @return a list with the following elements:\cr
 #' \itemize{
@@ -46,9 +48,14 @@
 #' if (is_beast2_installed()) {
 #'
 #'   mcmc <- create_test_mcmc()
+#'   mcmc$tracelog$filename <- tempfile()
+#'   mcmc$treelog$filename <- tempfile()
+#'   mcmc$screenlog$filename <- tempfile()
 #'
 #'   out <- bbt_run(
 #'     fasta_filename = get_babette_path("anthus_aco.fas"),
+#'     beast2_input_filename = tempfile(),
+#'     beast2_output_state_filename = tempfile(),
 #'     mcmc = mcmc
 #'   )
 #'

@@ -1,4 +1,5 @@
 #' Delete all the temporary files created by \link{bbt_run_from_model}
+#' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)
 #'

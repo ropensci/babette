@@ -17,10 +17,12 @@ library(testthat)
 if (is_beast2_installed()) {
 
   inference_model <- create_test_inference_model()
+  beast2_options <- create_beast2_options()
 
   out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 
   expect_true("estimates" \%in\% names(out))
@@ -52,6 +54,12 @@ if (is_beast2_installed()) {
   expect_true("rejectFC" \%in\% names(out$operators))
   expect_true("rejectIv" \%in\% names(out$operators))
   expect_true("rejectOp" \%in\% names(out$operators))
+
+  # Clean up temporary files created by babette
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
 }
 }
 \seealso{

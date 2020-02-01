@@ -105,12 +105,6 @@ if (is_beast2_installed()) {
   expect_true("rejectFC" \%in\% names(out$operators))
   expect_true("rejectIv" \%in\% names(out$operators))
   expect_true("rejectOp" \%in\% names(out$operators))
-
-  # Clean up temporary files created by babette
-  bbt_delete_temp_files(
-    inference_model = inference_model,
-    beast2_options = beast2_options
-  )
 }
 }
 \seealso{

@@ -1,6 +1,7 @@
 ^codemeta\.json$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^doc$
 ^pics$
 ^scripts$
 ^\.travis\.yml$

@@ -1,5 +1,7 @@
 test_that("use", {
 
+  if (!beastier::is_beast2_installed()) return()
+
   inference_model <- create_test_inference_model()
   beast2_options <- create_beast2_options()
 

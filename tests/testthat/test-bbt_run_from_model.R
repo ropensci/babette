@@ -87,17 +87,17 @@ test_that("use, sub-sub-subfolder", {
   mcmc <- beautier::create_test_mcmc(
     tracelog = create_test_tracelog(
       filename = file.path(
-        tempfile(tmpdir = rappdirs::user_cache_dir()), "a", "b", "c", ".csv"
+        tempfile(), "a", "b", "c", ".csv"
       )
     ),
     screenlog = create_test_screenlog(
       filename = file.path(
-        tempfile(tmpdir = rappdirs::user_cache_dir()), "d", "e", "f", ".txt"
+        tempfile(), "d", "e", "f", ".txt"
       )
     ),
     treelog = create_test_treelog(
       filename = file.path(
-        tempfile(tmpdir = rappdirs::user_cache_dir()), "g", "h", "i", ".trees"
+        tempfile(), "g", "h", "i", ".trees"
       )
     )
   )

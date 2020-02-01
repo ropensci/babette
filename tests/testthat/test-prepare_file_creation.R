@@ -6,7 +6,7 @@ test_that("use", {
 
 test_that("tracelog file in sub-sub-sub-folder", {
   filename <- file.path(
-    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    tempfile(),
     "sub", "sub", "sub", "file.log"
   )
 
@@ -26,7 +26,7 @@ test_that("tracelog file in sub-sub-sub-folder", {
 
 test_that("screenlog file in sub-sub-sub-folder", {
   filename <- file.path(
-    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    tempfile(),
     "sub", "sub", "sub", "file.csv"
   )
 
@@ -46,7 +46,7 @@ test_that("screenlog file in sub-sub-sub-folder", {
 
 test_that("treelog file in sub-sub-sub-folder", {
   filename <- file.path(
-    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    tempfile(),
     "sub", "sub", "sub", "file.trees"
   )
 
@@ -66,7 +66,7 @@ test_that("treelog file in sub-sub-sub-folder", {
 
 test_that("output_state_filename in sub-sub-sub-folder", {
   filename <- file.path(
-    tempfile(tmpdir = rappdirs::user_cache_dir()),
+    tempfile(),
     "sub", "sub", "sub", "file.xml.state"
   )
 

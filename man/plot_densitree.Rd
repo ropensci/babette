@@ -20,11 +20,22 @@ Draw multiple trees on top of one another.
 }
 \examples{
 if (is_beast2_installed()) {
-   out <- bbt_run(
+  inference_model <- create_test_inference_model()
+  beast2_options <- create_beast2_options()
+
+   out <- bbt_run_from_model(
     get_babette_path("anthus_aco.fas"),
-    mcmc = create_test_mcmc(chain_length = 10000)
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
+
   plot_densitree(out$anthus_aco_trees)
+
+  # Clean up temporary files created by babette
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
 }
 }
 \author{

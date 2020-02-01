@@ -11,6 +11,7 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
   * Use https of BEAST2 website
+  * Building the package does not create temporary files in `~/.cache`, fix #85
 
 ### BUG FIXES
 

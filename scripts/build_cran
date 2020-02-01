@@ -1,5 +1,11 @@
 #!/bin/bash
-
+#
+# Check if the package builds cleanly under CRAN guidelines
+#
+# Usage:
+#
+#   ./build_cran
+#
 mkdir build
 
 cp -r ../R build

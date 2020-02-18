@@ -32,7 +32,7 @@ See:
  * [lumier](https://github.com/ropensci/lumier): R Shiny app to help create the R function call needed
  * [examples](https://github.com/richelbilderbeek/babette_examples): examples tested by Travis CI and AppVeyor
  * [article](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13032), in 'Methods in Ecology and Evolution'
- * [Methods.blog post: The babette R Package: How to Sooth the Phylogenetic BEAST2](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/) in Methods.Blog
+ * [Methods.blog post: The babette R Package: How to Sooth the Phylogenetic BEAST2](https://methodsblog.wordpress.com/2018/06/25/babette-beast2/)
  * [rOpenSci blog post: Call BEAST2 for Bayesian evolutionary analysis from R](https://ropensci.org/blog/2020/01/28/babette/)
  * [pre-print article](https://doi.org/10.1101/271866), in bioRxiv
  * ['babette' YouTube channel](https://www.youtube.com/watch?v=nA-0-Fc95xY&list=PLu8_ZyzXyRDFIRx-kdDI5Q6xVr-HnY7TB)

@@ -18,10 +18,8 @@ prepare_file_creation <- function(
 ) {
   # These are the files that need to be created
   filenames <- c(
-    inference_model$mcmc$tracelog$filename,
-    inference_model$mcmc$screenlog$filename,
-    inference_model$mcmc$treelog$filename,
-    beast2_options$output_state_filename
+    beautier::get_inference_model_filenames(inference_model),
+    beastier::get_beast2_options_filenames(beast2_options)
   )
   # Create the folders, do not warn if these already exist
   for (filename in filenames) {

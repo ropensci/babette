@@ -27,9 +27,9 @@ Related R packages:
 
 Related R functions:
 
-Related function                                                     |`babette` function
----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------
-[ips::rbeauti](https://github.com/heibl/ips/blob/master/R/rbeauti.R) |[beautier::create_beast2_input_from_model](https://github.com/ropensci/beautier/blob/master/R/create_beast2_input_from_model.R)
+Related function                                                      |`babette` function
+----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------
+`[ips::rbeauti](https://github.com/heibl/ips/blob/master/R/rbeauti.R)`|`[beautier::create_beast2_input_from_model](https://github.com/ropensci/beautier/blob/master/R/create_beast2_input_from_model.R)`
 
 ## Examples
 

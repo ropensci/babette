@@ -25,6 +25,12 @@ Related R packages:
 
  * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
 
+Related R functions:
+
+Related function                                                     |`babette` function
+---------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------
+[ips::rbeauti](https://github.com/heibl/ips/blob/master/R/rbeauti.R) |[beautier::create_beast2_input_from_model](https://github.com/ropensci/beautier/blob/master/R/create_beast2_input_from_model.R)
+
 ## Examples
 
 See:

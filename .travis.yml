@@ -47,7 +47,7 @@ after_success:
   # Goodpractice
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "release" ]; then travis_wait 60 Rscript -e 'goodpractice::gp()'; fi
   # Proselint
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "release" ]; then proselint *.md | egrep -v "typography\.symbols\.curly_quotes"; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "release" ]; then proselint *.md | egrep -v "typography\.symbols\.curly_quotes" | egrep -v "typography\.symbols\.sentence_spacing" ; fi
   # No local files created
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./scripts/check_no_local_files; fi
   # Do a CRAN build. No time :-(

@@ -17,6 +17,7 @@ r_github_packages:
   - richelbilderbeek/beastier
   - jimhester/covr
   - jimhester/lintr
+  - MangoTheCat/goodpractice
   - ropensci/spelling
 
 before_script:

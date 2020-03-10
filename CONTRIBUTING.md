@@ -9,16 +9,21 @@ This GitHub follows the [Contributor Covenant Code of Conduct](doc/code_of_condu
 
 ## Which package to contribute to?
 
-`babette` consists out of three packages.
+`babette` is part of the `babette` package suite,
+which consists out of five packages.
+Here is how to determine which package is best suited for your contribution:
 
 If you want to contribute to the creation of BEAST2 XML input file,
 go to [beautier](https://github.com/ropensci/beautier/blob/master/CONTRIBUTING.md).
 
 If you want to contribute to how BEAST2 is run,
-go to [beastier](https://github.com/ropensci/beastier/blob/master/CONTRIBUTING.md).
+go to [beautier](https://github.com/ropensci/beautier/blob/master/CONTRIBUTING.md).
 
 If you want to contribute to how BEAST2 output is parsed,
 go to [tracerer](https://github.com/ropensci/tracerer/blob/master/CONTRIBUTING.md)
+
+If you want to contribute regarding the BEAST2 package management,
+go to [mauricer](https://github.com/ropensci/mauricer/blob/master/CONTRIBUTING.md)
 
 If you want to contribute with an overarching idea, you are at the right spot :-) 
 
@@ -74,7 +79,7 @@ To download and checkout the `develop` branch,
 first go into the `beautier` folder (`cd babette`), then do:
 
 ```
-git checkout -b develop origin/develop
+git checkout develop
 ```
 
 Then the workflow is the common `git` workflow:

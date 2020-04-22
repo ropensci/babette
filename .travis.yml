@@ -10,7 +10,7 @@ matrix:
     os: linux
   - r: release
     os: osx
-    osx_image: xcode9.2
+    #osx_image: xcode9.2
 
 r_github_packages:
   - richelbilderbeek/beautier
@@ -19,6 +19,10 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
   - ropensci/spelling
+
+before_install:
+  # From https://stackoverflow.com/a/20042195
+  - Rscript -e "update.packages(checkBuilt = TRUE, ask = FALSE)"
 
 before_script:
   - # if Linux, show distro

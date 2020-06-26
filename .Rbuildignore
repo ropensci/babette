@@ -8,3 +8,5 @@
 ^install_beast2$
 ^CONTRIBUTING\.md$
 ^appveyor\.yml$
+.github
+LICENSE

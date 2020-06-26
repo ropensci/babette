@@ -14,7 +14,8 @@ Branch   |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)  
 
 `babette` is an R package that combines:
 
- * [beautier](https://github.com/ropensci/beautier) creates BEAST2 input (`.xml`) files.
+ * [beautier](https://github.com/ropensci/beautier) creates a BEAST2 input (`.xml`) file from an inference model
+ * [tiebeaur](https://github.com/richelbilderbeek/tiebeaur) creates an infernence model from a BEAST2 input (`.xml`) file :warning: experimental :warning:
  * [beastier](https://github.com/ropensci/beastier) runs BEAST2
  * [mauricer](https://github.com/ropensci/mauricer) install BEAST2 packages
  * [tracerer](https://github.com/ropensci/tracerer) parses BEAST2 output (`.log`, `.trees`, etc) files.

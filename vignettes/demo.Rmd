@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -36,7 +37,7 @@ This vignette shows how to:
  * Show the effective sample sizes (ESS)
  * Show the summary statistics
  * Plot the posterior phylogenies
- 
+
 In all cases, this is done for a short MCMC chain length of 10K:
 
 ```{r}
@@ -79,7 +80,7 @@ if (is_beast2_installed()) {
   p <- ggplot(
     data = out$estimates,
     aes(x = Sample)
-  ) 
+  )
   p + geom_line(aes(y = TreeHeight), color = "green")
   p + geom_line(aes(y = YuleModel), color = "red")
   p + geom_line(aes(y = birthRate), color = "blue")
@@ -93,7 +94,7 @@ Effective sample sizes, with 20% burn-in removed:
 ```{r}
 if (is_beast2_installed()) {
   traces <- remove_burn_ins(
-    traces = out$estimates, 
+    traces = out$estimates,
     burn_in_fraction = 0.2
   )
   esses <- t(calc_esses(traces, sample_interval = sample_interval))
@@ -105,10 +106,15 @@ if (is_beast2_installed()) {
 For a reliable inference, use an ESS of at least 200.
 
 ## Show the summary statistics
-  
+
 ```{r}
 if (is_beast2_installed()) {
-  sum_stats <- t(calc_summary_stats(traces$posterior, sample_interval = sample_interval))
+  sum_stats <- t(
+    calc_summary_stats(
+      traces$posterior,
+      sample_interval = sample_interval
+    )
+  )
   colnames(sum_stats) <- "Statistic"
   knitr::kable(sum_stats)
 }

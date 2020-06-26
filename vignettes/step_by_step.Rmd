@@ -37,7 +37,7 @@ sample_interval <- mcmc$tracelog$log_every
 
 ## Create a 'BEAST2' input file
 
-This step is commonly done using BEAUti. 
+This step is commonly done using BEAUti.
 With `babette`, this can be done as follows:
 
 ```{r}
@@ -68,7 +68,7 @@ if (is_beast2_installed()) {
 
 ## Run MCMC
 
-This step is commonly done using 'BEAST2' from the command-line or using its GUI. 
+This step is commonly done using 'BEAST2' from the command-line or using its GUI.
 With `babette`, this can be done as follows:
 
 ```{r}
@@ -77,7 +77,7 @@ trees_filename <- get_tracerer_path("beast2_example_output.trees")
 state_filename <- get_tracerer_path("beast2_example_output.xml.state")
 
 if (is_beast2_installed()) {
-  
+
   state_filename <- beastier::create_temp_state_filename()
   run_beast2(
     input_filename = beast2_input_file,
@@ -104,7 +104,7 @@ print(tail(readLines(trees_filename)))
 ```
 
 The `.xml.state` file contains the final state of the MCMC run and the
-MCMC operator acceptances thus far: 
+MCMC operator acceptances thus far:
 
 ```{r}
 print(head(readLines(state_filename)))
@@ -113,7 +113,7 @@ print(tail(readLines(state_filename)))
 
 ## Parse output
 
-This step is commonly done using Tracer. 
+This step is commonly done using Tracer.
 With `babette`, this can be done as follows.
 
 Parsing `.log` file to obtain the parameter estimates:

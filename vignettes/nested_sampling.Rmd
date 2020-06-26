@@ -21,13 +21,14 @@ knitr::opts_chunk$set(
 ![](babette_logo.png)
 
 This vignette demonstrates how to use the Nested Sampling approach
-to obtain the marginal likelihood and a Bayes factor, 
+to obtain the marginal likelihood and a Bayes factor,
 as described in [1]
 
 ## Setup
 
 ```{r}
 library(babette)
+library(testthat)
 ```
 
 `babette` needs to have 'BEAST2' installed to work.
@@ -68,18 +69,18 @@ interpret_bayes_factor <- function(bayes_factor) {
     "decisive for JC69"
   }
 }
-testit::assert(interpret_bayes_factor(1 / 123.0) == "decisive for GTR")
-testit::assert(interpret_bayes_factor(1 / 85.0) == "very strong for GTR")
-testit::assert(interpret_bayes_factor(1 / 12.5) == "strong for GTR")
-testit::assert(interpret_bayes_factor(1 / 8.5) == "substantial for GTR")
-testit::assert(interpret_bayes_factor(1 / 1.5) == "barely worth mentioning for GTR")
-testit::assert(interpret_bayes_factor(0.99) == "barely worth mentioning for GTR")
-testit::assert(interpret_bayes_factor(1.01) == "barely worth mentioning for JC69")
-testit::assert(interpret_bayes_factor(1.5) == "barely worth mentioning for JC69")
-testit::assert(interpret_bayes_factor(8.5) == "substantial for JC69")
-testit::assert(interpret_bayes_factor(12.5) == "strong for JC69")
-testit::assert(interpret_bayes_factor(85.0) == "very strong for JC69")
-testit::assert(interpret_bayes_factor(123.0) == "decisive for JC69")
+expect_equal(interpret_bayes_factor(1 / 123.0), "decisive for GTR")
+expect_equal(interpret_bayes_factor(1 / 85.0), "very strong for GTR")
+expect_equal(interpret_bayes_factor(1 / 12.5), "strong for GTR")
+expect_equal(interpret_bayes_factor(1 / 8.5), "substantial for GTR")
+expect_equal(interpret_bayes_factor(1 / 1.5), "barely worth mentioning for GTR")
+expect_equal(interpret_bayes_factor(0.99), "barely worth mentioning for GTR")
+expect_equal(interpret_bayes_factor(1.01), "barely worth mentioning for JC69")
+expect_equal(interpret_bayes_factor(1.5), "barely worth mentioning for JC69")
+expect_equal(interpret_bayes_factor(8.5), "substantial for JC69")
+expect_equal(interpret_bayes_factor(12.5), "strong for JC69")
+expect_equal(interpret_bayes_factor(85.0), "very strong for JC69")
+expect_equal(interpret_bayes_factor(123.0), "decisive for JC69")
 ```
 
 ## Experiment
@@ -102,7 +103,7 @@ In this vignette, the MCMC run is set up to be short:
 ```{r}
 mcmc <- beautier::create_test_ns_mcmc()
 ```
-  
+
   For academic research, better use a longer MCMC chain (with an effective
 sample size above 200).
 
@@ -117,7 +118,7 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
       mcmc = mcmc
     ),
     beast2_options = create_beast2_options(
-      beast2_path = beastier::get_default_beast2_bin_path() 
+      beast2_path = beastier::get_default_beast2_bin_path()
     )
   )
   out_gtr <- bbt_run_from_model(
@@ -127,7 +128,7 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
       mcmc = mcmc
     ),
     beast2_options = create_beast2_options(
-      beast2_path = beastier::get_default_beast2_bin_path() 
+      beast2_path = beastier::get_default_beast2_bin_path()
     )
   )
 }
@@ -147,7 +148,7 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
 ```
 
 The Bayes factor is ratio between the marginal (non-log) likelihoods.
-In this case, we use the simpler JC69 model as a focus: 
+In this case, we use the simpler JC69 model as a focus:
 
 ```{r}
 if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
@@ -156,14 +157,14 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
 }
 ```
 
-Whatever the support is, be sure to take the error of the marginal 
-likelihood estimation into account. 
+Whatever the support is, be sure to take the error of the marginal
+likelihood estimation into account.
 
 ## References
 
  * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
    Model selection and parameter inference in phylogenetics
    using Nested Sampling. arXiv preprint arXiv:1703.05471.
- * [2] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species 
-   limits in Neotropical pipits Anthus based on multilocus genetic and 
+ * [2] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species
+   limits in Neotropical pipits Anthus based on multilocus genetic and
    vocal data." Ibis.

@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -20,7 +21,7 @@ knitr::opts_chunk$set(
 
 ![](babette_logo.png)
 
-This vignette is a tutorial how to use `babette` and its most 
+This vignette is a tutorial how to use `babette` and its most
 important `bbt_run_from_model` function.
 
 First, load `babette`:
@@ -32,7 +33,8 @@ library(babette)
 The main function of `babette` is `bbt_run_from_model`. Here is part of its help:
 
 ```
-Do a full run: create a 'BEAST2' configuration file (like BEAUti 2), run 'BEAST2', parse results (like Tracer)
+Do a full run: create a 'BEAST2' configuration file (like BEAUti 2), 
+run 'BEAST2', parse results (like Tracer)
 
 Usage
 
@@ -71,15 +73,15 @@ out <- bbt_run_from_model(fasta_filename)
 ```
 
 Note that this code is not ran, as it would take too long.
-The reason this would take too long, is that 
+The reason this would take too long, is that
 the MCMC run that will be executed is set to one million states by default.
-To specify the MCMC options and shorten this run, 
+To specify the MCMC options and shorten this run,
 the `mcmc` argument is used.
 
-## `inference_model` and `mcmc` 
+## `inference_model` and `mcmc`
 
 The inference run's MCMC is part of the inference model.
-To get an inference model with a short MCMC, create 
+To get an inference model with a short MCMC, create
 a test inference model like this:
 
 ```{r}
@@ -107,11 +109,13 @@ if (is_beast2_installed()) {
 
 The return value, `out` contains the results of the MCMC run.
 For this tutorial, visualizing `out` is ignored, as the 'Demo' vignette
-discusses this. Instead, we will work through the other `bbt_run_from_model` parameters.
+discusses this. 
+Instead, we will work through the other `bbt_run_from_model` parameters.
 
-## `site_models` 
+## `site_models`
 
-`site_models` is the `bbt_run_from_model` argument to select one or more site models.
+`site_models` is the `bbt_run_from_model` argument 
+to select one or more site models.
 As this tutorial works on a DNA alignment, such a site model can also
 be called a nucleotide substitution model.
 
@@ -121,7 +125,7 @@ Picking a site model is easy: just type:
 create_site_model_
 ```
 
-This will trigger auto-complete to show all site models. 
+This will trigger auto-complete to show all site models.
 
 The simplest site model is the Jukes-Cantor DNA substitution model.
 To use this model in `babette`, do:
@@ -145,7 +149,8 @@ if (is_beast2_installed()) {
 
 ## `clock_models`
 
-`clock_models` is the `bbt_run_from_model` argument to select one or more clock models.
+`clock_models` is the `bbt_run_from_model` argument 
+to select one or more clock models.
 
 Picking a clock model is easy: just type:
 
@@ -153,7 +158,7 @@ Picking a clock model is easy: just type:
 create_clock_model_
 ```
 
-This will trigger auto-complete to show all clock models. 
+This will trigger auto-complete to show all clock models.
 
 The simplest site model is the strict clock model.
 To use this model in `babette`, do:
@@ -177,7 +182,8 @@ if (is_beast2_installed()) {
 
 ## `tree_priors`
 
-`tree_priors` is the `bbt_run_from_model` argument to select one or more tree priors.
+`tree_priors` is the `bbt_run_from_model` argument 
+to select one or more tree priors.
 
 Picking a tree prior is easy: just type:
 
@@ -185,7 +191,7 @@ Picking a tree prior is easy: just type:
 create_tree_prior_
 ```
 
-This will trigger auto-complete to show all tree priors. 
+This will trigger auto-complete to show all tree priors.
 
 The simplest tree prior is the Yule (pure-birth) tree prior.
 To use this model in `babette`, do:
@@ -219,7 +225,7 @@ are sister species:
 
 ```{r}
 mrca_prior <- create_mrca_prior(
-  alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
+  alignment_id = get_alignment_id(fasta_filename = fasta_filename),
   taxa_names = get_taxa_names(filename = fasta_filename)[1:2],
   is_monophyletic = TRUE
 )
@@ -229,13 +235,13 @@ To specify when the MRCA of all taxa was present, we'll first
 create a prior distribution of the crown age, after which we can
 use that distribution.
 
-To assume the crown age to follow a normal distribution, 
+To assume the crown age to follow a normal distribution,
 with a mean of 15.0 (time units), with a standard deviation of 1.0,
 use `create_normal_distr`:
 
 ```{r}
 mrca_distr <- create_normal_distr(
-  mean = 15.0, 
+  mean = 15.0,
   sigma = 1.0
 )
 ```
@@ -244,7 +250,7 @@ To use that distribution in our MRCA prior:
 
 ```{r}
 mrca_prior <- create_mrca_prior(
-  alignment_id = get_alignment_id(fasta_filename = fasta_filename), 
+  alignment_id = get_alignment_id(fasta_filename = fasta_filename),
   taxa_names = get_taxa_names(filename = fasta_filename),
   mrca_distr = mrca_distr
 )

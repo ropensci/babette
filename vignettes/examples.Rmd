@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 ![](babette_logo.png)
 
-This vignette shows some examples how to set up different inference models 
+This vignette shows some examples how to set up different inference models
 in `babette`.
 
 For all examples, do load `babette`:
@@ -29,7 +29,7 @@ For all examples, do load `babette`:
 library(babette)
 ```
 
-All these examples check that `BEAST2` is installed at the default 
+All these examples check that `BEAST2` is installed at the default
 location at `r get_default_beast2_path()`. If this is not the case,
 we will use some fabricated output:
 
@@ -52,8 +52,10 @@ with a measurement every 1K states:
 mcmc <- create_test_mcmc(chain_length = 10000)
 ```
 
-We will re-create this MCMC setup, as doing so initializes it with new filenames for
-temporary files. These temporary files should not exist before a run and should exist
+We will re-create this MCMC setup, 
+as doing so initializes it with new filenames for
+temporary files. 
+These temporary files should not exist before a run and should exist
 after a run. Sure, there is the option to overwrite...
 
 ## Example #1: all default
@@ -167,7 +169,7 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 if (is_beast2_installed()) {
   posterior <- bbt_run(
     fasta_filename = fasta_filename,
-    tree_prior = create_bd_tree_prior(), 
+    tree_prior = create_bd_tree_prior(),
     mcmc = mcmc
   )
 }
@@ -180,9 +182,6 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
 ![Example #6: Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
-
-
-
 
 ```{r example_6, cache=TRUE}
 if (is_beast2_installed()) {
@@ -239,7 +238,7 @@ if (is_beast2_installed()) {
     fasta_filename = fasta_filename,
     clock_model = create_strict_clock_model(
       clock_rate_param = 0.5
-    ), 
+    ),
     mcmc = mcmc
   )
 }

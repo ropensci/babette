@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette 2.1.3 (2020-08-05)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * Resubmission
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 2.1.2 (2020-02-01)
 
 ### NEW FEATURES

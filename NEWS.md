@@ -10,7 +10,7 @@ Newest versions at top.
   
 ### MINOR IMPROVEMENTS
 
-  * Resubmission
+  * Fresh new submission
 
 ### BUG FIXES
 

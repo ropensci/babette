@@ -10,7 +10,7 @@ Newest versions at top.
   
 ### MINOR IMPROVEMENTS
 
-  * Fresh new submission
+  * No testthat usage in documentation examples
 
 ### BUG FIXES
 

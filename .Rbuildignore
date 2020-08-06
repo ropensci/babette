@@ -8,5 +8,6 @@
 ^install_beast2$
 ^CONTRIBUTING\.md$
 ^appveyor\.yml$
-.github
-LICENSE
+^\.github$
+^LICENSE$
+^CODE_OF_CONDUCT\.md$

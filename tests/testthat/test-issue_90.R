@@ -11,14 +11,6 @@ test_that("use", {
     tipdates_filename = tipdates_filename,
     clock_model = create_rln_clock_model()
   )
-  #check_inference_model(inference_model)
-
-  # output_filename <- tempfile()
-  # beautier::create_beast2_input_file_from_model(
-  #   input_filename = filename,
-  #   output_filename = output_filename,
-  #   inference_model = inference_model
-  # )
 
   # Could not find object associated with idref clockRate.c:Felinecoronavirus_Envelope_1          # nolint
   #                                                                                               # nolint

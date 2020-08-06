@@ -5,12 +5,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso for one file, use \code{\link{get_babette_path}}
 #' @examples
-#' library(testthat)
-#'
-#' filenames <- c("anthus_aco.fas", "anthus_nd2.fas")
-#' full_paths <- get_babette_paths(filenames)
-#' expect_equal(length(full_paths), 2)
-#' expect_true(all(file.exists(full_paths)))
+#' get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
 #' @export
 get_babette_paths <- function(filenames) {
 

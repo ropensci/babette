@@ -5,12 +5,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso for more files, use \code{\link{get_babette_paths}}
 #' @examples
-#' library(testthat)
-#'
-#' expect_true(file.exists(get_babette_path("anthus_aco.fas")))
-#' expect_true(file.exists(get_babette_path("anthus_nd2.fas")))
-#'
-#' expect_error(get_babette_path("abs.ent"))
+#' get_babette_path("anthus_aco.fas")
 #' @export
 get_babette_path <- function(filename) {
 

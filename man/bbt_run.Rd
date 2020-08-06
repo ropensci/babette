@@ -2,8 +2,7 @@
 % Please edit documentation in R/bbt_run.R
 \name{bbt_run}
 \alias{bbt_run}
-\title{Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
-run 'BEAST2', parse results (like 'Tracer')}
+\title{Run BEAST2}
 \usage{
 bbt_run(
   fasta_filename,
@@ -125,54 +124,40 @@ a list with the following elements:\cr
 }
 }
 \description{
+Do a full BEAST2 run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
+run 'BEAST2', parse results (like 'Tracer')
+}
+\details{
 Prefer using \code{\link{bbt_run_from_model}}, as it has a cleaner interface.
 }
 \examples{
-library(testthat)
-
 if (is_beast2_installed()) {
 
+  # Setup for a short run
   mcmc <- create_test_mcmc()
+
+  # Store filenames for cleanup.
+  # Note that 'bbt_run_from_model allows for easier cleanup
   mcmc$tracelog$filename <- tempfile()
   mcmc$treelog$filename <- tempfile()
   mcmc$screenlog$filename <- tempfile()
+  beast2_input_filename <- tempfile()
+  beast2_output_state_filename <- tempfile()
 
-  out <- bbt_run(
+  bbt_run(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    beast2_input_filename = tempfile(),
-    beast2_output_state_filename = tempfile(),
+    beast2_input_filename = beast2_input_filename,
+    beast2_output_state_filename = beast2_output_state_filename,
     mcmc = mcmc
   )
 
-  expect_true("estimates" \%in\% names(out))
-  expect_true("anthus_aco_trees" \%in\% names(out))
-  expect_true("operators" \%in\% names(out))
-  expect_true("output" \%in\% names(out))
-  expect_true(is_phylo(out$anthus_aco_trees[[1]]))
-
-  #' The number of expected trees. The tree at state zero is also logged
-  n_trees_expected <- 1 + (mcmc$chain_length /
-    mcmc$treelog$log_every
-  )
-  expect_equal(length(out$anthus_aco_trees), n_trees_expected)
-
-  expect_true("Sample" \%in\% names(out$estimates))
-  expect_true("posterior" \%in\% names(out$estimates))
-  expect_true("likelihood" \%in\% names(out$estimates))
-  expect_true("prior" \%in\% names(out$estimates))
-  expect_true("treeLikelihood" \%in\% names(out$estimates))
-  expect_true("TreeHeight" \%in\% names(out$estimates))
-  expect_true("YuleModel" \%in\% names(out$estimates))
-  expect_true("birthRate" \%in\% names(out$estimates))
-
-  expect_true("operator" \%in\% names(out$operators))
-  expect_true("p" \%in\% names(out$operators))
-  expect_true("accept" \%in\% names(out$operators))
-  expect_true("reject" \%in\% names(out$operators))
-  expect_true("acceptFC" \%in\% names(out$operators))
-  expect_true("rejectFC" \%in\% names(out$operators))
-  expect_true("rejectIv" \%in\% names(out$operators))
-  expect_true("rejectOp" \%in\% names(out$operators))
+  # Cleanup
+  # Again, note that 'bbt_run_from_model allows for easier cleanup
+  file.remove(mcmc$tracelog$filename)
+  file.remove(mcmc$treelog$filename)
+  file.remove(mcmc$screenlog$filename)
+  file.remove(beast2_input_filename)
+  file.remove(beast2_output_state_filename)
 }
 }
 \seealso{

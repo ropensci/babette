@@ -2,8 +2,7 @@
 % Please edit documentation in R/bbt_run_from_model.R
 \name{bbt_run_from_model}
 \alias{bbt_run_from_model}
-\title{Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
-run 'BEAST2', parse results (like 'Tracer')}
+\title{Run BEAST2}
 \usage{
 bbt_run_from_model(
   fasta_filename,
@@ -65,46 +64,25 @@ Do a full run: create a 'BEAST2' configuration file (like 'BEAUti 2'),
 run 'BEAST2', parse results (like 'Tracer')
 }
 \examples{
-library(testthat)
-
 if (is_beast2_installed()) {
 
+  # Simple short inference
   inference_model <- create_test_inference_model()
 
-  out <- bbt_run_from_model(
+  # Default BEAST2 options
+  beast2_options <- create_beast2_options()
+
+  bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 
-  expect_true("estimates" \%in\% names(out))
-  expect_true("anthus_aco_trees" \%in\% names(out))
-  expect_true("operators" \%in\% names(out))
-  expect_true("output" \%in\% names(out))
-  expect_true(is_phylo(out$anthus_aco_trees[[1]]))
-
-  #' The number of expected trees. The tree at state zero is also logged
-  n_trees_expected <- 1 + (inference_model$mcmc$chain_length /
-    inference_model$mcmc$treelog$log_every
+  # Cleanup
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
-  expect_equal(length(out$anthus_aco_trees), n_trees_expected)
-
-  expect_true("Sample" \%in\% names(out$estimates))
-  expect_true("posterior" \%in\% names(out$estimates))
-  expect_true("likelihood" \%in\% names(out$estimates))
-  expect_true("prior" \%in\% names(out$estimates))
-  expect_true("treeLikelihood" \%in\% names(out$estimates))
-  expect_true("TreeHeight" \%in\% names(out$estimates))
-  expect_true("YuleModel" \%in\% names(out$estimates))
-  expect_true("birthRate" \%in\% names(out$estimates))
-
-  expect_true("operator" \%in\% names(out$operators))
-  expect_true("p" \%in\% names(out$operators))
-  expect_true("accept" \%in\% names(out$operators))
-  expect_true("reject" \%in\% names(out$operators))
-  expect_true("acceptFC" \%in\% names(out$operators))
-  expect_true("rejectFC" \%in\% names(out$operators))
-  expect_true("rejectIv" \%in\% names(out$operators))
-  expect_true("rejectOp" \%in\% names(out$operators))
 }
 }
 \seealso{

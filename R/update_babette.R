@@ -3,15 +3,8 @@
 #' @inheritParams remotes::install_github
 #' @author Giovanni Laudanno, Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
-#'
-#' if (is_on_travis()) {
-#'
+#' \dontrun{
 #'   # Updates the babette dependencies without asking
-#'   update_babette(upgrade = "always")
-#'
-#'   # Updating again should produce no output, as there is no
-#'   expect_silent(update_babette(upgrade = "always"))
 #' }
 #' @export
 update_babette <- function(upgrade = "default") {

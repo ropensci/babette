@@ -5,42 +5,13 @@
 #' needs to be installed.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
-#' # This test uninstalls the NS 'BEAST2' package.
-#' # Only do that on CI services, else a user without internet
-#' # suddenly finds the NS 'BEAST2' package installed and unable
-#' # to reinstall it
-#' if (is_beast2_installed() && is_on_ci()) {
-#'
-#'   # Check to need to install NS later
-#'   was_ns_installed <- is_beast2_ns_pkg_installed()
-#'
-#'   if (is_beast2_ns_pkg_installed()) {
-#'     uninstall_beast2_pkg("NS")
-#'   }
-#'
-#'   # Without the NS 'BEAST2' package installed,
-#'   # a Nested Sampling MCMC cannot be created.
-#'   expect_false(is_beast2_ns_pkg_installed())
-#'   expect_error(
-#'     check_beast2_pkgs(
-#'       mcmc = create_ns_mcmc()
-#'     ),
-#'     "Must install 'NS' to use 'create_ns_mcmc'."
-#'   )
-#'
-#'   install_beast2_pkg("NS")
-#'
-#'   expect_silent(
-#'     check_beast2_pkgs(
-#'       mcmc = create_ns_mcmc()
-#'     )
-#'   )
-#'
-#'   if (!was_ns_installed) {
-#'     uninstall_beast2_pkg("BS")
-#'   }
+#' if (is_beast2_installed()) {
+#'   # Minimal BEAST2 setup
+#'   check_beast2_pkgs(mcmc = create_mcmc())
+#' }
+#' if (is_beast2_ns_pkg_installed()) {
+#'   # BEAST2 with NS package installed
+#'   check_beast2_pkgs(mcmc = create_ns_mcmc())
 #' }
 #' @export
 check_beast2_pkgs <- function(

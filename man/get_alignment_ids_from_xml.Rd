@@ -16,17 +16,9 @@ a character vector with one or more alignment IDs.
 Get the alignment IDs from one or more 'BEAST2' XML input files.
 }
 \examples{
-library(testthat)
-
-alignment_id <- get_alignment_ids_from_xml(
-  get_babette_path("2_4.xml")
-)
-expect_equal(alignment_id, "test_output_0")
-
 alignment_ids <- get_alignment_ids_from_xml(
   get_babette_path("anthus_2_4.xml")
 )
-expect_equal(alignment_ids, c("Anthus_nd2", "Anthus_aco"))
 }
 \author{
 Richèl J.C. Bilderbeek

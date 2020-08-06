@@ -17,12 +17,7 @@ the full path of the filename, if and only if
 Get the full path of a file in the \code{inst/extdata} folder
 }
 \examples{
-library(testthat)
-
-expect_true(file.exists(get_babette_path("anthus_aco.fas")))
-expect_true(file.exists(get_babette_path("anthus_nd2.fas")))
-
-expect_error(get_babette_path("abs.ent"))
+get_babette_path("anthus_aco.fas")
 }
 \seealso{
 for more files, use \code{\link{get_babette_paths}}

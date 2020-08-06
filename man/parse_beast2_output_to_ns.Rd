@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_beast2_output_to_ns.R
 \name{parse_beast2_output_to_ns}
 \alias{parse_beast2_output_to_ns}
-\title{Put the info of a Nested Sampling run in a structure}
+\title{Parse BEAST2 NS output}
 \usage{
 parse_beast2_output_to_ns(output)
 }
@@ -17,17 +17,13 @@ a list with the following elements:
   }
 }
 \description{
-Put the info of a Nested Sampling run in a structure
+Parse the BEAST2 output when run with the BEAST2 NS ('Nested Sampling')
+package.
 }
 \examples{
-library(testthat)
-
-ns <- parse_beast2_output_to_ns(
+parse_beast2_output_to_ns(
   output = create_test_ns_output()
 )
-expect_equal(ns$marg_log_lik, -141, tolerance = 0.2)
-expect_equal(ns$marg_log_lik_sd, 1.60, tolerance = 0.5)
-expect_equal(ns$ess, 5.49, tolerance = 0.2)
 }
 \seealso{
 use \code{\link{create_test_ns_output}} to obtain

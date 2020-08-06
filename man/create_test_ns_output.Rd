@@ -2,8 +2,7 @@
 % Please edit documentation in R/create_test_ns_output.R
 \name{create_test_ns_output}
 \alias{create_test_ns_output}
-\title{Create testing output similar to when running a 'BEAST2' run
-with nested sampling}
+\title{Create NS testing output}
 \usage{
 create_test_ns_output()
 }
@@ -12,11 +11,7 @@ Create testing output similar to when running a 'BEAST2' run
 with nested sampling
 }
 \examples{
-library(testthat)
-
-output <- create_test_ns_output()
-expect_true(is.character(output))
-expect_true(length(output) > 100)
+create_test_ns_output()
 }
 \seealso{
 Use \link{parse_beast2_output_to_ns} to parse

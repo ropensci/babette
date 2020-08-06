@@ -10,12 +10,9 @@ bbt_self_test()
 Do a self test to verify \link{babette} that works correctly.
 }
 \examples{
-library(testthat)
-
+# Will stop if BEAST2 is not installed
 if (is_beast2_installed()) {
-  expect_silent(bbt_self_test())
-} else {
-  expect_error(bbt_self_test())
+  bbt_self_test()
 }
 }
 \author{

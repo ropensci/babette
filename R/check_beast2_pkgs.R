@@ -8,10 +8,11 @@
 #' if (is_beast2_installed()) {
 #'   # Minimal BEAST2 setup
 #'   check_beast2_pkgs(mcmc = create_mcmc())
-#' }
-#' if (is_beast2_ns_pkg_installed()) {
+#'
 #'   # BEAST2 with NS package installed
-#'   check_beast2_pkgs(mcmc = create_ns_mcmc())
+#'   if (is_beast2_ns_pkg_installed()) {
+#'     check_beast2_pkgs(mcmc = create_ns_mcmc())
+#'   }
 #' }
 #' @export
 check_beast2_pkgs <- function(

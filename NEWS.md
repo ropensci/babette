@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette 2.1.4 (2020-08-11)
+
+### NEW FEATURES
+
+  * CRAN version
+  
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 2.1.3 (2020-08-05)
 
 ### NEW FEATURES

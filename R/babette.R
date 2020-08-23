@@ -44,6 +44,7 @@
 #'   }
 #' }
 #' @docType package
+#' @author Richèl J.C. Bilderbeek
 #' @name babette
 #' @import beautier tracerer beastier mauricer
 NULL

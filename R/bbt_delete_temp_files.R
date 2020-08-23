@@ -17,6 +17,7 @@
 #'     beast2_options = beast2_options
 #'   )
 #' }
+#' @author Richèl J.C. Bilderbeek
 #' @export
 bbt_delete_temp_files <- function(
   inference_model,

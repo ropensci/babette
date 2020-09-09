@@ -21,8 +21,9 @@ r_github_packages:
   - ropensci/spelling
 
 before_install:
+  - echo "Do not update :-)"
   # From https://stackoverflow.com/a/20042195
-  - Rscript -e "update.packages(checkBuilt = TRUE, ask = FALSE)"
+  #- Rscript -e "update.packages(checkBuilt = TRUE, ask = FALSE)"
 
 before_script:
   - # if Linux, show distro

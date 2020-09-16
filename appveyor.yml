@@ -34,9 +34,15 @@ build_script:
 test_script:
   - travis-tool.sh run_tests
 
+on_success:
+  # Download thesis
+  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", "thesis.pdf")'
+  - rm thesis.pdf
+
 on_failure:
   - 7z a failure.zip *.Rcheck\*
   - appveyor PushArtifact failure.zip
+
 
 artifacts:
   - path: '*.Rcheck\**\*.log'

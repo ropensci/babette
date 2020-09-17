@@ -1,5 +1,4 @@
 language: r
-# dist: bionic # Uncomment until fix of https://travis-ci.community/t/r-install-broken-travis-ci-rstudio-org-returns-403/9640
 cache: packages
 
 matrix:

@@ -24,16 +24,14 @@ before_install:
   - sudo $(which R) CMD javareconf
 
 before_script:
-  - # if Linux, show distro
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cat /proc/version; fi
-  - # Java
+  # Java
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R CMD javareconf; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R --quiet -e 'install.packages("rJava", type="source", repos="http://cran.us.r-project.org")'; fi
   # PDF
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr update --self; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr install inconsolata; fi
-  # ape
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install r-cran-ape; fi
+  # Lapack
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install liblapack-dev; fi
   # babette must build cleanly without BEAST2 installed, as on CRAN there is no install script
   - Rscript -e "beastier::install_beast2()"
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi

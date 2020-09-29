@@ -7,9 +7,9 @@ matrix:
     os: linux
   - r: devel
     os: linux
-  - r: release
-    os: osx
-    #osx_image: xcode9.2
+  # No Mac for now
+  #- r: release
+  #  os: osx
 
 r_github_packages:
   - richelbilderbeek/beautier
@@ -59,7 +59,7 @@ after_success:
   # temporarily disabled due to CERT_UNTRUSTED
   #- ./scripts/check_dead_links
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
 after_failure:
   - cat /home/travis/build/ropensci/babette/..Rcheck/00install.out
@@ -72,5 +72,5 @@ after_failure:
   - cd ~; find . | egrep "\.fasta"
   - cat /home/travis/build/ropensci/babette/..Rcheck/tests/testthat/testthat.log
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 

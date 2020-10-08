@@ -36,6 +36,7 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install liblapack-dev; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install r-cran-ade4; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then locate lapack.so || true; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then locate lapack3.so || true; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then locate libRlapack.so || true; fi
   # babette must build cleanly without BEAST2 installed, as on CRAN there is no install script
   - Rscript -e "beastier::install_beast2()"

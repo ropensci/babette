@@ -31,8 +31,10 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr update --self; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr install inconsolata; fi
   # Lapack
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then locate libRlapack.so; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install liblapack-dev; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install r-cran-ade4; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then locate libRlapack.so; fi
   # babette must build cleanly without BEAST2 installed, as on CRAN there is no install script
   - Rscript -e "beastier::install_beast2()"
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi

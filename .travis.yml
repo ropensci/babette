@@ -58,15 +58,15 @@ after_success:
   - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
 after_failure:
-  - cat /home/travis/build/ropensci/babette/..Rcheck/00install.out
-  - cat /home/travis/build/ropensci/babette/..Rcheck/00check.log
+  - cat /home/travis/build/ropensci/babette/babette.Rcheck/00install.out
+  - cat /home/travis/build/ropensci/babette/babette.Rcheck/00check.log
+  - cat /home/travis/build/ropensci/babette/babette.Rcheck/testthat.log
   - cd ~; find . | egrep "beast"
   - cd ~; find . | egrep "\.log"
   - cd ~; find . | egrep "\.trees"
   - cd ~; find . | egrep "\.xml"
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
-  - cat /home/travis/build/ropensci/babette/..Rcheck/tests/testthat/testthat.log
   # Download thesis
   - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 

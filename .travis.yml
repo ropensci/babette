@@ -5,11 +5,10 @@ matrix:
   include:
   - r: release
     os: linux
+    env: INSTALL_BEAST2=true
   - r: devel
     os: linux
-  # No Mac for now
-  #- r: release
-  #  os: osx
+    env: INSTALL_BEAST2=false
 
 r_github_packages:
   - richelbilderbeek/beastier
@@ -30,8 +29,8 @@ before_script:
   # PDF
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr update --self; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr install inconsolata; fi
-  # babette must build cleanly without BEAST2 installed, as on CRAN there is no install script
-  - Rscript -e "beastier::install_beast2()"
+  # Install BEAST2. Note: beastier must work without BEAST2 installed as well
+  - if [[ "$INSTALL_BEAST2" == true ]]; then Rscript -e "beastier::install_beast2()"; fi
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install proselint; fi

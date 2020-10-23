@@ -134,3 +134,27 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
 })
+
+test_that("use, nested sampling, in custom folder", {
+
+  if (rappdirs::app_dir()$os == "win") return()
+  if (!beastier::is_on_ci()) return()
+  if (!curl::has_internet()) return()
+
+  beast2_folder <- tempfile(pattern = "babette_")
+  mcbette_state <- mcbette::get_mcbette_state(beast2_folder = beast2_folder)
+  mcbette_state$beast2_installed <- TRUE
+  mcbette_state$ns_installed <- TRUE
+  mcbette::set_mcbette_state(
+    mcbette_state = mcbette_state,
+    beast2_folder = beast2_folder
+  )
+  expect_true(mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = beautier::create_test_ns_inference_model(),
+    beast2_options = create_beast2_options(
+      beast2_path = get_default_beast2_bin_path(beast2_folder = beast2_folder)
+    )
+  )
+})

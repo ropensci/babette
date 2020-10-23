@@ -19,11 +19,14 @@ check_beast2_pkgs <- function(
   mcmc,
   beast2_path = get_default_beast2_bin_path()
 ) {
+  beast2_folder  <- dirname(dirname(dirname(beast2_path)))
   if (beautier::is_mcmc_nested_sampling(mcmc) &&
-    isFALSE(mauricer::is_beast2_ns_pkg_installed())
+    isFALSE(mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   ) {
     stop(
       "Must install 'NS' to use 'create_ns_mcmc'. ",
+      "Cannot find BEAST2 'NS' package at BEAST2 folder '",
+      beast2_folder , "'. ",
       "Tip: use 'mauricer::install_beast2_pkg(\"NS\")'"
     )
   }

@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## babette 2.1.5 (unreleased)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * Can run BEAST2 and BEAST2 packages when these are installed at
+    a custom location
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette 2.1.4 (2020-08-11)
 
 ### NEW FEATURES

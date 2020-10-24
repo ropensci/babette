@@ -35,9 +35,9 @@ before_script:
   # proselint
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install proselint; fi
 
-script:
-  - travis_wait 30 R CMD build .
-  - travis_wait 40 R CMD check *tar.gz
+#script:
+#  - travis_wait 30 R CMD build .
+#  - travis_wait 40 R CMD check *tar.gz
 
 after_success:
   # Lint

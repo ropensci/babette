@@ -32,6 +32,7 @@ Imports:
     xml2
 Suggests:
     ape,
+    curl,
     ggplot2,
     hunspell,
     knitr,

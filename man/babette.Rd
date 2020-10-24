@@ -50,3 +50,6 @@ These are packages associated with 'babette':
   }
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -34,3 +34,6 @@ if (is_beast2_installed()) {
   )
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

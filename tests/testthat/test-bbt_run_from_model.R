@@ -146,13 +146,8 @@ test_that("use, nested sampling, in custom folder", {
     rappdirs::user_cache_dir(),
     basename(tempfile(pattern = "babette_"))
   )
-  mcbette_state <- mcbette::get_mcbette_state(beast2_folder = beast2_folder)
-  mcbette_state$beast2_installed <- TRUE
-  mcbette_state$ns_installed <- TRUE
-  mcbette::set_mcbette_state(
-    mcbette_state = mcbette_state,
-    beast2_folder = beast2_folder
-  )
+  beastier::install_beast2(folder_name = beast2_folder)
+  mauricer::install_beast2_pkg(name = "NS", beast2_folder = beast2_folder)
   expect_true(mauricer::is_beast2_ns_pkg_installed(
     beast2_folder = beast2_folder)
   )

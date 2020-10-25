@@ -26,7 +26,7 @@ check_beast2_pkgs <- function(
     stop(
       "Must install 'NS' to use 'create_ns_mcmc'. ",
       "Cannot find BEAST2 'NS' package at BEAST2 folder '",
-      beast2_folder , "'. ",
+      beast2_folder, "'. ",
       "Tip: use 'mauricer::install_beast2_pkg(\"NS\")'"
     )
   }

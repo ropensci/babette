@@ -11,8 +11,6 @@ matrix:
     env: INSTALL_BEAST2=false
 
 r_github_packages:
-  - richelbilderbeek/beastier
-  - richelbilderbeek/mauricer
   - jimhester/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
@@ -34,10 +32,6 @@ before_script:
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install proselint; fi
-
-#script:
-#  - travis_wait 30 R CMD build .
-#  - travis_wait 40 R CMD check *tar.gz
 
 after_success:
   # Lint

@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## babette 2.1.5 (unreleased)
+## babette 2.2 (2020-11-06)
 
 ### NEW FEATURES
 

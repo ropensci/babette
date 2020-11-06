@@ -32,6 +32,10 @@ Related function                                                      |`babette`
 ----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------
 `[ips::rbeauti](https://github.com/heibl/ips/blob/master/R/rbeauti.R)`|`[beautier::create_beast2_input_from_model](https://github.com/ropensci/beautier/blob/master/R/create_beast2_input_from_model.R)`
 
+Related software:
+
+ * [BEASTifier](https://github.com/josephwb/BEASTifier): command-line tool to generate BEAST2 XML input files
+
 ## Examples
 
 See:

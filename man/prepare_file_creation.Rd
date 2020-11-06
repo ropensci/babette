@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_file_creation.R
 \name{prepare_file_creation}
 \alias{prepare_file_creation}
-\title{Prepare for 'BEAST2' creating files}
+\title{Internal function to prepare for 'BEAST2' creating files}
 \usage{
 prepare_file_creation(inference_model, beast2_options)
 }
@@ -19,8 +19,12 @@ to sub-sub-sub folders. Create those folders and test
 if these folders can be written to
 }
 \examples{
-# For a test inference model, the files can be prepared
-inference_model <- create_test_inference_model()
-beast2_options <- create_beast2_options()
-prepare_file_creation(inference_model, beast2_options)
+# This example will fail on the CRAN
+# r-oldrel-macos-x86_64 platform
+if (rappdirs::app_dir()$os != "mac") {
+  # For a test inference model, the files can be prepared
+  inference_model <- create_test_inference_model()
+  beast2_options <- create_beast2_options()
+  prepare_file_creation(inference_model, beast2_options)
+}
 }

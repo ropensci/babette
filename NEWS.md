@@ -10,7 +10,8 @@ Newest versions at top.
   
 ### MINOR IMPROVEMENTS
 
-  * None
+  * Do not run example code of internal function 'prepare_file_creation'
+    on CRAN flavor `r-oldrel-macos-x86_64`
 
 ### BUG FIXES
 

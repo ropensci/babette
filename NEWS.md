@@ -6,7 +6,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * None
+  * Use GitHub Actions as a continuous integration service
   
 ### MINOR IMPROVEMENTS
 

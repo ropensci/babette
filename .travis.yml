@@ -51,7 +51,7 @@ after_success:
   # temporarily disabled due to CERT_UNTRUSTED
   #- ./scripts/check_dead_links
   # Download thesis
-  - wget https://research.rug.nl/files/132028374/Complete_thesis.pdf
+  - wget https://pure.rug.nl/ws/files/132028374/Complete_thesis.pdf
 
 after_failure:
   - cat /home/travis/build/ropensci/babette/babette.Rcheck/00install.out
@@ -64,5 +64,5 @@ after_failure:
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
   # Download thesis
-  - wget https://research.rug.nl/files/132028374/Complete_thesis.pdf
+  - wget https://pure.rug.nl/ws/files/132028374/Complete_thesis.pdf
 

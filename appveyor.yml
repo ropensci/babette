@@ -36,7 +36,7 @@ test_script:
 
 on_success:
   # Download thesis
-  - Rscript -e 'download.file("https://research.rug.nl/files/132028374/Complete_thesis.pdf", "thesis.pdf")'
+  - Rscript -e 'download.file("https://pure.rug.nl/ws/files/132028374/Complete_thesis.pdf", "thesis.pdf")'
   - rm thesis.pdf
 
 on_failure:

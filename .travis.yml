@@ -50,8 +50,6 @@ after_success:
   #- cd scripts; ./build_cran
   # temporarily disabled due to CERT_UNTRUSTED
   #- ./scripts/check_dead_links
-  # Download thesis
-  - wget https://pure.rug.nl/ws/files/132028374/Complete_thesis.pdf
 
 after_failure:
   - cat /home/travis/build/ropensci/babette/babette.Rcheck/00install.out
@@ -63,6 +61,4 @@ after_failure:
   - cd ~; find . | egrep "\.xml"
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
-  # Download thesis
-  - wget https://pure.rug.nl/ws/files/132028374/Complete_thesis.pdf
 

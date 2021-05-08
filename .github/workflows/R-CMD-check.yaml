@@ -14,7 +14,7 @@ jobs:
           - install_beast2: "true" 
           - install_beast2: "false"
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -34,8 +34,8 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
-          remotes::install_github("richelbilderbeek/beautier")
-          remotes::install_github("richelbilderbeek/beastier")
+          remotes::install_github("ropensci/beautier")
+          remotes::install_github("ropensci/beastier")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")

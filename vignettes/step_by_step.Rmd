@@ -41,10 +41,8 @@ This step is commonly done using BEAUti.
 With `babette`, this can be done as follows:
 
 ```{r}
-beast2_input_file <- tempfile()
 create_beast2_input_file(
   get_babette_path("anthus_aco.fas"),
-  output_filename = beast2_input_file,
   mcmc = mcmc
 )
 testit::assert(file.exists(beast2_input_file))

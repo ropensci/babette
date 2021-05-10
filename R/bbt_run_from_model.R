@@ -124,7 +124,8 @@ bbt_run_from_model <- function(
     )
   }
   testit::assert(!is.na(inference_model$mcmc$tracelog$filename))
-  testit::assert(file.exists(inference_model$mcmc$tracelog$filename) &&
+  testit::assert(
+    file.exists(normalizePath(inference_model$mcmc$tracelog$filename)) &&
     length(
       paste0(
         "'mcmc$tracelog$filename' not found. \n",

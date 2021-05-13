@@ -89,7 +89,7 @@ if (is_beast2_installed()) {
     traces = out$estimates,
     burn_in_fraction = 0.2
   )
-  esses <- t(calc_esses(traces, sample_interval = sample_interval))
+  esses <- t(calc_esses(traces, sample_interval = inference_model$mcmc$tracelog$log_every))
   colnames(esses) <- "ESS"
   knitr::kable(esses)
 }
@@ -104,7 +104,7 @@ if (is_beast2_installed()) {
   sum_stats <- t(
     calc_summary_stats(
       traces$posterior,
-      sample_interval = sample_interval
+      sample_interval = inference_model$mcmc$tracelog$log_every
     )
   )
   colnames(sum_stats) <- "Statistic"

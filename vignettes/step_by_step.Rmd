@@ -31,8 +31,8 @@ library(babette)
 In all cases, this is done for a short MCMC chain length of 10K:
 
 ```{r}
-mcmc <- create_test_mcmc()
-sample_interval <- mcmc$tracelog$log_every
+inference_model <- create_inference_model()
+inference_model$mcmc$chain_length <- 10000
 ```
 
 ## Create a 'BEAST2' input file
@@ -41,9 +41,11 @@ This step is commonly done using BEAUti.
 With `babette`, this can be done as follows:
 
 ```{r}
-create_beast2_input_file(
-  get_babette_path("anthus_aco.fas"),
-  mcmc = mcmc
+beast2_input_file <- tempfile(pattern = "beast2_", fileext = ".xml")
+create_beast2_input_file_from_model(
+  input_filename = get_babette_path("anthus_aco.fas"),
+  inference_model = inference_model,
+  output_filename = beast2_input_file
 )
 testit::assert(file.exists(beast2_input_file))
 ```

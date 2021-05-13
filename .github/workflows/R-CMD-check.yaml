@@ -34,8 +34,10 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
-          remotes::install_github("ropensci/beautier")
-          remotes::install_github("ropensci/beastier")
+          remotes::install_github("ropensci/beautier", ref = "develop")
+          remotes::install_github("ropensci/tracerer", ref = "develop")
+          remotes::install_github("ropensci/beastier", ref = "develop")
+          remotes::install_github("ropensci/mauricer", ref = "develop")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")

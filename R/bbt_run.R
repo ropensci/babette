@@ -108,7 +108,7 @@ bbt_run <- function(
     overwrite = overwrite,
     verbose = verbose
   )
-  bbt_run_from_model(
+  babette::bbt_run_from_model(
     fasta_filename = fasta_filename,
     inference_model = inference_model,
     beast2_options = beast2_options

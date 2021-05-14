@@ -106,13 +106,13 @@ bbt_continue <- function(
     mcmc = inference_model$mcmc,
     beast2_path = beast2_options$beast2_path
   )
-
-
   beautier::check_file_exists(
     beast2_options$input_filename,
     "beast2_options$input_filename"
   )
-  testthat::expect_true(beastier::is_beast2_input_file(beast2_options$input_filename))
+  testthat::expect_true(
+    beastier::is_beast2_input_file(beast2_options$input_filename)
+  )
   beautier::check_file_exists(
     beast2_options$output_state_filename,
     "beast2_options$output_state_filename"

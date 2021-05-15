@@ -140,4 +140,3 @@ FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
 
 [![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
 
-

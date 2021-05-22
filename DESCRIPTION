@@ -24,7 +24,7 @@ BugReports: https://github.com/ropensci/babette/issues
 Depends:
     beautier (>= 2.5.2),
     beastier (>= 2.4),
-    mauricer,
+    mauricer (>= 2.5),
     tracerer
 Imports:
     phangorn,

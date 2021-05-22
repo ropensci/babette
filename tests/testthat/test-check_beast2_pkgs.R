@@ -27,7 +27,7 @@ test_that("use", {
     "Must install 'NS' to use 'create_ns_mcmc'."
   )
 
-  mauricer::install_beast2_pkg("NS")
+  mauricerinstall::install_beast2_pkg("NS")
 
   expect_silent(
     babette::check_beast2_pkgs(

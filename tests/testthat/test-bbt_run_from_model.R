@@ -146,7 +146,7 @@ test_that("use, nested sampling, in custom folder", {
     rappdirs::user_cache_dir(),
     basename(tempfile(pattern = "babette_"))
   )
-  beastier::install_beast2(folder_name = beast2_folder)
+  beastierinstall::install_beast2(folder_name = beast2_folder)
   mauricer::install_beast2_pkg(name = "NS", beast2_folder = beast2_folder)
   expect_true(mauricer::is_beast2_ns_pkg_installed(
     beast2_folder = beast2_folder)

@@ -32,43 +32,31 @@ install.packages("babette")
 `babette` is installed most easily using the `remotes` package:
 
 ```
-remotes::install_github("ropensci/beautier", dependencies = TRUE)
-remotes::install_github("ropensci/tracerer", dependencies = TRUE)
-remotes::install_github("ropensci/beastier", dependencies = TRUE)
-remotes::install_github("ropensci/mauricer", dependencies = TRUE)
-remotes::install_github("ropensci/babette", dependencies = TRUE)
+remotes::install_github("ropensci/beautier")
+remotes::install_github("ropensci/tracerer")
+remotes::install_github("ropensci/beastier")
+remotes::install_github("ropensci/mauricer")
+remotes::install_github("ropensci/babette")
+
 ```
 
 ## Install BEAST2
 
 `babette` assumes that BEAST2 is installed. 
-If not, one can install BEAST2 from R using `babette`:
 
-```{r}
-library(babette); install_beast2()
-```
+If not, one can install BEAST2 from R using `beastierinstall`:
 
-This will download and extract BEAST2 to:
-
-OS     |Full path
--------|----------------------------------
-Linux  |`~/.local/share/beast`
-Windows|`C:/Users/<username>/Local/beast`
-
-## `babette` installation problems
-
-Here I list some `babette` installation problems:
-
- * package ‘babette’ is not available (for R version x.y.z)
- * [more to come?]
-
-### package ‘babette’ is not available (for R version x.y.z)
-
-Because `babette` is not yet on CRAN, installing it with `install.packages`, this will fail:
+To install BEAST2:
 
 ```
-Warning in install.packages :
-package ‘babette’ is not available (for R version 3.4.2)
+remotes::install_github("richelbilderbeek/beastierinstall")
+beastierinstall::install_beast2()
 ```
 
-Solution: use the `babette` installation as decribed above.
+To install a BEAST2 package, for example, the `NS` package:
+
+```
+remotes::install_github("richelbilderbeek/mauricerinstall")
+mauricerinstall::install_beast2_pkg("NS")
+```
+

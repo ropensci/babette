@@ -9,10 +9,10 @@ name: R-CMD-check
 jobs:
   R-CMD-check:
     strategy:
+      fail-fast: false
       matrix:
-        include:
-          - install_beast2: "true" 
-          - install_beast2: "false"
+        install_beast2: [true, false]
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
     runs-on: ubuntu-latest
     env:
@@ -52,14 +52,23 @@ jobs:
           INSTALL_BEAST2: ${{ matrix.install_beast2 }}
         run: if [[ "$INSTALL_BEAST2" == true ]]; then Rscript -e "beastierinstall::install_beast2()"; fi
 
+      - name: Install BEAST2 NS package
+        env:
+          INSTALL_BEAST2: ${{ matrix.install_beast2 }}
+        run: if [[ "$INSTALL_BEAST2" == true ]]; then Rscript -e 'mauricerinstall::install_beast2_pkg("NS")'; fi
+
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
 
       - name: Test coverage
+        env:
+          INSTALL_BEAST2: ${{ matrix.install_beast2 }}
         run: if [[ "$INSTALL_BEAST2" == true ]]; then Rscript -e 'covr::codecov()'; fi
 
       - name: Lint
+        env:
+          INSTALL_BEAST2: ${{ matrix.install_beast2 }}
         run: if [[ "$INSTALL_BEAST2" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
 
       - name: Report

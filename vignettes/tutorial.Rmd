@@ -89,7 +89,7 @@ inference_model <- create_test_inference_model()
 names(inference_model)
 ```
 
-`mcmc` is the `bbt_run_from_model` argument to specify the MCMC run options:
+`mcmc` is the `inference_model` argument to specify the MCMC run options:
 
 ```{r}
 print(inference_model$mcmc$chain_length)
@@ -112,10 +112,9 @@ For this tutorial, visualizing `out` is ignored, as the 'Demo' vignette
 discusses this. 
 Instead, we will work through the other `bbt_run_from_model` parameters.
 
-## `site_models`
+## `site_model`
 
-`site_models` is the `bbt_run_from_model` argument 
-to select one or more site models.
+`site_model` is the `inference_model` parameter for a site model.
 As this tutorial works on a DNA alignment, such a site model can also
 be called a nucleotide substitution model.
 
@@ -147,10 +146,9 @@ if (is_beast2_installed()) {
 }
 ```
 
-## `clock_models`
+## `clock_model`
 
-`clock_models` is the `bbt_run_from_model` argument 
-to select one or more clock models.
+`clock_models` is the `inference_model` parameter for a clock model.
 
 Picking a clock model is easy: just type:
 
@@ -180,10 +178,9 @@ if (is_beast2_installed()) {
 }
 ```
 
-## `tree_priors`
+## `tree_prior`
 
-`tree_priors` is the `bbt_run_from_model` argument 
-to select one or more tree priors.
+`tree_prior` is the `inference_model` parameter to select a tree prior.
 
 Picking a tree prior is easy: just type:
 
@@ -213,10 +210,10 @@ if (is_beast2_installed()) {
 }
 ```
 
-## `mrca_priors`
+## `mrca_prior`
 
-`mrca_priors` is the `bbt_run_from_model` argument to add one or more Most
-Recent Common Ancestor (hence, MRCA) priors.
+`mrca_priors` is the `inference_model` parameter to use 
+a Most Recent Common Ancestor (hence, MRCA) prior.
 With such a prior, it can be specified which taxa have a shared
 common ancestor and when it existed.
 
@@ -262,7 +259,6 @@ Using such an MRCA prior:
 inference_model <- create_test_inference_model(
   mrca_prior = mrca_prior
 )
-
 ```
 
 ```{r cache=TRUE}

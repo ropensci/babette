@@ -60,6 +60,26 @@ jobs:
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
 
+      - name: Make sure that no files are created in the beautier .cache folder
+        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "beautier"))))
+        shell: Rscript {0}
+
+      - name: Make sure that no files are created in the tracerer .cache folder
+        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "tracerer"))))
+        shell: Rscript {0}
+
+      - name: Make sure that no files are created in the beastier .cache folder
+        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "beastier"))))
+        shell: Rscript {0}
+
+      - name: Make sure that no files are created in the mauricer .cache folder
+        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "mauricer"))))
+        shell: Rscript {0}
+
+      - name: Make sure that no files are created in the .cache folder
+        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "babette"))))
+        shell: Rscript {0}
+
       - name: Test coverage
         env:
           INSTALL_BEAST2: ${{ matrix.install_beast2 }}

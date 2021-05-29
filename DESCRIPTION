@@ -5,6 +5,7 @@ Authors@R: c(
     person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
     person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/richelbilderbeek/onboarding/issues/209"),
     person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/richelbilderbeek/onboarding/issues/209"),
+    person("Jason", "Griffiths", role = "ctb", comment = c(ORCID = "0000-0002-1667-8233")),
     person("Giovanni", "Laudanno", email = "glaudanno@gmail.com", role = "ctb"))
 Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<https://www.beast2.org>) is a widely used

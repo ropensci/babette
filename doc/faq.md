@@ -137,9 +137,10 @@ bbt_run_from_model(
 readLines(inference_model$mcmc$tracelog$filename)
 ```
 
-### Can `babette` handle missing data?
+### Can `babette` handle missing data in the FASTA files?
 
-Yes. BEAST2 can and so does `babette`.
+Yes. BEAST2 can missing data in the FASTA files (which
+contain the DNA/RNA or protein sequences) and so does `babette`.
 
 In your FASTA file, use a dash `-` (not NA)
 for the sequences that are missing.

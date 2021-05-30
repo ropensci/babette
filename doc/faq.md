@@ -4,7 +4,15 @@
 
 ### Which version of BEAUti do you use as a guideline?
 
-Version 2.5.0, as can be found in the [install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
+Run this code:
+
+```
+beastier::get_beast2_version()
+```
+
+Currently, this returns `2.6.4` which means that the
+BEAUti version `2.6` (the patch version is irrelevant)
+is ignored.
 
 ### How to install BEAST2?
 

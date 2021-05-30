@@ -8,9 +8,7 @@ Version 2.5.0, as can be found in the [install_beast2](https://github.com/richel
 
 ### How to install BEAST2?
 
-```
-beastier::install_beast2()
-```
+See [install.md](install.md)
 
 ## `babette` development 
 
@@ -138,6 +136,14 @@ bbt_run_from_model(
 # Show the generated .log file
 readLines(inference_model$mcmc$tracelog$filename)
 ```
+
+### Can `babette` handle missing data?
+
+Yes. BEAST2 can and so does `babette`.
+
+In your FASTA file, use a dash `-` (not NA)
+for the sequences that are missing.
+This is similar to what the `phangorn` package does.
 
 ### If I set a fixed crown age with multiple alignments, only the first alignment has so
 

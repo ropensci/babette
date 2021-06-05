@@ -15,7 +15,6 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
   - ropensci/spelling
-  - ropensci/beautier@develop
   - ropensci/beastier@develop
 
 before_install:

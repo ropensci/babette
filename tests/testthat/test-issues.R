@@ -30,6 +30,17 @@ test_that("use", {
   )
 })
 
+test_that("use", {
+  skip("Issue 90, Issue #90")
+  inference_model <- create_inference_model(
+    clock_model = create_rln_clock_model(),
+    tipdates_filename = beautier::get_beautier_path("test_output_0_tipdates.tsv")
+  )
+  bbt_run_from_model(
+    fasta_filename = get_fasta_filename(),
+    inference_model = inference_model
+  )
+})
 test_that("clockRate.c ID and ClockPrior.c ID added twice", {
 
   skip("Issue 93, Issue #93")

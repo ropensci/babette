@@ -1,15 +1,15 @@
 test_that("use", {
 
-  skip("Issue 90, Issue #90")
   filename <- get_babette_path(
     "Felinecoronavirus_Envelope_1.fas"
   )
   tipdates_filename <- get_babette_path(
     "Felinecoronavirus_Envelope_1_no_quotes.txt"
   )
-  inference_model <- create_inference_model(
+  inference_model <- create_test_inference_model(
     tipdates_filename = tipdates_filename,
-    clock_model = create_rln_clock_model()
+    clock_model = create_rln_clock_model(),
+    beauti_options = create_beauti_options_v2_6()
   )
 
   # Could not find object associated with idref clockRate.c:Felinecoronavirus_Envelope_1          # nolint
@@ -24,30 +24,29 @@ test_that("use", {
   expect_silent(
     bbt_run_from_model(
       fasta_filename = filename,
-      beast2_options = create_beast2_options(verbose = TRUE),
+      beast2_options = create_beast2_options(),
       inference_model = inference_model
     )
   )
 })
 
 test_that("use", {
-  skip("Issue 90, Issue #90")
-  inference_model <- create_inference_model(
+  inference_model <- create_test_inference_model(
     clock_model = create_rln_clock_model(),
-    tipdates_filename = beautier::get_beautier_path("test_output_0_tipdates.tsv")
+    tipdates_filename = beautier::get_beautier_path(
+      "test_output_0_tipdates.tsv"
+    ),
+    beauti_options = create_beauti_options_v2_6()
   )
   bbt_run_from_model(
     fasta_filename = get_fasta_filename(),
     inference_model = inference_model
   )
 })
+
 test_that("clockRate.c ID and ClockPrior.c ID added twice", {
 
-  skip("Issue 93, Issue #93")
-
   if (!is_beast2_installed()) return()
-  # From https://github.com/ropensci/beautier/issues/127
-  # From https://github.com/ropensci/beautier/issues/128
 
   # clock_model
   clock_rate <- 0.0000001
@@ -66,8 +65,7 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
     mrca_distr = create_laplace_distr(mu = 1990)
   )
 
-
-  inference_model <- create_inference_model(
+  inference_model <- create_test_inference_model(
     clock_model = clock_model,
     mrca_prior = mrca_prior,
     tipdates_filename = beautier::get_beautier_path(
@@ -75,13 +73,12 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
     ),
     mcmc = create_test_mcmc()
   )
-  expect_error(
+  expect_silent(
     bbt_run_from_model(
       fasta_filename = beautier::get_beautier_path(
         "THAILAND_TEST.clust_1.dated.fa"
       ),
       inference_model = inference_model
-    ),
-    "Two sequences with different length found"
+    )
   )
 })

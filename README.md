@@ -22,6 +22,11 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 
 ![babette logo](man/figures/babette_logo.png)
 
+Non-CRAN extensions:
+
+ * [beastierinstall](https://github.com/richelbilderbeek/beastierinstall) Install and uninstall BEAST2
+ * [mauricerinstall](https://github.com/richelbilderbeek/mauricerinstall) Install and uninstall BEAST2 packages
+
 Related R packages:
 
  * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed

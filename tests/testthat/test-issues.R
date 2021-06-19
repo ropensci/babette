@@ -1,4 +1,5 @@
 test_that("use", {
+  if (!is_beast2_installed()) return()
 
   filename <- get_babette_path(
     "Felinecoronavirus_Envelope_1.fas"
@@ -31,6 +32,7 @@ test_that("use", {
 })
 
 test_that("use", {
+  if (!is_beast2_installed()) return()
   inference_model <- create_test_inference_model(
     clock_model = create_rln_clock_model(),
     tipdates_filename = beautier::get_beautier_path(

@@ -482,7 +482,8 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = FALSE,
       mrca_distr = create_one_div_x_distr() # Use simpler distribution
-    )
+    ),
+    beauti_options = create_beauti_options_v2_6()
   )
   expect_true(
     are_beast2_input_lines(
@@ -505,7 +506,8 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = TRUE,
       mrca_distr = create_one_div_x_distr() # Use simpler distributiob
-    )
+    ),
+    beauti_options = create_beauti_options_v2_6()
   )
   expect_true(
     are_beast2_input_lines(

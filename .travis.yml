@@ -15,7 +15,7 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
   - ropensci/spelling
-  - ropensci/beastier@develop
+  - ropensci/mauricer
 
 before_install:
   # Fix rJava error, from https://travis-ci.community/t/cannot-connect-to-java-from-r/9754/8

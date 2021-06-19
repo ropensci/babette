@@ -89,13 +89,12 @@ test_that("same RNG seed gives same results", {
     # RNG seed is unreliable under macOS
   }
 
-  testit::assert(beastier::is_beast2_installed())
+  rng_seed <- 42
   inference_model_1 <- create_test_inference_model()
   inference_model_2 <- create_test_inference_model()
-  beast2_options_1 <- create_beast2_options(rng_seed = 42)
-  beast2_options_2 <- create_beast2_options(rng_seed = 42)
+  beast2_options_1 <- create_beast2_options(rng_seed = rng_seed)
+  beast2_options_2 <- create_beast2_options(rng_seed = rng_seed)
 
-  rng_seed <- 42
   out_1 <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     inference_model = inference_model_1,
@@ -103,8 +102,8 @@ test_that("same RNG seed gives same results", {
   )
   out_2 <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
-    inference_model = inference_model_1,
-    beast2_options = beast2_options_1
+    inference_model = inference_model_2,
+    beast2_options = beast2_options_2
   )
   expect_equal(length(out_1), length(out_2))
 
@@ -117,9 +116,9 @@ test_that("same RNG seed gives same results", {
   # [4] "Total calculation time: 0.956 seconds"
 
   # The screen output will be differ in four lines (see above)
-  expect_equal(4, sum(out_1$output != out_2$output))
+  expect_equal(6, sum(out_1$output != out_2$output))
 
-  # Here we replace the four sentences, because we know what these look like
+  # Here we replace the six sentences, because we know what these look like
   # After that, the text should be identical
 
   # The screen output will be different here:
@@ -146,6 +145,19 @@ test_that("same RNG seed gives same results", {
     grepl(x = out_1$output, pattern = "Total calculation time: ")
   )
   out_2$output[replacement_4_index] <- out_1$output[replacement_4_index]
+
+
+  # [5] "Writing state to file /home/richel/.cache/beastier/beast2_77d06866b6d2.xml.state"
+  replacement_5_index <- which(
+    grepl(x = out_1$output, pattern = "Writing state to file")
+  )
+  out_2$output[replacement_5_index] <- out_1$output[replacement_5_index]
+
+  # [6] "File: beast2_77d035d6bccb.xml seed: 42 threads: 1"
+  replacement_6_index <- which(
+    grepl(x = out_1$output, pattern = "File.*seed:.*threads")
+  )
+  out_2$output[replacement_6_index] <- out_1$output[replacement_6_index]
 
   expect_identical(out_1, out_2)
 })

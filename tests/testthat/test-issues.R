@@ -21,14 +21,21 @@ test_that("use", {
   #   <run id='mcmc' spec='MCMC'>                                                                 # nolint
   #     <operator id='StrictClockRateScaler.c:Felinecoronavirus_Envelope_1' spec='ScaleOperator'> # nolint
   #       <input>                                                                                 # nolint
+  beast2_options <- create_beast2_options()
 
   expect_silent(
     bbt_run_from_model(
       fasta_filename = filename,
-      beast2_options = create_beast2_options(),
-      inference_model = inference_model
+      inference_model = inference_model,
+      beast2_options = beast2_options
     )
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })
 
 test_that("use", {
@@ -40,9 +47,15 @@ test_that("use", {
     ),
     beauti_options = create_beauti_options_v2_6()
   )
+  beast2_options <- create_beast2_options()
   bbt_run_from_model(
     fasta_filename = get_fasta_filename(),
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 })
 
@@ -80,7 +93,14 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
       fasta_filename = beautier::get_beautier_path(
         "THAILAND_TEST.clust_1.dated.fa"
       ),
-      inference_model = inference_model
+      inference_model = inference_model,
+      beast2_options = beast2_options
     )
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })

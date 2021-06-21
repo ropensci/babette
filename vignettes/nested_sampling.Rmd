@@ -121,6 +121,10 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
       beast2_path = beastier::get_default_beast2_bin_path()
     )
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
   out_gtr <- bbt_run_from_model(
     fasta_filename = fasta_filename,
     inference_model = create_inference_model(
@@ -130,6 +134,10 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
     beast2_options = create_beast2_options(
       beast2_path = beastier::get_default_beast2_bin_path()
     )
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```

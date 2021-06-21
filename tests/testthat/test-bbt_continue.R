@@ -26,6 +26,10 @@ test_that("minimal use", {
   )
   expect_equal(10, length(bbt_out$test_output_0_trees))
   expect_equal(10, nrow(bbt_out$estimates))
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
 })
 
 
@@ -59,4 +63,8 @@ test_that("different lengths", {
   )
   expect_equal(10, length(bbt_out$test_output_0_trees))
   expect_equal(10, nrow(bbt_out$estimates))
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
 })

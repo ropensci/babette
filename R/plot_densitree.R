@@ -15,6 +15,10 @@
 #'     inference_model = inference_model,
 #'     beast2_options = beast2_options
 #'   )
+#'   bbt_delete_temp_files(
+#'     inference_model = inference_model,
+#'     beast2_options = beast2_options
+#'   )
 #'
 #'   plot_densitree(out$anthus_aco_trees)
 #'

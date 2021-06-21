@@ -190,5 +190,8 @@ bbt_run_from_model <- function(
     inference_model = inference_model
   )
 
+  # Cannot call babette::bbt_delete_temp_files,
+  # as 'continue_bbt_run' expects these files to be there
+
   out
 }

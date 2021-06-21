@@ -147,7 +147,8 @@ test_that("same RNG seed gives same results", {
   out_2$output[replacement_4_index] <- out_1$output[replacement_4_index]
 
 
-  # [5] "Writing state to file /home/richel/.cache/beastier/beast2_77d06866b6d2.xml.state"
+  # [5] "Writing state to file
+  # /home/richel/.cache/beastier/beast2_77d06866b6d2.xml.state"
   replacement_5_index <- which(
     grepl(x = out_1$output, pattern = "Writing state to file")
   )
@@ -160,6 +161,14 @@ test_that("same RNG seed gives same results", {
   out_2$output[replacement_6_index] <- out_1$output[replacement_6_index]
 
   expect_identical(out_1, out_2)
+  bbt_delete_temp_files(
+    inference_model = inference_model_1,
+    beast2_options = beast2_options_1
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model_2,
+    beast2_options = beast2_options_2
+  )
 })
 
 ################################################################################

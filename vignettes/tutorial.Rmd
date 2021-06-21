@@ -101,8 +101,12 @@ it will finish fast:
 ```{r cache=TRUE}
 if (is_beast2_installed()) {
   out <- bbt_run_from_model(
-   fasta_filename = fasta_filename,
-   inference_model = inference_model
+    fasta_filename = fasta_filename,
+    inference_model = inference_model
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -143,6 +147,10 @@ if (is_beast2_installed()) {
     fasta_filename = fasta_filename,
     inference_model = inference_model
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
 }
 ```
 
@@ -175,6 +183,10 @@ if (is_beast2_installed()) {
     fasta_filename = fasta_filename,
     inference_model = inference_model
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
 }
 ```
 
@@ -206,6 +218,10 @@ if (is_beast2_installed()) {
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
     inference_model = inference_model
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -266,6 +282,10 @@ if (is_beast2_installed()) {
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
     inference_model = inference_model
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```

@@ -17,6 +17,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r check_empty_cache_at_start, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
+```
+
+
 ## Introduction
 
 ![](babette_logo.png)
@@ -127,4 +133,9 @@ if (is_beast2_installed()) {
 if (is_beast2_installed()) {
   plot_densitree(out$anthus_aco_sub_trees, width = 2)
 }
+```
+
+```{r check_empty_cache_at_end, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
 ```

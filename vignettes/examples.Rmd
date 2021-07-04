@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r check_empty_cache_at_start, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
+```
+
+
 ## Introduction
 
 ![](babette_logo.png)
@@ -66,9 +72,18 @@ Using all default settings, only specify a DNA alignment.
 
 ```{r example_1, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -96,8 +111,7 @@ mcmc <- create_test_mcmc(chain_length = 10000)
 
 ```{r example_2_mrca, cache=FALSE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     mcmc = mcmc,
     mrca_prior = create_mrca_prior(
       taxa_names = sample(get_taxa_names(fasta_filename), size = 3),
@@ -108,6 +122,16 @@ if (is_beast2_installed()) {
         sigma = 0.025
       )
     )
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -127,10 +151,19 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 
 ```{r example_3, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     site_model = create_jc69_site_model(),
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -147,10 +180,19 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 
 ```{r example_4, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     clock_model = create_rln_clock_model(),
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -167,10 +209,19 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 
 ```{r example_5, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     tree_prior = create_bd_tree_prior(),
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -185,8 +236,7 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 
 ```{r example_6, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         mean = 1.0,
@@ -194,6 +244,16 @@ if (is_beast2_installed()) {
       )
     ),
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -210,12 +270,21 @@ Thanks to Yacine Ben Chehida for this use case
 
 ```{r example_7, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     site_model = create_hky_site_model(
       gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
     ),
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -234,12 +303,21 @@ Thanks to Yacine Ben Chehida for this use case
 
 ```{r example_8, cache=TRUE}
 if (is_beast2_installed()) {
-  posterior <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- create_inference_model(
     clock_model = create_strict_clock_model(
       clock_rate_param = 0.5
     ),
     mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options()
+  posterior <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
 }
 ```
@@ -249,3 +327,8 @@ plot_densitree(posterior$anthus_aco_sub_trees, width = 2)
 ```
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
+
+```{r check_empty_cache_at_end, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
+```

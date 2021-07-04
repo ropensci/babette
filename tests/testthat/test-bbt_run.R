@@ -532,17 +532,29 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
 test_that("use, one alignment, plot with nLTT", {
 
   if (!beastier::is_beast2_installed()) return()
-
-    out <- bbt_run(
-    fasta_filename = get_babette_path("anthus_aco.fas"),
+  inference_model <- create_inference_model(
     mcmc = create_test_mcmc(chain_length = 2000)
   )
-  testit::assert(
+  beast2_options <- create_beast2_options()
+  out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  expect_true(
     all(grepl(pattern = "STATE_", x = names(out$anthus_aco_trees)) == FALSE)
   )
   expect_silent(
     nLTT::nltts_plot(out$anthus_aco_trees)
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })
 
 test_that("with tip dating", {
@@ -557,4 +569,8 @@ test_that("with tip dating", {
     tree_prior = create_ccp_tree_prior()
   )
   expect_true(are_beast2_input_lines(lines))
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })

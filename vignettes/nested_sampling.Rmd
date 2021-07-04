@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r check_empty_cache_at_start, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
+```
+
 ## Introduction
 
 ![](babette_logo.png)
@@ -111,29 +116,33 @@ Here we do two 'BEAST2' runs, with both site models:
 
 ```{r}
 if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
+  inference_model <- create_inference_model(
+    site_model = beautier::create_jc69_site_model(),
+    mcmc = mcmc
+  )  
+  beast2_options <- create_beast2_options(
+    beast2_path = beastier::get_default_beast2_bin_path()
+  )
   out_jc69 <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = create_inference_model(
-      site_model = beautier::create_jc69_site_model(),
-      mcmc = mcmc
-    ),
-    beast2_options = create_beast2_options(
-      beast2_path = beastier::get_default_beast2_bin_path()
-    )
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
     beast2_options = beast2_options
   )
+  inference_model <- create_inference_model(
+    site_model = beautier::create_gtr_site_model(),
+    mcmc = mcmc
+  )
+  beast2_options <- create_beast2_options(
+    beast2_path = beastier::get_default_beast2_bin_path()
+  )
   out_gtr <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = create_inference_model(
-      site_model = beautier::create_gtr_site_model(),
-      mcmc = mcmc
-    ),
-    beast2_options = create_beast2_options(
-      beast2_path = beastier::get_default_beast2_bin_path()
-    )
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
@@ -176,3 +185,8 @@ likelihood estimation into account.
  * [2] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species
    limits in Neotropical pipits Anthus based on multilocus genetic and
    vocal data." Ibis.
+
+```{r check_empty_cache_at_end, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
+```

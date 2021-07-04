@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r check_empty_cache_at_start, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
+```
+
 ## Introduction
 
 ![](babette_logo.png)
@@ -100,9 +105,11 @@ it will finish fast:
 
 ```{r cache=TRUE}
 if (is_beast2_installed()) {
+  beast2_options <- create_beast2_options()
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
@@ -143,9 +150,11 @@ Using this site model:
 
 ```{r cache=TRUE}
 if (is_beast2_installed()) {
+  beast2_options <- create_beast2_options()
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
@@ -179,9 +188,11 @@ Using this clock model:
 
 ```{r cache=TRUE}
 if (is_beast2_installed()) {
+  beast2_options <- create_beast2_options()
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
@@ -215,9 +226,11 @@ Using this tree prior:
 
 ```{r cache=TRUE}
 if (is_beast2_installed()) {
+  beast2_options <- create_beast2_options()
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
@@ -279,13 +292,20 @@ inference_model <- create_test_inference_model(
 
 ```{r cache=TRUE}
 if (is_beast2_installed()) {
+  beast2_options <- create_beast2_options()
   out <- bbt_run_from_model(
     fasta_filename = fasta_filename,
-    inference_model = inference_model
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   bbt_delete_temp_files(
     inference_model = inference_model,
     beast2_options = beast2_options
   )
 }
+```
+
+```{r check_empty_cache_at_end, include = FALSE}
+beautier::check_empty_beautier_folder()
+beastier::check_empty_beastier_folder()
 ```

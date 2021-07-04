@@ -93,8 +93,6 @@ test_that("abuse", {
   if (!beastier::is_beast2_installed()) return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  testit::assert(mauricer::is_beast2_ns_pkg_installed())
-
   inference_model <- create_test_inference_model(
     mcmc = create_mcmc_nested_sampling(
       chain_length = 1000,
@@ -121,7 +119,8 @@ test_that("abuse", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-
   beastier::check_empty_beastier_folder()
   beautier::check_empty_beautier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })

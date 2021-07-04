@@ -1,5 +1,3 @@
-context("check_beast2_pkgs")
-
 test_that("use", {
 
   if (!beastier::is_beast2_installed()) return()
@@ -14,13 +12,11 @@ test_that("use", {
   was_ns_installed <- mauricer::is_beast2_ns_pkg_installed()
 
   if (mauricer::is_beast2_ns_pkg_installed()) {
-    mauricer::uninstall_beast2_pkg("NS")
+    mauricerinstall::uninstall_beast2_pkg("NS")
   }
 
-  testit::assert(!mauricer::is_beast2_ns_pkg_installed())
-
   expect_error(
-    babette::check_beast2_pkgs(
+    check_beast2_pkgs(
       mcmc = create_mcmc_nested_sampling(),
       beast2_path = get_default_beast2_bin_path()
     ),
@@ -30,13 +26,17 @@ test_that("use", {
   mauricerinstall::install_beast2_pkg("NS")
 
   expect_silent(
-    babette::check_beast2_pkgs(
+    check_beast2_pkgs(
       mcmc = create_mcmc_nested_sampling(),
       beast2_path = get_default_beast2_bin_path()
     )
   )
 
   if (!was_ns_installed) {
-    mauricer::uninstall_beast2_pkg("BS")
+    mauricerinstall::uninstall_beast2_pkg("BS")
   }
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })

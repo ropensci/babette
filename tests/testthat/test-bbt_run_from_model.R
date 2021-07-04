@@ -15,6 +15,10 @@ test_that("minimal use", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })
 
 test_that("minimal use with BEAUti shorthand", {
@@ -39,6 +43,10 @@ test_that("minimal use with BEAUti shorthand", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  beastierinstall::clear_beastier_cache()
+  beastierinstall::clear_beautier_cache()
 })
 
 test_that("use, nested sampling", {
@@ -64,8 +72,10 @@ test_that("use, nested sampling", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::check_empty_beastier_folder()
   beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })
 
 test_that("abuse", {
@@ -168,8 +178,8 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
     ),
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
-  check_empty_beastier_folder()
-  check_empty_beautier_folder()
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })
 
 test_that("use, nested sampling, in custom folder", {

@@ -27,4 +27,8 @@ test_that("use", {
   expect_true("rejectFC" %in% names(out$operators))
   expect_true("rejectIv" %in% names(out$operators))
   expect_true("rejectOp" %in% names(out$operators))
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
+  beastierinstall::clear_beautier_cache()
+  beastierinstall::clear_beastier_cache()
 })

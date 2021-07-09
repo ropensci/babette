@@ -22,11 +22,13 @@ jobs:
 
       - uses: r-lib/actions/setup-r@v1
 
+      - uses: r-lib/actions/setup-pandoc@v1
+
       - name: Install libcurl4-openssl-dev
         run: sudo apt install -qq libcurl4-openssl-dev
 
-      - name: Install libgit2-dev
-        run: sudo apt install -qq libgit2-dev
+      #- name: Install libgit2-dev
+      #  run: sudo apt install -qq libgit2-dev
 
       - name: Fix rJava error # from https://travis-ci.community/t/cannot-connect-to-java-from-r/9754/8
         run: sudo $(which R) CMD javareconf

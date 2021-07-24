@@ -16,6 +16,7 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - ropensci/spelling
   - ropensci/beautier
+  - ropensci/beastier
   - ropensci/mauricer
 
 before_install:

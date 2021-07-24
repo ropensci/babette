@@ -84,11 +84,12 @@ if (is_beast2_installed()) {
   beast2_options <- create_beast2_options(
     input_filename = beast2_input_file
   )
+  beastier::check_can_create_file(beast2_options$output_state_filename)
   beastier::check_can_create_treelog_file(beast2_options)
   run_beast2_from_options(
     beast2_options = beast2_options
   )
-  testthat::expect_true(file.exists(beast2_options$state_filename))
+  testthat::expect_true(file.exists(beast2_options$output_state_filename))
 }
 ```
 

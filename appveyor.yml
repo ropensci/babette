@@ -27,7 +27,7 @@ build_script:
   - R -e "library(beastier); beastier::install_beast2()"
   - travis-tool.sh install_github ropensci/beastier
   - travis-tool.sh install_github ropensci/mauricer
-  - travis-tool.sh install_github jimhester/covr
+  - travis-tool.sh install_github r-lib/covr
   - travis-tool.sh install_github jimhester/lintr
   - travis-tool.sh install_github MangoTheCat/goodpractice
 

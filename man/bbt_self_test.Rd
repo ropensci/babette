@@ -4,7 +4,7 @@
 \alias{bbt_self_test}
 \title{Do a self test to verify \link{babette} that works correctly.}
 \usage{
-bbt_self_test()
+bbt_self_test(beast2_options = beastier::create_beast2_options())
 }
 \description{
 Do a self test to verify \link{babette} that works correctly.

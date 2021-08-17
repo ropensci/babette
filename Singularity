@@ -12,6 +12,7 @@ From: r-base
     Rscript -e 'remotes::install_github("ropensci/beastier")'
     Rscript -e 'remotes::install_github("richelbilderbeek/beastierinstall")'
     Rscript -e 'beastierinstall::install_beast2(folder_name = "/opt/beastier")'
+    Rscript -e 'remotes::install_github("richelbilderbeek/mauricer")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mauricerinstall")'
     Rscript -e 'mauricerinstall::install_beast2_pkg(folder_name = "/opt/beastier")'
 

@@ -14,7 +14,7 @@ From: r-base
     Rscript -e 'beastierinstall::install_beast2(folder_name = "/opt/beastier")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mauricer")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mauricerinstall")'
-    Rscript -e 'mauricerinstall::install_beast2_pkg(folder_name = "/opt/beastier")'
+    Rscript -e 'mauricerinstall::install_beast2_pkg(name = "NS", beast2_folder = "/opt/beastier")'
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"

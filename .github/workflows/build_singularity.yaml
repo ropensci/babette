@@ -8,6 +8,7 @@ jobs:
   build_singularity:
 
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         singularity_version:
@@ -25,32 +26,15 @@ jobs:
       - name: Show singularity version
         run: singularity version
 
-#      - name: Show present working directory
-#        run: echo $PWD
-
-      - name: Build Container
-        env:
-          SINGULARITY_RECIPE: Singularity
-          OUTPUT_CONTAINER: plinkr.sif
-        run: |
-         ls 
-         if [ -f "${SINGULARITY_RECIPE}" ]; then
-              sudo -E singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
-         else
-             echo "${SINGULARITY_RECIPE} is not found."
-             echo "Present working directory: $PWD"
-             ls
-         fi
-
-#            sudo -E SINGULARITY_TMPDIR=$RUNNER_TEMP singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
-#            sudo -E SINGULARITY_TMPDIR=tmp SINGULARITY_CACHEDIR=cache singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
+      - name: Build container
+        run: ./scripts/build_singularity_container.sh
 
       - name: Test container, must detect PLINKs
-        run: singularity test plinkr.sif
+        run: singularity test babette.sif
 
       - name: Show help of container
-        run: singularity run-help plinkr.sif
+        run: singularity run-help babette.sif
 
       - name: Run container
-        run: singularity exec plinkr.sif Rscript scripts/demo_container.R
+        run: cat scripts/demo_container.R | ./babette.sif 
 

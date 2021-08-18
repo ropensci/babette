@@ -2,14 +2,21 @@ test_that("output is well-formed", {
 
   if (!beastier::is_beast2_installed()) return()
 
-  testit::assert(beastier::is_beast2_installed())
-
   mcmc <- create_test_mcmc()
-
-  out <- bbt_run(
-    fasta_filename = get_babette_path("anthus_aco.fas"),
+  inference_model <- beautier::create_inference_model(
     mcmc = mcmc
   )
+  beast2_options <- create_beast2_options()
+  out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+
   expect_true("estimates" %in% names(out))
   expect_true("anthus_aco_trees" %in% names(out))
   expect_true("operators" %in% names(out))
@@ -37,47 +44,63 @@ test_that("output is well-formed", {
   expect_true("rejectFC" %in% names(out$operators))
   expect_true("rejectIv" %in% names(out$operators))
   expect_true("rejectOp" %in% names(out$operators))
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 test_that("use, one alignment, verbose, cleanup", {
 
   if (!beastier::is_beast2_installed()) return()
 
-  testit::assert(beastier::is_beast2_installed())
+  inference_model <- beautier::create_test_inference_model()
+  beast2_options <- create_beast2_options(verbose = TRUE)
 
-  expect_output(
-    bbt_run(
-      fasta_filename = get_babette_path("anthus_aco.fas"),
-      mcmc = create_test_mcmc(chain_length = 2000),
-      verbose = TRUE
+  suppressMessages(
+    expect_output(
+      bbt_run_from_model(
+        fasta_filename = get_babette_path("anthus_aco.fas"),
+        inference_model = inference_model,
+        beast2_options = beast2_options
+      )
     )
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 test_that("use, one alignment, verbose, no cleanup", {
 
   if (!beastier::is_beast2_installed()) return()
 
-  testit::assert(beastier::is_beast2_installed())
-
-  fasta_filenames <- get_babette_path("anthus_aco.fas")
+  inference_model <- beautier::create_test_inference_model()
   beast2_input_filename <- beastier::create_temp_input_filename()
   beast2_output_state_filename <- beastier::create_temp_state_filename()
-
-  testit::assert(!file.exists(beast2_input_filename))
-  testit::assert(!file.exists(beast2_output_state_filename))
-
-  expect_output(
-    bbt_run(
-      fasta_filename = fasta_filenames,
-      mcmc = create_test_mcmc(chain_length = 2000),
-      beast2_input_filename = beast2_input_filename,
-      beast2_output_state_filename = beast2_output_state_filename,
-      verbose = TRUE
-    )
+  expect_false(file.exists(beast2_input_filename))
+  expect_false(file.exists(beast2_output_state_filename))
+  beast2_options <- create_beast2_options(
+    input_filename = beast2_input_filename,
+    output_state_filename = beast2_output_state_filename
+  )
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_babette_path("anthus_aco.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
   expect_true(file.exists(beast2_input_filename))
   expect_true(file.exists(beast2_output_state_filename))
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 test_that("same RNG seed gives same results", {
@@ -169,6 +192,9 @@ test_that("same RNG seed gives same results", {
     inference_model = inference_model_2,
     beast2_options = beast2_options_2
   )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -180,12 +206,20 @@ test_that("Run all defaults", {
   if (!beastier::is_beast2_installed()) return()
   if (!beastier::is_on_ci()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model()
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -201,13 +235,22 @@ test_that("Run GTR", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      site_model = create_gtr_site_model(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    site_model = create_gtr_site_model()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -219,13 +262,22 @@ test_that("Run HKY", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      site_model = create_hky_site_model(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    site_model = create_hky_site_model()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -237,13 +289,22 @@ test_that("Run JC69", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      site_model = create_jc69_site_model(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    site_model = create_jc69_site_model()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -255,13 +316,22 @@ test_that("Run TN93", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      site_model = create_tn93_site_model(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    site_model = create_tn93_site_model()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -276,13 +346,22 @@ test_that("Run RLN clock", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      clock_model = create_rln_clock_model(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    clock_model = create_rln_clock_model()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -293,13 +372,22 @@ test_that("Run strict clock", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      clock_model = create_strict_clock_model(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    clock_model = create_strict_clock_model(),
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -314,13 +402,21 @@ test_that("Run BD tree prior", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_bd_tree_prior(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    tree_prior = create_bd_tree_prior()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })
 
 ################################################################################
@@ -331,15 +427,23 @@ test_that("Run CBS tree prior", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_cbs_tree_prior(
-        group_sizes_dimension = 4
-      ),
-      mcmc = create_test_mcmc(chain_length = 2000)
+  inference_model <- beautier::create_inference_model(
+    tree_prior = create_cbs_tree_prior(
+      group_sizes_dimension = 4
     )
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {
@@ -347,15 +451,22 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
+  inference_model <- beautier::create_test_inference_model(
+    tree_prior = create_cbs_tree_prior(
+      group_sizes_dimension = 123
+    )
+  )
+  beast2_options <- create_beast2_options()
   expect_error(
-    bbt_run(
+    bbt_run_from_model(
       fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_cbs_tree_prior(
-        group_sizes_dimension = 123
-      )
+      inference_model = inference_model,
+      beast2_options = beast2_options
     ),
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })
 
 ################################################################################
@@ -365,32 +476,48 @@ test_that("Run CCP tree prior", {
 
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
-
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_ccp_tree_prior(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    tree_prior = create_ccp_tree_prior()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 test_that("Run CCP tree prior with tip dating", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
-
-  expect_silent(
-    bbt_run(
-      fasta_filename = beautier::get_beautier_path(
-        "G_VII_pre2003_msa.fas"
-      ),
-      tipdates_filename = beautier::get_beautier_path(
-        "G_VII_pre2003_dates_4.txt"
-      ),
-      tree_prior = create_ccp_tree_prior(),
-      mcmc = create_test_mcmc(chain_length = 2000)
+  inference_model <- beautier::create_test_inference_model(
+    tree_prior = create_ccp_tree_prior(),
+    tipdates_filename = beautier::get_beautier_path(
+      "G_VII_pre2003_dates_4.txt"
     )
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = beautier::get_beautier_path(
+      "G_VII_pre2003_msa.fas"
+    ),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 ################################################################################
@@ -399,13 +526,22 @@ test_that("Run CCP tree prior with tip dating", {
 test_that("Run CEP tree prior", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_cep_tree_prior(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- beautier::create_test_inference_model(
+    tree_prior = create_cep_tree_prior()
   )
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 
@@ -415,13 +551,23 @@ test_that("Run CEP tree prior", {
 test_that("Run Yule tree prior", {
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
-  expect_silent(
-    bbt_run(
-      fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_yule_tree_prior(),
-      mcmc = create_test_mcmc(chain_length = 2000)
-    )
+  inference_model <- create_inference_model(
+    tree_prior = create_yule_tree_prior(),
+    mcmc = create_test_mcmc(chain_length = 2000)
   )
+  beast2_options <- create_beast2_options()
+  bbt_run_from_model(
+    fasta_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 
@@ -429,7 +575,6 @@ test_that("Run Yule tree prior", {
 # MRCA priors
 ################################################################################
 test_that("Run MRCA, no distr", {
-
   if (!beastier::is_beast2_installed()) return()
 
   fasta_filename <- get_fasta_filename()
@@ -441,6 +586,8 @@ test_that("Run MRCA, no distr", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
 })
 
 test_that("Run MRCA, MRCA distr", {
@@ -457,6 +604,8 @@ test_that("Run MRCA, MRCA distr", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
 })
 
 test_that("Run MRCA, no distr, subset of taxa", {
@@ -475,6 +624,8 @@ test_that("Run MRCA, no distr, subset of taxa", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
 })
 
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
@@ -499,6 +650,8 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
       lines, method = "deep"
     )
   )
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
 })
 
 test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
@@ -523,6 +676,8 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
       lines, method = "deep"
     )
   )
+  beastier::check_empty_beastier_folder()
+  beautier::check_empty_beautier_folder()
 })
 
 ################################################################################
@@ -532,9 +687,7 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
 test_that("use, one alignment, plot with nLTT", {
 
   if (!beastier::is_beast2_installed()) return()
-  inference_model <- create_inference_model(
-    mcmc = create_test_mcmc(chain_length = 2000)
-  )
+  inference_model <- create_test_inference_model()
   beast2_options <- create_beast2_options()
   out <- bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
@@ -553,8 +706,6 @@ test_that("use, one alignment, plot with nLTT", {
   )
   beastier::check_empty_beastier_folder()
   beautier::check_empty_beautier_folder()
-  beastierinstall::clear_beautier_cache()
-  beastierinstall::clear_beastier_cache()
 })
 
 test_that("with tip dating", {
@@ -571,6 +722,4 @@ test_that("with tip dating", {
   expect_true(are_beast2_input_lines(lines))
   beastier::check_empty_beastier_folder()
   beautier::check_empty_beautier_folder()
-  beastierinstall::clear_beautier_cache()
-  beastierinstall::clear_beastier_cache()
 })

@@ -1,11 +1,9 @@
-context("plot_densitree")
-
 test_that("use", {
 
   if (!beastier::is_beast2_installed()) return()
+
   fasta_filename <- get_babette_path("anthus_aco.fas")
-  out <- bbt_run(
-    fasta_filename = fasta_filename,
+  inference_model <- beautier::create_inference_model(
     mcmc = create_test_mcmc(chain_length = 10000),
     mrca_prior = beautier::create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
@@ -14,9 +12,21 @@ test_that("use", {
       mrca_distr = create_normal_distr(mean = 1.0, sigma = 0.01)
     )
   )
-  expect_silent(
-    plot_densitree(out$anthus_aco_trees[5:10])
+  beast2_options <- create_beast2_options()
+  bbt_out <- bbt_run_from_model(
+    fasta_filename = fasta_filename,
+    inference_model = inference_model,
+    beast2_options = beast2_options
   )
+  expect_silent(
+    plot_densitree(bbt_out$anthus_aco_trees[5:10])
+  )
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
 })
 
 test_that("minimal use", {

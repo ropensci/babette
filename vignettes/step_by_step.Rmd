@@ -108,23 +108,29 @@ if (is_beast2_installed()) {
 The `.log` file contains the model parameters and parameter estimates:
 
 ```{r}
-print(head(readLines(inference_model$mcmc$tracelog$filename)))
-print(tail(readLines(inference_model$mcmc$tracelog$filename)))
+if (is_beast2_installed()) {
+  print(head(readLines(inference_model$mcmc$tracelog$filename)))
+  print(tail(readLines(inference_model$mcmc$tracelog$filename)))
+}
 ```
 
 The `.trees` file contains the alignment, taxa and posterior trees:
 
 ```{r}
-print(head(readLines(inference_model$mcmc$treelog$filename)))
-print(tail(readLines(inference_model$mcmc$treelog$filename)))
+if (is_beast2_installed()) {
+  print(head(readLines(inference_model$mcmc$treelog$filename)))
+  print(tail(readLines(inference_model$mcmc$treelog$filename)))
+}
 ```
 
 The `.xml.state` file contains the final state of the MCMC run and the
 MCMC operator acceptances thus far:
 
 ```{r}
-print(head(readLines(beast2_options$output_state_filename)))
-print(tail(readLines(beast2_options$output_state_filename)))
+if (is_beast2_installed()) {
+  print(head(readLines(beast2_options$output_state_filename)))
+  print(tail(readLines(beast2_options$output_state_filename)))
+}
 ```
 
 ## Parse output
@@ -135,26 +141,34 @@ With `babette`, this can be done as follows.
 Parsing `.log` file to obtain the parameter estimates:
 
 ```{r}
-knitr::kable(head(parse_beast_tracelog_file(inference_model$mcmc$tracelog$filename)))
+if (is_beast2_installed()) {
+  knitr::kable(head(parse_beast_tracelog_file(inference_model$mcmc$tracelog$filename)))
+}
 ```
 
 Parsing `.trees` file to obtain the posterior phylogenies:
 
 ```{r fig.width = 7, fig.height = 7}
-plot_densitree(parse_beast_trees(inference_model$mcmc$treelog$filename))
+if (is_beast2_installed()) {
+  plot_densitree(parse_beast_trees(inference_model$mcmc$treelog$filename))
+}
 ```
 
 Parsing `.xml.state` file to obtain the MCMC operator acceptances:
 
 ```{r}
-knitr::kable(head(parse_beast_state_operators(beast2_options$output_state_filename)))
+if (is_beast2_installed()) {
+  knitr::kable(head(parse_beast_state_operators(beast2_options$output_state_filename)))
+}
 ```
 
 ```{r cleunup, include = FALSE}
-bbt_delete_temp_files(
-  inference_model = inference_model,
-  beast2_options = beast2_options
-)
+if (is_beast2_installed()) {
+  bbt_delete_temp_files(
+    inference_model = inference_model,
+    beast2_options = beast2_options
+  )
+}
 ```
 
 

@@ -15,6 +15,7 @@ From: r-base
     Rscript -e 'remotes::install_github("richelbilderbeek/mauricer")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mauricerinstall")'
     Rscript -e 'mauricerinstall::install_beast2_pkg(name = "NS", beast2_folder = "/opt/beastier")'
+    Rscript -e 'remotes::install_github("richelbilderbeek/babette")'
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"

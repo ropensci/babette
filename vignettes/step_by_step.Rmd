@@ -40,8 +40,18 @@ In all cases, this is done for a short MCMC chain length of 10K:
 ```{r}
 inference_model <- create_inference_model()
 inference_model$mcmc$chain_length <- 10000
-inference_model$mcmc$tracelog$filename <- get_beautier_tempfilename()
-inference_model$mcmc$treelog$filename <- get_beautier_tempfilename()
+inference_model$mcmc$tracelog$filename <- normalizePath(
+  get_beautier_tempfilename(
+    pattern = "tracelog_", fileext = ".log"
+  ),
+  mustWork = FALSE
+)
+inference_model$mcmc$treelog$filename <- normalizePath(
+  get_beautier_tempfilename(
+    pattern = "treelog_", fileext = ".trees"  
+  ),
+  mustWork = FALSE
+)
 ```
 
 ## Create a 'BEAST2' input file
@@ -125,7 +135,7 @@ With `babette`, this can be done as follows.
 Parsing `.log` file to obtain the parameter estimates:
 
 ```{r}
-knitr::kable(head(parse_beast_log(inference_model$mcmc$tracelog$filename)))
+knitr::kable(head(parse_beast_tracelog_file(inference_model$mcmc$tracelog$filename)))
 ```
 
 Parsing `.trees` file to obtain the posterior phylogenies:

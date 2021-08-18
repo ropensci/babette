@@ -129,17 +129,18 @@ bbt_continue <- function(
     )
   }
   testit::assert(!is.na(inference_model$mcmc$tracelog$filename))
-  testit::assert(
-    file.exists(normalizePath(inference_model$mcmc$tracelog$filename)) &&
-    length(
-      paste0(
-        "'mcmc$tracelog$filename' not found. \n",
-        "This can be caused by:\n",
-        " * (Linux) the home folder is encrypted\n",
-        " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
-      )
+  if (!file.exists(normalizePath(inference_model$mcmc$tracelog$filename))) {
+    stop(
+      "'mcmc$tracelog$filename' not found. \n",
+      "inference_model$mcmc$tracelog$filename: ",
+        inference_model$mcmc$tracelog$filename, " \n",
+      "normalizePath(inference_model$mcmc$tracelog$filename): ",
+        normalizePath(inference_model$mcmc$tracelog$filename), " \n",
+      "This can be caused by:\n",
+      " * (Linux) the home folder is encrypted\n",
+      " * (MacOS) if `babette` is run in a folder monitored by DropBox\n"
     )
-  )
+  }
   # By default, mcmc$tracelog$filename is initialized with NA.
   # Overwrite it with the 'BEAST2' default filename
   inference_model$mcmc$treelog$filename <- gsub(

@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 ```{r check_empty_cache_at_start, include = FALSE}
 beautier::check_empty_beautier_folder()
 beastier::check_empty_beastier_folder()
+# beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 ```
 
 
@@ -55,7 +56,6 @@ create_beast2_input_file_from_model(
   inference_model = inference_model,
   output_filename = beast2_input_file
 )
-testit::assert(file.exists(beast2_input_file))
 ```
 
 ## Display (part of) the 'BEAST2' input file
@@ -70,7 +70,7 @@ The file can be checked if it is indeed a valid input file:
 
 ```{r}
 if (is_beast2_installed()) {
-  testit::assert(is_beast2_input_file(beast2_input_file))
+  is_beast2_input_file(beast2_input_file)
 }
 ```
 

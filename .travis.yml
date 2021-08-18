@@ -10,12 +10,14 @@ matrix:
     os: linux
     env: INSTALL_BEAST2=false
 
+r_packages:
+  - covr
+  - lintr
+  - goodpractice
+  - spelling
+
 r_github_packages:
-  - r-lib/covr
-  - jimhester/lintr
-  - MangoTheCat/goodpractice
-  - ropensci/spelling
-  - ropensci/beautier
+#  - ropensci/beautier
   - ropensci/beastier
   - ropensci/mauricer
 

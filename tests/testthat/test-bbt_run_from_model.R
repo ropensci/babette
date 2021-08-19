@@ -126,22 +126,23 @@ test_that("use, sub-sub-subfolder", {
   mcmc <- beautier::create_test_mcmc(
     tracelog = create_test_tracelog(
       filename = file.path(
-        tempfile(), "a", "b", "c", ".csv"
+        tempfile(), "a", "b", "c", "tracelog.csv"
       )
     ),
     screenlog = create_test_screenlog(
       filename = file.path(
-        tempfile(), "d", "e", "f", ".txt"
+        tempfile(), "d", "e", "f", "screenlog.txt"
       )
     ),
     treelog = create_test_treelog(
       filename = file.path(
-        tempfile(), "g", "h", "i", ".trees"
+        tempfile(), "g", "h", "i", "treelog.trees"
       )
     )
   )
   beast2_options <- create_beast2_options(
-    output_state_filename = file.path(tempdir(), "j", "k", "l", ".xml.state")
+    output_state_filename = file.path(tempdir(), "j", "k", "l", "final.xml.state"),
+    verbose = TRUE
   )
   inference_model <- create_inference_model(mcmc = mcmc)
 
@@ -159,6 +160,11 @@ test_that("use, sub-sub-subfolder", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
+
+  beautier::check_empty_beautier_folder()
+  beastier::check_empty_beastier_folder()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {

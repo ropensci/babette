@@ -22,7 +22,6 @@ exec R --vanilla --silent --no-echo "$@"
 
 %test
     Rscript -e 'beastier::beastier_report(beast2_folder = "/opt/beastier")'
-    Rscript -e 'babette::beastier_report(beast2_folder = "/opt/beastier")'
 
 %help
 

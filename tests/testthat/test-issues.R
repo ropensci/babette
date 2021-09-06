@@ -88,6 +88,7 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
     ),
     mcmc = create_test_mcmc()
   )
+  beast2_options <- create_beast2_options()
   expect_silent(
     bbt_run_from_model(
       fasta_filename = beautier::get_beautier_path(

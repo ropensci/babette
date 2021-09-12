@@ -44,8 +44,7 @@ test_that("minimal use with BEAUti shorthand", {
   )
   beautier::check_empty_beautier_folder()
   beastier::check_empty_beastier_folder()
-  beastierinstall::clear_beastier_cache()
-  beastierinstall::clear_beautier_cache()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 test_that("use, nested sampling", {
@@ -73,8 +72,7 @@ test_that("use, nested sampling", {
   )
   beautier::check_empty_beautier_folder()
   beastier::check_empty_beastier_folder()
-  beastierinstall::clear_beautier_cache()
-  beastierinstall::clear_beastier_cache()
+  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
 })
 
 test_that("abuse", {
@@ -164,7 +162,6 @@ test_that("use, sub-sub-subfolder", {
   beautier::check_empty_beautier_folder()
   beastier::check_empty_beastier_folder()
   # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
-
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {

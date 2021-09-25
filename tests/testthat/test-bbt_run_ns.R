@@ -1,4 +1,6 @@
 test_that("use, bin (Linux only)", {
+  expect_silent(beautier::check_empty_beautier_folder())
+  expect_silent(beastier::check_empty_beastier_folder())
 
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
@@ -60,6 +62,8 @@ test_that("use, bin (Linux only)", {
 })
 
 test_that("be verbose (yet muted)", {
+  expect_silent(beautier::check_empty_beautier_folder())
+  expect_silent(beastier::check_empty_beastier_folder())
 
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os != "win") return()
@@ -84,8 +88,8 @@ test_that("be verbose (yet muted)", {
     beast2_options = beast2_options
   )
 
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+  expect_silent(beautier::check_empty_beautier_folder())
+  expect_silent(beastier::check_empty_beastier_folder())
 })
 
 test_that("abuse", {

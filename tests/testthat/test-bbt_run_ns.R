@@ -76,13 +76,17 @@ test_that("be verbose (yet muted)", {
     beast2_path = get_default_beast2_jar_path(),
     verbose = TRUE
   )
-  sink("/dev/null")
+  # No need to
+  #
+  # sink("/dev/null") # nolint fine that this is code
+  #
+  # as this test is run on Windows only
   bbt_run_from_model(
     fasta_filename = get_babette_path("anthus_aco.fas"),
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  sink()
+  # sink() # nolint fine that this is code
   bbt_delete_temp_files(
     inference_model = inference_model,
     beast2_options = beast2_options

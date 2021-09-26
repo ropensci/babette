@@ -137,6 +137,10 @@ if (is_beast2_installed()) {
 ```
 
 ```{r check_empty_cache_at_end, include = FALSE}
+unlink(
+  dirname(beastier::get_beastier_tempfilename()),
+  recursive = TRUE
+)
 beautier::check_empty_beautier_folder()
 beastier::check_empty_beastier_folder()
 # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint

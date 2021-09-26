@@ -18,6 +18,16 @@ knitr::opts_chunk$set(
 ```
 
 ```{r check_empty_cache_at_start, include = FALSE}
+# This is only needed to pass the CRAN Windows build.
+#
+# This vignette is tested to clean up nicely on GitHub Actions
+# and r-hub on Windows
+#
+unlink(
+  dirname(beastier::get_beastier_tempfilename()),
+  recursive = TRUE
+)
+
 beautier::check_empty_beautier_folder()
 beastier::check_empty_beastier_folder()
 # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
@@ -144,8 +154,7 @@ if (is_beast2_installed()) {
 #
 unlink(
   dirname(beastier::get_beastier_tempfilename()),
-  recursive = TRUE,
-  force = TRUE
+  recursive = TRUE
 )
 beautier::check_empty_beautier_folder()
 beastier::check_empty_beastier_folder()

@@ -137,9 +137,15 @@ if (is_beast2_installed()) {
 ```
 
 ```{r check_empty_cache_at_end, include = FALSE}
+# This is only needed to pass the CRAN Windows build.
+#
+# This vignette is tested to clean up nicely on GitHub Actions
+# and r-hub on Windows
+#
 unlink(
   dirname(beastier::get_beastier_tempfilename()),
-  recursive = TRUE
+  recursive = TRUE,
+  force = TRUE
 )
 beautier::check_empty_beautier_folder()
 beastier::check_empty_beastier_folder()

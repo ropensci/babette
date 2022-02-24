@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
   schedule:
-  - cron: "0 0 * * 5"
+  - cron: "0 0 * * *" # Every day at midnight
 
 name: R-CMD-check
 

@@ -23,8 +23,8 @@ URL: https://docs.ropensci.org/babette/ (website)
     https://github.com/ropensci/babette/
 BugReports: https://github.com/ropensci/babette/issues
 Depends:
-    beautier (>= 2.6.2),
-    beastier (>= 2.4.8),
+    beautier (>= 2.6.4),
+    beastier (>= 2.4.9),
     mauricer (>= 2.5),
     tracerer
 Imports:

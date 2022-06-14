@@ -1,10 +1,10 @@
 test_that("use, bin (Linux only)", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model(
     mcmc = create_test_ns_mcmc(),
@@ -57,17 +57,18 @@ test_that("use, bin (Linux only)", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("be verbose (yet muted)", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os != "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model(
     mcmc = create_test_ns_mcmc()
@@ -92,8 +93,8 @@ test_that("be verbose (yet muted)", {
     beast2_options = beast2_options
   )
 
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("abuse", {
@@ -127,7 +128,7 @@ test_that("abuse", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

@@ -44,9 +44,9 @@ test_that("output is well-formed", {
   expect_true("rejectFC" %in% names(out$operators))
   expect_true("rejectIv" %in% names(out$operators))
   expect_true("rejectOp" %in% names(out$operators))
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("use, one alignment, verbose, cleanup", {
@@ -69,9 +69,9 @@ test_that("use, one alignment, verbose, cleanup", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("use, one alignment, verbose, no cleanup", {
@@ -98,9 +98,9 @@ test_that("use, one alignment, verbose, no cleanup", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("same RNG seed gives same results", {
@@ -192,9 +192,9 @@ test_that("same RNG seed gives same results", {
     inference_model = inference_model_2,
     beast2_options = beast2_options_2
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -217,9 +217,9 @@ test_that("Run all defaults", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -248,9 +248,9 @@ test_that("Run GTR", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -275,9 +275,9 @@ test_that("Run HKY", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -302,9 +302,9 @@ test_that("Run JC69", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -329,9 +329,9 @@ test_that("Run TN93", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -359,9 +359,9 @@ test_that("Run RLN clock", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -385,9 +385,9 @@ test_that("Run strict clock", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -415,8 +415,9 @@ test_that("Run BD tree prior", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -442,8 +443,9 @@ test_that("Run CBS tree prior", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {
@@ -465,8 +467,9 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
     ),
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -489,9 +492,9 @@ test_that("Run CCP tree prior", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("Run CCP tree prior with tip dating", {
@@ -515,9 +518,9 @@ test_that("Run CCP tree prior with tip dating", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 ################################################################################
@@ -539,9 +542,9 @@ test_that("Run CEP tree prior", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 
@@ -565,9 +568,9 @@ test_that("Run Yule tree prior", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 
@@ -586,8 +589,8 @@ test_that("Run MRCA, no distr", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("Run MRCA, MRCA distr", {
@@ -604,8 +607,9 @@ test_that("Run MRCA, MRCA distr", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("Run MRCA, no distr, subset of taxa", {
@@ -624,8 +628,9 @@ test_that("Run MRCA, no distr, subset of taxa", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
@@ -650,8 +655,9 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
       lines, method = "deep"
     )
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
@@ -676,8 +682,9 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
       lines, method = "deep"
     )
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
+
 })
 
 ################################################################################
@@ -704,8 +711,9 @@ test_that("use, one alignment, plot with nLTT", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("with tip dating", {
@@ -720,6 +728,7 @@ test_that("with tip dating", {
     tree_prior = create_ccp_tree_prior()
   )
   expect_true(are_beast2_input_lines(lines))
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

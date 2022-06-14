@@ -7,6 +7,7 @@ test_that("use", {
     ),
     get_babette_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   )
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

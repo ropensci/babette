@@ -31,7 +31,6 @@ test_that("use", {
   expect_false(file.exists(beast2_options$input_filename))
   expect_false(file.exists(beast2_options$output_state_filename))
 
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

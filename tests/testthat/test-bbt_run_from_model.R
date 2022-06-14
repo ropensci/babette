@@ -1,6 +1,9 @@
 test_that("minimal use", {
   if (!beastier::is_beast2_installed()) return()
 
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
+
   inference_model <- beautier::create_test_inference_model()
   beast2_options <- create_beast2_options()
 
@@ -15,9 +18,8 @@ test_that("minimal use", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("minimal use with BEAUti shorthand", {
@@ -42,18 +44,18 @@ test_that("minimal use with BEAUti shorthand", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("use, nested sampling", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (!beastier::is_beast2_installed()) return()
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   inference_model <- create_inference_model(
     mcmc = beautier::create_test_ns_mcmc()
@@ -72,14 +74,14 @@ test_that("use, nested sampling", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("abuse", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   expect_error(
     bbt_run_from_model(
@@ -95,16 +97,17 @@ test_that("abuse", {
     ),
     "'beast2_options' must be a valid 'BEAST2' options object"
   )
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("creates files", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (!beastier::is_beast2_installed()) return()
+
   testit::assert(beastier::is_beast2_installed())
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model()
   beast2_options <- create_beast2_options()
@@ -123,15 +126,15 @@ test_that("creates files", {
     beast2_options = beast2_options
   )
 
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("use, sub-sub-subfolder", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (!beastier::is_beast2_installed()) return()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   mcmc <- beautier::create_test_mcmc(
     tracelog = create_test_tracelog(
@@ -171,15 +174,11 @@ test_that("use, sub-sub-subfolder", {
     beast2_options = beast2_options
   )
 
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (!beastier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
@@ -194,17 +193,18 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
     ),
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("use, nested sampling, in custom folder", {
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
   if (rappdirs::app_dir()$os == "win") return()
   if (!beastier::is_on_ci()) return()
   if (!curl::has_internet()) return()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 
   # Cannot use tempfile on Travis CI
   beast2_folder <- file.path(
@@ -233,7 +233,6 @@ test_that("use, nested sampling, in custom folder", {
     beast2_options = beast2_options
   )
 
-  expect_silent(beautier::check_empty_beautier_folder())
-  expect_silent(beastier::check_empty_beastier_folder())
-
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

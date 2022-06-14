@@ -35,7 +35,7 @@ test_that("use", {
   if (!was_ns_installed) {
     mauricerinstall::uninstall_beast2_pkg("BS")
   }
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
-  # beastierinstall::clear_beautier_cache() ; beastierinstall::clear_beastier_cache() # nolint
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

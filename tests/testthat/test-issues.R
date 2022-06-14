@@ -34,8 +34,9 @@ test_that("use", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })
 
 test_that("use", {
@@ -102,6 +103,7 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beautier::check_empty_beautier_folder()
-  beastier::check_empty_beastier_folder()
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

@@ -14,6 +14,6 @@ test_that("use", {
 test_that("use", {
   expect_error(get_alignment_ids_from_xml("abs.ent"), "File '.*' not found")
 
-  beastier::check_empty_beastier_folder()
-  beautier::check_empty_beautier_folder()
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 })

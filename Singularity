@@ -18,7 +18,8 @@ From: r-base
     Rscript -e 'remotes::install_github("richelbilderbeek/babette")'
 
 %runscript
-exec R --vanilla --silent --no-echo "$@"
+echo "'babette.sif' running with arguments '$@'"
+exec "$@"
 
 %test
     Rscript -e 'beastier::beastier_report(beast2_folder = "/opt/beastier")'

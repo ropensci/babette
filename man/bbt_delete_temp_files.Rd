@@ -18,6 +18,9 @@ Delete all the temporary files created by \link{bbt_run_from_model}
 }
 \examples{
 if (is_beast2_installed()) {
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
+
   # Do a minimal run
   inference_model <- create_test_inference_model()
   beast2_options <- create_beast2_options()
@@ -32,6 +35,9 @@ if (is_beast2_installed()) {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
+
+  beastier::remove_beaustier_folder()
+  beastier::check_empty_beaustier_folders()
 }
 }
 \author{

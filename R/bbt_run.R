@@ -46,6 +46,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' if (is_beast2_installed()) {
+#'   beastier::remove_beaustier_folder()
+#'   beastier::check_empty_beaustier_folders()
 #'
 #'   # Setup for a short run
 #'   mcmc <- create_test_mcmc()
@@ -72,6 +74,8 @@
 #'   file.remove(mcmc$screenlog$filename)
 #'   file.remove(beast2_input_filename)
 #'   file.remove(beast2_output_state_filename)
+#'   beastier::remove_beaustier_folder()
+#'   beastier::check_empty_beaustier_folders()
 #' }
 #' @seealso Use \code{\link[tracerer]{remove_burn_ins}}
 #'   to remove the burn-ins from

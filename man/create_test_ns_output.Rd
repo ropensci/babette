@@ -11,7 +11,13 @@ Create testing output similar to when running a 'BEAST2' run
 with nested sampling
 }
 \examples{
+beastier::remove_beaustier_folder()
+beastier::check_empty_beaustier_folders()
+
 create_test_ns_output()
+
+beastier::remove_beaustier_folder()
+beastier::check_empty_beaustier_folders()
 }
 \seealso{
 Use \link{parse_beast2_output_to_ns} to parse

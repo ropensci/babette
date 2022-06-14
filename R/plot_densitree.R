@@ -7,6 +7,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' if (is_beast2_installed()) {
+#'   beastier::remove_beaustier_folder()
+#'   beastier::check_empty_beaustier_folders()
+#'
 #'   inference_model <- create_test_inference_model()
 #'   beast2_options <- create_beast2_options()
 #'
@@ -27,6 +30,8 @@
 #'     inference_model = inference_model,
 #'     beast2_options = beast2_options
 #'   )
+#'   beastier::remove_beaustier_folder()
+#'   beastier::check_empty_beaustier_folders()
 #' }
 #' @export
 plot_densitree <- function(

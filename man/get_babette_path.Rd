@@ -17,7 +17,13 @@ the full path of the filename, if and only if
 Get the full path of a file in the \code{inst/extdata} folder
 }
 \examples{
+beastier::remove_beaustier_folder()
+beastier::check_empty_beaustier_folders()
+
 get_babette_path("anthus_aco.fas")
+
+beastier::remove_beaustier_folder()
+beastier::check_empty_beaustier_folders()
 }
 \seealso{
 for more files, use \code{\link{get_babette_paths}}

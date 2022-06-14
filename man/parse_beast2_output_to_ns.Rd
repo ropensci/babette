@@ -21,9 +21,15 @@ Parse the BEAST2 output when run with the BEAST2 NS ('Nested Sampling')
 package.
 }
 \examples{
+beastier::remove_beaustier_folder()
+beastier::check_empty_beaustier_folders()
+
 parse_beast2_output_to_ns(
   output = create_test_ns_output()
 )
+
+beastier::remove_beaustier_folder()
+beastier::check_empty_beaustier_folders()
 }
 \seealso{
 use \code{\link{create_test_ns_output}} to obtain

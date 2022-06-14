@@ -8,7 +8,13 @@
 #' See \link[beautier]{create_ns_mcmc} to see how to do a marginal
 #' likelihood estimation using Nested Sampling.
 #' @examples
+#' beastier::remove_beaustier_folder()
+#' beastier::check_empty_beaustier_folders()
+#'
 #' create_test_ns_output()
+#'
+#' beastier::remove_beaustier_folder()
+#' beastier::check_empty_beaustier_folders()
 #' @export
 create_test_ns_output <- function() {
   c(

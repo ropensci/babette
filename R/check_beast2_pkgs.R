@@ -6,6 +6,9 @@
 #' @inheritParams default_params_doc
 #' @examples
 #' if (is_beast2_installed()) {
+#'   beastier::remove_beaustier_folder()
+#'   beastier::check_empty_beaustier_folders()
+#'
 #'   # Minimal BEAST2 setup
 #'   check_beast2_pkgs(mcmc = create_mcmc())
 #'
@@ -13,6 +16,9 @@
 #'   if (is_beast2_ns_pkg_installed()) {
 #'     check_beast2_pkgs(mcmc = create_ns_mcmc())
 #'   }
+#'
+#'   beastier::remove_beaustier_folder()
+#'   beastier::check_empty_beaustier_folders()
 #' }
 #' @export
 check_beast2_pkgs <- function(

@@ -5,7 +5,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso for more files, use \code{\link{get_babette_paths}}
 #' @examples
+#' beastier::remove_beaustier_folder()
+#' beastier::check_empty_beaustier_folders()
+#'
 #' get_babette_path("anthus_aco.fas")
+#'
+#' beastier::remove_beaustier_folder()
+#' beastier::check_empty_beaustier_folders()
 #' @export
 get_babette_path <- function(filename) {
 

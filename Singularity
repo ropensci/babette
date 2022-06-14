@@ -6,6 +6,9 @@ From: rocker/tidyverse
     # From https://github.com/brucemoran/Singularity/blob/8eb44591284ffb29056d234c47bf8b1473637805/shub/bases/recipe.CentOs7-R_3.5.2#L21
     echo 'export LANG=en_US.UTF-8 LANGUAGE=C LC_ALL=C LC_CTYPE=C LC_COLLATE=C  LC_TIME=C LC_MONETARY=C LC_PAPER=C LC_MEASUREMENT=C' >> $SINGULARITY_ENVIRONMENT
 
+    sudo apt install -qq libcurl4-openssl-dev
+    sudo $(which R) CMD javareconf
+
     Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("ropensci/beastier")'
     Rscript -e 'remotes::install_github("richelbilderbeek/beastierinstall")'

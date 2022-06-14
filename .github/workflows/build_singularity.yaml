@@ -36,5 +36,5 @@ jobs:
         run: singularity run-help babette.sif
 
       - name: Run container
-        run: cat scripts/demo_container.R | ./babette.sif 
+        run: ./scripts/run_container.sh
 

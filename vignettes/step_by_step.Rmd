@@ -170,7 +170,6 @@ if (is_beast2_installed()) {
 }
 ```
 
-
 ```{r check_empty_cache_at_end, include = FALSE}
 beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()

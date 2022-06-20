@@ -3,8 +3,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 #' @examples
-#' # Will stop if BEAST2 is not installed
-#' if (is_beast2_installed()) {
+#' if (beastier::is_on_ci() && is_beast2_installed()) {
 #'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #'

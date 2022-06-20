@@ -131,7 +131,7 @@ run 'BEAST2', parse results (like 'Tracer')
 Prefer using \code{\link{bbt_run_from_model}}, as it has a cleaner interface.
 }
 \examples{
-if (is_beast2_installed()) {
+if (beastier::is_on_ci() && is_beast2_installed()) {
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 

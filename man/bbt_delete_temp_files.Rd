@@ -17,7 +17,7 @@ as can be created by \link[beastier]{create_beast2_options}}
 Delete all the temporary files created by \link{bbt_run_from_model}
 }
 \examples{
-if (is_beast2_installed()) {
+if (beastier::is_on_ci() && is_beast2_installed()) {
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 

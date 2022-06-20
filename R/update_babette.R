@@ -6,6 +6,7 @@
 #' \dontrun{
 #'   # Updates the babette dependencies without asking
 #' }
+#' beastier::remove_beaustier_folders()
 #' @export
 update_babette <- function(upgrade = "default") {
   repo_names <- c(

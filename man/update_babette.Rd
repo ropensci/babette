@@ -23,6 +23,7 @@ latest versions
 \dontrun{
   # Updates the babette dependencies without asking
 }
+beastier::remove_beaustier_folders()
 }
 \author{
 Giovanni Laudanno, Richèl J.C. Bilderbeek

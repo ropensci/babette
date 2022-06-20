@@ -13,7 +13,7 @@ phylogenies and parameter estimates is generated.
 }
 \examples{
 if (is_beast2_installed()) {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model()
@@ -30,7 +30,7 @@ if (is_beast2_installed()) {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 }
 }

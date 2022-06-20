@@ -20,6 +20,6 @@ test_that("abuse", {
     get_babette_path("abs.ent"),
     "'filename' must be the name of a file in 'inst/extdata'"
   )
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

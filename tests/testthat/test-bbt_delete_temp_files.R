@@ -31,6 +31,6 @@ test_that("use", {
   expect_false(file.exists(beast2_options$input_filename))
   expect_false(file.exists(beast2_options$output_state_filename))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

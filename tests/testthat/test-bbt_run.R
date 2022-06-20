@@ -45,7 +45,7 @@ test_that("output is well-formed", {
   expect_true("rejectIv" %in% names(out$operators))
   expect_true("rejectOp" %in% names(out$operators))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -70,7 +70,7 @@ test_that("use, one alignment, verbose, cleanup", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -99,7 +99,7 @@ test_that("use, one alignment, verbose, no cleanup", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -193,7 +193,7 @@ test_that("same RNG seed gives same results", {
     beast2_options = beast2_options_2
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -218,7 +218,7 @@ test_that("Run all defaults", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -249,7 +249,7 @@ test_that("Run GTR", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -276,7 +276,7 @@ test_that("Run HKY", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -303,7 +303,7 @@ test_that("Run JC69", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -330,7 +330,7 @@ test_that("Run TN93", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -360,7 +360,7 @@ test_that("Run RLN clock", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -386,7 +386,7 @@ test_that("Run strict clock", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -416,7 +416,7 @@ test_that("Run BD tree prior", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -444,7 +444,7 @@ test_that("Run CBS tree prior", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -468,7 +468,7 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
     "'group_sizes_dimension' .* must be less than the number of taxa"
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -493,7 +493,7 @@ test_that("Run CCP tree prior", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -519,7 +519,7 @@ test_that("Run CCP tree prior with tip dating", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -543,7 +543,7 @@ test_that("Run CEP tree prior", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -569,7 +569,7 @@ test_that("Run Yule tree prior", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -589,7 +589,7 @@ test_that("Run MRCA, no distr", {
     )
   )
   expect_true(are_beast2_input_lines(lines))
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -608,7 +608,7 @@ test_that("Run MRCA, MRCA distr", {
   )
   expect_true(are_beast2_input_lines(lines))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -629,7 +629,7 @@ test_that("Run MRCA, no distr, subset of taxa", {
   )
   expect_true(are_beast2_input_lines(lines))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -656,7 +656,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
     )
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -682,7 +682,7 @@ test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
       lines, method = "deep"
     )
   )
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
 })
@@ -695,7 +695,7 @@ test_that("use, one alignment, plot with nLTT", {
 
   if (!beastier::is_beast2_installed()) return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model()
@@ -713,7 +713,7 @@ test_that("use, one alignment, plot with nLTT", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -730,6 +730,6 @@ test_that("with tip dating", {
   )
   expect_true(are_beast2_input_lines(lines))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

@@ -15,12 +15,12 @@ the same results as \code{\link{bbt_run}}
 This output is used in testing.
 }
 \examples{
-beastier::remove_beaustier_folder()
+beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()
 
 create_test_bbt_run_output()
 
-beastier::remove_beaustier_folder()
+beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()
 }
 \author{

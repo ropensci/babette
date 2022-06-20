@@ -5,12 +5,12 @@
 #' @examples
 #' # Will stop if BEAST2 is not installed
 #' if (is_beast2_installed()) {
-#'   beastier::remove_beaustier_folder()
+#'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #'
 #'   bbt_self_test()
 #'
-#'   beastier::remove_beaustier_folder()
+#'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #' }
 bbt_self_test <- function(

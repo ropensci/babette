@@ -6,12 +6,12 @@
 #'   or \code{\link{bbt_run_from_model}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' beastier::remove_beaustier_folder()
+#' beastier::remove_beaustier_folders()
 #' beastier::check_empty_beaustier_folders()
 #'
 #' create_test_bbt_run_output()
 #'
-#' beastier::remove_beaustier_folder()
+#' beastier::remove_beaustier_folders()
 #' beastier::check_empty_beaustier_folders()
 #' @export
 create_test_bbt_run_output <- function() {

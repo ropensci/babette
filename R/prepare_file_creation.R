@@ -8,7 +8,7 @@
 #' # This example will fail on the CRAN
 #' # r-oldrel-macos-x86_64 platform
 #' if (rappdirs::app_dir()$os != "mac") {
-#'   beastier::remove_beaustier_folder()
+#'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #'
 #'   # For a test inference model, the files can be prepared
@@ -16,7 +16,7 @@
 #'   beast2_options <- create_beast2_options()
 #'   prepare_file_creation(inference_model, beast2_options)
 #'
-#'   beastier::remove_beaustier_folder()
+#'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #' }
 #' @export

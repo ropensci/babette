@@ -132,7 +132,7 @@ Prefer using \code{\link{bbt_run_from_model}}, as it has a cleaner interface.
 }
 \examples{
 if (is_beast2_installed()) {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   # Setup for a short run
@@ -160,7 +160,7 @@ if (is_beast2_installed()) {
   file.remove(mcmc$screenlog$filename)
   file.remove(beast2_input_filename)
   file.remove(beast2_output_state_filename)
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 }
 }

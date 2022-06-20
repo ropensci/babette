@@ -1,7 +1,7 @@
 test_that("use", {
   if (!beastier::is_beast2_installed()) return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   fasta_filename <- get_babette_path("anthus_aco.fas")
@@ -27,12 +27,12 @@ test_that("use", {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
 test_that("minimal use", {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   # Submitted at https://github.com/KlausVigo/phangorn/commit/8440b88fb09249a2653562f0eaee04a51789bcba # nolint indeed URLs can be long
@@ -42,7 +42,7 @@ test_that("minimal use", {
   expect_silent(phangorn::densiTree(trees))
   expect_silent(plot_densitree(trees))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 

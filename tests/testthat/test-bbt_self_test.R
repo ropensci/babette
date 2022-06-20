@@ -4,6 +4,6 @@ test_that("use", {
   } else {
     expect_error(bbt_self_test())
   }
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

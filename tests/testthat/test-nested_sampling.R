@@ -3,7 +3,7 @@ test_that("use, bin, Linux", {
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
   if (rappdirs::app_dir()$os != "unix") return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   input_filename <- get_babette_path("nested_sampling.xml")
@@ -15,7 +15,7 @@ test_that("use, bin, Linux", {
       beast2_path = get_default_beast2_bin_path()
     )
   )
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -24,7 +24,7 @@ test_that("use, jar, Linux, works", {
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
   if (rappdirs::app_dir()$os != "unix") return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   input_filename <- get_babette_path("nested_sampling.xml")
@@ -41,12 +41,12 @@ test_that("use, jar, Linux, works", {
     )
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
 test_that("use, bin, Win, fails", {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   if (!is_beast2_installed()) return()
@@ -64,7 +64,7 @@ test_that("use, bin, Win, fails", {
     "Cannot use the Windows executable BEAST2.exe in scripts"
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -73,7 +73,7 @@ test_that("use, jar, Win, fails", {
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
   if (rappdirs::app_dir()$os != "win") return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   input_filename <- get_babette_path("nested_sampling.xml")
@@ -89,6 +89,6 @@ test_that("use, jar, Win, fails", {
     )
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

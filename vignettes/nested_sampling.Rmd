@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r check_empty_cache_at_start, include = FALSE}
-beastier::remove_beaustier_folder()
+beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()
 ```
 
@@ -187,6 +187,6 @@ likelihood estimation into account.
    vocal data." Ibis.
 
 ```{r check_empty_cache_at_end, include = FALSE}
-beastier::remove_beaustier_folder()
+beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()
 ```

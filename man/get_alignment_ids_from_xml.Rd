@@ -16,14 +16,14 @@ a character vector with one or more alignment IDs.
 Get the alignment IDs from one or more 'BEAST2' XML input files.
 }
 \examples{
-beastier::remove_beaustier_folder()
+beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()
 
 alignment_ids <- get_alignment_ids_from_xml(
   get_babette_path("anthus_2_4.xml")
 )
 
-beastier::remove_beaustier_folder()
+beastier::remove_beaustier_folders()
 beastier::check_empty_beaustier_folders()
 }
 \author{

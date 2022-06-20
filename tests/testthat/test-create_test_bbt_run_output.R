@@ -28,6 +28,6 @@ test_that("use", {
   expect_true("rejectIv" %in% names(out$operators))
   expect_true("rejectOp" %in% names(out$operators))
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

@@ -12,14 +12,14 @@
 #'   }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' beastier::remove_beaustier_folder()
+#' beastier::remove_beaustier_folders()
 #' beastier::check_empty_beaustier_folders()
 #'
 #' parse_beast2_output_to_ns(
 #'   output = create_test_ns_output()
 #' )
 #'
-#' beastier::remove_beaustier_folder()
+#' beastier::remove_beaustier_folders()
 #' beastier::check_empty_beaustier_folders()
 #' @export
 parse_beast2_output_to_ns <- function(

@@ -18,7 +18,7 @@ Delete all the temporary files created by \link{bbt_run_from_model}
 }
 \examples{
 if (is_beast2_installed()) {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   # Do a minimal run
@@ -36,7 +36,7 @@ if (is_beast2_installed()) {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 }
 }

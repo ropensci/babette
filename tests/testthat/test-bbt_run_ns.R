@@ -3,7 +3,7 @@ test_that("use, bin (Linux only)", {
   if (rappdirs::app_dir()$os == "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model(
@@ -58,7 +58,7 @@ test_that("use, bin (Linux only)", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -67,7 +67,7 @@ test_that("be verbose (yet muted)", {
   if (rappdirs::app_dir()$os != "win") return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   inference_model <- create_test_inference_model(
@@ -93,7 +93,7 @@ test_that("be verbose (yet muted)", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -129,6 +129,6 @@ test_that("abuse", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

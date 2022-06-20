@@ -26,7 +26,7 @@ needs to be installed.
 }
 \examples{
 if (is_beast2_installed()) {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   # Minimal BEAST2 setup
@@ -37,7 +37,7 @@ if (is_beast2_installed()) {
     check_beast2_pkgs(mcmc = create_ns_mcmc())
   }
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 }
 }

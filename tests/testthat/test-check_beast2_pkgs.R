@@ -36,6 +36,6 @@ test_that("use", {
     mauricerinstall::uninstall_beast2_pkg("BS")
   }
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

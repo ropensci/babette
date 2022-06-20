@@ -35,7 +35,7 @@ test_that("use", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
 
@@ -104,6 +104,6 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
     beast2_options = beast2_options
   )
 
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })

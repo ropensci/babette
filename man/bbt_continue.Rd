@@ -61,7 +61,7 @@ run 'BEAST2', parse results (like 'Tracer')
 }
 \examples{
 if (is_beast2_installed()) {
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 
   # A simple FASTA file
@@ -90,7 +90,7 @@ if (is_beast2_installed()) {
     inference_model = inference_model,
     beast2_options = beast2_options
   )
-  beastier::remove_beaustier_folder()
+  beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 }
 }

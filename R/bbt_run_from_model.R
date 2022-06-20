@@ -44,7 +44,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' if (is_beast2_installed()) {
-#'   beastier::remove_beaustier_folder()
+#'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #'
 #'   # Simple short inference
@@ -64,7 +64,7 @@
 #'     inference_model = inference_model,
 #'     beast2_options = beast2_options
 #'   )
-#'   beastier::remove_beaustier_folder()
+#'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #' }
 #' @seealso Use \code{\link[tracerer]{remove_burn_ins}}

@@ -31,7 +31,6 @@ Imports:
     phangorn,
     remotes,
     stringr,
-    testit,
     xml2
 Suggests:
     ape,

@@ -7,7 +7,7 @@ test_that("use", {
   expect_true("anthus_aco_trees" %in% names(out))
   expect_true("operators" %in% names(out))
   expect_true("output" %in% names(out))
-  expect_true(class(out$anthus_aco_trees[[1]]) == "phylo")
+  expect_true(inherits(out$anthus_aco_trees[[1]], "phylo"))
   expect_true(length(out$anthus_aco_trees) == 2)
 
   expect_true("Sample" %in% names(out$estimates))

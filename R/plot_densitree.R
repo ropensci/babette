@@ -38,7 +38,7 @@ plot_densitree <- function(
   phylos,
   ...
 ) {
-  if (class(phylos) != "multiPhylo") {
+  if (!inherits(phylos, "multiPhylo")) {
     stop("'phylos' must be of class 'multiPhylo'")
   }
   phangorn::densiTree(phylos, ...)

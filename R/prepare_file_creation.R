@@ -55,6 +55,7 @@ prepare_file_creation <- function(
       )
     }
     file.remove(filename)
-    testit::assert(!file.exists(filename))
+    testthat::expect_true(!file.exists(filename))
   }
+  invisible(inference_model)
 }

@@ -21,7 +21,7 @@ test_that("output is well-formed", {
   expect_true("anthus_aco_trees" %in% names(out))
   expect_true("operators" %in% names(out))
   expect_true("output" %in% names(out))
-  expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
+  expect_true(inherits(out$anthus_aco_trees[[1]], "phylo"))
 
   #' The number of expected trees. The tree at state zero is also logged
   n_trees_expected <- 1 + (mcmc$chain_length / mcmc$treelog$log_every)

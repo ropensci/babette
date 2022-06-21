@@ -105,7 +105,6 @@ test_that("abuse", {
 test_that("creates files", {
   if (!beastier::is_beast2_installed()) return()
 
-  testit::assert(beastier::is_beast2_installed())
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 

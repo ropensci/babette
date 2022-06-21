@@ -127,8 +127,8 @@ bbt_run_from_model <- function(
       beautier::get_alignment_id(fasta_filename), ".log"
     )
   }
-  testit::assert(!is.na(inference_model$mcmc$tracelog$filename))
-  testit::assert(
+  testthat::expect_true(!is.na(inference_model$mcmc$tracelog$filename))
+  testthat::expect_true(
     file.exists(normalizePath(inference_model$mcmc$tracelog$filename)) &&
     length(
       paste0(
@@ -146,7 +146,7 @@ bbt_run_from_model <- function(
     pattern = "\\$\\(tree\\)",
     replacement = beautier::get_alignment_id(fasta_filename)
   )
-  testit::assert(file.exists(inference_model$mcmc$treelog$filename) &&
+  testthat::expect_true(file.exists(inference_model$mcmc$treelog$filename) &&
     length(
       paste0(
         "'mcmc$treelog$filename' not found. \n",
@@ -156,7 +156,7 @@ bbt_run_from_model <- function(
       )
     )
   )
-  testit::assert(file.exists(beast2_options$output_state_filename) &&
+  testthat::expect_true(file.exists(beast2_options$output_state_filename) &&
     length(
       paste0(
         "beast2_output_state_filename not found. \n",
@@ -183,9 +183,9 @@ bbt_run_from_model <- function(
   n_trees_in_file <- tracerer::count_trees_in_file(
     inference_model$mcmc$treelog$filename
   )
-  testit::assert(class(out[[1]]) == "multiPhylo")
+  testthat::expect_true(inherits(out[[1]], "multiPhylo"))
   n_trees_in_output <- length(out[[1]])
-  testit::assert(n_trees_in_file == n_trees_in_output)
+  testthat::expect_equal(n_trees_in_file, n_trees_in_output)
 
   # Process the package specific output,
   # for example, add an 'ns' atributed for Nested Sampling

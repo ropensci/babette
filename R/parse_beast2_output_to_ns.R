@@ -31,7 +31,7 @@ parse_beast2_output_to_ns <- function(
   # Extract the line
   x <- stringr::str_extract(output, "Marginal likelihood: -?[0-9\\.]+\\(.*\\)$")
   x <- x[!is.na(x)]
-  testit::assert(length(x) == 1)
+  testthat::expect_equal(length(x), 1)
 
   # Get the marginal log likelihood
   ns$marg_log_lik <- as.numeric(
@@ -56,7 +56,7 @@ parse_beast2_output_to_ns <- function(
   x <- stringr::str_extract(output, "Max ESS: [0-9\\.]+$")
   x <- x[!is.na(x)]
   # There are two ESSes, just pick the first
-  testit::assert(length(x) >= 2)
+  testthat::expect_true(length(x) >= 2)
   x <- x[1]
 
   # Get the marginal log likelihood

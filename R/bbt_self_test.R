@@ -15,7 +15,7 @@
 bbt_self_test <- function(
   beast2_options = beastier::create_beast2_options()
 ) {
-  testit::assert(beastier::is_beast2_installed())
+  testthat::expect_true(beastier::is_beast2_installed())
   inference_model <- beautier::create_test_inference_model()
   babette::bbt_run_from_model(
     fasta_filename = beautier::get_fasta_filename(),

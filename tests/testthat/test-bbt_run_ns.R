@@ -26,8 +26,8 @@ test_that("use, bin (Linux only)", {
   if (1 == 2) {
     # This assumption is false: a Nested Sampling run runs until
     # convergence
-    expect_equal(class(out$anthus_aco_trees[[1]]), "phylo")
-    expect_equal(length(out$anthus_aco_trees), 2)
+    testthat::expect_true(inherits(out$anthus_aco_trees[[1]], "phylo"))
+    testthat::expect_equal(length(out$anthus_aco_trees), 2)
   }
 
   expect_true("Sample" %in% names(out$estimates))

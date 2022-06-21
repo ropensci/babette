@@ -36,13 +36,6 @@ bbt_delete_temp_files <- function(
       input_filename = beast2_options$input_filename
     )
   }
-  # beast2_options
-  # treelog_filename <- stringr::str_replace(
-  #   string = treelog_filename,
-  #   pattern = "\\$\\(tree\\)",
-  #   replacement = tree_id
-  # )
-
   screenlog_filename <- inference_model$mcmc$screenlog$filename
   screenlog_ns_filename <- stringr::str_replace(
     screenlog_filename,

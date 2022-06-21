@@ -153,7 +153,9 @@ test_that("use, sub-sub-subfolder", {
     )
   )
   beast2_options <- create_beast2_options(
-    output_state_filename = file.path(tempdir(), "j", "k", "l", "final.xml.state"),
+    output_state_filename = file.path(
+      tempdir(), "j", "k", "l", "final.xml.state"
+    ),
     verbose = TRUE
   )
   inference_model <- create_inference_model(mcmc = mcmc)

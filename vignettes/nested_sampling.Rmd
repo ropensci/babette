@@ -119,7 +119,7 @@ if (is_beast2_installed() && is_beast2_pkg_installed("NS")) {
   inference_model <- create_inference_model(
     site_model = beautier::create_jc69_site_model(),
     mcmc = mcmc
-  )  
+  )
   beast2_options <- create_beast2_options(
     beast2_path = beastier::get_default_beast2_bin_path()
   )

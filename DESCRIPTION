@@ -26,6 +26,7 @@ Depends:
     beautier (>= 2.6.4),
     beastier (>= 2.4.10),
     mauricer (>= 2.5),
+    R (>= 3.5.0),
     tracerer
 Imports:
     phangorn,

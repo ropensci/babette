@@ -11,6 +11,9 @@ it peripheral tools. From an alignment and
 inference model, a posterior of jointly estimated
 phylogenies and parameter estimates is generated.
 }
+\note{
+the imports are created by script 'scripts/create_imports.R'
+}
 \examples{
 if (beastier::is_on_ci() && is_beast2_installed()) {
   beastier::remove_beaustier_folders()

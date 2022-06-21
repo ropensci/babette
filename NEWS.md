@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## babette 2.3.1 (none)
+## babette 2.3.2 (unreleased)
 
 ### NEW FEATURES
 
@@ -11,6 +11,24 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
   * None
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+## babette 2.3.1 (2022-06-21)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * Fix newer CRAN warnings
 
 ### BUG FIXES
 

@@ -204,7 +204,7 @@ test_that("same RNG seed gives same results", {
 test_that("Run all defaults", {
 
   if (!beastier::is_beast2_installed()) return()
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
 
   inference_model <- beautier::create_test_inference_model()
   beast2_options <- create_beast2_options()
@@ -232,7 +232,7 @@ test_that("Run all defaults", {
 
 test_that("Run GTR", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -259,7 +259,7 @@ test_that("Run GTR", {
 
 test_that("Run HKY", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -286,7 +286,7 @@ test_that("Run HKY", {
 
 test_that("Run JC69", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -313,7 +313,7 @@ test_that("Run JC69", {
 
 test_that("Run TN93", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -343,7 +343,7 @@ test_that("Run TN93", {
 ################################################################################
 test_that("Run RLN clock", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -369,7 +369,7 @@ test_that("Run RLN clock", {
 ################################################################################
 test_that("Run strict clock", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -399,7 +399,7 @@ test_that("Run strict clock", {
 ################################################################################
 test_that("Run BD tree prior", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -425,7 +425,7 @@ test_that("Run BD tree prior", {
 ################################################################################
 test_that("Run CBS tree prior", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_inference_model(
@@ -450,7 +450,7 @@ test_that("Run CBS tree prior", {
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   inference_model <- beautier::create_test_inference_model(
@@ -477,7 +477,7 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
 ################################################################################
 test_that("Run CCP tree prior", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
   inference_model <- beautier::create_test_inference_model(
     tree_prior = create_ccp_tree_prior()
@@ -498,7 +498,7 @@ test_that("Run CCP tree prior", {
 })
 
 test_that("Run CCP tree prior with tip dating", {
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
   inference_model <- beautier::create_test_inference_model(
     tree_prior = create_ccp_tree_prior(),
@@ -527,7 +527,7 @@ test_that("Run CCP tree prior with tip dating", {
 # Tree prior: CEP
 ################################################################################
 test_that("Run CEP tree prior", {
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
   inference_model <- beautier::create_test_inference_model(
     tree_prior = create_cep_tree_prior()
@@ -552,7 +552,7 @@ test_that("Run CEP tree prior", {
 # Tree prior: Yule
 ################################################################################
 test_that("Run Yule tree prior", {
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(),

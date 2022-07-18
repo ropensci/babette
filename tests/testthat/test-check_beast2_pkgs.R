@@ -6,7 +6,7 @@ test_that("use", {
   # Only do that on CI services, else a user without internet
   # suddenly finds the NS 'BEAST2' package installed and unable
   # to reinstall it
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
 
   # Check to need to install NS later
   was_ns_installed <- mauricer::is_beast2_ns_pkg_installed()

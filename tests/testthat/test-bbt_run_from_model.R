@@ -180,7 +180,7 @@ test_that("use, sub-sub-subfolder", {
 })
 
 test_that("Run CBS tree prior with too few taxa must give clear error", {
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!beastier::is_beast2_installed()) return()
 
   expect_error(
@@ -201,7 +201,7 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
 
 test_that("use, nested sampling, in custom folder", {
   if (rappdirs::app_dir()$os == "win") return()
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
   if (!curl::has_internet()) return()
 
   beastier::remove_beaustier_folders()

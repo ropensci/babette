@@ -23,7 +23,7 @@ URL: https://docs.ropensci.org/babette/ (website)
     https://github.com/ropensci/babette/
 BugReports: https://github.com/ropensci/babette/issues
 Depends:
-    beautier (>= 2.6.4),
+    beautier (>= 2.6.5),
     beastier (>= 2.4.10),
     mauricer (>= 2.5),
     R (>= 3.5.0),

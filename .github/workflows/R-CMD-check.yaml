@@ -30,8 +30,12 @@ jobs:
       - name: Fix rJava error # from https://travis-ci.community/t/cannot-connect-to-java-from-r/9754/8
         run: sudo $(which R) CMD javareconf
 
+      - name: Install fonts # from https://github.com/r-lib/systemfonts/issues/35#issuecomment-961900755
+        run: sudo apt install -qq libfontconfig1-dev
+
       - name: Install libharfbuzz-dev
         run: sudo apt install -qq libharfbuzz-dev
+
 
       - name: Install dependencies
         run: |

@@ -9,8 +9,9 @@ From: rocker/tidyverse
     sudo apt-get install -qq libcurl4-openssl-dev
 
     apt search openjdk
-    sudo apt install -qq default-jre
-    #sudo apt-get install -qq r-cran-rjava
+    sudo apt install -qq openjdk-11-jre-headless
+    # sudo apt install -qq default-jre
+    # sudo apt-get install -qq r-cran-rjava
     # sudo apt-get install -qq openjdk-13-*
     sudo $(which R) CMD javareconf
 

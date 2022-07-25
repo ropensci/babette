@@ -221,13 +221,14 @@ test_that("use, nested sampling, in custom folder", {
     beast2_folder = beast2_folder)
   )
   inference_model <- beautier::create_test_ns_inference_model()
+  beast2_options <- create_beast2_options(
+    beast2_path = get_default_beast2_bin_path(beast2_folder = beast2_folder)
+  )
   expect_silent(
     bbt_run_from_model(
       fasta_filename = get_babette_path("anthus_aco.fas"),
       inference_model = inference_model,
-      beast2_options = create_beast2_options(
-        beast2_path = get_default_beast2_bin_path(beast2_folder = beast2_folder)
-      )
+      beast2_options = beast2_options
     )
   )
   bbt_delete_temp_files(

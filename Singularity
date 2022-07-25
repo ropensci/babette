@@ -9,7 +9,13 @@ From: rocker/tidyverse
     sudo apt install -qq libcurl4-openssl-dev
     sudo $(which R) CMD javareconf
 
-    Rscript -e 'install.packages(c("remotes", "devtools"))'
+    sudo apt install -qq libfontconfig1-dev
+
+    sudo apt install -qq libharfbuzz-dev libfribidi-dev
+
+    Rscript -e 'install.packages(c("remotes", "rcmdcheck"))'
+    Rscript -e 'remotes::install_cran("shiny")'
+    Rscript -e 'remotes::install_github("ropensci/beautier")'
     Rscript -e 'remotes::install_github("ropensci/beastier")'
     Rscript -e 'remotes::install_github("richelbilderbeek/beastierinstall")'
     Rscript -e 'beastierinstall::install_beast2(folder_name = "/opt/beastier")'

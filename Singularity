@@ -9,7 +9,7 @@ From: rocker/tidyverse
 
     sudo apt-get install -qq libcurl4-openssl-dev
 
-    sudo apt-get install r-cran-rjava
+    sudo apt-get install -qq r-cran-rjava
     sudo $(which R) CMD javareconf
 
     sudo apt install -qq libfontconfig1-dev

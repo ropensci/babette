@@ -213,13 +213,12 @@ test_that("use, nested sampling, in custom folder", {
     basename(tempfile(pattern = "babette_"))
   )
   beastierinstall::install_beast2(folder_name = beast2_folder)
-  mauricerinstall::install_beast2_pkg(
-    name = "NS",
-    beast2_folder = beast2_folder
-  )
-  expect_true(mauricer::is_beast2_ns_pkg_installed(
-    beast2_folder = beast2_folder)
-  )
+  if (!mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder)) {
+    mauricerinstall::install_beast2_pkg(
+      name = "NS",
+      beast2_folder = beast2_folder
+    )
+}
   inference_model <- beautier::create_test_ns_inference_model()
   beast2_options <- create_beast2_options(
     beast2_path = get_default_beast2_bin_path(beast2_folder = beast2_folder)

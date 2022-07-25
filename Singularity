@@ -10,7 +10,8 @@ From: rocker/tidyverse
     sudo apt-get install -qq libcurl4-openssl-dev
 
     #sudo apt-get install -qq r-cran-rjava
-    sudo apt-get install -qq openjdk-7-*
+    apt-cache search openjdk
+    sudo apt-get install -qq openjdk-13-*
     sudo $(which R) CMD javareconf
 
     sudo apt install -qq libfontconfig1-dev

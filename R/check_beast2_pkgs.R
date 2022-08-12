@@ -5,7 +5,7 @@
 #' needs to be installed.
 #' @inheritParams default_params_doc
 #' @examples
-#' if (is_beast2_installed()) {
+#' if (beautier::is_on_ci() && is_beast2_installed()) {
 #'   beastier::remove_beaustier_folders()
 #'   beastier::check_empty_beaustier_folders()
 #'

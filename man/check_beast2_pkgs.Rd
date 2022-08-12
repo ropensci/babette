@@ -25,7 +25,7 @@ For example, to use a Nested Sampling MCMC, the 'BEAST2' 'NS' package
 needs to be installed.
 }
 \examples{
-if (is_beast2_installed()) {
+if (beautier::is_on_ci() && is_beast2_installed()) {
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 

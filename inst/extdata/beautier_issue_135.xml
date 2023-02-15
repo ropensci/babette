@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.6">
+    <data
+id="anthus_aco_sub"
+spec="Alignment"
+name="alignment">
+        <sequence id="seq_61430_aco" spec="Sequence" taxon="61430_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGCGAAAATTGTCTGTTTTT"/>
+        <sequence id="seq_626029_aco" spec="Sequence" taxon="626029_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTGCTTGTTTAATGCCCTCTCCTATTTTATTGTGACGATTGTCTGTTTTT"/>
+        <sequence id="seq_630116_aco" spec="Sequence" taxon="630116_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGCGAAAATTGTCTGTTTTT"/>
+        <sequence id="seq_630210_aco" spec="Sequence" taxon="630210_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGTGACAATTGTCTGTTTTT"/>
+        <sequence id="seq_B25702_aco" spec="Sequence" taxon="B25702_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGTGACAATTGTCTGTTTTT"/>
+    </data>
+
+    
+
+
+    <map name="Uniform" >beast.math.distributions.Uniform</map>
+    <map name="Exponential" >beast.math.distributions.Exponential</map>
+    <map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+    <map name="Normal" >beast.math.distributions.Normal</map>
+    <map name="Beta" >beast.math.distributions.Beta</map>
+    <map name="Gamma" >beast.math.distributions.Gamma</map>
+    <map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+    <map name="prior" >beast.math.distributions.Prior</map>
+    <map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+    <map name="OneOnX" >beast.math.distributions.OneOnX</map>
+    <run id="mcmc" spec="MCMC" chainLength="10000000">
+        <state id="state" spec="State" storeEvery="5000">
+            <tree id="Tree.t:anthus_aco_sub" spec="beast.evolution.tree.Tree" name="stateNode">
+                <taxonset id="TaxonSet.anthus_aco_sub" spec="TaxonSet">
+                    <alignment idref="anthus_aco_sub"/>
+                </taxonset>
+            </tree>
+            <parameter id="birthRate.t:anthus_aco_sub" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
+        </state>
+        <init id="RandomTree.t:anthus_aco_sub" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:anthus_aco_sub" taxa="@anthus_aco_sub">
+            <populationModel id="ConstantPopulation0.t:anthus_aco_sub" spec="ConstantPopulation">
+                <parameter id="randomPopSize.t:anthus_aco_sub" spec="parameter.RealParameter" name="popSize">1.0</parameter>
+            </populationModel>
+        </init>
+        <distribution id="posterior" spec="util.CompoundDistribution">
+            <distribution id="prior" spec="util.CompoundDistribution">
+                <distribution id="YuleModel.t:anthus_aco_sub" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:anthus_aco_sub" tree="@Tree.t:anthus_aco_sub"/>
+                <prior id="YuleBirthRatePrior.t:anthus_aco_sub" name="distribution" x="@birthRate.t:anthus_aco_sub">
+                    <Uniform id="Uniform.1" name="distr" upper="Infinity"/>
+                </prior>
+            </distribution>
+            <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+                <distribution id="treeLikelihood.anthus_aco_sub" spec="ThreadedTreeLikelihood" data="@anthus_aco_sub" tree="@Tree.t:anthus_aco_sub">
+                    <siteModel id="SiteModel.s:anthus_aco_sub" spec="SiteModel">
+                        <parameter id="mutationRate.s:anthus_aco_sub" spec="parameter.RealParameter" estimate="false" name="mutationRate">1.0</parameter>
+                        <parameter id="gammaShape.s:anthus_aco_sub" spec="parameter.RealParameter" estimate="false" name="shape">1.0</parameter>
+                        <parameter id="proportionInvariant.s:anthus_aco_sub" spec="parameter.RealParameter" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                        <substModel id="JC69.s:anthus_aco_sub" spec="JukesCantor"/>
+                    </siteModel>
+                    <branchRateModel id="StrictClock.c:anthus_aco_sub" spec="beast.evolution.branchratemodel.StrictClockModel">
+                        <parameter id="clockRate.c:anthus_aco_sub" spec="parameter.RealParameter" estimate="false" lower="0.00277" name="clock.rate" upper="0.00542">0.0035</parameter>
+                    </branchRateModel>
+                </distribution>
+            </distribution>
+        </distribution>
+        <operator id="YuleBirthRateScaler.t:anthus_aco_sub" spec="ScaleOperator" parameter="@birthRate.t:anthus_aco_sub" weight="3.0"/>
+        <operator id="YuleModelTreeScaler.t:anthus_aco_sub" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:anthus_aco_sub" weight="3.0"/>
+        <operator id="YuleModelTreeRootScaler.t:anthus_aco_sub" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:anthus_aco_sub" weight="3.0"/>
+        <operator id="YuleModelUniformOperator.t:anthus_aco_sub" spec="Uniform" tree="@Tree.t:anthus_aco_sub" weight="30.0"/>
+        <operator id="YuleModelSubtreeSlide.t:anthus_aco_sub" spec="SubtreeSlide" tree="@Tree.t:anthus_aco_sub" weight="15.0"/>
+        <operator id="YuleModelNarrow.t:anthus_aco_sub" spec="Exchange" tree="@Tree.t:anthus_aco_sub" weight="15.0"/>
+        <operator id="YuleModelWide.t:anthus_aco_sub" spec="Exchange" isNarrow="false" tree="@Tree.t:anthus_aco_sub" weight="3.0"/>
+        <operator id="YuleModelWilsonBalding.t:anthus_aco_sub" spec="WilsonBalding" tree="@Tree.t:anthus_aco_sub" weight="3.0"/>
+        <logger id="tracelog" spec="Logger" fileName="anthus_aco_sub.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="treeLikelihood.anthus_aco_sub"/>
+            <log id="TreeHeight.t:anthus_aco_sub" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:anthus_aco_sub"/>
+            <log idref="YuleModel.t:anthus_aco_sub"/>
+            <log idref="birthRate.t:anthus_aco_sub"/>
+        </logger>
+        <logger id="screenlog" spec="Logger" logEvery="1000">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+        </logger>
+        <logger id="treelog.t:anthus_aco_sub" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
+            <log id="TreeWithMetaDataLogger.t:anthus_aco_sub" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:anthus_aco_sub"/>
+        </logger>
+        <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+    </run>
+</beast>

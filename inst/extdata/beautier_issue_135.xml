@@ -53,7 +53,7 @@ name="alignment">
                         <substModel id="JC69.s:anthus_aco_sub" spec="JukesCantor"/>
                     </siteModel>
                     <branchRateModel id="StrictClock.c:anthus_aco_sub" spec="beast.evolution.branchratemodel.StrictClockModel">
-                        <parameter id="clockRate.c:anthus_aco_sub" spec="parameter.RealParameter" estimate="false" lower="0.00277" name="clock.rate" upper="0.00542">0.0035</parameter>
+                        <parameter id="clockRate.c:anthus_aco_sub" spec="parameter.RealParameter" estimate="false" lower="0.1" name="clock.rate" upper="0.3">0.2</parameter>
                     </branchRateModel>
                 </distribution>
             </distribution>

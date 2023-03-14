@@ -40,6 +40,7 @@ jobs:
         run: |
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_cran("shiny")
+          remotes::install_github("ropensci/beautier")
           #remotes::install_github("ropensci/tracerer")
           remotes::install_github("ropensci/beastier")
           remotes::install_github("ropensci/mauricer")

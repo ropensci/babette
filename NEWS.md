@@ -10,7 +10,7 @@ Newest versions at top.
   
 ### MINOR IMPROVEMENTS
 
-  * None
+ * Did `usethis::use_package_doc()`
 
 ### BUG FIXES
 

@@ -13,3 +13,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^Singularity$
 ^Meta$
+^mlc_config\.json$

@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## babette v2.3.3 (2022-08-12)
+## babette v2.3.3 (2022-09-25)
 
 ### NEW FEATURES
 

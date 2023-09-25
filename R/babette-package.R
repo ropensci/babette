@@ -49,9 +49,6 @@
 #'     '\link[tracerer]{tracerer}' parses 'BEAST2' output files.
 #'   }
 #' }
-#' @docType package
-#' @author Richèl J.C. Bilderbeek
-#' @name babette
 #' @note the imports are created by script 'scripts/create_imports.R'
 #' @importFrom beautier are_clock_models
 #' @importFrom beautier are_equal_mcmcs
@@ -581,4 +578,10 @@
 #' @importFrom mauricer is_beast2_ns_pkg_installed
 #' @importFrom mauricer is_beast2_pkg_installed
 #' @importFrom mauricer uninstall_beast2_pkg
+#' @author Richèl J.C. Bilderbeek
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL

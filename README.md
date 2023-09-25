@@ -114,9 +114,9 @@ Package                                                                       | 
 
 ## Related packages
 
-Package                                     |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.com)                                             |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
---------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------
-[lumier](https://github.com/ropensci/lumier)|[![Build Status](https://travis-ci.com/ropensci/lumier.svg?branch=master)](https://travis-ci.com/ropensci/lumier)|[![codecov.io](https://codecov.io/github/ropensci/lumier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/lumier/branch/master)
+Package                                     |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
+--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------
+[lumier](https://github.com/ropensci/lumier)|[![codecov.io](https://codecov.io/github/ropensci/lumier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/lumier/branch/master)
 
 ## External links
 

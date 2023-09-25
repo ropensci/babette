@@ -1,18 +1,8 @@
-citHeader("To cite reports in publications, please use:")
-
-citEntry(entry = "article",
-  title="babette: BEAUti 2, BEAST 2 and Tracer for R",
-  author="Richèl JC Bilderbeek and Rampal S Etienne",
-  journal="Methods in Ecology and Evolution",
-  year="2018",
-  publisher="Wiley Online Library",
-  url="https://doi.org/10.1111/2041-210X.13032",
-  textVersion = paste(
-    "Bilderbeek, Richèl JC, and Etienne, Rampal S.",
-    "babette: BEAUti 2, BEAST 2 and Tracer for R.",
-    "Methods in Ecology and Evolution (2018).",
-    "https://doi.org/10.1111/2041-210X.13032"
-  )
+bibentry(
+  bibtype = "Article",
+  author = "Richèl JC Bilderbeek and Rampal S Etienne",
+  title = "babette: BEAUti 2, BEAST 2 and Tracer for R",
+  journal = "Methods in Ecology and Evolution",
+  year = "2008",
+  url = "https://doi.org/10.1111/2041-210X.13032",
 )
-
-

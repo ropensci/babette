@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette v2.3.3 (2022-08-12)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+ * Use new CITATION style
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette v2.3.2 (2022-08-12)
 
 ### NEW FEATURES

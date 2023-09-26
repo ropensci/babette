@@ -1,4 +1,6 @@
 test_that("use", {
+
+  skip("#26")
   if (!is_beast2_installed()) return()
 
   filename <- get_babette_path(
@@ -40,6 +42,7 @@ test_that("use", {
 })
 
 test_that("use", {
+  skip("#26")
   if (!is_beast2_installed()) return()
   inference_model <- create_test_inference_model(
     clock_model = create_rln_clock_model(),

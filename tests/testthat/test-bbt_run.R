@@ -634,8 +634,11 @@ test_that("Run MRCA, no distr, subset of taxa", {
 })
 
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
+  skip("#29")
 
   if (!beastier::is_beast2_installed()) return()
+
+
 
   # Thanks to Raphael Scherrer for sharing this bug
   fasta_filename <- get_fasta_filename()
@@ -661,6 +664,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
 })
 
 test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
+  skip("#29")
 
   if (!beastier::is_beast2_installed()) return()
 

@@ -1,3 +1,4 @@
+#!/bin/env Rscript
 ###############################################################################
 # beautier
 ###############################################################################
@@ -37,7 +38,7 @@ beastier_function_names <- stringr::str_subset(
 )
 beastier_function_names <- stringr::str_subset(
   beastier_function_names,
-  "remove_beautier_folder|create_beautier_tempfolder",
+  "remove_beautier_folder|create_beautier_tempfolder|is_on_appveyor|is_on_ci|is_on_travis",
   negate = TRUE
 )
 beastier_text <- paste("#' @importFrom beastier", beastier_function_names)

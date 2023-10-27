@@ -1,25 +1,19 @@
+#' Deprecated function.
+#'
 #' Update all babette dependencies, by installing their
-#' latest versions
+#' latest versions.
+#'
+#' See \url{https://github.com/richelbilderbeek/babetteinstall}
+#' how to do this.
 #' @inheritParams remotes::install_github
 #' @author Giovanni Laudanno, Richèl J.C. Bilderbeek
-#' @examples
-#' \dontrun{
-#'   # Updates the babette dependencies without asking
-#' }
-#' beastier::remove_beaustier_folders()
 #' @export
 update_babette <- function(upgrade = "default") {
-  repo_names <- c(
-    "ropensci/beautier", "ropensci/tracerer", "ropensci/beastier",
-    "ropensci/mauricer"
+  stop(
+    "'update_babette' is deprecated, ",
+    "as it did not follow CRAN guidelines. ",
+    "",
+    "Tip: one can use 'babetteinstall::updateba_bette' ",
+    "(from 'https://github.com/richelbilderbeek/babetteinstall')"
   )
-  for (repo_name in repo_names) {
-    remotes::install_github(
-      repo_name,
-      ref = "develop",
-      quiet = TRUE,
-      dependencies = TRUE,
-      upgrade = upgrade
-    )
-  }
 }

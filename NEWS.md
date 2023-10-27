@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette v2.3.4 (unreleased)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * Deprecate 'upgrade_babette', as this is against CRAN guidelines
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette v2.3.3 (2022-09-25)
 
 ### NEW FEATURES

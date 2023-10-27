@@ -16,6 +16,7 @@ update_babette <- function(upgrade = "default") {
   for (repo_name in repo_names) {
     remotes::install_github(
       repo_name,
+      ref = "develop",
       quiet = TRUE,
       dependencies = TRUE,
       upgrade = upgrade

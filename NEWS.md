@@ -360,7 +360,7 @@ create_lambda_param(value = 1.2, estimate = TRUE)
 
 ### MINOR IMPROVEMENTS
 
-  * Follow all [rOpenSci packaging guidelines](https://github.com/ropensci/onboarding/blob/master/packaging_guide.md)
+  * Follow all [rOpenSci packaging guidelines](https://github.com/ropensci/software-review/blob/master/packaging_guide.md)
 
 ### BUG FIXES
 

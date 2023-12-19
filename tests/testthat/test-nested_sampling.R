@@ -1,7 +1,7 @@
 test_that("use, bin, Linux", {
   if (!is_beast2_installed()) return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
-  if (rappdirs::app_dir()$os != "unix") return()
+  skip_on_os("windows")
 
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
@@ -22,7 +22,7 @@ test_that("use, bin, Linux", {
 test_that("use, jar, Linux, works", {
   if (!is_beast2_installed()) return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
-  if (rappdirs::app_dir()$os != "unix") return()
+  skip_on_os("windows")
 
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
@@ -51,7 +51,7 @@ test_that("use, bin, Win, fails", {
 
   if (!is_beast2_installed()) return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
-  if (rappdirs::app_dir()$os != "win") return()
+  skip_on_os(c("solaris", "linux", "mac"))
 
   input_filename <- get_babette_path("nested_sampling.xml")
 
@@ -71,7 +71,7 @@ test_that("use, bin, Win, fails", {
 test_that("use, jar, Win, fails", {
   if (!is_beast2_installed()) return()
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
-  if (rappdirs::app_dir()$os != "win") return()
+  skip_on_os(c("mac", "linux", "solaris"))
 
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()

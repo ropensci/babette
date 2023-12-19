@@ -51,7 +51,7 @@ test_that("minimal use with BEAUti shorthand", {
 
 test_that("use, nested sampling", {
   if (!beastier::is_beast2_installed()) return()
-  if (rappdirs::app_dir()$os == "win") return()
+  skip_on_os("windows")
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
   beastier::remove_beaustier_folders()
@@ -200,9 +200,9 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
 })
 
 test_that("use, nested sampling, in custom folder", {
-  if (rappdirs::app_dir()$os == "win") return()
+  skip_on_os("windows")
   if (!beautier::is_on_ci()) return()
-  if (!curl::has_internet()) return()
+  skip_if_offline()
 
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()

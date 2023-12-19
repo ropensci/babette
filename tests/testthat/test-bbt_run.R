@@ -1,6 +1,6 @@
 test_that("output is well-formed", {
 
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   mcmc <- create_test_mcmc()
   inference_model <- beautier::create_inference_model(
@@ -105,12 +105,9 @@ test_that("use, one alignment, verbose, no cleanup", {
 
 test_that("same RNG seed gives same results", {
 
-  if (!beastier::is_beast2_installed()) return()
-
-  if (rappdirs::app_dir()$os == "mac") {
-    return()
-    # RNG seed is unreliable under macOS
-  }
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
+  skip_on_os("mac")
+  # RNG seed is unreliable under macOS
 
   rng_seed <- 42
   inference_model_1 <- create_test_inference_model()
@@ -233,7 +230,7 @@ test_that("Run all defaults", {
 test_that("Run GTR", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   inference_model <- beautier::create_test_inference_model(
     site_model = create_gtr_site_model()
@@ -260,7 +257,7 @@ test_that("Run GTR", {
 test_that("Run HKY", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   inference_model <- beautier::create_test_inference_model(
     site_model = create_hky_site_model()
@@ -287,7 +284,7 @@ test_that("Run HKY", {
 test_that("Run JC69", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   inference_model <- beautier::create_test_inference_model(
     site_model = create_jc69_site_model()
@@ -314,7 +311,7 @@ test_that("Run JC69", {
 test_that("Run TN93", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   inference_model <- beautier::create_test_inference_model(
     site_model = create_tn93_site_model()
@@ -400,7 +397,7 @@ test_that("Run strict clock", {
 test_that("Run BD tree prior", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   inference_model <- beautier::create_test_inference_model(
     tree_prior = create_bd_tree_prior()
@@ -426,7 +423,7 @@ test_that("Run BD tree prior", {
 test_that("Run CBS tree prior", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   inference_model <- beautier::create_inference_model(
     tree_prior = create_cbs_tree_prior(
@@ -478,7 +475,7 @@ test_that("Run CBS tree prior with too few taxa must give clear error", {
 test_that("Run CCP tree prior", {
 
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
   inference_model <- beautier::create_test_inference_model(
     tree_prior = create_ccp_tree_prior()
   )
@@ -499,7 +496,7 @@ test_that("Run CCP tree prior", {
 
 test_that("Run CCP tree prior with tip dating", {
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
   inference_model <- beautier::create_test_inference_model(
     tree_prior = create_ccp_tree_prior(),
     tipdates_filename = beautier::get_beautier_path(
@@ -553,7 +550,7 @@ test_that("Run CEP tree prior", {
 ################################################################################
 test_that("Run Yule tree prior", {
   if (!beautier::is_on_ci()) return()
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(),
     mcmc = create_test_mcmc(chain_length = 2000)
@@ -578,7 +575,7 @@ test_that("Run Yule tree prior", {
 # MRCA priors
 ################################################################################
 test_that("Run MRCA, no distr", {
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
@@ -595,7 +592,7 @@ test_that("Run MRCA, no distr", {
 
 test_that("Run MRCA, MRCA distr", {
 
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
@@ -636,8 +633,7 @@ test_that("Run MRCA, no distr, subset of taxa", {
 test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
   skip("#29")
 
-  if (!beastier::is_beast2_installed()) return()
-
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
 
   # Thanks to Raphael Scherrer for sharing this bug
@@ -666,7 +662,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, Issue 29, #29", {
 test_that("RLN and monophyletic MRCA with distribution, Issue 29, #29", {
   skip("#29")
 
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   # Thanks to Jana Riederer for sharing this bug
   fasta_filename <- get_fasta_filename()
@@ -723,7 +719,7 @@ test_that("use, one alignment, plot with nLTT", {
 
 test_that("with tip dating", {
 
-  if (!beastier::is_beast2_installed()) return()
+  skip_if_not(beastier::is_beast2_installed(), message = "beast2 not installed")
 
   fasta_filename <- beautier::get_beautier_path("G_VII_pre2003_msa.fas")
   tipdates_filename <- beautier::get_beautier_path("G_VII_pre2003_dates_4.txt")

@@ -14,7 +14,8 @@ Newest versions at top.
 
 ### BUG FIXES
 
-  * None
+  * Removed unused dependencies, and testthat dependency outside tests.
+  * Import rlang for checking conditions.
 
 ### DEPRECATED AND DEFUNCT
 

@@ -66,8 +66,7 @@ so obtaining a path to a FASTA file is easy:
 
 ```{r}
 fasta_filename <- get_babette_path("anthus_aco_sub.fas")
-library(testthat)
-expect_true(file.exists(fasta_filename))
+file.exists(fasta_filename)
 ```
 
 With `fasta_filename` available, we have the minimal

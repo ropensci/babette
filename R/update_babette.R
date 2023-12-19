@@ -5,7 +5,7 @@
 #'
 #' See \url{https://github.com/richelbilderbeek/babetteinstall}
 #' how to do this.
-#' @inheritParams remotes::install_github
+#' @param upgrade Deprecated.
 #' @author Giovanni Laudanno, Richèl J.C. Bilderbeek
 #' @export
 update_babette <- function(upgrade = "default") {

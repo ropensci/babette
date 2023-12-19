@@ -31,6 +31,7 @@ Depends:
 Imports:
     phangorn,
     remotes,
+    rlang (>= 1.1.0),
     stringr,
     xml2
 Suggests:

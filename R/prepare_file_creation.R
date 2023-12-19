@@ -55,7 +55,9 @@ prepare_file_creation <- function(
       )
     }
     file.remove(filename)
-    testthat::expect_true(!file.exists(filename))
+    if (file.exists(filename)) {
+      stop("filename should not exist, as it has been deleted.")
+    }
   }
   invisible(inference_model)
 }

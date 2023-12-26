@@ -33,7 +33,6 @@ as described in [1]
 
 ```{r}
 library(babette)
-library(testthat)
 ```
 
 `babette` needs to have 'BEAST2' installed to work.
@@ -74,18 +73,19 @@ interpret_bayes_factor <- function(bayes_factor) {
     "decisive for JC69"
   }
 }
-expect_equal(interpret_bayes_factor(1 / 123.0), "decisive for GTR")
-expect_equal(interpret_bayes_factor(1 / 85.0), "very strong for GTR")
-expect_equal(interpret_bayes_factor(1 / 12.5), "strong for GTR")
-expect_equal(interpret_bayes_factor(1 / 8.5), "substantial for GTR")
-expect_equal(interpret_bayes_factor(1 / 1.5), "barely worth mentioning for GTR")
-expect_equal(interpret_bayes_factor(0.99), "barely worth mentioning for GTR")
-expect_equal(interpret_bayes_factor(1.01), "barely worth mentioning for JC69")
-expect_equal(interpret_bayes_factor(1.5), "barely worth mentioning for JC69")
-expect_equal(interpret_bayes_factor(8.5), "substantial for JC69")
-expect_equal(interpret_bayes_factor(12.5), "strong for JC69")
-expect_equal(interpret_bayes_factor(85.0), "very strong for JC69")
-expect_equal(interpret_bayes_factor(123.0), "decisive for JC69")
+# Should all be TRUE
+interpret_bayes_factor(1 / 123.0) == "decisive for GTR"
+interpret_bayes_factor(1 / 85.0) == "very strong for GTR"
+interpret_bayes_factor(1 / 12.5) == "strong for GTR"
+interpret_bayes_factor(1 / 8.5) == "substantial for GTR"
+interpret_bayes_factor(1 / 1.5) == "barely worth mentioning for GTR"
+interpret_bayes_factor(0.99) == "barely worth mentioning for GTR"
+interpret_bayes_factor(1.01) == "barely worth mentioning for JC69"
+interpret_bayes_factor(1.5) == "barely worth mentioning for JC69"
+interpret_bayes_factor(8.5) == "substantial for JC69"
+interpret_bayes_factor(12.5) == "strong for JC69"
+interpret_bayes_factor(85.0) == "very strong for JC69"
+interpret_bayes_factor(123.0) == "decisive for JC69"
 ```
 
 ## Experiment

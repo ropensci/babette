@@ -99,7 +99,9 @@ if (is_beast2_installed()) {
   run_beast2_from_options(
     beast2_options = beast2_options
   )
-  testthat::expect_true(file.exists(beast2_options$output_state_filename))
+  if (!file.exists(beast2_options$output_state_filename)) {
+    stop("the filename should have been created.")
+  }
 }
 ```
 

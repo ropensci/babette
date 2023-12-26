@@ -2,28 +2,20 @@
 % Please edit documentation in R/update_babette.R
 \name{update_babette}
 \alias{update_babette}
-\title{Update all babette dependencies, by installing their
-latest versions}
+\title{Deprecated function.}
 \usage{
 update_babette(upgrade = "default")
 }
 \arguments{
-\item{upgrade}{Should package dependencies be upgraded? One of "default", "ask", "always", or "never". "default"
-respects the value of the \code{R_REMOTES_UPGRADE} environment variable if set,
-and falls back to "ask" if unset. "ask" prompts the user for which out of
-date packages to upgrade. For non-interactive sessions "ask" is equivalent
-to "always". \code{TRUE} and \code{FALSE} are also accepted and correspond to
-"always" and "never" respectively.}
+\item{upgrade}{Deprecated.}
 }
 \description{
 Update all babette dependencies, by installing their
-latest versions
+latest versions.
 }
-\examples{
-\dontrun{
-  # Updates the babette dependencies without asking
-}
-beastier::remove_beaustier_folders()
+\details{
+See \url{https://github.com/richelbilderbeek/babetteinstall}
+how to do this.
 }
 \author{
 Giovanni Laudanno, Richèl J.C. Bilderbeek

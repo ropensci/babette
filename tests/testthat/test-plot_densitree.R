@@ -48,7 +48,7 @@ test_that("minimal use", {
 
 test_that("abuse", {
 
-  testthat::expect_error(
+  expect_error(
     plot_densitree("nonsense"),
     "'phylos' must be of class 'multiPhylo'"
   )

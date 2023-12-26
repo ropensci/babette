@@ -68,23 +68,23 @@ jobs:
         shell: Rscript {0}
 
       - name: Make sure that no files are created in the beautier .cache folder
-        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "beautier"))))
+        run: testthat::expect_length(list.files(rappdirs::user_cache_dir(appname = "beautier")), 0)
         shell: Rscript {0}
 
       - name: Make sure that no files are created in the tracerer .cache folder
-        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "tracerer"))))
+        run: testthat::expect_length(list.files(rappdirs::user_cache_dir(appname = "tracerer")), 0)
         shell: Rscript {0}
 
       - name: Make sure that no files are created in the beastier .cache folder
-        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "beastier"))))
+        run: testthat::expect_length(list.files(rappdirs::user_cache_dir(appname = "beastier")), 0)
         shell: Rscript {0}
 
       - name: Make sure that no files are created in the mauricer .cache folder
-        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "mauricer"))))
+        run: testthat::expect_length(list.files(rappdirs::user_cache_dir(appname = "mauricer")), 0)
         shell: Rscript {0}
 
       - name: Make sure that no files are created in the .cache folder
-        run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "babette"))))
+        run: testthat::expect_length(list.files(rappdirs::user_cache_dir(appname = "babette")), 0)
         shell: Rscript {0}
 
       - name: Test coverage

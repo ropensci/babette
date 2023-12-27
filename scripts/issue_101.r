@@ -1,5 +1,7 @@
 # Issue #101
-testthat::expect_true(beastier::is_beast2_installed())
+if (!beastier::is_beast2_installed()) {
+  stop("Beast2 must be installed.")
+}
 
 zip_filename_url <- "https://github.com/ropensci/babette/files/7802540/airCommunitiesMM_1.zip"
 zip_filename <- tempfile(fileext = ".zip")

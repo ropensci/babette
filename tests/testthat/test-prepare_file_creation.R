@@ -81,7 +81,7 @@ test_that("output_state_filename in sub-sub-sub-folder", {
 })
 
 test_that("state file in root folder", {
-  if (rappdirs::app_dir()$os == "win") return()
+  skip_on_os("windows")
 
   filename <- "/not_in_root_please.xml.state"
 

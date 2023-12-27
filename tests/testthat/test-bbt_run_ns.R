@@ -1,6 +1,6 @@
 test_that("use, bin (Linux only)", {
   if (!beastier::is_beast2_installed()) return()
-  if (rappdirs::app_dir()$os == "win") return()
+  skip_on_os("windows")
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
   beastier::remove_beaustier_folders()
@@ -18,16 +18,13 @@ test_that("use, bin (Linux only)", {
     beast2_options = beast2_options
   )
 
-  expect_true("estimates" %in% names(out))
-  expect_true("anthus_aco_sub_trees" %in% names(out))
-  expect_true("operators" %in% names(out))
-  expect_true("output" %in% names(out))
+  expect_contains(names(out), c("estimates", "anthus_aco_sub_trees", "operators", "output"))
 
   if (1 == 2) {
     # This assumption is false: a Nested Sampling run runs until
     # convergence
-    testthat::expect_true(inherits(out$anthus_aco_trees[[1]], "phylo"))
-    testthat::expect_equal(length(out$anthus_aco_trees), 2)
+    expect_s3_class(out$anthus_aco_trees[[1]], "phylo")
+    expect_length(out$anthus_aco_trees, 2)
   }
 
   expect_true("Sample" %in% names(out$estimates))
@@ -64,7 +61,7 @@ test_that("use, bin (Linux only)", {
 
 test_that("be verbose (yet muted)", {
   if (!beastier::is_beast2_installed()) return()
-  if (rappdirs::app_dir()$os != "win") return()
+  skip_on_os(c("mac", "linux")) # only run on Windows.
   if (!mauricer::is_beast2_ns_pkg_installed()) return()
 
   beastier::remove_beaustier_folders()

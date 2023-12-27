@@ -7,7 +7,6 @@ Authors@R: c(
     person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/richelbilderbeek/onboarding/issues/209"),
     person("Jason", "Griffiths", role = "ctb", comment = c(ORCID = "0000-0002-1667-8233")),
     person("Giovanni", "Laudanno", email = "glaudanno@gmail.com", role = "ctb"))
-Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
     Bayesian phylogenetic tool, that uses DNA/RNA/protein data
     and many model priors to create a posterior of jointly estimated 
@@ -19,8 +18,8 @@ Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
 License: GPL-3
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
-URL: https://docs.ropensci.org/babette/ (website)
-    https://github.com/ropensci/babette/
+URL: https://docs.ropensci.org/babette/ (website),
+    https://github.com/ropensci/babette
 BugReports: https://github.com/ropensci/babette/issues
 Depends:
     beautier (>= 2.6.11),
@@ -30,17 +29,14 @@ Depends:
     tracerer
 Imports:
     phangorn,
-    remotes,
+    rlang (>= 1.1.0),
     stringr,
     xml2
 Suggests:
     ape,
-    curl,
     ggplot2,
-    hunspell,
     knitr,
     lintr,
-    markdown,
     nLTT,
     rappdirs,
     rmarkdown,

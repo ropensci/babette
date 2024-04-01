@@ -1,6 +1,4 @@
 test_that("use", {
-
-  skip("#26")
   if (!is_beast2_installed()) return()
 
   filename <- get_babette_path(
@@ -42,7 +40,6 @@ test_that("use", {
 })
 
 test_that("use", {
-  skip("#26")
   if (!is_beast2_installed()) return()
   # Must be similar XML as
   # beautier::get_beautier_path("rln_and_tipdates_babette_issue_26.xml")
@@ -111,4 +108,38 @@ test_that("clockRate.c ID and ClockPrior.c ID added twice", {
 
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
+})
+
+
+test_that("Issue 106. Issue #106", {
+
+  if (!is_on_ci()) return()
+  if (!is_beast2_installed()) return()
+
+  fasta_filename <- beautier::get_fasta_filename()
+  sample_interval <- 10000
+  mrca_pr <- beautier::create_mrca_prior(
+    taxa_names = beautier::get_taxa_names(fasta_filename),
+    is_monophyletic = TRUE,
+    mrca_distr = beautier::create_distr_normal(mean = 66, sigma = 1)
+  )
+
+  inf_model <- beautier::create_inference_model(
+    tree_prior = beautier::create_bd_tree_prior(),
+    clock_model = beautier::create_clock_model_rln(mean_clock_rate = ),
+    mcmc = beautier::create_mcmc(
+      chain_length = 1e6,
+      store_every = sample_interval
+    ),
+    mrca_prior = mrca_pr,
+    beauti_options = beautier::create_beauti_options_v2_6()
+  )
+
+  expect_silent(
+    babette::bbt_run_from_model(
+      fasta_filename = fasta_filename,
+      inference_model = inf_model,
+      beast2_options = beastier::create_beast2_options(rng_seed = 42)
+    )
+  )
 })

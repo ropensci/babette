@@ -4,5 +4,5 @@ bibentry(
   title = "babette: BEAUti 2, BEAST 2 and Tracer for R",
   journal = "Methods in Ecology and Evolution",
   year = "2008",
-  url = "https://doi.org/10.1111/2041-210X.13032",
+  doi = "10.1111/2041-210X.13032",
 )

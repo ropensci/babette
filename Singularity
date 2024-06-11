@@ -91,4 +91,4 @@ bbt_delete_temp_files(
 
     URL https://github.com/ropensci/babette
 
-    VERSION 2.3.2
+    VERSION 2.3.4

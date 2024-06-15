@@ -6,6 +6,7 @@
 #' See \url{https://github.com/richelbilderbeek/babetteinstall}
 #' how to do this.
 #' @param upgrade Deprecated.
+#' @return Nothing.
 #' @author Giovanni Laudanno, Richèl J.C. Bilderbeek
 #' @export
 update_babette <- function(upgrade = "default") {

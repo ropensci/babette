@@ -4,6 +4,7 @@
 #' to sub-sub-sub folders. Create those folders and test
 #' if these folders can be written to
 #' @inheritParams default_params_doc
+#' @return Nothing.
 #' @examples
 #' # This example will fail on the CRAN
 #' # r-oldrel-macos-x86_64 platform

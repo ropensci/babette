@@ -2,6 +2,7 @@
 #'
 #' Create testing output similar to when running a 'BEAST2' run
 #' with nested sampling
+#' @return a text of type character vector.
 #' @author Richèl J.C. Bilderbeek
 #' @seealso Use \link{parse_beast2_output_to_ns} to parse
 #' this output to a Nested Sampling result.

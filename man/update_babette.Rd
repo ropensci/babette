@@ -9,6 +9,9 @@ update_babette(upgrade = "default")
 \arguments{
 \item{upgrade}{Deprecated.}
 }
+\value{
+Nothing.
+}
 \description{
 Update all babette dependencies, by installing their
 latest versions.

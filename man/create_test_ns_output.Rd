@@ -6,6 +6,9 @@
 \usage{
 create_test_ns_output()
 }
+\value{
+a text of type character vector.
+}
 \description{
 Create testing output similar to when running a 'BEAST2' run
 with nested sampling

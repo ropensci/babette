@@ -1,5 +1,6 @@
 #' Delete all the temporary files created by \link{bbt_run_from_model}
 #' @inheritParams default_params_doc
+#' @return Nothing.
 #' @examples
 #' if (beautier::is_on_ci() && is_beast2_installed()) {
 #'   beastier::remove_beaustier_folders()

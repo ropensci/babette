@@ -4,6 +4,7 @@
 #' For example, to use a Nested Sampling MCMC, the 'BEAST2' 'NS' package
 #' needs to be installed.
 #' @inheritParams default_params_doc
+#' @return Nothing.
 #' @examples
 #' if (beautier::is_on_ci() && is_beast2_installed()) {
 #'   beastier::remove_beaustier_folders()

@@ -20,6 +20,9 @@ the default BEAST binary file's path
 Use \code{get_default_beast2_jar_path} to get
 the default BEAST jar file's path}
 }
+\value{
+Nothing.
+}
 \description{
 For example, to use a Nested Sampling MCMC, the 'BEAST2' 'NS' package
 needs to be installed.

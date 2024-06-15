@@ -1,5 +1,6 @@
 #' Do a self test to verify \link{babette} that works correctly.
 #' @inheritParams default_params_doc
+#' @return Nothing. Will raise an exception if something is wrong.
 #' @author Richèl J.C. Bilderbeek
 #' @export
 #' @examples

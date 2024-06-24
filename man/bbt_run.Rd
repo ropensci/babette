@@ -35,7 +35,7 @@ see \link[beautier]{create_clock_model}}
 as created by \link[beautier]{create_tree_prior}}
 
 \item{mrca_prior}{one Most Recent Common Ancestor prior,
-as returned by \code{\link{create_mrca_prior}}}
+as returned by \code{\link[beautier]{create_mrca_prior}}}
 
 \item{mcmc}{the MCMC options,
 see \link[beautier]{create_mcmc}}
@@ -75,9 +75,9 @@ If \link{FALSE}, 'BEAST2'  will not overwrite the
 \code{beast2_options$output_state_filename} if its present
 and \link{babette} will give an error message.
 Note that if \code{overwrite} is set to \link{FALSE} when
-a \code{tracelog} (see \link{create_tracelog}),
-\code{screenlog} (see \link{create_screenlog})
-or \code{treelog} (see \link{create_treelog})
+a \code{tracelog} (see \link[beautier]{create_tracelog}),
+\code{screenlog} (see \link[beautier]{create_screenlog})
+or \code{treelog} (see \link[beautier]{create_treelog})
 file already exists,
 'BEAST2'  (and thus \link{babette}) will freeze.}
 

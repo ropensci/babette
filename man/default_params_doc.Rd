@@ -99,10 +99,10 @@ as returned by \link[beautier]{create_inference_model}}
 see \link[beautier]{create_mcmc}}
 
 \item{mrca_prior}{one Most Recent Common Ancestor prior,
-as returned by \code{\link{create_mrca_prior}}}
+as returned by \code{\link[beautier]{create_mrca_prior}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
+as returned by \code{\link[beautier]{create_mrca_prior}}}
 
 \item{overwrite}{will 'BEAST2'  overwrite files? Like 'BEAST2',
 this is set to \link{TRUE} by default.
@@ -112,9 +112,9 @@ If \link{FALSE}, 'BEAST2'  will not overwrite the
 \code{beast2_options$output_state_filename} if its present
 and \link{babette} will give an error message.
 Note that if \code{overwrite} is set to \link{FALSE} when
-a \code{tracelog} (see \link{create_tracelog}),
-\code{screenlog} (see \link{create_screenlog})
-or \code{treelog} (see \link{create_treelog})
+a \code{tracelog} (see \link[beautier]{create_tracelog}),
+\code{screenlog} (see \link[beautier]{create_screenlog})
+or \code{treelog} (see \link[beautier]{create_treelog})
 file already exists,
 'BEAST2'  (and thus \link{babette}) will freeze.}
 

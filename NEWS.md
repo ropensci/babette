@@ -12,6 +12,7 @@ Newest versions at top.
 
   * Deprecate 'upgrade_babette', as this is against CRAN guidelines
   * All functions have their return value documented
+  * Documentation links to other packages' documentation
 
 ### BUG FIXES
 

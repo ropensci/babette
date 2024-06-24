@@ -52,9 +52,9 @@
 #' @param mcmc the MCMC options,
 #'   see \link[beautier]{create_mcmc}
 #' @param mrca_prior one Most Recent Common Ancestor prior,
-#'   as returned by \code{\link{create_mrca_prior}}
+#'   as returned by \code{\link[beautier]{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
-#'   as returned by \code{\link{create_mrca_prior}}
+#'   as returned by \code{\link[beautier]{create_mrca_prior}}
 #' @param overwrite will 'BEAST2'  overwrite files? Like 'BEAST2',
 #'  this is set to \link{TRUE} by default.
 #'  If \link{TRUE}, 'BEAST2'  will overwrite the
@@ -63,9 +63,9 @@
 #'  \code{beast2_options$output_state_filename} if its present
 #'  and \link{babette} will give an error message.
 #'  Note that if \code{overwrite} is set to \link{FALSE} when
-#'  a \code{tracelog} (see \link{create_tracelog}),
-#'  \code{screenlog} (see \link{create_screenlog})
-#'  or \code{treelog} (see \link{create_treelog})
+#'  a \code{tracelog} (see \link[beautier]{create_tracelog}),
+#'  \code{screenlog} (see \link[beautier]{create_screenlog})
+#'  or \code{treelog} (see \link[beautier]{create_treelog})
 #'  file already exists,
 #'  'BEAST2'  (and thus \link{babette}) will freeze.
 #' @param rng_seed the random number generator seed. Must be either

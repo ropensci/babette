@@ -1,4 +1,4 @@
-test_that("tipdates file must be used in the created file", {
+test_that("issue 108", {
   fasta_filename <- get_beautier_path("babette_issue_108.fasta")
   output_filename <- get_beautier_tempfilename()
   tipdates_filename <- get_beautier_path("babette_issue_108_tipdates.txt")

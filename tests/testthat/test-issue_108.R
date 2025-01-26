@@ -21,11 +21,11 @@ test_that("issue 108", {
     )
   )
 
-  # Works?
-  expect_true(beastier::is_beast2_input_file(output_filename))
-
-  # Really really Works?
   if (beastier::is_beast2_installed()) {
+    # Works?
+    expect_true(beastier::is_beast2_input_file(output_filename))
+
+    # Really really works?
     beast2_xml_lines <- readr::read_lines(output_filename)
     expect_true(beastier::are_beast2_input_lines_deep(beast2_xml_lines))
   }

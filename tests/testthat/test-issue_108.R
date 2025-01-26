@@ -22,11 +22,13 @@ test_that("issue 108", {
   )
 
   # Works?
-  beastier::is_beast2_input_file(output_filename)
+  expect_true(beastier::is_beast2_input_file(output_filename))
 
   # Really really Works?
-  beast2_xml_lines <- readr::read_lines(output_filename)
-  beastier::are_beast2_input_lines_deep(beast2_xml_lines)
+  if (beastier::is_beast2_installed()) {
+    beast2_xml_lines <- readr::read_lines(output_filename)
+    expect_true(beastier::are_beast2_input_lines_deep(beast2_xml_lines))
+  }
 
   remove_beautier_folder()
 })

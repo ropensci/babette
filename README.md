@@ -7,7 +7,7 @@
 
 Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/babette/actions)|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
 ---------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------
-`master` |![R-CMD-check](https://github.com/ropensci/babette/workflows/R-CMD-check/badge.svg?branch=master)   |[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/babette/branch/master)
+`main` |![R-CMD-check](https://github.com/ropensci/babette/workflows/R-CMD-check/badge.svg?branch=main)   |[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/babette/branch/main)
 `develop`|![R-CMD-check](https://github.com/ropensci/babette/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/ropensci/babette/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/babette/branch/develop)
 
 [![DOI](https://zenodo.org/badge/118616108.svg)](https://zenodo.org/badge/latestdoi/118616108)
@@ -35,7 +35,7 @@ Related R functions:
 
 Related function                                                      |`babette` function
 ----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------
-`[ips::rbeauti](https://github.com/heibl/ips/blob/master/R/rbeauti.R)`|`[beautier::create_beast2_input_from_model](https://github.com/ropensci/beautier/blob/master/R/create_beast2_input_from_model.R)`
+`[ips::rbeauti](https://github.com/heibl/ips/blob/main/R/rbeauti.R)`|`[beautier::create_beast2_input_from_model](https://github.com/ropensci/beautier/blob/main/R/create_beast2_input_from_model.R)`
 
 Related software:
 
@@ -92,31 +92,6 @@ See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting bugs`
 ## There's something else I want to say
 
 Sure, just add an Issue. Or send an email.
-
-## Dependencies
-
-Branch                                          |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/babette/actions) `master`|[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/babette/actions) `develop`|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/) `master`                                                                       |[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/) `develop`
-------------------------------------------------|-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------
-[beautier](https://github.com/ropensci/beautier)|![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=master)           |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/beautier/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beautier/branch/develop)
-[beastier](https://github.com/ropensci/beastier)|![R-CMD-check](https://github.com/ropensci/beastier/workflows/R-CMD-check/badge.svg?branch=master)           |![R-CMD-check](https://github.com/ropensci/beastier/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/beastier/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beastier/branch/develop)
-[mauricer](https://github.com/ropensci/mauricer)|![R-CMD-check](https://github.com/ropensci/mauricer/workflows/R-CMD-check/badge.svg?branch=master)           |![R-CMD-check](https://github.com/ropensci/mauricer/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/mauricer/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/mauricer/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/mauricer/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/mauricer/branch/develop)
-[tracerer](https://github.com/ropensci/tracerer)|![R-CMD-check](https://github.com/ropensci/tracerer/workflows/R-CMD-check/badge.svg?branch=master)           |![R-CMD-check](https://github.com/ropensci/tracerer/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/tracerer/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/tracerer/branch/master)|[![codecov.io](https://codecov.io/github/ropensci/tracerer/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/tracerer/branch/develop)
-
-## Windows
-
-Package                                                                       | Status
-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-[babette_on_windows](https://github.com/richelbilderbeek/babette_on_windows)  |[![Build status](https://ci.appveyor.com/api/projects/status/jv76errjocm5d5yq/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette-on-windows/branch/master)
-[beastier_on_windows](https://github.com/richelbilderbeek/beastier_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/ralex9sdnnxlwbgx/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beastier-on-windows/branch/master)
-[beautier_on_windows](https://github.com/richelbilderbeek/beautier_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/blvjo5pulbkqxrhb/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier-on-windows/branch/master)
-[mauricer_on_windows](https://github.com/richelbilderbeek/mauricer_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/bc43iwp68xo2dduh/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mauricer-on-windows/branch/master)
-[tracerer_on_windows](https://github.com/richelbilderbeek/tracerer_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/jyhck66d6yrbr12h/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/tracerer-on-windows/branch/master)
-
-## Related packages
-
-Package                                     |[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------
-[lumier](https://github.com/ropensci/lumier)|[![codecov.io](https://codecov.io/github/ropensci/lumier/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/lumier/branch/master)
 
 ## External links
 

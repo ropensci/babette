@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## babette v2.3.5 (unreleased)
+
+### NEW FEATURES
+
+  * None
+  
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## babette v2.3.4 (2024-06-11)
 
 ### NEW FEATURES

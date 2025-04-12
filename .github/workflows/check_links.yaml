@@ -1,6 +1,14 @@
 on:
   push:
+    paths:
+      - 'docs/**'
+      - .github/workflows/check_links.yaml
+      - mlc_config.json
   pull_request:
+    paths:
+      - 'docs/**'
+      - .github/workflows/check_links.yaml
+      - mlc_config.json
   schedule:
   - cron: "0 0 12 * *"
 

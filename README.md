@@ -93,31 +93,6 @@ See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting bugs`
 
 Sure, just add an Issue. Or send an email.
 
-## Dependencies
-
-Branch                                          |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/babette/actions) `main`|[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/babette/actions) `develop`|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/) `main`                                                                       |[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/) `develop`
-------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------
-[beautier](https://github.com/ropensci/beautier)|![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=main)           |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beautier/branch/main)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beautier/branch/develop)
-[beastier](https://github.com/ropensci/beastier)|![R-CMD-check](https://github.com/ropensci/beastier/workflows/R-CMD-check/badge.svg?branch=main)           |![R-CMD-check](https://github.com/ropensci/beastier/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beastier/branch/main)|[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beastier/branch/develop)
-[mauricer](https://github.com/ropensci/mauricer)|![R-CMD-check](https://github.com/ropensci/mauricer/workflows/R-CMD-check/badge.svg?branch=main)           |![R-CMD-check](https://github.com/ropensci/mauricer/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/mauricer/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/mauricer/branch/main)|[![codecov.io](https://codecov.io/github/ropensci/mauricer/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/mauricer/branch/develop)
-[tracerer](https://github.com/ropensci/tracerer)|![R-CMD-check](https://github.com/ropensci/tracerer/workflows/R-CMD-check/badge.svg?branch=main)           |![R-CMD-check](https://github.com/ropensci/tracerer/workflows/R-CMD-check/badge.svg?branch=develop)           |[![codecov.io](https://codecov.io/github/ropensci/tracerer/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/tracerer/branch/main)|[![codecov.io](https://codecov.io/github/ropensci/tracerer/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/tracerer/branch/develop)
-
-## Windows
-
-Package                                                                       | Status
-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-[babette_on_windows](https://github.com/richelbilderbeek/babette_on_windows)  |[![Build status](https://ci.appveyor.com/api/projects/status/jv76errjocm5d5yq/branch/main?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/babette-on-windows/branch/main)
-[beastier_on_windows](https://github.com/richelbilderbeek/beastier_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/ralex9sdnnxlwbgx/branch/main?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beastier-on-windows/branch/main)
-[beautier_on_windows](https://github.com/richelbilderbeek/beautier_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/blvjo5pulbkqxrhb/branch/main?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier-on-windows/branch/main)
-[mauricer_on_windows](https://github.com/richelbilderbeek/mauricer_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/bc43iwp68xo2dduh/branch/main?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mauricer-on-windows/branch/main)
-[tracerer_on_windows](https://github.com/richelbilderbeek/tracerer_on_windows)|[![Build status](https://ci.appveyor.com/api/projects/status/jyhck66d6yrbr12h/branch/main?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/tracerer-on-windows/branch/main)
-
-## Related packages
-
-Package                                     |[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------
-[lumier](https://github.com/ropensci/lumier)|[![codecov.io](https://codecov.io/github/ropensci/lumier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/lumier/branch/main)
-
 ## External links
 
  * [BEAST2 GitHub](https://github.com/CompEvol/beast2)
@@ -143,5 +118,4 @@ FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
 
 [![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
-
 

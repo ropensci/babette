@@ -14,16 +14,16 @@ which consists out of five packages.
 Here is how to determine which package is best suited for your contribution:
 
 If you want to contribute to the creation of BEAST2 XML input file,
-go to [beautier](https://github.com/ropensci/beautier/blob/master/CONTRIBUTING.md).
+go to [beautier](https://github.com/ropensci/beautier/blob/main/CONTRIBUTING.md).
 
 If you want to contribute to how BEAST2 is run,
-go to [beautier](https://github.com/ropensci/beautier/blob/master/CONTRIBUTING.md).
+go to [beautier](https://github.com/ropensci/beautier/blob/main/CONTRIBUTING.md).
 
 If you want to contribute to how BEAST2 output is parsed,
-go to [tracerer](https://github.com/ropensci/tracerer/blob/master/CONTRIBUTING.md)
+go to [tracerer](https://github.com/ropensci/tracerer/blob/main/CONTRIBUTING.md)
 
 If you want to contribute regarding the BEAST2 package management,
-go to [mauricer](https://github.com/ropensci/mauricer/blob/master/CONTRIBUTING.md)
+go to [mauricer](https://github.com/ropensci/mauricer/blob/main/CONTRIBUTING.md)
 
 If you want to contribute with an overarching idea, you are at the right spot :-) 
 
@@ -63,7 +63,7 @@ Pull Requests should follow the same guidelines as 'Submitting code'.
 
 ## Branching policy
 
- * The `master` branch should always build successfully
+ * The `main` branch should always build successfully
  * The `development` branch is for developers
 
 ## git usage

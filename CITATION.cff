@@ -1,0 +1,443 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "babette" in publications use:'
+type: software
+license: GPL-3.0-only
+title: 'babette: Control ''BEAST2'''
+version: 2.3.5
+doi: 10.1111/2041-210X.13032
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.babette
+abstract: '''BEAST2'' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+  tool, that uses DNA/RNA/protein data and many model priors to create a posterior
+  of jointly estimated phylogenies and parameters. ''BEAST2'' is commonly accompanied
+  by ''BEAUti 2'', ''Tracer'' and ''DensiTree''. ''babette'' provides for an alternative
+  workflow of using all these tools separately. This allows doing complex Bayesian
+  phylogenetics easily and reproducibly from ''R''.'
+authors:
+- family-names: Bilderbeek
+  given-names: Richèl J.C.
+  email: rjcbilderbeek@gmail.com
+  orcid: https://orcid.org/0000-0003-1107-7049
+preferred-citation:
+  type: article
+  title: 'babette: BEAUti 2, BEAST 2 and Tracer for R'
+  authors:
+  - family-names: Bilderbeek
+    given-names: Richèl JC
+  - family-names: Etienne
+    given-names: Rampal S
+  journal: Methods in Ecology and Evolution
+  year: '2008'
+  doi: 10.1111/2041-210X.13032
+repository: https://CRAN.R-project.org/package=babette
+repository-code: https://github.com/ropensci/babette
+url: https://docs.ropensci.org/babette/
+contact:
+- family-names: Bilderbeek
+  given-names: Richèl J.C.
+  email: rjcbilderbeek@gmail.com
+  orcid: https://orcid.org/0000-0003-1107-7049
+keywords:
+- bayesian-inference
+- beast2
+- phylogenetics
+- r
+- r-package
+- rstats
+references:
+- type: software
+  title: beautier
+  abstract: 'beautier: ''BEAUti'' from R'
+  notes: Depends
+  url: https://docs.ropensci.org/beautier/
+  repository: https://CRAN.R-project.org/package=beautier
+  authors:
+  - family-names: Bilderbeek
+    given-names: Richèl J.C.
+    email: rjcbilderbeek@gmail.com
+    orcid: https://orcid.org/0000-0003-1107-7049
+  doi: 10.32614/CRAN.package.beautier
+  version: '>= 2.6.13'
+  year: '2025'
+- type: software
+  title: beastier
+  abstract: 'beastier: Call ''BEAST2'''
+  notes: Depends
+  url: https://docs.ropensci.org/beastier/
+  repository: https://CRAN.R-project.org/package=beastier
+  authors:
+  - family-names: Bilderbeek
+    given-names: Richèl J.C.
+    email: rjcbilderbeek@gmail.com
+    orcid: https://orcid.org/0000-0003-1107-7049
+  identifiers:
+  - type: url
+    value: https://github.com/ropensci/beastier/
+  doi: 10.32614/CRAN.package.beastier
+  version: '>= 2.5'
+  year: '2025'
+- type: software
+  title: mauricer
+  abstract: 'mauricer: Work with ''BEAST2'' Packages'
+  notes: Depends
+  url: https://docs.ropensci.org/mauricer/
+  repository: https://CRAN.R-project.org/package=mauricer
+  authors:
+  - family-names: Bilderbeek
+    given-names: Richèl J.C.
+    email: rjcbilderbeek@gmail.com
+    orcid: https://orcid.org/0000-0003-1107-7049
+  year: '2025'
+  doi: 10.32614/CRAN.package.mauricer
+  version: '>= 2.5.2'
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 3.5.0'
+- type: software
+  title: tracerer
+  abstract: 'tracerer: Tracer from R'
+  notes: Depends
+  url: https://docs.ropensci.org/tracerer/
+  repository: https://CRAN.R-project.org/package=tracerer
+  authors:
+  - family-names: Bilderbeek
+    given-names: Richèl J.C.
+    email: richel@richelbilderbeek.nl
+    orcid: https://orcid.org/0000-0003-1107-7049
+  year: '2025'
+  doi: 10.32614/CRAN.package.tracerer
+- type: software
+  title: phangorn
+  abstract: 'phangorn: Phylogenetic Reconstruction and Analysis'
+  notes: Imports
+  url: https://klausvigo.github.io/phangorn/
+  repository: https://bioconductor.org/
+  authors:
+  - family-names: Schliep
+    given-names: Klaus
+    email: klaus.schliep@gmail.com
+    orcid: https://orcid.org/0000-0003-2941-0161
+  - family-names: Paradis
+    given-names: Emmanuel
+    orcid: https://orcid.org/0000-0003-3092-2199
+  - family-names: Oliveira Martins
+    given-names: Leonardo
+    name-particle: de
+    orcid: https://orcid.org/0000-0001-5247-1320
+  - family-names: Potts
+    given-names: Alastair
+  - family-names: Bardel-Kahr
+    given-names: Iris
+    orcid: https://orcid.org/0000-0002-8950-834X
+  year: '2025'
+  doi: 10.32614/CRAN.package.phangorn
+- type: software
+  title: rlang
+  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  notes: Imports
+  url: https://rlang.r-lib.org
+  repository: https://CRAN.R-project.org/package=rlang
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.rlang
+  version: '>= 1.1.0'
+- type: software
+  title: stringr
+  abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
+  notes: Imports
+  url: https://stringr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=stringr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.stringr
+- type: software
+  title: xml2
+  abstract: 'xml2: Parse XML'
+  notes: Imports
+  url: https://xml2.r-lib.org
+  repository: https://CRAN.R-project.org/package=xml2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.xml2
+- type: software
+  title: ape
+  abstract: 'ape: Analyses of Phylogenetics and Evolution'
+  notes: Suggests
+  url: https://github.com/emmanuelparadis/ape
+  repository: https://CRAN.R-project.org/package=ape
+  authors:
+  - family-names: Paradis
+    given-names: Emmanuel
+    email: Emmanuel.Paradis@ird.fr
+    orcid: https://orcid.org/0000-0003-3092-2199
+  - family-names: Blomberg
+    given-names: Simon
+    orcid: https://orcid.org/0000-0003-1062-0839
+  - family-names: Bolker
+    given-names: Ben
+    orcid: https://orcid.org/0000-0002-2127-0443
+  - family-names: Brown
+    given-names: Joseph
+    orcid: https://orcid.org/0000-0002-3835-8062
+  - family-names: Claramunt
+    given-names: Santiago
+    orcid: https://orcid.org/0000-0002-8926-5974
+  - family-names: Claude
+    given-names: Julien
+    orcid: https://orcid.org/0000-0002-9267-1228
+  - family-names: Cuong
+    given-names: Hoa Sien
+  - family-names: Desper
+    given-names: Richard
+  - family-names: Didier
+    given-names: Gilles
+    orcid: https://orcid.org/0000-0003-0596-9112
+  - family-names: Durand
+    given-names: Benoit
+  - family-names: Dutheil
+    given-names: Julien
+    orcid: https://orcid.org/0000-0001-7753-4121
+  - family-names: Ewing
+    given-names: RJ
+  - family-names: Gascuel
+    given-names: Olivier
+  - family-names: Guillerme
+    given-names: Thomas
+    orcid: https://orcid.org/0000-0003-4325-1275
+  - family-names: Heibl
+    given-names: Christoph
+    orcid: https://orcid.org/0000-0002-7655-3299
+  - family-names: Ives
+    given-names: Anthony
+    orcid: https://orcid.org/0000-0001-9375-9523
+  - family-names: Jones
+    given-names: Bradley
+    orcid: https://orcid.org/0000-0003-4498-1069
+  - family-names: Krah
+    given-names: Franz
+    orcid: https://orcid.org/0000-0001-7866-7508
+  - family-names: Lawson
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0002-5311-6213
+  - family-names: Lefort
+    given-names: Vincent
+  - family-names: Legendre
+    given-names: Pierre
+    orcid: https://orcid.org/0000-0002-3838-3305
+  - family-names: Lemon
+    given-names: Jim
+  - family-names: Louvel
+    given-names: Guillaume
+    orcid: https://orcid.org/0000-0002-7745-0785
+  - family-names: Marotta
+    given-names: Federico
+  - family-names: Marcon
+    given-names: Eric
+    orcid: https://orcid.org/0000-0002-5249-321X
+  - family-names: McCloskey
+    given-names: Rosemary
+    orcid: https://orcid.org/0000-0002-9772-8553
+  - family-names: Nylander
+    given-names: Johan
+  - family-names: Opgen-Rhein
+    given-names: Rainer
+  - family-names: Popescu
+    given-names: Andrei-Alin
+  - family-names: Royer-Carenzi
+    given-names: Manuela
+  - family-names: Schliep
+    given-names: Klaus
+    orcid: https://orcid.org/0000-0003-2941-0161
+  - family-names: Strimmer
+    given-names: Korbinian
+    orcid: https://orcid.org/0000-0001-7917-2056
+  - family-names: Vienne
+    given-names: Damien
+    name-particle: de
+    orcid: https://orcid.org/0000-0001-9532-5251
+  year: '2025'
+  doi: 10.32614/CRAN.package.ape
+- type: software
+  title: ggplot2
+  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  notes: Suggests
+  url: https://ggplot2.tidyverse.org
+  repository: https://CRAN.R-project.org/package=ggplot2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Chang
+    given-names: Winston
+    orcid: https://orcid.org/0000-0002-1576-2126
+  - family-names: Henry
+    given-names: Lionel
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomas.pedersen@posit.co
+    orcid: https://orcid.org/0000-0002-5147-4711
+  - family-names: Takahashi
+    given-names: Kohske
+  - family-names: Wilke
+    given-names: Claus
+    orcid: https://orcid.org/0000-0002-7470-9261
+  - family-names: Woo
+    given-names: Kara
+    orcid: https://orcid.org/0000-0002-5125-4188
+  - family-names: Yutani
+    given-names: Hiroaki
+    orcid: https://orcid.org/0000-0002-3385-7233
+  - family-names: Dunnington
+    given-names: Dewey
+    orcid: https://orcid.org/0000-0002-9415-4582
+  - family-names: Brand
+    given-names: Teun
+    name-particle: van den
+    orcid: https://orcid.org/0000-0002-9335-7468
+  year: '2025'
+  doi: 10.32614/CRAN.package.ggplot2
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2025'
+  doi: 10.32614/CRAN.package.knitr
+  version: '>= 1.50'
+- type: software
+  title: lintr
+  abstract: 'lintr: A ''Linter'' for R Code'
+  notes: Suggests
+  url: https://lintr.r-lib.org
+  repository: https://CRAN.R-project.org/package=lintr
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Angly
+    given-names: Florent
+  - family-names: Hyde
+    given-names: Russ
+  - family-names: Chirico
+    given-names: Michael
+    email: michaelchirico4@gmail.com
+  - family-names: Ren
+    given-names: Kun
+  - family-names: Rosenstock
+    given-names: Alexander
+  - family-names: Patil
+    given-names: Indrajeet
+    email: patilindrajeet.science@gmail.com
+    orcid: https://orcid.org/0000-0003-1995-6531
+  year: '2025'
+  doi: 10.32614/CRAN.package.lintr
+- type: software
+  title: rappdirs
+  abstract: 'rappdirs: Application Directories: Determine Where to Save Data, Caches,
+    and Logs'
+  notes: Suggests
+  url: https://rappdirs.r-lib.org
+  repository: https://CRAN.R-project.org/package=rappdirs
+  authors:
+  - family-names: Ratnakumar
+    given-names: Sridhar
+  - family-names: Mick
+    given-names: Trent
+  - family-names: Davis
+    given-names: Trevor
+  year: '2025'
+  doi: 10.32614/CRAN.package.rappdirs
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2025'
+  doi: 10.32614/CRAN.package.rmarkdown
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.testthat
+  version: '>= 2.1.0'
+

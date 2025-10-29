@@ -14,3 +14,4 @@
 ^Singularity$
 ^Meta$
 ^mlc_config\.json$
+^CITATION\.cff$

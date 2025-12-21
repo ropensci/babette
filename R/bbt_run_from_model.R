@@ -108,6 +108,17 @@ bbt_run_from_model <- function(
     beast2_path = beast2_options$beast2_path
   )
 
+  if (!is.null(inference_model$tipdates_filename)) {
+    stop(
+      "The argument 'tipdates_filename' is currently ignored by ",
+      "bbt_run_from_model().\n",
+      "Please either:\n",
+      " * remove 'tipdates_filename' from the inference model, or\n",
+      " * use a BEAST2 XML workflow that explicitly supports tip dates.\n",
+      "See https://github.com/ropensci/babette/issues/108"
+    )
+  }
+
   beautier::create_beast2_input_file_from_model(
     input_filename = fasta_filename,
     output_filename = beast2_options$input_filename,

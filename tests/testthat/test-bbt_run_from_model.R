@@ -238,3 +238,21 @@ test_that("use, nested sampling, in custom folder", {
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
+
+test_that("bbt_run_from_model errors when tipdates_filename is used", {
+  if (!beastier::is_beast2_installed()) return()
+
+  inference_model <- beautier::create_test_inference_model(
+    tipdates_filename = beautier::get_beautier_path(
+      "babette_issue_108_tipdates.txt"
+    )
+  )
+
+  expect_error(
+    bbt_run_from_model(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      inference_model = inference_model
+    ),
+    "tipdates_filename"
+  )
+})

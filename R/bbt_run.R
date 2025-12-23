@@ -96,6 +96,9 @@ bbt_run <- function(
   overwrite = TRUE,
   verbose = FALSE
 ) {
+
+  warn_if_dropbox(getwd())
+
   inference_model <- beautier::create_inference_model(
     site_model = site_model,
     clock_model = clock_model,

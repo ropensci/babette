@@ -97,6 +97,7 @@ bbt_run <- function(
   verbose = FALSE
 ) {
 
+  warn_if_dropbox(fasta_filename)
   warn_if_dropbox(getwd())
 
   inference_model <- beautier::create_inference_model(

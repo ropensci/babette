@@ -108,12 +108,19 @@ bbt_run_from_model <- function(
     beast2_path = beast2_options$beast2_path
   )
 
-  if (!is.null(inference_model$tipdates_filename)) {
-  beautier::check_file_exists(
-    inference_model$tipdates_filename,
-    "inference_model$tipdates_filename"
-  )
-}
+  tipdates <- inference_model$tipdates_filename
+
+  if (is.character(tipdates) &&
+      length(tipdates) == 1 &&
+      !is.na(tipdates) &&
+      nzchar(tipdates)) {
+
+    beautier::check_file_exists(
+      tipdates,
+      "inference_model$tipdates_filename"
+    )
+  }
+
 
 
   beautier::create_beast2_input_file_from_model(

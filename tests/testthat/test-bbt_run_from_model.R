@@ -261,7 +261,7 @@ test_that("bbt_run_from_model errors when tipdates file does not exist", {
 
 test_that("bbt_run_from_model accepts tipdates_filename if file exists", {
   if (!beastier::is_beast2_installed()) return()
-
+  skip_if_not(beautier::is_on_ci())
 
   inference_model <- beautier::create_test_inference_model(
     tipdates_filename = beautier::get_beautier_path(

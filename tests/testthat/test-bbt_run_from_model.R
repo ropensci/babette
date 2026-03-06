@@ -238,3 +238,42 @@ test_that("use, nested sampling, in custom folder", {
   beastier::remove_beaustier_folders()
   beastier::check_empty_beaustier_folders()
 })
+
+test_that("bbt_run_from_model errors when tipdates file does not exist", {
+  inference_model <- beautier::create_test_inference_model()
+
+  # Force a non-existent tipdates file
+  inference_model$tipdates_filename <- tempfile()
+  unlink(inference_model$tipdates_filename)
+
+  beast2_options <- create_beast2_options()
+
+  expect_error(
+    bbt_run_from_model(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      inference_model = inference_model,
+      beast2_options = beast2_options
+    ),
+    "Tipdating filename not found"
+  )
+})
+
+
+test_that("bbt_run_from_model accepts tipdates_filename if file exists", {
+  skip_on_ci()
+  if (!beastier::is_beast2_installed()) return()
+
+  inference_model <- beautier::create_test_inference_model(
+    tipdates_filename = beautier::get_beautier_path(
+      "babette_issue_108_tipdates.txt"
+    )
+  )
+
+  expect_silent(
+    bbt_run_from_model(
+      fasta_filename = get_babette_path("anthus_aco.fas"),
+      inference_model = inference_model,
+      beast2_options = create_beast2_options()
+    )
+  )
+})

@@ -96,6 +96,13 @@ bbt_run <- function(
   overwrite = TRUE,
   verbose = FALSE
 ) {
+
+  if (is.character(fasta_filename) &&
+      length(fasta_filename) == 1 &&
+      !is.na(fasta_filename)) {
+    warn_if_dropbox(fasta_filename)
+  }
+
   inference_model <- beautier::create_inference_model(
     site_model = site_model,
     clock_model = clock_model,
@@ -112,6 +119,25 @@ bbt_run <- function(
     overwrite = overwrite,
     verbose = verbose
   )
+
+  paths_to_check <- c(
+    fasta_filename,
+    tipdates_filename,
+    mcmc$tracelog$filename,
+    mcmc$treelog$filename,
+    mcmc$screenlog$filename,
+    beast2_input_filename,
+    beast2_output_state_filename
+  )
+
+  paths_to_check <- paths_to_check[
+    !is.na(paths_to_check) & nzchar(paths_to_check)
+  ]
+
+  for (path in paths_to_check) {
+    warn_if_dropbox(path)
+  }
+
   babette::bbt_run_from_model(
     fasta_filename = fasta_filename,
     inference_model = inference_model,

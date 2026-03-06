@@ -18,7 +18,7 @@ Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
     all these tools separately. This allows doing complex Bayesian
     phylogenetics easily and reproducibly from 'R'. 
 License: GPL-3
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3.9000
 VignetteBuilder: knitr
 URL: https://docs.ropensci.org/babette/ (website),
     https://github.com/ropensci/babette
@@ -43,7 +43,8 @@ Suggests:
     rappdirs,
     rmarkdown,
     spelling,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    readr
 Language: en-US
 Encoding: UTF-8
 SystemRequirements: BEAST2 (https://www.beast2.org/)
